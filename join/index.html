@@ -130,6 +130,14 @@ h2{font-family:'Fraunces',Georgia,serif;font-weight:700;line-height:1.08;letter-
 .btn-call:hover{transform:translateY(-2px)}
 .email-link{color:var(--gold);text-decoration:none;font-weight:600;font-size:15.5px}
 .email-link:hover{color:#fff}
+.btn-call.alt{background:transparent;color:var(--gold);border:1px solid rgba(200,160,74,.55)}
+.btn-call.alt:hover{background:rgba(200,160,74,.14);transform:translateY(-2px)}
+.zoomnote{margin-top:16px;font-size:14px;color:rgba(255,255,255,.72)}
+.agenda{counter-reset:ag;list-style:none;margin:14px 0 0;padding:0}
+.agenda li{counter-increment:ag;position:relative;padding:13px 0 13px 54px;font-size:clamp(15px,1.9vw,18px);line-height:1.4;border-bottom:1px solid var(--border)}
+.agenda li:last-child{border-bottom:none}
+.agenda li::before{content:counter(ag);position:absolute;left:0;top:9px;width:34px;height:34px;border-radius:50%;background:var(--navy);color:#fff;font-family:'Fraunces',Georgia,serif;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:15px}
+.agenda li strong{color:var(--navy)}
 
 .disclaimer{font-size:13px;line-height:1.6;color:var(--muted);max-width:780px}
 
@@ -361,20 +369,39 @@ h2{font-family:'Fraunces',Georgia,serif;font-weight:700;line-height:1.08;letter-
     </div>
   </section>
 
-  <!-- 15 · NEXT STEPS -->
+  <!-- 15 · WHAT TO EXPECT (agenda) -->
+  <section class="slide gold">
+    <div class="inner">
+      <div class="kicker" data-i18n="exp.kicker">Before you book</div>
+      <h2 data-i18n="exp.title">What to expect on the call</h2>
+      <p class="lead" data-i18n="exp.intro">A relaxed 15-minute Zoom conversation — no pressure, no commitment. We record it, so you can revisit anything we cover.</p>
+      <ol class="agenda">
+        <li data-i18n="exp.a1"><strong>Your story</strong> — background, goals, and why now</li>
+        <li data-i18n="exp.a2"><strong>How we work</strong> — the team, the mission, the support behind you</li>
+        <li data-i18n="exp.a3"><strong>Your path</strong> — full-time or part-time, and which fits your life</li>
+        <li data-i18n="exp.a4"><strong>The numbers</strong> — how income and getting paid actually work</li>
+        <li data-i18n="exp.a5"><strong>Your questions</strong> — licensing, next steps, anything on your mind</li>
+      </ol>
+      <div class="callout" data-i18n="exp.close">You'll leave knowing whether it's a fit — and what your first 30 days would actually look like.</div>
+    </div>
+  </section>
+
+  <!-- 16 · NEXT STEPS -->
   <section class="slide dark">
     <div class="inner">
       <div class="kicker" data-i18n="cta.kicker">Next step</div>
       <h1 data-i18n="cta.title">Let's have a 15-minute conversation.</h1>
       <p class="lead" data-i18n="cta.body">Tell us your situation, your goals, and which path fits — full-time or part-time. We'll tell you straight whether this is the right fit, and what your first 30 days would actually look like. Jurgita or Vytas reads every message personally and replies within 2 business days.</p>
       <div class="ctarow">
-        <a class="btn-call" href="tel:+16307852412">📞 <span data-i18n="cta.btn">Call 630-785-2412</span></a>
+        <a class="btn-call" id="calendlyBtn" href="#" target="_blank" rel="noopener" style="display:none">📅 <span data-i18n="cta.book">Book your opportunity call</span></a>
+        <a class="btn-call alt" href="tel:+16307852412">📞 <span data-i18n="cta.btn">Call 630-785-2412</span></a>
         <a class="email-link" href="mailto:vytas@goodwillfinancial.com">✉️ vytas@goodwillfinancial.com</a>
       </div>
+      <p class="zoomnote" data-i18n="cta.zoom">📹 By Zoom (recorded so you can revisit it) — or by phone, your choice.</p>
     </div>
   </section>
 
-  <!-- 16 · DISCLOSURES -->
+  <!-- 17 · DISCLOSURES -->
   <section class="slide">
     <div class="inner">
       <div class="kicker" data-i18n="disc.kicker">The fine print</div>
@@ -453,6 +480,13 @@ const I18N = {
     "cta.kicker":"Kitas žingsnis","cta.title":"Pasikalbėkime 15 minučių.",
     "cta.body":"Papasakok savo situaciją, tikslus ir kuris kelias tau tinka — pilnas ar puse etato. Pasakysime tiesiai, ar tai tinkama vieta tau, ir kaip iš tikrųjų atrodytų tavo pirmosios 30 dienų. Jurgita arba Vytas asmeniškai perskaito kiekvieną žinutę ir atsako per 2 darbo dienas.",
     "cta.btn":"Skambink 630-785-2412",
+    "cta.book":"Registruokis į galimybių pokalbį","cta.zoom":"📹 Per Zoom (įrašoma, kad galėtum peržiūrėti) — arba telefonu, kaip tau patogiau.",
+    "exp.kicker":"Prieš registruojantis","exp.title":"Ko tikėtis pokalbio metu",
+    "exp.intro":"Ramus 15 minučių pokalbis per Zoom — jokio spaudimo, jokių įsipareigojimų. Jį įrašome, kad galėtum bet ką peržiūrėti vėliau.",
+    "exp.a1":"<strong>Tavo istorija</strong> — patirtis, tikslai ir kodėl dabar","exp.a2":"<strong>Kaip mes dirbame</strong> — komanda, misija ir pagalba už tavęs",
+    "exp.a3":"<strong>Tavo kelias</strong> — pilnas ar puse etato, ir kas tau tinka","exp.a4":"<strong>Skaičiai</strong> — kaip iš tikrųjų veikia pajamos ir atsiskaitymas",
+    "exp.a5":"<strong>Tavo klausimai</strong> — licencija, kiti žingsniai, viskas, kas rūpi",
+    "exp.close":"Išeisi žinodamas, ar tai tau tinka — ir kaip iš tikrųjų atrodytų tavo pirmosios 30 dienų.",
     "disc.kicker":"Smulkus šriftas","disc.title":"Atskleidimai",
     "disc.body":"Pajamų intervalai yra iliustraciniai ir priklauso nuo individualios produkcijos, aktyvumo, rinkos ir pastangų — pajamų garantijų nėra. Galimi tiek pilno, tiek puse etato keliai. Draudimo produktai teikiami per National Life Group. Reikalinga valstijos draudimo licencija; taikomi valstijos reikalavimai. Living Benefits teikiami per pasirenkamus Accelerated Benefit Riders — jie sumažina mirties išmoką, kai panaudojami, gali būti apmokestinami ir priklauso nuo valstijos bei produkto prieinamumo. Indexed Universal Life nėra investicija; iliustruotos vertės negarantuojamos. Living Benefits Team · Goodwill Financial Group · Managing General Agency for Alliance Group · 579 W. North Ave, Suite 300, Elmhurst, IL 60126.",
     "ui.hint":"← → rodyklės · F — visas ekranas"
@@ -514,6 +548,13 @@ const I18N = {
     "cta.kicker":"Наступний крок","cta.title":"Поговорімо 15 хвилин.",
     "cta.body":"Розкажіть про свою ситуацію, цілі та який шлях вам підходить — повний чи частковий. Скажемо чесно, чи це для вас, і як насправді виглядатимуть ваші перші 30 днів. Jurgita або Vytas особисто читає кожне повідомлення й відповідає протягом 2 робочих днів.",
     "cta.btn":"Дзвоніть 630-785-2412",
+    "cta.book":"Записатися на розмову про можливість","cta.zoom":"📹 У Zoom (із записом, щоб можна було переглянути) — або по телефону, на ваш вибір.",
+    "exp.kicker":"Перш ніж записатися","exp.title":"Чого очікувати від розмови",
+    "exp.intro":"Спокійна 15-хвилинна розмова у Zoom — без тиску й без зобов'язань. Ми її записуємо, щоб ви могли повернутися до будь-чого пізніше.",
+    "exp.a1":"<strong>Ваша історія</strong> — досвід, цілі та чому саме зараз","exp.a2":"<strong>Як ми працюємо</strong> — команда, місія та підтримка позаду вас",
+    "exp.a3":"<strong>Ваш шлях</strong> — повна чи часткова зайнятість, і що вам підходить","exp.a4":"<strong>Цифри</strong> — як насправді працює дохід і виплати",
+    "exp.a5":"<strong>Ваші запитання</strong> — ліцензія, наступні кроки, усе, що цікавить",
+    "exp.close":"Ви підете, знаючи, чи це для вас, — і як насправді виглядатимуть ваші перші 30 днів.",
     "disc.kicker":"Дрібний шрифт","disc.title":"Застереження",
     "disc.body":"Діапазони доходу є ілюстративними й залежать від індивідуальної продуктивності, активності, ринку та зусиль — гарантій доходу немає. Доступні шляхи як повної, так і часткової зайнятості. Страхові продукти пропонуються через National Life Group. Потрібна страхова ліцензія штату; застосовуються вимоги штату. Living Benefits надаються через додаткові Accelerated Benefit Riders — вони зменшують виплату по смерті при використанні, можуть оподатковуватися та залежать від доступності у штаті й за продуктом. Indexed Universal Life не є інвестицією; ілюстровані значення не гарантовані. Living Benefits Team · Goodwill Financial Group · Managing General Agency for Alliance Group · 579 W. North Ave, Suite 300, Elmhurst, IL 60126.",
     "ui.hint":"← → стрілки · F — на весь екран"
@@ -575,6 +616,13 @@ const I18N = {
     "cta.kicker":"Следующий шаг","cta.title":"Давайте поговорим 15 минут.",
     "cta.body":"Расскажите о своей ситуации, целях и о том, какой путь вам подходит — полный или частичный. Скажем честно, подходит ли это вам, и как на самом деле будут выглядеть ваши первые 30 дней. Jurgita или Vytas лично читает каждое сообщение и отвечает в течение 2 рабочих дней.",
     "cta.btn":"Звоните 630-785-2412",
+    "cta.book":"Записаться на разговор о возможности","cta.zoom":"📹 В Zoom (с записью, чтобы можно было пересмотреть) — или по телефону, на ваш выбор.",
+    "exp.kicker":"Прежде чем записаться","exp.title":"Чего ожидать от разговора",
+    "exp.intro":"Спокойный 15-минутный разговор в Zoom — без давления и без обязательств. Мы его записываем, чтобы вы могли вернуться к чему угодно позже.",
+    "exp.a1":"<strong>Ваша история</strong> — опыт, цели и почему именно сейчас","exp.a2":"<strong>Как мы работаем</strong> — команда, миссия и поддержка за вами",
+    "exp.a3":"<strong>Ваш путь</strong> — полная или частичная занятость, и что вам подходит","exp.a4":"<strong>Цифры</strong> — как на самом деле работает доход и выплаты",
+    "exp.a5":"<strong>Ваши вопросы</strong> — лицензия, следующие шаги, всё, что важно",
+    "exp.close":"Вы уйдёте, зная, подходит ли это вам, — и как на самом деле будут выглядеть ваши первые 30 дней.",
     "disc.kicker":"Мелкий шрифт","disc.title":"Оговорки",
     "disc.body":"Диапазоны дохода являются иллюстративными и зависят от индивидуальной продуктивности, активности, рынка и усилий — гарантий дохода нет. Доступны пути как полной, так и частичной занятости. Страховые продукты предлагаются через National Life Group. Требуется страховая лицензия штата; применяются требования штата. Living Benefits предоставляются через дополнительные Accelerated Benefit Riders — они уменьшают выплату по смерти при использовании, могут облагаться налогом и зависят от доступности в штате и по продукту. Indexed Universal Life не является инвестицией; иллюстрируемые значения не гарантированы. Living Benefits Team · Goodwill Financial Group · Managing General Agency for Alliance Group · 579 W. North Ave, Suite 300, Elmhurst, IL 60126.",
     "ui.hint":"← → стрелки · F — на весь экран"
@@ -636,6 +684,13 @@ const I18N = {
     "cta.kicker":"Następny krok","cta.title":"Porozmawiajmy 15 minut.",
     "cta.body":"Opowiedz o swojej sytuacji, celach i o tym, która ścieżka Ci pasuje — pełny etat czy dorywczo. Powiemy wprost, czy to dla Ciebie, i jak naprawdę wyglądałoby Twoje pierwsze 30 dni. Jurgita lub Vytas osobiście czyta każdą wiadomość i odpowiada w ciągu 2 dni roboczych.",
     "cta.btn":"Zadzwoń 630-785-2412",
+    "cta.book":"Umów rozmowę o możliwości","cta.zoom":"📹 Przez Zoom (z nagraniem, byś mógł wrócić do rozmowy) — lub telefonicznie, Twój wybór.",
+    "exp.kicker":"Zanim się zapiszesz","exp.title":"Czego się spodziewać podczas rozmowy",
+    "exp.intro":"Spokojna 15-minutowa rozmowa przez Zoom — bez presji i bez zobowiązań. Nagrywamy ją, więc możesz wrócić do dowolnego fragmentu później.",
+    "exp.a1":"<strong>Twoja historia</strong> — doświadczenie, cele i dlaczego teraz","exp.a2":"<strong>Jak pracujemy</strong> — zespół, misja i wsparcie za Tobą",
+    "exp.a3":"<strong>Twoja ścieżka</strong> — pełny etat czy dorywczo, i co do Ciebie pasuje","exp.a4":"<strong>Liczby</strong> — jak naprawdę działa dochód i wypłaty",
+    "exp.a5":"<strong>Twoje pytania</strong> — licencja, kolejne kroki, wszystko, co Cię nurtuje",
+    "exp.close":"Wyjdziesz, wiedząc, czy to dla Ciebie — i jak naprawdę wyglądałoby Twoje pierwsze 30 dni.",
     "disc.kicker":"Drobny druk","disc.title":"Zastrzeżenia",
     "disc.body":"Przedziały dochodów mają charakter poglądowy i zależą od indywidualnej produkcji, aktywności, rynku i wysiłku — nie ma gwarancji dochodu. Dostępne są ścieżki zarówno pełnoetatowe, jak i dorywcze. Produkty ubezpieczeniowe oferowane są przez National Life Group. Wymagana jest stanowa licencja ubezpieczeniowa; obowiązują wymogi stanowe. Living Benefits zapewniane są przez opcjonalne Accelerated Benefit Riders — przy wykorzystaniu obniżają świadczenie z tytułu śmierci, mogą podlegać opodatkowaniu i zależą od dostępności w stanie i dla danego produktu. Indexed Universal Life nie jest inwestycją; wartości poglądowe nie są gwarantowane. Living Benefits Team · Goodwill Financial Group · Managing General Agency for Alliance Group · 579 W. North Ave, Suite 300, Elmhurst, IL 60126.",
     "ui.hint":"← → strzałki · F — pełny ekran"
@@ -693,6 +748,10 @@ document.querySelector('.deck').addEventListener('touchend',e=>{
   const dx=e.changedTouches[0].clientX-tx;
   if(Math.abs(dx)>50){ go(dx<0?idx+1:idx-1); }
 },{passive:true});
+
+/* Calendly opportunity-call button — set CALENDLY_URL to enable (Zoom + auto-record configured in Calendly) */
+const CALENDLY_URL = "";
+(function(){ var b=document.getElementById('calendlyBtn'); if(b && CALENDLY_URL){ b.href=CALENDLY_URL; b.style.display='inline-flex'; } })();
 
 /* restore saved language + init */
 try{ const saved=localStorage.getItem('lbt_join_lang'); if(saved && saved!=='en') setLang(saved); }catch(e){}
