@@ -138,14 +138,19 @@ footer .brand{color:var(--navy);font-weight:600;}
 <!-- 3 -->
 <div class="step">
   <h2><span class="num">3</span><span class="txt" data-i18n="s3Label">Ask permission</span></h2>
-  <div class="say" data-i18n="s3Say">With your permission, I'd like to put together a personalized proposal for you — no cost and no obligation. Can I ask a few quick questions so it's accurate?</div>
+  <div class="say" data-i18n="s3Say">With your permission, I'd like to build you a personalized protection plan — at no cost and no obligation. To make it accurate, let me ask a few questions so I can understand your situation a little better.</div>
 </div>
 
 <!-- 4 -->
 <div class="step">
   <h2><span class="num">4</span><span class="txt" data-i18n="s4Label">Quick questions for the proposal</span></h2>
+  <div class="say" data-i18n="s4Say">What income would we need to replace for your family? What's the mortgage amount you'd want paid off? And how many children do you have — and how old are they — so we make sure they're protected and ready for college?</div>
   <p class="note" data-i18n="s4Note">Keep it light and fast — only what you need to build a real proposal.</p>
   <div class="qgrid">
+    <div class="field"><label data-i18n="q_income">Income to replace</label><input type="text" name="q_income"></div>
+    <div class="field"><label data-i18n="q_mortgage">Mortgage to pay off</label><input type="text" name="q_mortgage"></div>
+    <div class="field"><label data-i18n="q_kids">Children — number &amp; ages</label><input type="text" name="q_kids"></div>
+    <div class="field"><label data-i18n="q_college">College fund target</label><input type="text" name="q_college"></div>
     <div class="field"><label data-i18n="q_dob">Date of birth / age</label><input type="text" name="q_dob"></div>
     <div class="field"><label data-i18n="q_tobacco">Tobacco / nicotine?</label>
       <select name="q_tobacco"><option value="">—</option><option value="No" data-i18n="optNo">No</option><option value="Yes" data-i18n="optYes">Yes</option></select></div>
@@ -227,8 +232,8 @@ footer .brand{color:var(--navy);font-weight:600;}
       fldAgent:"Tavo vardas (agentas)",fldClient:"Kliento vardas",fldClientPhone:"Telefonas",optYes:"Taip",optNo:"Ne",
       s1Label:"Pradėk pokalbį",s1Say:"Sveiki, [Client], čia [Agent] iš Goodwill Financial. Ar pataikiau patogiu metu — turite porą minučių?",s1Note:"Šiltai, atsipalaidavę, su šypsena. Palaukite „taip“ prieš tęsdami.",
       s2Label:"Kodėl skambini — Living Benefits",s2Say:"Skambinu dėl to, kad šiuo metu šviečiame visus savo klientus apie living benefits. Tai apsaugos planas, kuris išmoka JUMS pinigus tada, kai labiausiai reikia — vėžys, infarktas, insultas ir daugelis kitų sunkių ligų. Ir, žinoma, jis išmoka jūsų šeimai mirties atveju. Dauguma žmonių net neįsivaizduoja, kad jų draudimas gali dirbti jiems dar gyviems esant.",s2Note:"Sakyk lėtai. Leisk „išmoka JUMS pinigus“ nuskambėti. Tai – viso skambučio esmė.",
-      s3Label:"Paprašyk leidimo",s3Say:"Su jūsų leidimu norėčiau paruošti jums asmeninį pasiūlymą — be jokių išlaidų ir įsipareigojimų. Ar galiu užduoti kelis greitus klausimus, kad jis būtų tikslus?",
-      s4Label:"Greiti klausimai pasiūlymui",s4Note:"Lengvai ir greitai — tik tiek, kiek reikia realiam pasiūlymui paruošti.",
+      s3Label:"Paprašyk leidimo",s3Say:"Su jūsų leidimu norėčiau jums sudaryti asmeninį apsaugos planą — be jokių išlaidų ir įsipareigojimų. Kad jis būtų tikslus, leiskite užduoti kelis klausimus, kad geriau suprasčiau jūsų situaciją.",
+      s4Label:"Greiti klausimai pasiūlymui",s4Note:"Lengvai ir greitai — tik tiek, kiek reikia realiam pasiūlymui paruošti.",s4Say:"Kokias pajamas turėtume pakeisti jūsų šeimai? Kokią hipotekos sumą norėtumėte padengti? Ir kiek turite vaikų — kokio jie amžiaus — kad užtikrintume jų apsaugą ir pasiruošimą studijoms?",q_income:"Pajamos, kurias reikia pakeisti",q_mortgage:"Hipoteka, kurią padengti",q_kids:"Vaikai — skaičius ir amžius",q_college:"Studijų fondo tikslas",
       q_dob:"Gimimo data / amžius",q_tobacco:"Tabakas / nikotinas?",q_health:"Ar yra rimtų sveikatos problemų?",q_budget:"Patogi mėnesinė suma",q_coverage:"Ar turite draudimą dabar?",q_protect:"Ką saugome? (sutuoktinį, vaikus…)",
       s5Label:"Suderink pasiūlymo peržiūrą",s5Say:"Pasiūlymą paruošiu iki [day]. Skirkime 20 minučių jį kartu peržiūrėti. Kas jums patogiau — [day/time] ar [day/time]?",
       s6Label:"Jei dvejoja",
@@ -247,8 +252,8 @@ footer .brand{color:var(--navy);font-weight:600;}
       fldAgent:"Ваше імʼя (агент)",fldClient:"Імʼя клієнта",fldClientPhone:"Телефон",optYes:"Так",optNo:"Ні",
       s1Label:"Почніть розмову",s1Say:"Вітаю, [Client], це [Agent] із Goodwill Financial. Чи зручно вам зараз — маєте дві хвилини?",s1Note:"Тепло, спокійно, з усмішкою. Дочекайтеся «так», перш ніж продовжувати.",
       s2Label:"Чому ви телефонуєте — Living Benefits",s2Say:"Телефоную ось чому: зараз ми навчаємо всіх наших клієнтів про living benefits. Це план захисту, який виплачує ВАМ гроші тоді, коли це найпотрібніше — рак, інфаркт, інсульт та багато інших серйозних хвороб. І, звісно, він виплачує вашій родині у разі смерті. Більшість людей навіть не уявляють, що їхнє страхування може працювати на них ще за життя.",s2Note:"Говоріть повільно. Дайте фразі «виплачує ВАМ гроші» прозвучати. Це суть усього дзвінка.",
-      s3Label:"Запитайте дозвіл",s3Say:"З вашого дозволу я хотів(ла) би скласти для вас персональну пропозицію — безкоштовно й без жодних зобовʼязань. Можна поставити кілька швидких запитань, щоб вона була точною?",
-      s4Label:"Швидкі питання для пропозиції",s4Note:"Легко й швидко — лише те, що потрібно для реальної пропозиції.",
+      s3Label:"Запитайте дозвіл",s3Say:"З вашого дозволу я хотів(ла) би скласти для вас персональний план захисту — безкоштовно й без жодних зобовʼязань. Щоб він був точним, дозвольте поставити кілька запитань, аби краще зрозуміти вашу ситуацію.",
+      s4Label:"Швидкі питання для пропозиції",s4Note:"Легко й швидко — лише те, що потрібно для реальної пропозиції.",s4Say:"Який дохід нам потрібно було б замінити для вашої родини? Яку суму іпотеки ви хотіли б погасити? І скільки у вас дітей — і якого вони віку — щоб ми подбали про їхній захист і про кошти на навчання?",q_income:"Дохід для заміни",q_mortgage:"Іпотека до погашення",q_kids:"Діти — кількість і вік",q_college:"Ціль фонду на навчання",
       q_dob:"Дата народження / вік",q_tobacco:"Тютюн / нікотин?",q_health:"Чи є серйозні захворювання?",q_budget:"Зручна сума на місяць",q_coverage:"Чи є страхування зараз?",q_protect:"Кого захищаємо? (дружину/чоловіка, дітей…)",
       s5Label:"Призначте перегляд пропозиції",s5Say:"Я підготую вашу пропозицію до [day]. Виділімо 20 хвилин, щоб разом її переглянути. Що зручніше — [day/time] чи [day/time]?",
       s6Label:"Якщо вагаються",
@@ -267,8 +272,8 @@ footer .brand{color:var(--navy);font-weight:600;}
       fldAgent:"Ваше имя (агент)",fldClient:"Имя клиента",fldClientPhone:"Телефон",optYes:"Да",optNo:"Нет",
       s1Label:"Начните разговор",s1Say:"Здравствуйте, [Client], это [Agent] из Goodwill Financial. Удобно сейчас говорить — есть пара минут?",s1Note:"Тепло, спокойно, с улыбкой. Дождитесь «да», прежде чем продолжать.",
       s2Label:"Почему вы звоните — Living Benefits",s2Say:"Звоню вот по какому поводу: сейчас мы рассказываем всем нашим клиентам про living benefits. Это план защиты, который выплачивает ВАМ деньги тогда, когда это нужнее всего — рак, инфаркт, инсульт и многие другие серьёзные болезни. И, конечно, он выплачивает вашей семье в случае смерти. Большинство людей даже не подозревают, что их страховка может работать на них ещё при жизни.",s2Note:"Говорите медленно. Дайте фразе «выплачивает ВАМ деньги» прозвучать. Это суть всего звонка.",
-      s3Label:"Спросите разрешение",s3Say:"С вашего разрешения я хотел(а) бы составить для вас персональное предложение — бесплатно и без обязательств. Можно задать несколько коротких вопросов, чтобы оно было точным?",
-      s4Label:"Быстрые вопросы для предложения",s4Note:"Легко и быстро — только то, что нужно для реального предложения.",
+      s3Label:"Спросите разрешение",s3Say:"С вашего разрешения я хотел(а) бы составить для вас персональный план защиты — бесплатно и без обязательств. Чтобы он был точным, позвольте задать несколько вопросов, чтобы лучше понять вашу ситуацию.",
+      s4Label:"Быстрые вопросы для предложения",s4Note:"Легко и быстро — только то, что нужно для реального предложения.",s4Say:"Какой доход нам нужно было бы заменить для вашей семьи? Какую сумму ипотеки вы хотели бы погасить? И сколько у вас детей — и какого они возраста — чтобы мы позаботились об их защите и средствах на учёбу?",q_income:"Доход для замены",q_mortgage:"Ипотека к погашению",q_kids:"Дети — количество и возраст",q_college:"Цель фонда на учёбу",
       q_dob:"Дата рождения / возраст",q_tobacco:"Табак / никотин?",q_health:"Есть серьёзные заболевания?",q_budget:"Комфортная сумма в месяц",q_coverage:"Есть страховка сейчас?",q_protect:"Кого защищаем? (супруга, детей…)",
       s5Label:"Назначьте просмотр предложения",s5Say:"Я подготовлю ваше предложение к [day]. Давайте выделим 20 минут, чтобы вместе его разобрать. Что удобнее — [day/time] или [day/time]?",
       s6Label:"Если сомневаются",
@@ -287,8 +292,8 @@ footer .brand{color:var(--navy);font-weight:600;}
       fldAgent:"Twoje imię (agent)",fldClient:"Imię klienta",fldClientPhone:"Telefon",optYes:"Tak",optNo:"Nie",
       s1Label:"Rozpocznij rozmowę",s1Say:"Dzień dobry, [Client], z tej strony [Agent] z Goodwill Financial. Czy to dobry moment — ma Pan/Pani dwie minuty?",s1Note:"Ciepło, spokojnie, z uśmiechem. Poczekaj na „tak”, zanim przejdziesz dalej.",
       s2Label:"Dlaczego dzwonisz — Living Benefits",s2Say:"Dzwonię, ponieważ obecnie edukujemy wszystkich naszych klientów na temat living benefits. To plan ochrony, który wypłaca PANU/PANI gotówkę wtedy, gdy najbardziej tego potrzeba — rak, zawał, udar i wiele innych poważnych chorób. I oczywiście wypłaca rodzinie w razie śmierci. Większość ludzi nie ma pojęcia, że ich ubezpieczenie może działać na ich korzyść jeszcze za życia.",s2Note:"Mów powoli. Niech „wypłaca PANU/PANI gotówkę” wybrzmi. To sedno całej rozmowy.",
-      s3Label:"Poproś o zgodę",s3Say:"Za Pana/Pani zgodą chciał(a)bym przygotować spersonalizowaną propozycję — bez kosztów i bez zobowiązań. Mogę zadać kilka krótkich pytań, żeby była dokładna?",
-      s4Label:"Szybkie pytania do propozycji",s4Note:"Lekko i szybko — tylko tyle, ile trzeba, by zbudować realną propozycję.",
+      s3Label:"Poproś o zgodę",s3Say:"Za Pana/Pani zgodą chciał(a)bym przygotować spersonalizowany plan ochrony — bez kosztów i bez zobowiązań. Aby był dokładny, proszę pozwolić zadać kilka pytań, żebym lepiej zrozumiał(a) Pana/Pani sytuację.",
+      s4Label:"Szybkie pytania do propozycji",s4Note:"Lekko i szybko — tylko tyle, ile trzeba, by zbudować realną propozycję.",s4Say:"Jaki dochód musielibyśmy zastąpić dla Pana/Pani rodziny? Jaką kwotę kredytu hipotecznego chciał(a)by Pan/Pani spłacić? I ile ma Pan/Pani dzieci — w jakim są wieku — abyśmy zadbali o ich ochronę i fundusz na studia?",q_income:"Dochód do zastąpienia",q_mortgage:"Kredyt hipoteczny do spłaty",q_kids:"Dzieci — liczba i wiek",q_college:"Cel funduszu na studia",
       q_dob:"Data urodzenia / wiek",q_tobacco:"Tytoń / nikotyna?",q_health:"Czy są poważne schorzenia?",q_budget:"Komfortowa kwota miesięcznie",q_coverage:"Czy jest ubezpieczenie teraz?",q_protect:"Kogo chronimy? (małżonka, dzieci…)",
       s5Label:"Umów przegląd propozycji",s5Say:"Przygotuję propozycję do [day]. Zarezerwujmy 20 minut, żeby ją wspólnie omówić. Co Panu/Pani bardziej pasuje — [day/time] czy [day/time]?",
       s6Label:"Jeśli się waha",
@@ -307,8 +312,8 @@ footer .brand{color:var(--navy);font-weight:600;}
       fldAgent:"Su nombre (agente)",fldClient:"Nombre del cliente",fldClientPhone:"Teléfono",optYes:"Sí",optNo:"No",
       s1Label:"Abra la llamada",s1Say:"Hola, [Client], le habla [Agent] de Goodwill Financial. ¿Lo agarro en un buen momento — tiene dos minutos?",s1Note:"Cálido, relajado, sonriendo. Espere el «sí» antes de seguir.",
       s2Label:"Por qué llama — Living Benefits",s2Say:"El motivo de mi llamada: ahora estamos educando a todos nuestros clientes sobre los living benefits. Es un plan de protección que le paga a USTED en efectivo cuando más lo necesita — cáncer, infarto, derrame cerebral y muchas otras enfermedades graves. Y por supuesto le paga a su familia en caso de fallecimiento. La mayoría no sabe que su cobertura puede trabajar para ellos en vida.",s2Note:"Dígalo despacio. Deje que «le paga a USTED en efectivo» asiente. Esto es toda la llamada.",
-      s3Label:"Pida permiso",s3Say:"Con su permiso, me gustaría armarle una propuesta personalizada — sin costo y sin compromiso. ¿Puedo hacerle unas preguntas rápidas para que sea exacta?",
-      s4Label:"Preguntas rápidas para la propuesta",s4Note:"Ligero y rápido — solo lo necesario para armar una propuesta real.",
+      s3Label:"Pida permiso",s3Say:"Con su permiso, me gustaría armarle un plan de protección personalizado — sin costo y sin compromiso. Para que sea exacto, permítame hacerle unas preguntas para entender mejor su situación.",
+      s4Label:"Preguntas rápidas para la propuesta",s4Note:"Ligero y rápido — solo lo necesario para armar una propuesta real.",s4Say:"¿Qué ingreso necesitaríamos reemplazar para su familia? ¿Qué monto de la hipoteca querría saldar? ¿Y cuántos hijos tiene — y qué edades — para asegurarnos de protegerlos y dejarlos listos para la universidad?",q_income:"Ingreso a reemplazar",q_mortgage:"Hipoteca a saldar",q_kids:"Hijos — número y edades",q_college:"Meta del fondo universitario",
       q_dob:"Fecha de nacimiento / edad",q_tobacco:"¿Tabaco / nicotina?",q_health:"¿Alguna condición de salud importante?",q_budget:"Monto mensual cómodo",q_coverage:"¿Tiene cobertura ahora?",q_protect:"¿A quién protegemos? (cónyuge, hijos…)",
       s5Label:"Agende la revisión de la propuesta",s5Say:"Tendré su propuesta lista para [day]. Reservemos 20 minutos para revisarla juntos. ¿Qué le viene mejor — [day/time] o [day/time]?",
       s6Label:"Si dudan",
@@ -393,6 +398,8 @@ footer .brand{color:var(--navy);font-weight:600;}
     const lines=['Goodwill Living Benefits Call · lang: '+lang];
     const add=(lbl,n)=>{ const v=val(n); if(v) lines.push(lbl+': '+v); };
     add('Agent','agentName'); add('Client','clientName'); add('Phone','clientPhone');
+    add('Income to replace','q_income'); add('Mortgage to pay off','q_mortgage');
+    add('Children','q_kids'); add('College fund target','q_college');
     add('DOB/age','q_dob'); add('Tobacco','q_tobacco'); add('Health','q_health');
     add('Budget/mo','q_budget'); add('Current coverage','q_coverage'); add('Protecting','q_protect');
     add('Review booked','oc_booked'); add('When/format','oc_when');
