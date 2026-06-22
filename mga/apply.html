@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agent Application — Living Benefits Team | Goodwill Financial</title>
+<meta name="description" content="Apply to join the Living Benefits Team. Tell us about your background, licensing, and goals — the first step in our agent application process.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  /* ===== APPLICATION FORM ===== */
+  .apply-hero{background:linear-gradient(160deg,var(--navy) 0%,var(--navy-deep) 100%);color:#fff;padding:3rem 0 2.5rem;text-align:center}
+  .apply-hero .section-eyebrow{color:var(--accent);justify-content:center}
+  .apply-hero h1{color:#fff;max-width:760px;margin:0.4rem auto 0.6rem}
+  .apply-hero p{color:rgba(255,255,255,0.82);max-width:620px;margin:0 auto;font-size:1.05rem}
+  .apply-steps{display:flex;justify-content:center;gap:0.5rem;flex-wrap:wrap;margin-top:1.5rem;font-size:0.8rem;color:rgba(255,255,255,0.75)}
+  .apply-steps span{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:20px;padding:0.3rem 0.85rem}
+  .apply-steps span.now{background:var(--accent);color:var(--brand-darker);font-weight:700;border-color:var(--accent)}
+
+  .form-wrap{max-width:720px;margin:-1.5rem auto 4rem;padding:0 1.5rem}
+  form.apply{background:#fff;border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow-md);padding:2.25rem 2rem}
+  .fs{border:none;padding:0;margin:0 0 2rem}
+  .fs legend{font-size:0.78rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--brand-dark);font-weight:700;border-bottom:2px solid var(--accent);padding-bottom:0.5rem;margin-bottom:1.25rem;width:100%}
+  .field{margin-bottom:1.15rem}
+  .field.half{display:inline-block;width:calc(50% - 0.5rem)}
+  .field.half:nth-of-type(odd){margin-right:1rem}
+  label{display:block;font-weight:600;font-size:0.92rem;color:var(--navy);margin-bottom:0.4rem}
+  label .req{color:#C0392B}
+  label .opt{color:var(--text-muted);font-weight:400;font-size:0.82rem}
+  input[type=text],input[type=email],input[type=tel],input[type=number],select,textarea{
+    width:100%;font-family:inherit;font-size:0.98rem;color:var(--text);
+    border:1px solid var(--border);border-radius:8px;padding:0.7rem 0.85rem;background:var(--bg);transition:border .15s,box-shadow .15s}
+  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(232,186,76,0.25);background:#fff}
+  textarea{resize:vertical;min-height:90px}
+  .hint{font-size:0.8rem;color:var(--text-muted);margin-top:0.35rem}
+  .radio-row,.check-grid{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:0.25rem}
+  .pill{display:flex;align-items:center;gap:0.45rem;border:1px solid var(--border);border-radius:8px;padding:0.55rem 0.8rem;font-size:0.9rem;cursor:pointer;background:var(--bg);transition:.15s}
+  .pill:hover{border-color:var(--accent)}
+  .pill input{accent-color:var(--accent-dark);width:auto}
+  .pill.checked{border-color:var(--accent-dark);background:#FFF8E8}
+  .consent{display:flex;gap:0.6rem;align-items:flex-start;font-size:0.88rem;color:var(--text-muted);background:var(--bg-alt);border-radius:8px;padding:0.9rem 1rem}
+  .consent input{margin-top:0.2rem;accent-color:var(--accent-dark)}
+  .submit-row{text-align:center;margin-top:1.5rem}
+  .form-note{font-size:0.78rem;color:var(--text-muted);text-align:center;margin-top:1rem;line-height:1.5}
+  .success{display:none;text-align:center;padding:2.5rem 1rem}
+  .success.show{display:block}
+  .success .check{width:64px;height:64px;border-radius:50%;background:var(--accent);color:var(--brand-darker);font-size:2rem;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem}
+  .success h2{margin-bottom:0.5rem}
+  @media(max-width:560px){.field.half{display:block;width:100%}.field.half:nth-of-type(odd){margin-right:0}form.apply{padding:1.5rem 1.15rem}}
+</style>
+</head>
+<body>
+
+<!-- ===== UTILITY BAR ===== -->
+<div class="utility-bar">
+  <div class="container">
+    <div class="utility-contact">
+      <a href="tel:6307852412">📞 630-785-2412</a>
+      <a href="https://wa.me/16307852412">💬 WhatsApp</a>
+      <a href="mailto:agents@goodwillfinancial.com">✉ agents@goodwillfinancial.com</a>
+    </div>
+    <div class="lang-switcher" aria-label="Language selector">
+      <span class="lang-icon">🌐</span>
+      <a href="#" class="active">English</a>
+      <a href="#">Lietuvių</a>
+      <a href="#">Українська</a>
+      <a href="#">Русский</a>
+      <a href="#">Polski</a>
+      <a href="#">Español</a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MAIN NAV ===== -->
+<nav class="main-nav">
+  <div class="container">
+    <a class='logo' href='index.html'>
+      <div class="logo-mark">GF</div>
+      <div class="logo-text">
+        Goodwill Financial
+        <small>Living Benefits Team</small>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href='index.html'>Home</a></li>
+      <li><a href='opportunity.html'>The Opportunity</a></li>
+      <li class="nav-cta"><a class='btn btn-primary' href='#form'>Apply Now</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="apply-hero">
+  <div class="container">
+    <div class="section-eyebrow">Agent Application</div>
+    <h1>Start your application to the Living Benefits Team.</h1>
+    <p>A few minutes now tells us who you are and how we can help you build. There's no pressure — this is the first step, not a commitment.</p>
+    <div class="apply-steps">
+      <span class="now">1 · Apply</span>
+      <span>2 · Intro interview</span>
+      <span>3 · Personality fit (16Personalities)</span>
+      <span>4 · Licensing &amp; contracting</span>
+      <span>5 · Onboarding &amp; training</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FORM ===== -->
+<div class="form-wrap" id="form">
+
+  <!-- SUCCESS STATE -->
+  <div class="success" id="successMsg">
+    <div class="check">✓</div>
+    <h2>Application received.</h2>
+    <p>Thanks — we've got your information. Someone from the Living Benefits Team will reach out within 1–2 business days to set up a short intro conversation.</p>
+    <p style="margin-top:1rem"><a class="btn btn-outline" href="index.html">Back to home</a></p>
+  </div>
+
+  <!-- Wired to the Goodwill Keap Worker (kind:"recruit"). Applications land in Keap as a
+       contact owned by Vytas, tagged into the recruiting ATS at Stage 1 - Applied. -->
+  <form class="apply" id="applyForm" action="https://goodwill-keap-followup.goodwill-lbt.workers.dev/" method="POST">
+
+    <!-- 1. CONTACT -->
+    <fieldset class="fs">
+      <legend>1 · About you</legend>
+      <div class="field half">
+        <label for="firstName">First name <span class="req">*</span></label>
+        <input type="text" id="firstName" name="First Name" required>
+      </div>
+      <div class="field half">
+        <label for="lastName">Last name <span class="req">*</span></label>
+        <input type="text" id="lastName" name="Last Name" required>
+      </div>
+      <div class="field half">
+        <label for="email">Email <span class="req">*</span></label>
+        <input type="email" id="email" name="Email" required>
+      </div>
+      <div class="field half">
+        <label for="phone">Mobile phone <span class="req">*</span></label>
+        <input type="tel" id="phone" name="Phone" required>
+      </div>
+      <div class="field half">
+        <label for="city">City <span class="req">*</span></label>
+        <input type="text" id="city" name="City" required>
+      </div>
+      <div class="field half">
+        <label for="state">State <span class="req">*</span></label>
+        <input type="text" id="state" name="State" maxlength="2" placeholder="IL" required>
+      </div>
+      <div class="field">
+        <label>Languages you speak fluently <span class="opt">(select all — this is a real advantage here)</span></label>
+        <div class="check-grid">
+          <label class="pill"><input type="checkbox" name="Languages" value="English"> English</label>
+          <label class="pill"><input type="checkbox" name="Languages" value="Lithuanian"> Lietuvių</label>
+          <label class="pill"><input type="checkbox" name="Languages" value="Ukrainian"> Українська</label>
+          <label class="pill"><input type="checkbox" name="Languages" value="Russian"> Русский</label>
+          <label class="pill"><input type="checkbox" name="Languages" value="Polish"> Polski</label>
+          <label class="pill"><input type="checkbox" name="Languages" value="Spanish"> Español</label>
+          <label class="pill"><input type="checkbox" name="Languages" value="Other"> Other</label>
+        </div>
+      </div>
+    </fieldset>
+
+    <!-- 2. BACKGROUND -->
+    <fieldset class="fs">
+      <legend>2 · Your background</legend>
+      <div class="field">
+        <label for="typeOfAgent">Which best describes you today? <span class="req">*</span></label>
+        <select id="typeOfAgent" name="Type of Agent" required>
+          <option value="">Select…</option>
+          <option>P&amp;C Agent</option>
+          <option>CPA</option>
+          <option>Health Agent</option>
+          <option>New Agent</option>
+          <option>Experienced Agent</option>
+        </select>
+        <p class="hint">This routes your application to the right path — partner cross-sell (P&amp;C / CPA / Health), new-agent licensing, or experienced-agent fast start.</p>
+      </div>
+      <div class="field half">
+        <label for="occupation">Current occupation <span class="req">*</span></label>
+        <input type="text" id="occupation" name="Current Occupation" required>
+      </div>
+      <div class="field half">
+        <label for="employer">Current / most recent employer <span class="opt">(optional)</span></label>
+        <input type="text" id="employer" name="Employer">
+      </div>
+      <div class="field">
+        <label>Which best describes you? <span class="opt">(select all that apply)</span></label>
+        <div class="check-grid">
+          <label class="pill"><input type="checkbox" name="Background" value="P&C agent"> P&amp;C agent</label>
+          <label class="pill"><input type="checkbox" name="Background" value="Health agent"> Health agent</label>
+          <label class="pill"><input type="checkbox" name="Background" value="Real estate"> Real estate</label>
+          <label class="pill"><input type="checkbox" name="Background" value="Mortgage"> Mortgage</label>
+          <label class="pill"><input type="checkbox" name="Background" value="Financial services"> Financial services</label>
+          <label class="pill"><input type="checkbox" name="Background" value="CPA / EA"> CPA / EA</label>
+          <label class="pill"><input type="checkbox" name="Background" value="New to the field"> New to the field</label>
+          <label class="pill"><input type="checkbox" name="Background" value="Other"> Other</label>
+        </div>
+      </div>
+      <div class="field">
+        <label for="salesExp">Sales experience <span class="req">*</span></label>
+        <select id="salesExp" name="Sales Experience" required>
+          <option value="">Select…</option>
+          <option>None yet</option>
+          <option>Less than 1 year</option>
+          <option>1–3 years</option>
+          <option>3–10 years</option>
+          <option>10+ years</option>
+        </select>
+      </div>
+    </fieldset>
+
+    <!-- 3. LICENSING -->
+    <fieldset class="fs">
+      <legend>3 · Licensing</legend>
+      <div class="field">
+        <label for="license">Life insurance license status <span class="req">*</span></label>
+        <select id="license" name="License Status" required>
+          <option value="">Select…</option>
+          <option>Licensed — active</option>
+          <option>In progress (studying / scheduled exam)</option>
+          <option>Not yet — but ready to get licensed</option>
+          <option>Not sure — need more info</option>
+        </select>
+      </div>
+      <div class="field half">
+        <label for="npn">NPN <span class="opt">(if licensed)</span></label>
+        <input type="text" id="npn" name="NPN">
+      </div>
+      <div class="field half">
+        <label for="otherLic">Other licenses held <span class="opt">(P&amp;C, Health, Series, etc.)</span></label>
+        <input type="text" id="otherLic" name="Other Licenses">
+      </div>
+    </fieldset>
+
+    <!-- 4. FIT & GOALS -->
+    <fieldset class="fs">
+      <legend>4 · Fit &amp; goals</legend>
+      <div class="field">
+        <label for="why">Why insurance, and why now? <span class="req">*</span></label>
+        <textarea id="why" name="Why / Why Now" required placeholder="A few sentences in your own words."></textarea>
+      </div>
+      <div class="field">
+        <label>Are you looking for… <span class="req">*</span></label>
+        <div class="radio-row">
+          <label class="pill"><input type="radio" name="Commitment" value="Full-time" required> Full-time</label>
+          <label class="pill"><input type="radio" name="Commitment" value="Part-time"> Part-time</label>
+          <label class="pill"><input type="radio" name="Commitment" value="Part-time → full-time"> Part-time, building to full-time</label>
+        </div>
+      </div>
+      <div class="field">
+        <label for="goal">Your first-year income goal <span class="opt">(optional — your goal, not a promise from us)</span></label>
+        <select id="goal" name="Income Goal">
+          <option value="">Prefer not to say</option>
+          <option>Up to $25K (side income)</option>
+          <option>$25K–$50K</option>
+          <option>$50K–$100K</option>
+          <option>$100K+</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="referral">How did you hear about us? <span class="opt">(optional)</span></label>
+        <input type="text" id="referral" name="Referral Source" placeholder="Referred by a name, social media, webinar, etc.">
+      </div>
+      <div class="field">
+        <label for="personalityType">Personality type <span class="opt">(takes ~10 min — helps us understand how you work best)</span></label>
+        <input type="text" id="personalityType" name="Personality Type" placeholder="e.g. ENTJ-A">
+        <p class="hint">Take the free test at <a href="https://www.16personalities.com/" target="_blank" rel="noopener">16personalities.com</a> and enter your 4-letter result here. Optional now — we'll also send you the link after you apply.</p>
+      </div>
+    </fieldset>
+
+    <!-- CONSENT -->
+    <div class="field">
+      <label class="consent">
+        <input type="checkbox" name="Consent" value="Yes" required>
+        <span>I authorize Goodwill Financial / Living Benefits Team to contact me about this opportunity by phone, text, and email. I understand recruiting and contracting are subject to background, licensing, and carrier appointment requirements, and that individual results vary. <span class="req">*</span></span>
+      </label>
+    </div>
+
+    <div class="submit-row">
+      <button type="submit" class="btn btn-primary btn-large">Submit Application</button>
+    </div>
+    <p class="form-note">Your information is used only to evaluate your application and stays with the Living Benefits Team. This is not a solicitation to purchase any insurance product.</p>
+  </form>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="container">
+    <div class="footer-bottom" style="border:none">
+      <div>© 2026 Goodwill Financial Group, Inc. · 579 W. North Ave, Suite 300, Elmhurst, IL 60126</div>
+      <div><a href="index.html">Home</a> · <a href="opportunity.html">The Opportunity</a></div>
+    </div>
+    <p class="compliance">
+      Living Benefits Team is a marketing name for Goodwill Financial Group, Inc. Recruiting and contracting opportunities are subject to background, licensing, and carrier appointment requirements. Individual agent results vary. Past performance does not guarantee future results. This page is intended for individuals exploring a career in insurance; it is not a solicitation for the purchase of any specific insurance product.
+    </p>
+  </div>
+</footer>
+
+<script>
+  // pill highlight on check
+  document.querySelectorAll('.pill input').forEach(function(inp){
+    function sync(){
+      if(inp.type==='radio'){
+        document.querySelectorAll('input[name="'+inp.name+'"]').forEach(function(r){
+          r.closest('.pill').classList.toggle('checked',r.checked);
+        });
+      } else {
+        inp.closest('.pill').classList.toggle('checked',inp.checked);
+      }
+    }
+    inp.addEventListener('change',sync);
+  });
+
+  // submit as JSON to the Keap Worker (kind:"recruit"). Lands in Keap owned by Vytas,
+  // tagged into the recruiting ATS at Stage 1 - Applied, with an instant alert.
+  var form=document.getElementById('applyForm');
+  function fval(n){var el=form.querySelector('[name="'+n+'"]');return el?el.value.trim():'';}
+  function fchecks(n){return Array.prototype.slice.call(form.querySelectorAll('[name="'+n+'"]:checked')).map(function(e){return e.value;});}
+  function fradio(n){var el=form.querySelector('[name="'+n+'"]:checked');return el?el.value:'';}
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var btn=form.querySelector('button[type=submit]');
+    btn.disabled=true; btn.textContent='Sending…';
+    var payload={
+      kind:'recruit',
+      firstName:fval('First Name'), lastName:fval('Last Name'),
+      email:fval('Email'), phone:fval('Phone'), city:fval('City'), state:fval('State'),
+      languages:fchecks('Languages'),
+      typeOfAgent:fval('Type of Agent'),
+      occupation:fval('Current Occupation'), employer:fval('Employer'),
+      background:fchecks('Background'),
+      salesExperience:fval('Sales Experience'),
+      licenseStatus:fval('License Status'), npn:fval('NPN'), otherLicenses:fval('Other Licenses'),
+      why:fval('Why / Why Now'), commitment:fradio('Commitment'), incomeGoal:fval('Income Goal'),
+      referralSource:fval('Referral Source'), personalityType:fval('Personality Type'),
+      consent: !!(form.querySelector('[name="Consent"]')||{}).checked
+    };
+    fetch(form.action,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+      .then(function(r){return r.json().catch(function(){return {ok:r.ok};});})
+      .then(function(res){
+        if(res && res.ok){
+          form.style.display='none';
+          document.getElementById('successMsg').classList.add('show');
+          window.scrollTo({top:0,behavior:'smooth'});
+        } else { throw new Error('bad response'); }
+      })
+      .catch(function(){
+        btn.disabled=false; btn.textContent='Submit Application';
+        alert('Something went wrong sending your application. Please call 630-785-2412 or email agents@goodwillfinancial.com.');
+      });
+  });
+</script>
+</body>
+</html>
