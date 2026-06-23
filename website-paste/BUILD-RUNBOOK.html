@@ -1,0 +1,166 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1">
+<title>Goodwill site build runbook</title><meta name=robots content=noindex>
+<style>body{font-family:Inter,Segoe UI,sans-serif;max-width:1000px;margin:0 auto;padding:24px;color:#1A2027;background:#F4F6F8;line-height:1.5}
+h1,h2{font-family:Oswald,sans-serif;color:#0E3A5C} code{background:#fff;border:1px solid #E5EAEF;padding:1px 5px;border-radius:4px}
+table{border-collapse:collapse;width:100%;background:#fff;font-size:14px} td,th{border:1px solid #E5EAEF;padding:8px;text-align:left;vertical-align:top}
+th{background:#0E3A5C;color:#fff} .meta{font-size:12px;color:#5A6470} a{color:#0099CC} .box{background:#fff;border:1px solid #E5EAEF;border-radius:8px;padding:16px;margin:14px 0}
+pre{background:#0E3A5C;color:#fff;padding:12px;border-radius:6px;overflow:auto;font-size:12px}</style></head><body>
+<h1>goodwillfinancial.com &rarr; Builderall: build runbook</h1>
+<p>Build site (editor): <a href="https://goodwillfinancial-1.campaigns.alliancegrouplife.com/me/website" target=_blank>vytas-2 editor</a> &middot; Preview: <a href="https://vytas-2.campaigns.alliancegrouplife.com" target=_blank>vytas-2.campaigns&hellip;</a>. The LIVE goodwillfinancial.com is untouched until cutover.</p>
+<div class=box><b>Per page (~30 sec each):</b><ol>
+<li>In the editor, open/create the page at the <b>exact slug</b> in the table.</li>
+<li>Add a <b>Code</b> element (Add Widget &rarr; Other &rarr; Code) into the body.</li>
+<li>Click <b>open payload</b> &rarr; <kbd>Ctrl+A</kbd> <kbd>Ctrl+C</kbd> (select all, copy) &rarr; paste into the Code element &rarr; <b>Save</b>.</li>
+<li>Open the page&rsquo;s <b>MetaTags</b> (hamburger menu) and set Title + Description + Canonical from the table.</li>
+</ol></div>
+<div class=box><b>Or fully headless (assistant does all 34):</b> add this to <code>.mcp.json</code>, reload Claude Code, approve the new server, then say &ldquo;go&rdquo;:
+<pre>"playwright-clip": {
+  "command": "C:\Program Files\nodejs\npx.cmd",
+  "args": ["@playwright/mcp@latest","--user-data-dir","C:\Users\vytas\browser-profiles\clip","--grant-permissions","clipboard-read","clipboard-write"]
+},</pre></div>
+<h2>Pages (35)</h2>
+<table><tr><th>&#10003;</th><th>#</th><th>Slug / payload</th><th>SEO (MetaTags)</th></tr>
+<tr>
+<td><input type=checkbox></td><td>1</td>
+<td><b>/</b><br><a href="https://raw.githubusercontent.com/vytautasskapcevicius-ship-it/goodwill-agent-hub/main/website-paste/index.html" target=_blank>open payload &#8599;</a></td>
+<td class=meta><b>Title:</b> Goodwill Financial — Insurance for the way real life happens | Elmhurst, IL<br><b>Desc:</b> Independent insurance agency in Elmhurst, IL — auto, home, business, trucking, life, IUL, and Living Benefits. Family-run, multilingual, 4.9-star on Google.<br><b>Canonical:</b> https://goodwillfinancial.com/</td>
+</tr><tr>
+<td><input type=checkbox></td><td>2</td>
+<td><b>/personal-insurance</b><br><a href="https://raw.githubusercontent.com/vytautasskapcevicius-ship-it/goodwill-agent-hub/main/website-paste/personal-insurance.html" target=_blank>open payload &#8599;</a></td>
+<td class=meta><b>Title:</b> Personal Insurance — Auto, Home, Umbrella, Flood, Watercraft | Goodwill Financial<br><b>Desc:</b> Personal insurance in Elmhurst, IL — auto, home, renters, umbrella, and more, compared across top carriers by an independent agent who works for you.<br><b>Canonical:</b> https://goodwillfinancial.com/personal-insurance</td>
+</tr><tr>
+<td><input type=checkbox></td><td>3</td>
+<td><b>/commercial-insurance</b><br><a href="https://raw.githubusercontent.com/vytautasskapcevicius-ship-it/goodwill-agent-hub/main/website-paste/commercial-insurance.html" target=_blank>open payload &#8599;</a></td>
+<td class=meta><b>Title:</b> Business &amp;amp; Commercial Insurance — Trucking, GL, Workers&#x27; Comp, BOP, Cyber | Goodwill Financial<br><b>Desc:</b> Business &amp;amp; trucking insurance in Elmhurst, IL — commercial auto, general liability, workers<br><b>Canonical:</b> https://goodwillfinancial.com/commercial-insurance</td>
+</tr><tr>
+<td><input type=checkbox></td><td>4</td>
+<td><b>/living-benefits</b><br><a href="https://raw.githubusercontent.com/vytautasskapcevicius-ship-it/goodwill-agent-hub/main/website-paste/living-benefits.html" target=_blank>open payload &#8599;</a></td>
+<td class=meta><b>Title:</b> Living Benefits — Life insurance you don&#x27;t have to die to use | Goodwill Financial<br><b>Desc:</b> Living Benefits let you use your life insurance while you<br><b>Canonical:</b> https://goodwillfinancial.com/living-benefits</td>
+</tr><tr>
+<td><input type=checkbox></td><td>5</td>
+<td><b>/life-insurance</b><br><a href="https://raw.githubusercontent.com/vytautasskapcevicius-ship-it/goodwill-agent-hub/main/website-paste/life-insurance.html" target=_blank>open payload &#8599;</a></td>
+<td class=meta><b>Title:</b> Life Insurance &amp;amp; Tax-Free Retirement — IUL, Kai-Zen, Term, Annuities | Goodwill Financial<br><b>Desc:</b> Life insurance and tax-free retirement in Elmhurst, IL — IUL, Kai-Zen, term, whole life, annuities, IRAs, and 401(k) rollovers. See what fits your plan.<br><b>Canonical:</b> https://goodwillfinancial.com/life-insurance</td>
+</tr><tr>
+<td><input type=checkbox></td><td>6</td>
+<td><b>/about</b><br><a href="https://raw.githubusercontent.com/vytautasskapcevicius-ship-it/goodwill-agent-hub/main/website-paste/about.html" target=_blank>open payload &#8599;</a></td>
+<td class=meta><b>Title:</b> About Goodwill Financial — Built by immigrants, for the families who came after | Elmhurst, IL<br><b>Desc:</b> Goodwill Financial — an independent insurance agency in Elmhurst, IL, built by an immigrant founder to protect families, businesses, and truckers for 20+ years.<br><b>Canonical:</b> https://goodwillfinancial.com/about</td>
+</tr><tr>
+<td><input type=checkbox></td><td>7</td>
+<td><b>/contact</b><br><a href="https://raw.githubusercontent.com/vytautasskapcevicius-ship-it/goodwill-agent-hub/main/website-paste/contact.html" target=_blank>open payload &#8599;</a></td>
+<td class=meta><b>Title:</b> Contact Goodwill Financial — 630-785-2412 | Elmhurst, IL<br><b>Desc:</b> Reach Goodwill Financial. Call 630-785-2412, email service@goodwillfinancial.com, or visit 579 W. North Ave, Suite 300, Elmhurst, IL 60126.<br><b>Canonical:</b> https://goodwillfinancial.com/contact</td>
+</tr><tr>
+<td><input type=checkbox></td><td>8</td>
+<td><b>/service-center</b><br><a href="https://raw.githubusercontent.com/vytautasskapcevicius-ship-it/goodwill-agent-hub/main/website-paste/service-center.html" target=_blank>open payload &#8599;</a></td>
+<td class=meta><b>Title:</b> Service Center — Pay, ID Cards, Claims, Client Login | Goodwill Financial<br><b>Desc:</b> Goodwill Financial Service Center — request an auto ID card or COI, make a policy change, or report a claim online, or reach our Elmhurst team by phone.<br><b>Canonical:</b> https://goodwillfinancial.com/service-center</td>
+</tr><tr>
+<td><input type=checkbox></td><td>9</td>
+<td><b>/careers</b><br><a href="https://raw.githubusercontent.com/vytautasskapcevicius-ship-it/goodwill-agent-hub/main/website-paste/careers.html" target=_blank>open payload &#8599;</a></td>
+<td class=meta><b>Title:</b> Become a Living Benefits Agent — Build a Real Practice | Goodwill Financial<br><b>Desc:</b> Join the Living Benefits Team. National Life Group contracts, training, mentorship, and a real book of business. We<br><b>Canonical:</b> https://goodwillfinancial.com/careers</td>
+</tr><tr>
+<td><input type=checkbox></td><td>10</td>
+<td><b>/404</b><br><a href="https://raw.githubusercontent.com/vytautasskapcevicius-ship-it/goodwill-agent-hub/main/website-paste/404.html" target=_blank>open payload &#8599;</a></td>
+<td class=meta><b>Title:</b> Page not found — Goodwill Financial<br><b>Desc:</b> <br><b>Canonical:</b> https://goodwillfinancial.com/404</td>
+</tr><tr>
+<td><input type=checkbox></td><td>11</td>
+<td><b>/auto-insurance</b><br><a href="https://raw.githubusercontent.com/vytautasskapcevicius-ship-it/goodwill-agent-hub/main/website-paste/auto-insurance.html" target=_blank>open payload &#8599;</a></td>
+<td class=meta><b>Title:</b> Auto Insurance in Elmhurst, IL | Goodwill Financial<br><b>Desc:</b> Auto insurance from an independent Elmhurst, IL agency that compares carriers for you. Liability, collision, comprehensive, UM/UIM. Call 630-785-2412 for a quote.<br><b>Canonical:</b> https://goodwillfinancial.com/auto-insurance-elmhurst-il</td>
+</tr><tr>
+<td><input type=checkbox></td><td>12</td>
+<td><b>/auto-insurance-elmhurst-il</b><br><a href="https://raw.githubusercontent.com/vytautasskapcevicius-ship-it/goodwill-agent-hub/main/website-paste/auto-insurance-elmhurst-il.html" target=_blank>open payload &#8599;</a></td>
+<td class=meta><b>Title:</b> Auto Insurance Elmhurst, IL | Goodwill Financial<br><b>Desc:</b> Local, independent auto insurance in Elmhurst, IL. We compare multiple carriers to fit your car, drivers, and budget. Call 630-785-2412 for a free quote.<br><b>Canonical:</b> https://goodwillfinancial.com/auto-insurance-elmhurst-il</td>
+</tr><tr>
+<td><input type=checkbox></td><td>13</td>
+<td><b>/blog</b><br><a href="https://raw.githubusercontent.com/vytautasskapcevicius-ship-it/goodwill-agent-hub/main/website-paste/blog.html" target=_blank>open payload &#8599;</a></td>
+<td class=meta><b>Title:</b> Blog &amp;mdash; Insurance &amp;amp; Living Benefits, explained | Goodwill Financial<br><b>Desc:</b> Plain-English articles on Living Benefits, life insurance, mortgage protection, auto, home, business, and trucking insurance from Goodwill Financial in Elmhurst, IL.<br><b>Canonical:</b> https://goodwillfinancial.com/blog</td>
+</tr><tr>
+<td><input type=checkbox></td><td>14</td>
+<td><b>/blog-christmas-day-a-season-of-reflection-purpose-and-hope-from-your-trusted-insurance-agency</b><br><a href="https://raw.githubusercontent.com/vytautasskapcevicius-ship-it/goodwill-agent-hub/main/website-paste/blog-christmas-day-a-season-of-reflection-purpose-and-hope-from-your-trusted-insurance-agency.html" target=_blank>open payload &#8599;</a></td>
+<td class=meta><b>Title:</b> Christmas Day: A Season of Reflection, Purpose, and Hope; From Your Trusted Insurance Agency | Goodwill Financial<br><b>Desc:</b> A Christmas reflection from Goodwill Financial — slowing down, gratitude, and protecting the people who matter most through both hardship and joy.<br><b>Canonical:</b> https://goodwillfinancial.com/blog-christmas-day-a-season-of-reflection-purpose-and-hope-from-your-trusted-insurance-agency</td>
+</tr><tr>
+<td><input type=checkbox></td><td>15</td>
+<td><b>/blog-fathers-day-living-benefits</b><br><a href="https://raw.githubusercontent.com/vytautasskapcevicius-ship-it/goodwill-agent-hub/main/website-paste/blog-fathers-day-living-benefits.html" target=_blank>open payload &#8599;</a></td>
+<td class=meta><b>Title:</b> This Father&amp;#x27;s Day, Be the Dad Who Planned Ahead | Goodwill Financial<br><b>Desc:</b> This Father&amp;#x27;s Day, give your family more than a card. See how Living Benefits let you protect your income and the people you love while you&amp;#x27;re still living.<br><b>Canonical:</b> https://goodwillfinancial.com/blog-fathers-day-living-benefits</td>
+</tr><tr>
+<td><input type=checkbox></td><td>16</td>
+<td><b>/blog-funding-experimental-cancer-treatments-with-living-benefits</b><br><a href="https://raw.githubusercontent.com/vytautasskapcevicius-ship-it/goodwill-agent-hub/main/website-paste/blog-funding-experimental-cancer-treatments-with-living-benefits.html" target=_blank>open payload &#8599;</a></td>
+<td class=meta><b>Title:</b> Funding Experimental Cancer Treatments with Living Benefits | Goodwill Financial<br><b>Desc:</b> How a life insurance Critical Illness rider can accelerate a lump sum to help fund cancer treatment — money you can use while you<br><b>Canonical:</b> https://goodwillfinancial.com/blog-funding-experimental-cancer-treatments-with-living-benefits</td>
+</tr><tr>
+<td><input type=checkbox></td><td>17</td>
+<td><b>/blog-living-benefits</b><br><a href="https://raw.githubusercontent.com/vytautasskapcevicius-ship-it/goodwill-agent-hub/main/website-paste/blog-living-benefits.html" target=_blank>open payload &#8599;</a></td>
+<td class=meta><b>Title:</b> Life Insurance You Don&#x27;t Have to Die to Use | Goodwill Financial<br><b>Desc:</b> Living Benefits let you access your life insurance while you<br><b>Canonical:</b> https://goodwillfinancial.com/blog-living-benefits</td>
+</tr><tr>
+<td><input type=checkbox></td><td>18</td>
+<td><b>/blog-living-benefits-awareness-month-why-your-life-insurance-should-work-for-you-now-not-just-later</b><br><a href="https://raw.githubusercontent.com/vytautasskapcevicius-ship-it/goodwill-agent-hub/main/website-paste/blog-living-benefits-awareness-month-why-your-life-insurance-should-work-for-you-now-not-just-later.html" target=_blank>open payload &#8599;</a></td>
+<td class=meta><b>Title:</b> Living Benefits Awareness Month: Why Your Life Insurance Should Work for You Now, Not Just Later | Goodwill Financial<br><b>Desc:</b> Living Benefits Awareness Month: how your life insurance can pay you while you<br><b>Canonical:</b> https://goodwillfinancial.com/blog-living-benefits-awareness-month-why-your-life-insurance-should-work-for-you-now-not-just-later</td>
+</tr><tr>
+<td><input type=checkbox></td><td>19</td>
+<td><b>/blog-navigating-skyrocketing-auto-insurance-costs-a-guide-for-chicagoland-drivers</b><br><a href="https://raw.githubusercontent.com/vytautasskapcevicius-ship-it/goodwill-agent-hub/main/website-paste/blog-navigating-skyrocketing-auto-insurance-costs-a-guide-for-chicagoland-drivers.html" target=_blank>open payload &#8599;</a></td>
+<td class=meta><b>Title:</b> Navigating Skyrocketing Auto Insurance Costs: A Guide for Chicagoland Drivers | Goodwill Financial<br><b>Desc:</b> Auto insurance costs are climbing in Chicagoland. Practical ways to lower your premium — coverage reviews, bundling, smart deductibles, and comparing carriers.<br><b>Canonical:</b> https://goodwillfinancial.com/blog-navigating-skyrocketing-auto-insurance-costs-a-guide-for-chicagoland-drivers</td>
+</tr><tr>
+<td><input type=checkbox></td><td>20</td>
+<td><b>/blog-the-bucket-strategy-a-simple-and-effective-approach-to-financial-planning</b><br><a href="https://raw.githubusercontent.com/vytautasskapcevicius-ship-it/goodwill-agent-hub/main/website-paste/blog-the-bucket-strategy-a-simple-and-effective-approach-to-financial-planning.html" target=_blank>open payload &#8599;</a></td>
+<td class=meta><b>Title:</b> The Bucket Strategy: A Simple and Effective Approach to Financial Planning | Goodwill Financial<br><b>Desc:</b> The bucket strategy explained: a simple way to split retirement savings into short-, mid-, and long-term buckets so your income lasts through market swings.<br><b>Canonical:</b> https://goodwillfinancial.com/blog-the-bucket-strategy-a-simple-and-effective-approach-to-financial-planning</td>
+</tr><tr>
+<td><input type=checkbox></td><td>21</td>
+<td><b>/blog-tragedija-trakuose-ir-pamoka-mums-visiems-kodel-living-benefits-siandien-yra-butinos</b><br><a href="https://raw.githubusercontent.com/vytautasskapcevicius-ship-it/goodwill-agent-hub/main/website-paste/blog-tragedija-trakuose-ir-pamoka-mums-visiems-kodel-living-benefits-siandien-yra-butinos.html" target=_blank>open payload &#8599;</a></td>
+<td class=meta><b>Title:</b> Tragedija Trakuose ir pamoka mums visiems: kodėl „Living Benefits“ šiandien yra būtinos | Goodwill Financial<br><b>Desc:</b> Tragedija Trakuose primena, kodėl living benefits svarbūs šiandien — kaip gyvybės draudimas gali apsaugoti šeimą, kol dar esate gyvi. Goodwill Financial.<br><b>Canonical:</b> https://goodwillfinancial.com/blog-tragedija-trakuose-ir-pamoka-mums-visiems-kodel-living-benefits-siandien-yra-butinos</td>
+</tr><tr>
+<td><input type=checkbox></td><td>22</td>
+<td><b>/blog-unlocking-the-power-of-living-benefits-your-guide-to-life-insurance-with-added-security</b><br><a href="https://raw.githubusercontent.com/vytautasskapcevicius-ship-it/goodwill-agent-hub/main/website-paste/blog-unlocking-the-power-of-living-benefits-your-guide-to-life-insurance-with-added-security.html" target=_blank>open payload &#8599;</a></td>
+<td class=meta><b>Title:</b> Unlocking the Power of Living Benefits: Your Guide to Life Insurance with Added Security | Goodwill Financial<br><b>Desc:</b> Unlocking the power of Living Benefits — a plain-English guide to life insurance with built-in protection you can use while you<br><b>Canonical:</b> https://goodwillfinancial.com/blog-unlocking-the-power-of-living-benefits-your-guide-to-life-insurance-with-added-security</td>
+</tr><tr>
+<td><input type=checkbox></td><td>23</td>
+<td><b>/blog-when-high-income-isn-t-enough-what-mickey-rourke-s-story-teaches-us-about-guaranteed-lifetime-income-and-living-benefits</b><br><a href="https://raw.githubusercontent.com/vytautasskapcevicius-ship-it/goodwill-agent-hub/main/website-paste/blog-when-high-income-isn-t-enough-what-mickey-rourke-s-story-teaches-us-about-guaranteed-lifetime-income-and-living-benefits.html" target=_blank>open payload &#8599;</a></td>
+<td class=meta><b>Title:</b> When High Income Isn’t Enough: What Mickey Rourke’s Story Teaches Us About Guaranteed Lifetime Income and Living Benefits | Goodwill Financial<br><b>Desc:</b> Mickey Rourke<br><b>Canonical:</b> https://goodwillfinancial.com/blog-when-high-income-isn-t-enough-what-mickey-rourke-s-story-teaches-us-about-guaranteed-lifetime-income-and-living-benefits</td>
+</tr><tr>
+<td><input type=checkbox></td><td>24</td>
+<td><b>/blog-when-to-buy-life-insurance-for-your-child-a-guide-for-parents</b><br><a href="https://raw.githubusercontent.com/vytautasskapcevicius-ship-it/goodwill-agent-hub/main/website-paste/blog-when-to-buy-life-insurance-for-your-child-a-guide-for-parents.html" target=_blank>open payload &#8599;</a></td>
+<td class=meta><b>Title:</b> When to Buy Life Insurance for Your Child - A Guide for Parents | Goodwill Financial<br><b>Desc:</b> When should you buy life insurance for your child? A parent<br><b>Canonical:</b> https://goodwillfinancial.com/blog-when-to-buy-life-insurance-for-your-child-a-guide-for-parents</td>
+</tr><tr>
+<td><input type=checkbox></td><td>25</td>
+<td><b>/commercial-auto-insurance</b><br><a href="https://raw.githubusercontent.com/vytautasskapcevicius-ship-it/goodwill-agent-hub/main/website-paste/commercial-auto-insurance.html" target=_blank>open payload &#8599;</a></td>
+<td class=meta><b>Title:</b> Commercial Auto Insurance | Elmhurst, IL — Goodwill<br><b>Desc:</b> Commercial auto &amp; trucking insurance in Elmhurst, IL — primary liability, physical damage, cargo, and non-trucking liability, compared across carriers.<br><b>Canonical:</b> https://goodwillfinancial.com/commercial-auto-insurance</td>
+</tr><tr>
+<td><input type=checkbox></td><td>26</td>
+<td><b>/general-liability-insurance</b><br><a href="https://raw.githubusercontent.com/vytautasskapcevicius-ship-it/goodwill-agent-hub/main/website-paste/general-liability-insurance.html" target=_blank>open payload &#8599;</a></td>
+<td class=meta><b>Title:</b> General Liability Insurance | Goodwill Financial<br><b>Desc:</b> General liability insurance for Elmhurst &amp;amp; Chicagoland small businesses and contractors. Coverage, certificates of insurance, fast quotes. Call 630-785-2412.<br><b>Canonical:</b> https://goodwillfinancial.com/general-liability-insurance</td>
+</tr><tr>
+<td><input type=checkbox></td><td>27</td>
+<td><b>/homeowners-insurance</b><br><a href="https://raw.githubusercontent.com/vytautasskapcevicius-ship-it/goodwill-agent-hub/main/website-paste/homeowners-insurance.html" target=_blank>open payload &#8599;</a></td>
+<td class=meta><b>Title:</b> Homeowners Insurance Elmhurst, IL | Goodwill Financial<br><b>Desc:</b> Homeowners insurance in Elmhurst, IL from an independent agency that compares carriers for you. HO-3, replacement cost, liability, bundling. Get a quote.<br><b>Canonical:</b> https://goodwillfinancial.com/homeowners-insurance</td>
+</tr><tr>
+<td><input type=checkbox></td><td>28</td>
+<td><b>/mortgage-protection-insurance</b><br><a href="https://raw.githubusercontent.com/vytautasskapcevicius-ship-it/goodwill-agent-hub/main/website-paste/mortgage-protection-insurance.html" target=_blank>open payload &#8599;</a></td>
+<td class=meta><b>Title:</b> Mortgage Protection Insurance | Elmhurst, IL<br><b>Desc:</b> Mortgage protection insurance keeps your family in the home if you pass away — or get seriously ill. Talk to Goodwill Financial in Elmhurst, IL.<br><b>Canonical:</b> https://goodwillfinancial.com/mortgage-protection-insurance</td>
+</tr><tr>
+<td><input type=checkbox></td><td>29</td>
+<td><b>/privacy</b><br><a href="https://raw.githubusercontent.com/vytautasskapcevicius-ship-it/goodwill-agent-hub/main/website-paste/privacy.html" target=_blank>open payload &#8599;</a></td>
+<td class=meta><b>Title:</b> Privacy Policy | Goodwill Financial<br><b>Desc:</b> How Goodwill Financial, Inc. collects, uses, and protects your personal information.<br><b>Canonical:</b> https://goodwillfinancial.com/privacy</td>
+</tr><tr>
+<td><input type=checkbox></td><td>30</td>
+<td><b>/tax-free-retirement</b><br><a href="https://raw.githubusercontent.com/vytautasskapcevicius-ship-it/goodwill-agent-hub/main/website-paste/tax-free-retirement.html" target=_blank>open payload &#8599;</a></td>
+<td class=meta><b>Title:</b> Tax-Free Retirement Income | Elmhurst, IL | Goodwill<br><b>Desc:</b> Build tax-free retirement income with IUL cash value and Roth strategies. Plain-English guidance for Chicagoland families. Talk to Goodwill Financial today.<br><b>Canonical:</b> https://goodwillfinancial.com/tax-free-retirement</td>
+</tr><tr>
+<td><input type=checkbox></td><td>31</td>
+<td><b>/terms</b><br><a href="https://raw.githubusercontent.com/vytautasskapcevicius-ship-it/goodwill-agent-hub/main/website-paste/terms.html" target=_blank>open payload &#8599;</a></td>
+<td class=meta><b>Title:</b> Terms of Use | Goodwill Financial<br><b>Desc:</b> Terms of use for the Goodwill Financial, Inc. website.<br><b>Canonical:</b> https://goodwillfinancial.com/terms</td>
+</tr><tr>
+<td><input type=checkbox></td><td>32</td>
+<td><b>/truck-insurance</b><br><a href="https://raw.githubusercontent.com/vytautasskapcevicius-ship-it/goodwill-agent-hub/main/website-paste/truck-insurance.html" target=_blank>open payload &#8599;</a></td>
+<td class=meta><b>Title:</b> Truck Insurance in Elmhurst, IL | Goodwill Financial<br><b>Desc:</b> Truck insurance for owner-operators and small fleets in Elmhurst &amp;amp; Chicagoland: liability, cargo, physical damage &amp;amp; more. Call 630-785-2412 for a quote.<br><b>Canonical:</b> https://goodwillfinancial.com/truck-insurance</td>
+</tr><tr>
+<td><input type=checkbox></td><td>33</td>
+<td><b>/umbrella-insurance</b><br><a href="https://raw.githubusercontent.com/vytautasskapcevicius-ship-it/goodwill-agent-hub/main/website-paste/umbrella-insurance.html" target=_blank>open payload &#8599;</a></td>
+<td class=meta><b>Title:</b> Umbrella Insurance in Elmhurst, IL | Goodwill Financial<br><b>Desc:</b> Personal umbrella insurance adds $1M+ liability on top of your auto and home in Elmhurst &amp;amp; Chicagoland. See who needs it and get a quote.<br><b>Canonical:</b> https://goodwillfinancial.com/umbrella-insurance</td>
+</tr><tr>
+<td><input type=checkbox></td><td>34</td>
+<td><b>/what-is-iul</b><br><a href="https://raw.githubusercontent.com/vytautasskapcevicius-ship-it/goodwill-agent-hub/main/website-paste/what-is-iul.html" target=_blank>open payload &#8599;</a></td>
+<td class=meta><b>Title:</b> What Is Indexed Universal Life (IUL)? | Elmhurst, IL<br><b>Desc:</b> What is indexed universal life (IUL)? Permanent life insurance with cash value, a 0% floor, tax-advantaged access, and living benefits. Talk to a person in Elmhurst, IL.<br><b>Canonical:</b> https://goodwillfinancial.com/what-is-iul</td>
+</tr><tr>
+<td><input type=checkbox></td><td>35</td>
+<td><b>/workers-compensation-insurance</b><br><a href="https://raw.githubusercontent.com/vytautasskapcevicius-ship-it/goodwill-agent-hub/main/website-paste/workers-compensation-insurance.html" target=_blank>open payload &#8599;</a></td>
+<td class=meta><b>Title:</b> Workers Comp Insurance Illinois | Goodwill Financial<br><b>Desc:</b> Workers compensation insurance in Illinois for small businesses. Class codes, audits, IL rules explained in plain English. Call Goodwill Financial in Elmhurst, IL.<br><b>Canonical:</b> https://goodwillfinancial.com/workers-compensation-insurance</td>
+</tr>
+</table>
+<p style=color:#5A6470;font-size:13px>After all pages: enter the 261 URL redirects (assistant-provided CSV), then cutover (rebind goodwillfinancial.com to this site). Generated 35 pages.</p>
+</body></html>
