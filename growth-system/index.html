@@ -79,7 +79,20 @@
   footer a{color:var(--gold2)}
   .disc{font-size:12px;color:#8fb0cf;margin-top:12px;max-width:820px}
 
-  @media(max-width:880px){ .ppp,.machine,.two,.steps{grid-template-columns:1fr} }
+  /* directory */
+  .mgabtn{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;background:linear-gradient(135deg,var(--navy),var(--cerulean));color:#fff;border-radius:14px;padding:20px 24px;box-shadow:var(--shadow);margin-bottom:6px;border-left:6px solid var(--gold)}
+  .mgabtn h3{margin:0;color:#fff;font-size:20px}
+  .mgabtn p{margin:3px 0 0;color:#d4e3f2;font-size:14px}
+  .mgabtn a{background:var(--gold);color:#3a2e00;font-family:Oswald;font-weight:600;text-decoration:none;padding:11px 20px;border-radius:10px;font-size:15px;white-space:nowrap}
+  .grp{font-family:Oswald;text-transform:uppercase;letter-spacing:1.5px;font-size:13px;color:var(--cerulean);margin:24px 0 10px;font-weight:600}
+  .hubgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .lk{display:block;text-decoration:none;background:var(--card);border:1px solid var(--line);border-radius:13px;padding:16px;box-shadow:var(--shadow);transition:transform .12s ease,border-color .12s ease}
+  .lk:hover{transform:translateY(-2px);border-color:var(--cerulean)}
+  .lk .lt{font-family:Oswald;font-weight:600;color:var(--navy);font-size:16px;margin:0 0 3px;line-height:1.2}
+  .lk .ld{font-size:13px;color:#3a4a5c;margin:0 0 9px;line-height:1.45}
+  .lk .lh{font-size:11.5px;color:var(--muted);display:flex;align-items:center;gap:6px}
+  .lk .live{width:7px;height:7px;border-radius:50%;background:var(--built);box-shadow:0 0 0 3px rgba(31,157,97,.15);flex:0 0 auto}
+  @media(max-width:880px){ .ppp,.machine,.two,.steps,.hubgrid{grid-template-columns:1fr} }
 </style>
 </head>
 <body>
@@ -168,6 +181,21 @@
   </div>
 </section>
 
+<section id="built" style="background:#eef2f7">
+  <div class="wrap">
+    <h2>Open what's built — easy access</h2><div class="rule"></div>
+    <p class="lead">Every live page the system has produced, one click away. Green dot = live now; opens in a new tab.</p>
+    <div class="mgabtn">
+      <div>
+        <h3>Living Benefits MGA — the recruiting &amp; production engine</h3>
+        <p>Dashboard, recruiting flow, agent tools, content studios &amp; training — all in one place.</p>
+      </div>
+      <a href="../mga-hub/" target="_blank" rel="noopener">Open the MGA Hub →</a>
+    </div>
+    <div id="dir"></div>
+  </div>
+</section>
+
 <footer>
   <div class="wrap">
     <div class="dt" style="font-size:18px;color:#fff">The Goodwill Plan</div>
@@ -193,6 +221,46 @@ document.getElementById('machine').innerHTML = C.map(c=>`
    <span class="status s-${c.status}"><span class="dot"></span>${c.sl}</span>
    <div class="mvp"><b>Start:</b> ${c.mvp}</div>
  </div>`).join("");
+
+const HUB="https://vytautasskapcevicius-ship-it.github.io/goodwill-agent-hub/";
+const DIR=[
+ {g:"Strategy & roadmap", items:[
+   {t:"Six Pillars of Agency Automation", d:"The full automation strategy — ten pillars on two foundations.", u:"https://goodwill-six-pillars.surge.sh", h:"goodwill-six-pillars.surge.sh"},
+   {t:"Website recommendation scorecard", d:"P&C site + MGA recruiting site: current → blueprint → best-in-class.", u:"https://goodwill-website-scorecard.surge.sh", h:"goodwill-website-scorecard.surge.sh"},
+   {t:"SEO + best-practices audit", d:"goodwillfinancial.com dual-lens audit (client + recruiting).", u:"https://goodwill-seo-audit.surge.sh", h:"goodwill-seo-audit.surge.sh"},
+   {t:"Social-media platform strategy", d:"Account structure + platform priority for your personal brand.", u:"https://goodwill-social-strategy.surge.sh", h:"goodwill-social-strategy.surge.sh"},
+ ]},
+ {g:"Client engine (P&C · promotion)", items:[
+   {t:"Welcome campaign — Pilot #1", d:"90-day new-client onboarding: emails, mail, calls, referral ask.", u:HUB+"welcome/", h:"GitHub Pages"},
+   {t:"Partner funnel", d:"P&C-agency partnership landing + 3 lead magnets.", u:"https://goodwill-partners.surge.sh", h:"goodwill-partners.surge.sh"},
+   {t:"Cross-sell playbook", d:"Agent cross-sell checklist (EN/LT/RU) for turboDial.", u:"https://goodwill-cross-sell.surge.sh", h:"goodwill-cross-sell.surge.sh"},
+   {t:"FleetIQ profit dashboard", d:"Trucking owner tool — grade clients, trucks & loads A–F.", u:"https://goodwill-fleetiq.surge.sh", h:"goodwill-fleetiq.surge.sh"},
+   {t:"Agency cost model", d:"Cost today vs. with AI across 3 daily work streams.", u:"https://biz1040-cost.surge.sh", h:"biz1040-cost.surge.sh"},
+   {t:"Mariana client landing", d:"Trilingual UA/RU/EN business-card page.", u:"https://goodwill-mariana.surge.sh", h:"goodwill-mariana.surge.sh"},
+ ]},
+ {g:"Website & brand", items:[
+   {t:"LB master hub (everything bundle)", d:"One link to website redesign, decks, dashboards, reels.", u:"https://goodwill-lb.surge.sh", h:"goodwill-lb.surge.sh"},
+   {t:"Homepage UX fix preview", d:"Before/after of the goodwillfinancial.com homepage fixes.", u:"https://goodwill-homepage-preview.surge.sh", h:"goodwill-homepage-preview.surge.sh"},
+   {t:"Team intranet — operations guides", d:"Per-process agent guides (service box, inbox automation).", u:"https://goodwill-team.surge.sh", h:"goodwill-team.surge.sh"},
+ ]},
+ {g:"Team & training", items:[
+   {t:"Team AI onboarding training", d:"Whole-team self-paced AI course + progress tracking.", u:"https://goodwillfinancial.com/ai-training", h:"goodwillfinancial.com/ai-training"},
+   {t:"VS Code + Claude setup training", d:"Install + first-skill walkthrough for the team.", u:"https://goodwill-setup.surge.sh", h:"goodwill-setup.surge.sh"},
+   {t:"Team performance tracker", d:"Unified weekly scoreboard — production + activity.", u:HUB+"team-tracker/", h:"GitHub Pages"},
+ ]},
+ {g:"Agent tools", items:[
+   {t:"NLG term + Living Benefits pricing chart", d:"Quote monthly term premiums on a call, no illustration.", u:"https://goodwillfinancial.com/nlg-term", h:"goodwillfinancial.com/nlg-term"},
+   {t:"LB application data sheet", d:"Fillable 38-field client profile form (stays on device).", u:"https://goodwill-lb-app-sheet.surge.sh", h:"goodwill-lb-app-sheet.surge.sh"},
+ ]},
+];
+document.getElementById('dir').innerHTML = DIR.map(s=>`
+ <div class="grp">${s.g}</div>
+ <div class="hubgrid">${s.items.map(i=>`
+   <a class="lk" href="${i.u}" target="_blank" rel="noopener">
+     <div class="lt">${i.t}</div>
+     <div class="ld">${i.d}</div>
+     <div class="lh"><span class="live"></span>Live · ${i.h}</div>
+   </a>`).join("")}</div>`).join("");
 </script>
 </body>
 </html>
