@@ -95,6 +95,7 @@
   <a href="#mail">Mail (Thanks.io)</a>
   <a href="#calls">Call scripts</a>
   <a href="#referral">Referral program</a>
+  <a href="#keap">In Keap already</a>
   <a href="#build">Build checklist</a>
 </div></nav>
 
@@ -107,7 +108,7 @@
       <tr><td class="when">Day 0</td><td>Welcome email — what to expect, your team, claims + ID-card how-to</td><td><span class="ch email">Email · A</span></td><td>Set the tone (Nexsure sends the docs/ID card; this is the relationship welcome)</td></tr>
       <tr><td class="when">Day 1</td><td>Handwritten thank-you card</td><td><span class="ch mail">Thanks.io · A</span></td><td>Tangible appreciation</td></tr>
       <tr><td class="when">First Fri</td><td>Owner/agent thank-you call</td><td><span class="ch call">Call · H</span></td><td>Highest-retention touch</td></tr>
-      <tr><td class="when">Day 8</td><td>"How are we doing?" + review ask</td><td><span class="ch email">Email · A</span></td><td>Catch issues early + fuel 4.9★</td></tr>
+      <tr><td class="when">Day 8</td><td>Experience check → <b>review ask only on a happy rating</b></td><td><span class="ch email">Email · A</span></td><td>Catch issues early; time the 4.9★ ask to a positive peak</td></tr>
       <tr><td class="when">Day 14</td><td>Welcome letter + referral flier</td><td><span class="ch mail">Thanks.io · A</span></td><td>Meet the team + referral seed</td></tr>
       <tr><td class="when">Day 30</td><td>Check-in + tip + capture other-policy renewal dates</td><td><span class="ch email">Email · A</span></td><td>Stickiness + cross-sell seed</td></tr>
       <tr><td class="when">Day 45</td><td>"What protects your family's income?" — LB educational</td><td><span class="ch mail">Mail + Email · A</span></td><td>The North-Star seed (educate, don't pitch)</td></tr>
@@ -161,22 +162,23 @@ Vytas Skapcevičius &amp; the Goodwill Financial team
   </div>
 
   <div class="touch">
-    <div class="hd"><span class="day">Day 8</span><h3>Experience check + review ask</h3></div>
+    <div class="hd"><span class="day">Day 8</span><h3>Experience check → gated review ask</h3></div>
     <div class="body">
       <div class="field"><div class="lbl">Subject</div><div class="copy">{{First Name}}, how are we doing so far?</div></div>
-      <div class="field"><div class="lbl">Body</div><div class="copy">Hi {{First Name}},
+      <div class="field"><div class="lbl">Email — the sentiment check (sent to everyone)</div><div class="copy">Hi {{First Name}},
 
-It's been about a week since you joined the Goodwill Financial family, and I want to make sure your experience has been nothing short of excellent.
+It's been about a week since you joined the Goodwill Financial family — I want to make sure your experience has been nothing short of excellent.
 
-Would you take 30 seconds to let us know how we're doing?  →  {{Survey Link}}
+Would you take 30 seconds to rate how we're doing so far?  →  {{1-click rating: great / okay / not great}}
 
-If anything hasn't been perfect, tell me directly and I'll fix it personally. And if we've earned it, a quick Google review helps other families find us:  →  {{Google Review Link}}
-
-Thank you again for your trust.
+If anything hasn't been perfect, just reply to me directly and I'll make it right — that matters more to me than anything.
 
 Gratefully,
 Vytas Skapcevičius &amp; the Goodwill Financial team</div></div>
-      <div class="note"><b>Double duty:</b> the survey catches problems early <i>and</i> feeds the 4.9★ Google profile.</div>
+      <div class="field"><div class="lbl">Auto follow-up — fires ONLY on a "great" rating (the review ask, at the peak)</div><div class="copy">Thank you, {{First Name}} — that means the world to us! If you'd be willing to share it, a quick Google review helps other families find protection they can trust:  →  {{Google Review Link}}
+
+Gratefully, the Goodwill Financial team</div></div>
+      <div class="note"><b>Review-ask timing (best practice):</b> ask at a <i>positive peak</i>, not a flat date. The Day-8 email gauges sentiment; a <b>"great" rating auto-fires the review ask immediately</b> (while the feeling is fresh); a lukewarm/negative rating routes to the agent for <b>service recovery</b> — never push an unhappy client to a public review. <i>Google nuance:</i> don't <i>suppress</i> negative reviews ("review gating" violates Google policy) — ask everyone, just time the public-review invite to a high point; the reputation protection comes from catching problems early. <b>Alternative peak:</b> fire the review ask right after the First-Friday welcome call.</div>
     </div>
   </div>
 
@@ -316,6 +318,25 @@ Just send their name and number to refer@goodwillfinancial.com or call 630-785-2
       <p style="margin:0;font-size:14px;color:#33485c">On every <b>life</b> application (right after beneficiaries), capture 3 Emergency Contacts → the agent introduces themselves within a week → each becomes a warm living-benefits prospect. One client → three warm leads, without "asking for referrals." Pairs with this campaign; its own agent training + automation is Build #2.</p>
     </div>
   </div>
+</div></section>
+
+<section id="keap" style="background:#fdeee9"><div class="wrap">
+  <h2>⚠️ What's already live in Keap — coordinate, don't duplicate</h2><div class="rule"></div>
+  <p class="lead">Audited the live Keap via the API on 2026-06-23: <b>200 campaigns, 1,000 tags, 149 custom fields</b> (a mature prior build). Several Welcome pieces already run — so v1 <b>orchestrates + fills the gap</b>, it does <b>not</b> rebuild these.</p>
+  <table class="cad">
+    <thead><tr><th>v1 touch</th><th>Already in Keap</th><th>Do this instead</th></tr></thead>
+    <tbody>
+      <tr><td>Day 1 thank-you card</td><td>New-client thank-you cards already run (tags "CL- New Client Thank You Card" / "…new policy For Thank you cards")</td><td>Upgrade the existing card process to <b>Thanks.io</b> — don't add a 2nd card</td></tr>
+      <tr><td>First-Fri welcome call</td><td><b>"JB - Welcome Call Current" is ACTIVE</b> (+ "Welcome Call List" cadence)</td><td>Reuse/confirm it; just add the AI-drafted script — don't create a 2nd call</td></tr>
+      <tr><td>Referral program</td><td><b>"LA - 9. Referral Gift Card" + "Client Referral Rewards" already run</b></td><td>Rebrand the <b>existing</b> gift-card program to "Protect Someone You Love" — don't run two</td></tr>
+      <tr><td>Day 8 survey</td><td>"[MP-76] Satisfaction Survey" exists (unpublished)</td><td>Publish/reuse it + add the gated review ask</td></tr>
+      <tr><td>Day 30 X-date capture</td><td><b>PL X-Date (field 863) + CL X-Date (865) + a full X-Date system</b></td><td>FEED the existing fields — don't make new ones</td></tr>
+      <tr><td>Trigger field</td><td>No "Policy Start Date" — but CL Binding Date (857), Auto/Home Effective Date (544/911) exist</td><td>Trigger off an existing bind/effective date</td></tr>
+      <tr><td>Emergency Contact engine (Build #2)</td><td><b>Emergency Contact Name/Phone/Email 1–3 fields ALREADY EXIST (1177–1195)</b></td><td>Reuse them — zero field-building</td></tr>
+      <tr><td>Day 45 LB seed</td><td>"Home No Life", "Life Review", "Start Offering Living Benefits", cross-sell campaigns exist</td><td>Coordinate the seed with these; don't double-touch</td></tr>
+    </tbody>
+  </table>
+  <p class="note"><b>The real gap (what v1 actually builds):</b> none of the above is orchestrated into ONE coherent new-client → 90-day → living-benefits sequence, and the <b>early LB seed (Day 45) is the genuine missing piece.</b> v1 = orchestration + the LB seed, reusing every existing asset. <b>Next step before wiring:</b> open the 3 overlapping campaigns (Welcome Call, Thank-You Card, Referral Gift Card) to confirm exactly what they send.</p>
 </div></section>
 
 <section id="build"><div class="wrap">
