@@ -49,6 +49,9 @@
   .success.show{display:block}
   .success .check{width:64px;height:64px;border-radius:50%;background:var(--accent);color:var(--brand-darker);font-size:2rem;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem}
   .success h2{margin-bottom:0.5rem}
+  .type-block{display:none}
+  .type-block.show{display:block}
+  .type-intro{font-size:0.86rem;color:var(--text-muted);line-height:1.5;margin:0 0 1.25rem;padding:0.7rem 0.9rem;background:var(--bg-alt);border-left:3px solid var(--accent);border-radius:0 7px 7px 0}
   @media(max-width:560px){.field.half{display:block;width:100%}.field.half:nth-of-type(odd){margin-right:0}form.apply{padding:1.5rem 1.15rem}}
 </style>
 </head>
@@ -213,6 +216,271 @@
       </div>
     </fieldset>
 
+    <!-- 2b. TYPE-SPECIFIC (shown based on "Which best describes you today?") -->
+    <fieldset class="fs" id="typeSpecific" style="display:none">
+      <legend>2b · A bit more about your situation</legend>
+
+      <!-- ===== P&C AGENT ===== -->
+      <div class="type-block" data-type="p&amp;c agent">
+        <p class="type-intro">You already have clients who trust you. These tell us how living benefits could add revenue to your book — without you starting over.</p>
+        <div class="field tq" data-q="Role at the agency">
+          <label>Your role</label>
+          <div class="radio-row">
+            <label class="pill"><input type="radio" name="pc_role" value="Owner / Principal"> Owner / Principal</label>
+            <label class="pill"><input type="radio" name="pc_role" value="Producer / Staff"> Producer / Staff</label>
+            <label class="pill"><input type="radio" name="pc_role" value="Other"> Other</label>
+          </div>
+        </div>
+        <div class="field half tq" data-q="Clients (households) served">
+          <label>How many clients (households) does the agency serve?</label>
+          <select name="pc_clients"><option value="">Select…</option><option>Under 500</option><option>500–1,500</option><option>1,500–5,000</option><option>5,000+</option><option>Not sure</option></select>
+        </div>
+        <div class="field half tq" data-q="Approx. annual P&C premium">
+          <label>Approx. annual P&amp;C premium <span class="opt">(book size)</span></label>
+          <select name="pc_premium"><option value="">Select…</option><option>Under $1M</option><option>$1M–$5M</option><option>$5M–$15M</option><option>$15M+</option><option>Prefer not to say</option></select>
+        </div>
+        <div class="field half tq" data-q="Licensed producers on the team">
+          <label>Licensed producers on your team</label>
+          <select name="pc_producers"><option value="">Select…</option><option>Just me</option><option>2–5</option><option>6–15</option><option>16+</option></select>
+        </div>
+        <div class="field half tq" data-q="Offer life / living benefits today?">
+          <label>Do you offer life / living benefits today?</label>
+          <select name="pc_life_today"><option value="">Select…</option><option>No, none</option><option>We refer it out</option><option>We sell some</option><option>Yes, actively</option></select>
+        </div>
+        <div class="field tq" data-q="What matters most in a life partner">
+          <label>What matters most to you in a life-insurance partner? <span class="opt">(select all)</span></label>
+          <div class="check-grid">
+            <label class="pill"><input type="checkbox" name="pc_important" value="Higher comp"> Higher comp</label>
+            <label class="pill"><input type="checkbox" name="pc_important" value="Training & support"> Training &amp; support</label>
+            <label class="pill"><input type="checkbox" name="pc_important" value="Done-for-you back office"> Done-for-you back office</label>
+            <label class="pill"><input type="checkbox" name="pc_important" value="Lead support"> Lead support</label>
+            <label class="pill"><input type="checkbox" name="pc_important" value="Compliance cover"> Compliance cover</label>
+            <label class="pill"><input type="checkbox" name="pc_important" value="Carrier access"> Carrier access</label>
+            <label class="pill"><input type="checkbox" name="pc_important" value="Keep my brand"> Keep my brand</label>
+          </div>
+        </div>
+        <div class="field tq" data-q="Biggest challenge in the agency right now">
+          <label>Biggest challenge in your agency right now?</label>
+          <textarea name="pc_challenge" placeholder="Growth, retention, staffing, time, leads…"></textarea>
+        </div>
+        <div class="field tq" data-q="What would make the next 12 months a win">
+          <label>What would make the next 12 months a win for you?</label>
+          <textarea name="pc_win" placeholder="A revenue number, a new line, more time back, etc."></textarea>
+        </div>
+        <div class="field tq" data-q="How you'd like to start">
+          <label>How would you like to start?</label>
+          <div class="radio-row">
+            <label class="pill"><input type="radio" name="pc_start" value="Refer clients for a split"> Refer clients for a split</label>
+            <label class="pill"><input type="radio" name="pc_start" value="Get licensed & produce myself"> Get licensed &amp; produce myself</label>
+            <label class="pill"><input type="radio" name="pc_start" value="Have my team produce"> Have my team produce</label>
+            <label class="pill"><input type="radio" name="pc_start" value="Just exploring"> Just exploring</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== CPA ===== -->
+      <div class="type-block" data-type="cpa">
+        <p class="type-intro">Your clients already trust you with their money. Living benefits + tax-free retirement (IUL / Kai-Zen) fit naturally for business owners and high earners — these help us see the overlap.</p>
+        <div class="field half tq" data-q="Role at the firm">
+          <label>Your role</label>
+          <div class="radio-row">
+            <label class="pill"><input type="radio" name="cpa_role" value="Owner / Partner"> Owner / Partner</label>
+            <label class="pill"><input type="radio" name="cpa_role" value="Staff"> Staff</label>
+            <label class="pill"><input type="radio" name="cpa_role" value="Other"> Other</label>
+          </div>
+        </div>
+        <div class="field half tq" data-q="Credential">
+          <label>Credential</label>
+          <div class="check-grid">
+            <label class="pill"><input type="checkbox" name="cpa_cred" value="CPA"> CPA</label>
+            <label class="pill"><input type="checkbox" name="cpa_cred" value="EA"> EA</label>
+            <label class="pill"><input type="checkbox" name="cpa_cred" value="Other"> Other</label>
+          </div>
+        </div>
+        <div class="field half tq" data-q="Clients served">
+          <label>How many clients does your firm serve?</label>
+          <select name="cpa_clients"><option value="">Select…</option><option>Under 100</option><option>100–500</option><option>500–1,500</option><option>1,500+</option><option>Not sure</option></select>
+        </div>
+        <div class="field half tq" data-q="Serve business owners / high-income clients?">
+          <label>Do you serve business owners / high-income clients?</label>
+          <select name="cpa_biz"><option value="">Select…</option><option>Most of them</option><option>Some</option><option>Few — mostly individuals</option></select>
+        </div>
+        <div class="field half tq" data-q="Advise on or refer life / retirement today?">
+          <label>Do you advise on or refer life / retirement strategies today?</label>
+          <select name="cpa_today"><option value="">Select…</option><option>No</option><option>We refer out</option><option>We advise but don't place</option><option>Yes, we place</option></select>
+        </div>
+        <div class="field half tq" data-q="Life-licensed?">
+          <label>Are you life-licensed?</label>
+          <select name="cpa_licensed"><option value="">Select…</option><option>Yes</option><option>In progress</option><option>No, but open to it</option><option>No, prefer to refer only</option></select>
+        </div>
+        <div class="field tq" data-q="What matters most in a partner">
+          <label>What matters most to you in a partnership? <span class="opt">(select all)</span></label>
+          <div class="check-grid">
+            <label class="pill"><input type="checkbox" name="cpa_important" value="Revenue share"> Revenue share</label>
+            <label class="pill"><input type="checkbox" name="cpa_important" value="Compliance comfort"> Compliance comfort</label>
+            <label class="pill"><input type="checkbox" name="cpa_important" value="Client experience"> Client experience</label>
+            <label class="pill"><input type="checkbox" name="cpa_important" value="Done-for-you placement"> Done-for-you placement</label>
+            <label class="pill"><input type="checkbox" name="cpa_important" value="Client education"> Client education</label>
+            <label class="pill"><input type="checkbox" name="cpa_important" value="Keep my brand"> Keep my brand</label>
+          </div>
+        </div>
+        <div class="field tq" data-q="What a successful first-year partnership looks like">
+          <label>What would a successful first-year partnership look like?</label>
+          <textarea name="cpa_win" placeholder="Clients helped, revenue added, the kind of cases you'd refer…"></textarea>
+        </div>
+      </div>
+
+      <!-- ===== HEALTH AGENT ===== -->
+      <div class="type-block" data-type="health agent">
+        <p class="type-intro">You're already in front of families on coverage. Adding life / living benefits rounds out the household and adds a second revenue line.</p>
+        <div class="field half tq" data-q="Your role">
+          <label>Your role</label>
+          <div class="radio-row">
+            <label class="pill"><input type="radio" name="hl_role" value="Owner"> Owner</label>
+            <label class="pill"><input type="radio" name="hl_role" value="Producer"> Producer</label>
+            <label class="pill"><input type="radio" name="hl_role" value="Other"> Other</label>
+          </div>
+        </div>
+        <div class="field half tq" data-q="Clients / members served">
+          <label>How many clients / members do you serve?</label>
+          <select name="hl_clients"><option value="">Select…</option><option>Under 250</option><option>250–1,000</option><option>1,000–3,000</option><option>3,000+</option><option>Not sure</option></select>
+        </div>
+        <div class="field half tq" data-q="Sell any life today?">
+          <label>Do you sell any life today?</label>
+          <select name="hl_life_today"><option value="">Select…</option><option>No</option><option>Some</option><option>Yes</option></select>
+        </div>
+        <div class="field half tq" data-q="Busy / slow season">
+          <label>When's your busy / slow season? <span class="opt">(e.g. AEP)</span></label>
+          <input type="text" name="hl_season" placeholder="e.g. busy Oct–Dec, slow spring">
+        </div>
+        <div class="field tq" data-q="What matters most in a life partner">
+          <label>What matters most to you in a life partner? <span class="opt">(select all)</span></label>
+          <div class="check-grid">
+            <label class="pill"><input type="checkbox" name="hl_important" value="Higher comp"> Higher comp</label>
+            <label class="pill"><input type="checkbox" name="hl_important" value="Training"> Training</label>
+            <label class="pill"><input type="checkbox" name="hl_important" value="Back office"> Back office</label>
+            <label class="pill"><input type="checkbox" name="hl_important" value="Leads"> Leads</label>
+            <label class="pill"><input type="checkbox" name="hl_important" value="Compliance"> Compliance</label>
+            <label class="pill"><input type="checkbox" name="hl_important" value="Carrier access"> Carrier access</label>
+          </div>
+        </div>
+        <div class="field tq" data-q="Biggest challenge right now">
+          <label>Biggest challenge in your business right now?</label>
+          <textarea name="hl_challenge" placeholder="A few words."></textarea>
+        </div>
+      </div>
+
+      <!-- ===== NEW AGENT ===== -->
+      <div class="type-block" data-type="new agent">
+        <p class="type-intro">No experience needed — we train. These help us build the right ramp for you and set honest expectations together.</p>
+        <div class="field tq" data-q="What's driving you to start now">
+          <label>What's driving you to start now?</label>
+          <textarea name="new_whynow" placeholder="A few sentences — what changed, what you're after."></textarea>
+        </div>
+        <div class="field half tq" data-q="Hours/week you can commit">
+          <label>Hours per week you can commit</label>
+          <select name="new_hours"><option value="">Select…</option><option>Under 10</option><option>10–20</option><option>20–40</option><option>40+</option></select>
+        </div>
+        <div class="field half tq" data-q="Warm market — people you could talk to first">
+          <label>People you could talk to first <span class="opt">(your warm market)</span></label>
+          <select name="new_market"><option value="">Select…</option><option>Under 25</option><option>25–100</option><option>100–250</option><option>250+</option></select>
+        </div>
+        <div class="field tq" data-q="Runway before income replaces a paycheck">
+          <label>Can you build for a few months before this replaces a paycheck?</label>
+          <div class="radio-row">
+            <label class="pill"><input type="radio" name="new_runway" value="Yes, I have runway"> Yes, I have runway</label>
+            <label class="pill"><input type="radio" name="new_runway" value="Somewhat"> Somewhat</label>
+            <label class="pill"><input type="radio" name="new_runway" value="No — I need income fast"> No — need income fast</label>
+            <label class="pill"><input type="radio" name="new_runway" value="Side income only"> Side income only</label>
+          </div>
+        </div>
+        <div class="field half tq" data-q="Comfort talking to people / selling">
+          <label>Comfort talking to people / selling</label>
+          <div class="radio-row">
+            <label class="pill"><input type="radio" name="new_comfort" value="Very comfortable"> Very</label>
+            <label class="pill"><input type="radio" name="new_comfort" value="Somewhat"> Somewhat</label>
+            <label class="pill"><input type="radio" name="new_comfort" value="Nervous but willing"> Nervous but willing</label>
+          </div>
+        </div>
+        <div class="field half tq" data-q="Willing to follow a system & be coached">
+          <label>Willing to follow a proven system &amp; be coached?</label>
+          <div class="radio-row">
+            <label class="pill"><input type="radio" name="new_coach" value="Absolutely"> Absolutely</label>
+            <label class="pill"><input type="radio" name="new_coach" value="Mostly"> Mostly</label>
+            <label class="pill"><input type="radio" name="new_coach" value="I like my own way"> My own way</label>
+          </div>
+        </div>
+        <div class="field tq" data-q="What a great first year looks like to you">
+          <label>What does a great first year look like to you?</label>
+          <textarea name="new_year" placeholder="Income, families protected, lifestyle — your version of a win."></textarea>
+        </div>
+        <div class="field tq" data-q="Biggest concern about getting started">
+          <label>Biggest concern about getting started?</label>
+          <textarea name="new_concern" placeholder="Be honest — we'd rather talk it through."></textarea>
+        </div>
+      </div>
+
+      <!-- ===== EXPERIENCED AGENT ===== -->
+      <div class="type-block" data-type="experienced agent">
+        <p class="type-intro">You already know how to sell. These help us see your production, your situation, and what would actually make a move worth it.</p>
+        <div class="field half tq" data-q="Current / most recent agency or IMO">
+          <label>Current / most recent agency or IMO</label>
+          <input type="text" name="exp_agency">
+        </div>
+        <div class="field half tq" data-q="Years producing life">
+          <label>Years producing life insurance</label>
+          <select name="exp_years"><option value="">Select…</option><option>Under 1</option><option>1–3</option><option>3–7</option><option>7–15</option><option>15+</option></select>
+        </div>
+        <div class="field half tq" data-q="Annual life production (issued premium)">
+          <label>Annual life production <span class="opt">(issued premium)</span></label>
+          <select name="exp_production"><option value="">Select…</option><option>Under $50K</option><option>$50K–$150K</option><option>$150K–$500K</option><option>$500K+</option><option>Prefer not to say</option></select>
+        </div>
+        <div class="field half tq" data-q="Carriers / products you write most">
+          <label>Carriers / products you write most</label>
+          <input type="text" name="exp_carriers" placeholder="e.g. IUL, term, FE — which carriers">
+        </div>
+        <div class="field tq" data-q="Captive or independent? Non-compete?">
+          <label>Are you captive or independent? Any non-compete?</label>
+          <div class="radio-row">
+            <label class="pill"><input type="radio" name="exp_status" value="Independent, no non-compete"> Independent, no non-compete</label>
+            <label class="pill"><input type="radio" name="exp_status" value="Independent, have a non-compete"> Independent, non-compete</label>
+            <label class="pill"><input type="radio" name="exp_status" value="Captive"> Captive</label>
+            <label class="pill"><input type="radio" name="exp_status" value="Not sure"> Not sure</label>
+          </div>
+        </div>
+        <div class="field half tq" data-q="Have a current book you service?">
+          <label>Do you have a current book you service?</label>
+          <select name="exp_book"><option value="">Select…</option><option>Yes, active</option><option>Some</option><option>No</option></select>
+        </div>
+        <div class="field half tq" data-q="Build / recruit a team?">
+          <label>Do you build / recruit a team?</label>
+          <select name="exp_team"><option value="">Select…</option><option>Yes, I build</option><option>Want to start</option><option>No, personal production</option></select>
+        </div>
+        <div class="field tq" data-q="What matters most in a new home">
+          <label>What matters most in a new home? <span class="opt">(select all)</span></label>
+          <div class="check-grid">
+            <label class="pill"><input type="checkbox" name="exp_important" value="Higher comp"> Higher comp</label>
+            <label class="pill"><input type="checkbox" name="exp_important" value="Better carriers"> Better carriers</label>
+            <label class="pill"><input type="checkbox" name="exp_important" value="Lead support"> Lead support</label>
+            <label class="pill"><input type="checkbox" name="exp_important" value="Back-office / case mgmt"> Back-office / case mgmt</label>
+            <label class="pill"><input type="checkbox" name="exp_important" value="Ownership / vesting"> Ownership / vesting</label>
+            <label class="pill"><input type="checkbox" name="exp_important" value="Team overrides"> Team overrides</label>
+            <label class="pill"><input type="checkbox" name="exp_important" value="Training"> Training</label>
+            <label class="pill"><input type="checkbox" name="exp_important" value="Culture"> Culture</label>
+          </div>
+        </div>
+        <div class="field tq" data-q="Why considering a move now">
+          <label>Why are you considering a move now?</label>
+          <textarea name="exp_whymove" placeholder="What's missing where you are."></textarea>
+        </div>
+        <div class="field tq" data-q="What would make a move a win in 12 months">
+          <label>What would make a move a win in the first 12 months?</label>
+          <textarea name="exp_win" placeholder="Production, income, a team, ownership — your bar."></textarea>
+        </div>
+      </div>
+
+    </fieldset>
+
     <!-- 3. LICENSING -->
     <fieldset class="fs">
       <legend>3 · Licensing</legend>
@@ -315,9 +583,42 @@
     inp.addEventListener('change',sync);
   });
 
+  // show the type-specific block that matches "Which best describes you today?"
+  var typeSel=document.getElementById('typeOfAgent');
+  var typeFs=document.getElementById('typeSpecific');
+  function syncType(){
+    var v=(typeSel.value||'').toLowerCase(), any=false;
+    document.querySelectorAll('.type-block').forEach(function(b){
+      var show=(b.getAttribute('data-type')||'')===v;
+      b.classList.toggle('show',show);
+      if(show) any=true;
+    });
+    typeFs.style.display=any?'block':'none';
+  }
+  typeSel.addEventListener('change',syncType);
+  syncType();
+
   // submit as JSON to the Keap Worker (kind:"recruit"). Lands in Keap owned by Vytas,
   // tagged into the recruiting ATS at Stage 1 - Applied, with an instant alert.
   var form=document.getElementById('applyForm');
+  // collect the visible type-block's answers as [{q,a}] for the application note
+  function collectTypeDetails(){
+    var block=form.querySelector('.type-block.show');
+    if(!block) return [];
+    var out=[];
+    block.querySelectorAll('.tq').forEach(function(f){
+      var q=f.getAttribute('data-q')||'', a='';
+      if(f.querySelector('input[type=radio]')){
+        var r=f.querySelector('input[type=radio]:checked'); a=r?r.value:'';
+      } else if(f.querySelector('input[type=checkbox]')){
+        a=Array.prototype.slice.call(f.querySelectorAll('input[type=checkbox]:checked')).map(function(e){return e.value;}).join(', ');
+      } else {
+        var el=f.querySelector('input,select,textarea'); a=el?el.value.trim():'';
+      }
+      if(a) out.push({q:q,a:a});
+    });
+    return out;
+  }
   function fval(n){var el=form.querySelector('[name="'+n+'"]');return el?el.value.trim():'';}
   function fchecks(n){return Array.prototype.slice.call(form.querySelectorAll('[name="'+n+'"]:checked')).map(function(e){return e.value;});}
   function fradio(n){var el=form.querySelector('[name="'+n+'"]:checked');return el?el.value:'';}
@@ -337,6 +638,7 @@
       licenseStatus:fval('License Status'), npn:fval('NPN'), otherLicenses:fval('Other Licenses'),
       why:fval('Why / Why Now'), commitment:fradio('Commitment'), incomeGoal:fval('Income Goal'),
       referralSource:fval('Referral Source'), personalityType:fval('Personality Type'),
+      typeDetails:collectTypeDetails(),
       consent: !!(form.querySelector('[name="Consent"]')||{}).checked
     };
     fetch(form.action,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
