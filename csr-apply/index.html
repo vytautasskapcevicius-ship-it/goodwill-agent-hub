@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Apply — Customer Service Representative | Goodwill Financial</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+ :root{--navy:#0E3A5C;--cer:#0099CC;--gold:#F5B315;--ink:#13233b;--bg:#f4f7fa;--card:#fff;--line:#dde6ef;--mut:#5b6b7c}
+ *{box-sizing:border-box}
+ body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Inter,system-ui,Segoe UI,Roboto,sans-serif}
+ .top{background:linear-gradient(135deg,var(--navy),#0a2c46);color:#fff;padding:26px 18px 30px}
+ .wrap{max-width:680px;margin:0 auto;padding:0 18px}
+ h1{font-family:Oswald;font-weight:700;font-size:30px;letter-spacing:.4px;margin:8px 0 6px}
+ .sub{color:#cfe4f2;font-size:15px;max-width:560px}
+ .langbar{display:flex;gap:6px;margin-bottom:6px}
+ .lang{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.25);border-radius:18px;padding:3px 13px;font-size:13px;font-weight:600;cursor:pointer}
+ .lang.on{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+ .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 18px;margin:18px 0;box-shadow:0 1px 3px rgba(13,40,70,.06)}
+ .perk{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 2px}
+ .perk span{background:#eef6fb;border:1px solid #d4e8f4;color:var(--navy);border-radius:8px;padding:6px 11px;font-size:13.5px;font-weight:600}
+ label{display:block;font-weight:600;font-size:14.5px;margin:14px 0 5px}
+ .req{color:#c0392b}
+ input[type=text],input[type=email],input[type=tel],input[type=date],select,textarea{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:9px;font:15px Inter,sans-serif;background:#fcfdfe}
+ textarea{min-height:92px;resize:vertical}
+ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--cer);box-shadow:0 0 0 3px rgba(0,153,204,.15)}
+ .row{display:flex;gap:12px}.row>div{flex:1}
+ .checks{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+ .chk{display:flex;align-items:center;gap:7px;background:#fafcfe;border:1px solid var(--line);border-radius:8px;padding:8px 11px;font-size:14px;font-weight:500;cursor:pointer}
+ .chk input{width:17px;height:17px;accent-color:var(--cer)}
+ .hint{color:var(--mut);font-size:13px;margin-top:3px}
+ .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+ button.submit{width:100%;margin-top:20px;background:var(--gold);color:var(--ink);border:0;border-radius:10px;padding:15px;font-family:Oswald;font-weight:700;font-size:18px;letter-spacing:.5px;cursor:pointer}
+ button.submit:disabled{opacity:.6;cursor:wait}
+ .msg{margin-top:14px;padding:13px 14px;border-radius:9px;font-size:14.5px;display:none}
+ .msg.ok{display:block;background:#e7f6ec;border:1px solid #b6e0c4;color:#1d6b38}
+ .msg.err{display:block;background:#fdecea;border:1px solid #f5c2bd;color:#a32219}
+ .foot{color:var(--mut);font-size:12.5px;text-align:center;padding:8px 0 30px}
+ a{color:var(--cer)}
+</style>
+</head>
+<body>
+<div class="top"><div class="wrap">
+  <div class="langbar"><button class="lang on" data-l="en">EN</button><button class="lang" data-l="lt">LT</button></div>
+  <h1 data-t="h1">Customer Service Representative — Apply</h1>
+  <div class="sub" data-t="sub">Goodwill Financial · Elmhurst, IL. Entry level — no experience or license needed. We train you and sponsor your Illinois P&amp;C license. We hire for attitude.</div>
+</div></div>
+
+<div class="wrap">
+  <div class="card">
+    <div class="perk">
+      <span data-t="p1">In-office · Elmhurst (DuPage)</span>
+      <span data-t="p2">$19–21/hr to start</span>
+      <span data-t="p3">We pay for your license</span>
+      <span data-t="p4">Paid training</span>
+    </div>
+  </div>
+
+  <form id="f" class="card" autocomplete="on">
+    <div class="row">
+      <div><label data-t="first">First name <span class="req">*</span></label><input type="text" name="firstName" required></div>
+      <div><label data-t="last">Last name <span class="req">*</span></label><input type="text" name="lastName" required></div>
+    </div>
+    <div class="row">
+      <div><label data-t="email">Email <span class="req">*</span></label><input type="email" name="email" required></div>
+      <div><label data-t="phone">Phone <span class="req">*</span></label><input type="tel" name="phone" required></div>
+    </div>
+    <div class="row">
+      <div><label data-t="city">City</label><input type="text" name="city" placeholder="Elmhurst"></div>
+      <div><label data-t="zip">ZIP</label><input type="text" name="zip" inputmode="numeric"></div>
+    </div>
+
+    <label data-t="langs">Languages you speak</label>
+    <div class="checks" id="langs">
+      <label class="chk"><input type="checkbox" value="English" checked><span data-t="l_en">English</span></label>
+      <label class="chk"><input type="checkbox" value="Lithuanian"><span data-t="l_lt">Lithuanian</span></label>
+      <label class="chk"><input type="checkbox" value="Spanish"><span data-t="l_es">Spanish</span></label>
+      <label class="chk"><input type="checkbox" value="Polish"><span data-t="l_pl">Polish</span></label>
+      <label class="chk"><input type="checkbox" value="Russian"><span data-t="l_ru">Russian</span></label>
+      <label class="chk"><input type="checkbox" value="Ukrainian"><span data-t="l_ua">Ukrainian</span></label>
+    </div>
+    <div class="hint" data-t="langs_h">Lithuanian is a plus — not required.</div>
+
+    <label data-t="exp">Front-desk / customer-service experience</label>
+    <select name="experience">
+      <option value="None — but eager to learn" data-t="e0">None — but eager to learn</option>
+      <option value="Some (a few months)" data-t="e1">Some (a few months)</option>
+      <option value="Yes — 1+ years" data-t="e2">Yes — 1+ years receptionist / front desk</option>
+    </select>
+    <label data-t="expd">Briefly, where? (optional)</label>
+    <input type="text" name="experienceDetail" data-tp="expd_p" placeholder="e.g. front desk at a clinic, retail customer service…">
+
+    <div class="row">
+      <div>
+        <label data-t="ft">Can you work full-time, in-office?</label>
+        <select name="fullTime"><option value="Yes" data-t="y">Yes</option><option value="No" data-t="n">No</option></select>
+      </div>
+      <div><label data-t="start">Earliest start date</label><input type="date" name="startDate"></div>
+    </div>
+
+    <label data-t="why">Why are you interested? Tell us a little about yourself. <span class="req">*</span></label>
+    <textarea name="why" required data-tp="why_p" placeholder="What makes you good with people? Why this role?"></textarea>
+
+    <label data-t="src">How did you hear about us?</label>
+    <select name="referralSource">
+      <option value="Web Form" data-t="s0">— select —</option>
+      <option value="Facebook" data-t="s1">Facebook</option>
+      <option value="College / Handshake" data-t="s2">College / Handshake</option>
+      <option value="Lithuanian community" data-t="s3">Lithuanian community</option>
+      <option value="Referral — a friend" data-t="s4">A friend / referral</option>
+      <option value="Indeed / LinkedIn" data-t="s5">Indeed / LinkedIn</option>
+      <option value="Other" data-t="s6">Other</option>
+    </select>
+
+    <label class="chk" style="margin-top:14px"><input type="checkbox" name="consent" required><span data-t="consent">I agree to be contacted about this job by Goodwill Financial.</span></label>
+
+    <input class="hp" type="text" name="company_website" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+    <button class="submit" id="go" type="submit" data-t="go">Submit application</button>
+    <div class="msg" id="msg"></div>
+  </form>
+
+  <div class="foot" data-t="foot">Goodwill Financial, Inc. · 579 W. North Ave, Suite 300, Elmhurst, IL 60126 · Equal opportunity employer.</div>
+</div>
+
+<script>
+// Endpoint: the csr-apply Cloudflare Worker. Until deployed, the form falls back to an email draft.
+const WORKER = "https://goodwill-csr-apply.goodwill-lbt.workers.dev";
+const FALLBACK_EMAIL = "vytas@goodwillfinancial.com";
+const SKEY = "csr_apply_v1";
+
+const T = {
+ en:{}, // English is the source (data-t defaults)
+ lt:{
+  h1:"Klientų aptarnavimo specialistas — anketa",
+  sub:"Goodwill Financial · Elmhurst, IL. Be patirties — patirties ir licencijos nereikia. Apmokome ir apmokame tavo Ilinojaus P&C licenciją. Svarbiausia — geras požiūris.",
+  p1:"Darbas biure · Elmhurst (DuPage)", p2:"$19–21/val. pradžiai", p3:"Apmokame licenciją", p4:"Apmokami mokymai",
+  first:"Vardas", last:"Pavardė", email:"El. paštas", phone:"Telefonas", city:"Miestas", zip:"ZIP",
+  langs:"Kokiomis kalbomis kalbi", l_en:"Anglų", l_lt:"Lietuvių", l_es:"Ispanų", l_pl:"Lenkų", l_ru:"Rusų", l_ua:"Ukrainiečių",
+  langs_h:"Lietuvių kalba — privalumas, ne būtinybė.",
+  exp:"Administratoriaus / klientų aptarnavimo patirtis",
+  e0:"Nėra — bet noriu mokytis", e1:"Šiek tiek (kelis mėnesius)", e2:"Taip — 1+ metai",
+  expd:"Trumpai, kur? (nebūtina)", expd_p:"pvz. registratūra klinikoje, klientų aptarnavimas parduotuvėje…",
+  ft:"Ar gali dirbti pilnu etatu, biure?", y:"Taip", n:"Ne", start:"Anksčiausia pradžios data",
+  why:"Kodėl tau įdomu? Trumpai apie save.", why_p:"Kodėl tau gerai sekasi su žmonėmis? Kodėl šis darbas?",
+  src:"Kaip apie mus sužinojai?", s0:"— pasirink —", s1:"Facebook", s2:"Koledžas / Handshake", s3:"Lietuvių bendruomenė", s4:"Draugas / rekomendacija", s5:"Indeed / LinkedIn", s6:"Kita",
+  consent:"Sutinku, kad Goodwill Financial susisiektų dėl šio darbo.",
+  go:"Pateikti anketą",
+  foot:"Goodwill Financial, Inc. · 579 W. North Ave, Suite 300, Elmhurst, IL 60126 · Lygių galimybių darbdavys."
+ }
+};
+
+let lang="en";
+function applyLang(){
+ document.querySelectorAll("[data-t]").forEach(el=>{
+   const k=el.getAttribute("data-t"); const v=(T[lang]&&T[lang][k]);
+   if(v!=null) el.textContent=v;
+ });
+ document.querySelectorAll("[data-tp]").forEach(el=>{
+   const k=el.getAttribute("data-tp"); const v=(T[lang]&&T[lang][k]);
+   if(v!=null) el.setAttribute("placeholder",v);
+ });
+ document.documentElement.lang=lang;
+}
+document.querySelectorAll(".lang").forEach(b=>b.addEventListener("click",()=>{
+ document.querySelectorAll(".lang").forEach(x=>x.classList.remove("on"));
+ b.classList.add("on"); lang=b.getAttribute("data-l"); applyLang(); save();
+}));
+
+const form=document.getElementById("f");
+function gather(){
+ const fd=new FormData(form);
+ const languages=[...document.querySelectorAll("#langs input:checked")].map(i=>i.value);
+ return {
+  kind:"csr", lang,
+  firstName:(fd.get("firstName")||"").trim(), lastName:(fd.get("lastName")||"").trim(),
+  email:(fd.get("email")||"").trim(), phone:(fd.get("phone")||"").trim(),
+  city:(fd.get("city")||"").trim(), zip:(fd.get("zip")||"").trim(),
+  languages, experience:fd.get("experience")||"", experienceDetail:(fd.get("experienceDetail")||"").trim(),
+  fullTime:fd.get("fullTime")||"", startDate:fd.get("startDate")||"",
+  why:(fd.get("why")||"").trim(), referralSource:fd.get("referralSource")||"Web Form",
+  consent:!!fd.get("consent"), company_website:(fd.get("company_website")||"")
+ };
+}
+function summaryText(d){
+ return "— CSR / RECEPTIONIST APPLICATION —\n"+
+  "Name: "+d.firstName+" "+d.lastName+"\n"+
+  "Email: "+d.email+"    Phone: "+d.phone+"\n"+
+  "City/ZIP: "+(d.city||"-")+" "+(d.zip||"")+"\n"+
+  "Languages: "+(d.languages.join(", ")||"-")+"\n"+
+  "Experience: "+d.experience+(d.experienceDetail?(" — "+d.experienceDetail):"")+"\n"+
+  "Full-time in-office: "+d.fullTime+"    Earliest start: "+(d.startDate||"-")+"\n"+
+  "Heard via: "+d.referralSource+"\n"+
+  "Why / about: "+(d.why||"-");
+}
+function save(){ try{ sessionStorage.setItem(SKEY, JSON.stringify({lang,d:gather()})); }catch(e){} }
+function restore(){
+ try{ const s=JSON.parse(sessionStorage.getItem(SKEY)||"null"); if(!s) return;
+  if(s.lang){lang=s.lang; document.querySelectorAll(".lang").forEach(x=>x.classList.toggle("on",x.getAttribute("data-l")===lang));}
+  const d=s.d||{}; for(const k in d){ const el=form.elements[k]; if(el&&typeof d[k]==="string") el.value=d[k]; }
+  if(Array.isArray(d.languages)) document.querySelectorAll("#langs input").forEach(i=>i.checked=d.languages.includes(i.value));
+ }catch(e){}
+}
+form.addEventListener("input",save);
+
+const msg=document.getElementById("msg"), go=document.getElementById("go");
+function show(t,ok){ msg.textContent=t; msg.className="msg "+(ok?"ok":"err"); }
+
+form.addEventListener("submit",async (e)=>{
+ e.preventDefault();
+ const d=gather();
+ if(!d.firstName||!d.email||!d.why){ show(lang==="lt"?"Užpildyk vardą, el. paštą ir kodėl tau įdomu.":"Please add your name, email, and why.",false); return; }
+ go.disabled=true; show(lang==="lt"?"Siunčiama…":"Sending…",true);
+ const payload={...d, summaryText:summaryText(d)};
+ try{
+  const r=await fetch(WORKER+"/submit",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)});
+  if(r.ok){ const j=await r.json(); if(j.ok){ done(); return; } }
+  throw new Error("worker");
+ }catch(err){
+  // Fallback: open an email pre-filled so the application is never lost
+  const body=encodeURIComponent(summaryText(d));
+  const sub=encodeURIComponent("CSR application — "+d.firstName+" "+d.lastName);
+  window.location.href="mailto:"+FALLBACK_EMAIL+"?subject="+sub+"&body="+body;
+  done();
+ }
+});
+function done(){
+ try{ sessionStorage.removeItem(SKEY); }catch(e){}
+ form.querySelectorAll("input,select,textarea,button").forEach(x=>x.disabled=true);
+ show(lang==="lt"?"Ačiū! Anketa gauta — susisieksime.":"Thank you! Your application is in — we'll be in touch.",true);
+}
+
+applyLang(); restore(); applyLang();
+</script>
+</body>
+</html>
