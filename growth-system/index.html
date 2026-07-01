@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>The Goodwill Plan · Acres of Diamonds on Autopilot</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0B2545; --navy2:#13315C; --cerulean:#1B6CA8; --gold:#C9A227; --gold2:#E0BC4B;
+    --ink:#11202e; --paper:#f4f7fa; --card:#fff; --muted:#5b6b80; --line:#e3e9f0;
+    --built:#1f9d61; --partial:#d99a17; --gap:#d23f47;
+    --shadow:0 1px 3px rgba(11,37,69,.07),0 10px 28px rgba(11,37,69,.06);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:Inter,system-ui,Segoe UI,sans-serif;color:var(--ink);background:var(--paper);line-height:1.6}
+  h1,h2,h3,.dt{font-family:Oswald,sans-serif;letter-spacing:.4px;font-weight:600}
+  .wrap{max-width:1060px;margin:0 auto;padding:0 22px}
+  .eyebrow{font-family:Oswald;text-transform:uppercase;letter-spacing:2px;font-size:12.5px;color:var(--gold2);font-weight:600}
+
+  header{background:linear-gradient(135deg,var(--navy),var(--navy2) 55%,var(--cerulean));color:#fff;padding:50px 0 42px;border-bottom:4px solid var(--gold)}
+  header h1{font-size:clamp(30px,5vw,50px);margin:.16em 0 .12em;line-height:1.03}
+  header .sub{font-size:clamp(16px,2.2vw,20px);color:#d4e3f2;max-width:720px}
+  header .ns{margin-top:18px;display:inline-block;background:rgba(201,162,39,.16);border:1px solid rgba(224,188,75,.4);border-radius:999px;padding:7px 16px;font-size:14px;color:#f0deb0}
+
+  section{padding:44px 0}
+  section h2{font-size:clamp(23px,3.2vw,32px);margin:0 0 4px;color:var(--navy)}
+  .rule{height:3px;width:56px;background:var(--gold);border-radius:2px;margin:8px 0 22px}
+  .lead{color:var(--muted);max-width:760px;margin:0 0 24px;font-size:16px}
+
+  /* big idea */
+  .idea{background:var(--navy);color:#eaf2fa;border-radius:16px;padding:30px 32px;box-shadow:var(--shadow);border-left:6px solid var(--gold)}
+  .idea h3{color:var(--gold2);margin:0 0 8px;font-size:21px}
+  .idea p{margin:0 0 10px;font-size:16.5px;color:#dce8f4}
+  .idea b{color:#fff}
+
+  /* PPP */
+  .ppp{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .pcol{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:var(--shadow);border-top:5px solid var(--cerulean)}
+  .pcol.people{border-top-color:var(--gold)}
+  .pcol.promotion{border-top-color:#6b46c1}
+  .pcol h3{margin:0 0 2px;color:var(--navy);font-size:20px}
+  .pcol .tag{font-size:12.5px;color:var(--muted);margin-bottom:12px;display:block}
+  .pcol ul{margin:0;padding-left:18px}
+  .pcol li{margin:5px 0;font-size:14.5px;color:#33485c}
+
+  /* campaigns */
+  .machine{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .camp{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:9px;border-top:5px solid var(--gold)}
+  .camp .ch{display:flex;align-items:center;gap:10px}
+  .camp .ico{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,var(--gold),var(--gold2));display:flex;align-items:center;justify-content:center;font-family:Oswald;font-weight:700;color:#3a2e00;font-size:15px;flex:0 0 auto}
+  .camp h3{margin:0;font-size:17.5px;color:var(--navy);line-height:1.15}
+  .camp .what{font-size:14px;color:#3a4a5c;margin:0}
+  .camp .meta{font-size:12.5px;color:var(--muted)}
+  .camp .meta b{color:#33485c}
+  .status{font-size:12.5px;font-weight:600;display:inline-flex;align-items:center;gap:6px;margin-top:2px}
+  .dot{width:9px;height:9px;border-radius:50%}
+  .s-built .dot{background:var(--built)} .s-built{color:var(--built)}
+  .s-partial .dot{background:var(--partial)} .s-partial{color:#a9760b}
+  .s-gap .dot{background:var(--gap)} .s-gap{color:var(--gap)}
+  .camp .mvp{font-size:12.5px;color:#33485c;background:#f7f9fc;border:1px solid #eef2f7;border-radius:8px;padding:7px 9px}
+  .camp .mvp b{color:var(--cerulean)}
+
+  /* foundation + start */
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .fcard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:var(--shadow);border-left:5px solid #6b46c1}
+  .fcard h3{margin:0 0 6px;color:var(--navy);font-size:18px}
+  .fcard p{margin:0;font-size:14.5px;color:#33485c}
+  .steps{counter-reset:s;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .step{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:18px 16px;box-shadow:var(--shadow);position:relative}
+  .step::before{counter-increment:s;content:counter(s);font-family:Oswald;font-weight:700;font-size:28px;color:var(--gold);line-height:1}
+  .step h4{margin:6px 0 4px;font-size:15.5px;color:var(--navy)}
+  .step p{margin:0;font-size:13.5px;color:#3a4a5c}
+
+  footer{background:var(--navy);color:#cfe0f0;padding:30px 0 40px;margin-top:10px;font-size:13.5px;border-top:4px solid var(--gold)}
+  footer a{color:var(--gold2)}
+  .disc{font-size:12px;color:#8fb0cf;margin-top:12px;max-width:820px}
+
+  /* directory */
+  .mgabtn{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;background:linear-gradient(135deg,var(--navy),var(--cerulean));color:#fff;border-radius:14px;padding:20px 24px;box-shadow:var(--shadow);margin-bottom:6px;border-left:6px solid var(--gold)}
+  .mgabtn h3{margin:0;color:#fff;font-size:20px}
+  .mgabtn p{margin:3px 0 0;color:#d4e3f2;font-size:14px}
+  .mgabtn a{background:var(--gold);color:#3a2e00;font-family:Oswald;font-weight:600;text-decoration:none;padding:11px 20px;border-radius:10px;font-size:15px;white-space:nowrap}
+  .grp{font-family:Oswald;text-transform:uppercase;letter-spacing:1.5px;font-size:13px;color:var(--cerulean);margin:24px 0 10px;font-weight:600}
+  .hubgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .lk{display:block;text-decoration:none;background:var(--card);border:1px solid var(--line);border-radius:13px;padding:16px;box-shadow:var(--shadow);transition:transform .12s ease,border-color .12s ease}
+  .lk:hover{transform:translateY(-2px);border-color:var(--cerulean)}
+  .lk .lt{font-family:Oswald;font-weight:600;color:var(--navy);font-size:16px;margin:0 0 3px;line-height:1.2}
+  .lk .ld{font-size:13px;color:#3a4a5c;margin:0 0 9px;line-height:1.45}
+  .lk .lh{font-size:11.5px;color:var(--muted);display:flex;align-items:center;gap:6px}
+  .lk .live{width:7px;height:7px;border-radius:50%;background:var(--built);box-shadow:0 0 0 3px rgba(31,157,97,.15);flex:0 0 auto}
+  @media(max-width:880px){ .ppp,.machine,.two,.steps,.hubgrid{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="eyebrow">Goodwill Financial · The Plan · 2026-06-22</div>
+    <h1>The Goodwill Plan</h1>
+    <div class="sub">Mine your <b>Acres of Diamonds</b> — the book you already own — with an always-on campaign machine that runs on autopilot. Built on Mike Stromsoe's three P's: <b>People · Process · Promotion.</b></div>
+    <div class="ns">North Star: protect more people with living benefits · +50 LB agents · $500K → $1M</div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="idea">
+      <h3>The big idea — Acres of Diamonds</h3>
+      <p><b>Your goldmine is the book you already have.</b> Before chasing cold leads, mine your existing clients — welcome them, review them, cross-sell them, ask for referrals, win back the lost.</p>
+      <p>For Goodwill that "mining" has a name: <b>protect more people with living benefits.</b> Every auto client with no life policy is a diamond. The job is a machine that surfaces them and drafts the touch — so the agency runs without you.</p>
+    </div>
+  </div>
+</section>
+
+<section style="background:#eef2f7">
+  <div class="wrap">
+    <h2>People · Process · Promotion</h2><div class="rule"></div>
+    <p class="lead"><b>People first</b> — Stromsoe's order is deliberate. World-class <b>people</b> run world-class <b>processes</b>, and great processes power relentless <b>promotion</b>. Every automation serves one of the three — free your people, harden a process, or amplify promotion.</p>
+    <div class="ppp">
+      <div class="pcol people">
+        <h3>1 · People</h3><span class="tag">World-class people running a world-class agency</span>
+        <ul>
+          <li>Recruiting &amp; onboarding — grow the roster (+50 agents)</li>
+          <li>Call coaching — make every producer better</li>
+          <li>Morning day-plan — one screen, no scramble</li>
+          <li>Client follow-up drafts — free their time</li>
+        </ul>
+      </div>
+      <div class="pcol process">
+        <h3>2 · Process</h3><span class="tag">The world-class systems your people run — unattended</span>
+        <ul>
+          <li>Service &amp; documents (COIs, ID cards, filing)</li>
+          <li>Renewal processing</li>
+          <li>Claims / FNOL intake</li>
+          <li>Weekly scoreboard</li>
+        </ul>
+      </div>
+      <div class="pcol promotion">
+        <h3>3 · Promotion</h3><span class="tag">Market relentlessly — never stop</span>
+        <ul>
+          <li>The campaign machine — 6 always-on campaigns ↓</li>
+          <li>New-business intake (speed-to-lead)</li>
+          <li>Lead gen + ad performance</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Never STOP Marketing — the campaign machine</h2><div class="rule"></div>
+    <p class="lead">Stromsoe's rule: <b>never stop marketing</b> — always-on, multi-touch. These are the six campaigns we apply it through, each mining the book. Every one runs <b>draft-only</b> — AI does 75%, a human approves the final 25% before anything reaches a client.</p>
+    <div class="machine" id="machine"></div>
+  </div>
+</section>
+
+<section style="background:#eef2f7">
+  <div class="wrap">
+    <h2>The Foundation</h2><div class="rule"></div>
+    <p class="lead">Two layers under everything. They make no money — they protect the money the machine makes.</p>
+    <div class="two">
+      <div class="fcard"><h3>Resilience</h3><p>Today all 11 automations run on one logged-in desktop — unplug it and the company stops, silently. Move them to <b>Claude Routines</b> (Anthropic cloud, laptop closed). Add a heartbeat so a missed run alerts you.</p></div>
+      <div class="fcard"><h3>Governance &amp; E&amp;O</h3><p>A written AI-use program (NAIC AIS), a human accountable for every client decision, and consent logging. AI-exclusion clauses went live Jan 1 2026 — <b>undisclosed AI use can void your E&amp;O.</b> Documentation is the asset.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Start here — the first 30 days</h2><div class="rule"></div>
+    <div class="steps">
+      <div class="step"><h4>Move one routine to the cloud</h4><p>Migrate the read-only call-audit to a Claude Routine. Laptop can be off. Fixes the #1 risk on a safe task.</p></div>
+      <div class="step"><h4>Wire the recruiting form</h4><p>Apply-form → Keap + instant alert. Stop losing applications. Directly feeds +50 agents.</p></div>
+      <div class="step"><h4>Turn on the Review campaign</h4><p>At each renewal, draft the coverage review + the living-benefits offer. This is Acres of Diamonds — the North Star.</p></div>
+      <div class="step"><h4>Sign the AI program</h4><p>One-page AIS program + one E&amp;O carrier conversation. Govern before you scale.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="built" style="background:#eef2f7">
+  <div class="wrap">
+    <h2>Open what's built — easy access</h2><div class="rule"></div>
+    <p class="lead">Every live page the system has produced, one click away. Green dot = live now; opens in a new tab.</p>
+    <div class="mgabtn">
+      <div>
+        <h3>Living Benefits MGA — the recruiting &amp; production engine</h3>
+        <p>Dashboard, recruiting flow, agent tools, content studios &amp; training — all in one place.</p>
+      </div>
+      <a href="../mga-hub/" target="_blank" rel="noopener">Open the MGA Hub →</a>
+    </div>
+    <div id="dir"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="dt" style="font-size:18px;color:#fff">The Goodwill Plan</div>
+    <div>The simple view of the full strategy. Deep build spec (every campaign + engine, sources, compliance) → <code>output/agency-automation-six-pillars-2026-06-22.md</code></div>
+    <div class="disc">Internal — not for external distribution (noindex). Grounded in Mike Stromsoe's Unstoppable Profit Producer teaching — the three P's (People · Process · Promotion), Acres of Diamonds (mine your own book first; Conwell's parable), and "Never STOP Marketing." The six campaigns are Goodwill's applied build of that principle, not a trademarked Stromsoe roster. Status reflects Goodwill's live stack as of 2026-06-22. No client data on this page.</div>
+  </div>
+</footer>
+
+<script>
+const C=[
+ {ic:"W",name:"Welcome",what:"Onboard every new client on day one — confirm coverage, set expectations, ask for the first referral, and capture the X-dates of their other policies.",trig:"On new bind / issued policy",status:"partial",sl:"★ Pilot #1 — building v1",mvp:"Full 90-day copy + cadence is written → <a href='https://vytautasskapcevicius-ship-it.github.io/goodwill-agent-hub/welcome/' target='_blank' style='color:var(--cerulean);font-weight:600'>open the Welcome Pilot page →</a>"},
+ {ic:"X",name:"X-Date",what:"Capture a prospect's current-policy expiration and quote them 30–60 days before their renewal — the best-timed new business there is.",trig:"Daily — prospects 30–60 days from renewal",status:"partial",sl:"Partly built",mvp:"Routine drafts the timed offer (X-date fields + Canopy capture already exist)"},
+ {ic:"C",name:"Claims",what:"Fast FNOL intake, proactive advocacy during the claim, a check-in after — then the referral ask. A claim is the #1 retention risk and the #1 referral moment.",trig:"On FNOL (email / call / form)",status:"gap",sl:"Manual — weakest spot",mvp:"FNOL intake from service@ → classify → Nexsure action → alert"},
+ {ic:"R",name:"Referral",what:"Ask systematically at every high point — after a bind, a closed claim, a great service moment, the annual review. Plus a review request.",trig:"On each high point",status:"partial",sl:"Logger exists",mvp:"Trigger the referral + review ask after bind / claim / review"},
+ {ic:"◆",name:"Annual Review — Acres of Diamonds",what:"The goldmine. Each year: review coverage, secure the renewal, round the account, and cross-sell living benefits into the P&C book. The North Star pillar.",trig:"At each client's renewal / review date",status:"partial",sl:"Batch only",mvp:"Per-renewal Routine drafts the coverage review + living-benefits offer"},
+ {ic:"↺",name:"Win-Back",what:"Re-engage lost clients and dead quotes — they're warm. A staged win-back recovers a real share, especially at their next renewal date.",trig:"Monthly — last period's lost / dead",status:"gap",sl:"Manual",mvp:"Staged win-back from the Nexsure Lost report + a re-quote at next X-date"},
+];
+document.getElementById('machine').innerHTML = C.map(c=>`
+ <div class="camp">
+   <div class="ch"><div class="ico">${c.ic}</div><h3>${c.name}</h3></div>
+   <p class="what">${c.what}</p>
+   <div class="meta"><b>When:</b> ${c.trig}</div>
+   <span class="status s-${c.status}"><span class="dot"></span>${c.sl}</span>
+   <div class="mvp"><b>Start:</b> ${c.mvp}</div>
+ </div>`).join("");
+
+const HUB="https://vytautasskapcevicius-ship-it.github.io/goodwill-agent-hub/";
+const DIR=[
+ {g:"Strategy & roadmap", items:[
+   {t:"Six Pillars of Agency Automation", d:"The full automation strategy — ten pillars on two foundations.", u:"https://goodwill-six-pillars.surge.sh", h:"goodwill-six-pillars.surge.sh"},
+   {t:"Website recommendation scorecard", d:"P&C site + MGA recruiting site: current → blueprint → best-in-class.", u:"https://goodwill-website-scorecard.surge.sh", h:"goodwill-website-scorecard.surge.sh"},
+   {t:"SEO + best-practices audit", d:"goodwillfinancial.com dual-lens audit (client + recruiting).", u:"https://goodwill-seo-audit.surge.sh", h:"goodwill-seo-audit.surge.sh"},
+   {t:"Social-media platform strategy", d:"Account structure + platform priority for your personal brand.", u:"https://goodwill-social-strategy.surge.sh", h:"goodwill-social-strategy.surge.sh"},
+ ]},
+ {g:"Client engine (P&C · promotion)", items:[
+   {t:"Welcome campaign — Pilot #1", d:"90-day new-client onboarding: emails, mail, calls, referral ask.", u:HUB+"welcome/", h:"GitHub Pages"},
+   {t:"Partner funnel", d:"P&C-agency partnership landing + 3 lead magnets.", u:"https://goodwill-partners.surge.sh", h:"goodwill-partners.surge.sh"},
+   {t:"Cross-sell playbook", d:"Agent cross-sell checklist (EN/LT/RU) for turboDial.", u:"https://goodwill-cross-sell.surge.sh", h:"goodwill-cross-sell.surge.sh"},
+   {t:"FleetIQ profit dashboard", d:"Trucking owner tool — grade clients, trucks & loads A–F.", u:"https://goodwill-fleetiq.surge.sh", h:"goodwill-fleetiq.surge.sh"},
+   {t:"Agency cost model", d:"Cost today vs. with AI across 3 daily work streams.", u:"https://biz1040-cost.surge.sh", h:"biz1040-cost.surge.sh"},
+   {t:"Mariana client landing", d:"Trilingual UA/RU/EN business-card page.", u:"https://goodwill-mariana.surge.sh", h:"goodwill-mariana.surge.sh"},
+ ]},
+ {g:"Website & brand", items:[
+   {t:"LB master hub (everything bundle)", d:"One link to website redesign, decks, dashboards, reels.", u:"https://goodwill-lb.surge.sh", h:"goodwill-lb.surge.sh"},
+   {t:"Homepage UX fix preview", d:"Before/after of the goodwillfinancial.com homepage fixes.", u:"https://goodwill-homepage-preview.surge.sh", h:"goodwill-homepage-preview.surge.sh"},
+   {t:"Team intranet — operations guides", d:"Per-process agent guides (service box, inbox automation).", u:"https://goodwill-team.surge.sh", h:"goodwill-team.surge.sh"},
+ ]},
+ {g:"Team & training", items:[
+   {t:"Team AI onboarding training", d:"Whole-team self-paced AI course + progress tracking.", u:"https://goodwillfinancial.com/ai-training", h:"goodwillfinancial.com/ai-training"},
+   {t:"VS Code + Claude setup training", d:"Install + first-skill walkthrough for the team.", u:"https://goodwill-setup.surge.sh", h:"goodwill-setup.surge.sh"},
+   {t:"Team performance tracker", d:"Unified weekly scoreboard — production + activity.", u:HUB+"team-tracker/", h:"GitHub Pages"},
+ ]},
+ {g:"Agent tools", items:[
+   {t:"NLG term + Living Benefits pricing chart", d:"Quote monthly term premiums on a call, no illustration.", u:"https://goodwillfinancial.com/nlg-term", h:"goodwillfinancial.com/nlg-term"},
+   {t:"LB application data sheet", d:"Fillable 38-field client profile form (stays on device).", u:"https://goodwill-lb-app-sheet.surge.sh", h:"goodwill-lb-app-sheet.surge.sh"},
+ ]},
+];
+document.getElementById('dir').innerHTML = DIR.map(s=>`
+ <div class="grp">${s.g}</div>
+ <div class="hubgrid">${s.items.map(i=>`
+   <a class="lk" href="${i.u}" target="_blank" rel="noopener">
+     <div class="lt">${i.t}</div>
+     <div class="ld">${i.d}</div>
+     <div class="lh"><span class="live"></span>Live · ${i.h}</div>
+   </a>`).join("")}</div>`).join("");
+</script>
+</body>
+</html>

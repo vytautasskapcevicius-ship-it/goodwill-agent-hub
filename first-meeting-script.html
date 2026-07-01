@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Appointment Invitation Call | Living Benefits Team</title>
+<meta name="description" content="Agent talk track for the first appointment — build trust, uncover the need, teach living benefits, set up the plan. 6 languages, fillable.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0a1f3d; --navy-2:#14305c; --gold:#c8a04a; --gold-soft:#f3ead4;
+  --bg:#faf8f3; --surface:#ffffff; --surface-2:#f3efe6;
+  --text:#0f172a; --muted:#5a6677; --border:#e3ddcf; --green:#047857;
+  --shadow:0 1px 3px rgba(15,23,42,.05); --shadow-lg:0 12px 32px rgba(15,23,42,.10);
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.55;-webkit-font-smoothing:antialiased;}
+.shell{max-width:840px;margin:0 auto;padding:0 22px 90px;}
+
+.lang-bar{position:sticky;top:0;z-index:50;background:var(--navy);display:flex;gap:6px;flex-wrap:wrap;align-items:center;padding:10px 16px;margin:0 -22px 0;box-shadow:var(--shadow-lg);}
+.lang-bar .lbl{color:var(--gold);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;margin-right:4px;}
+.lang-bar button{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.28);padding:6px 13px;border-radius:8px;font-weight:700;font-size:13px;cursor:pointer;font-family:inherit;}
+.lang-bar button:hover{background:rgba(255,255,255,.10);}
+.lang-bar button.active{background:var(--gold);color:var(--navy);border-color:var(--gold);}
+.lang-bar .spacer{flex:1;}
+.lang-bar .hub-link{color:rgba(255,255,255,.7);font-size:12px;text-decoration:none;font-weight:600;}
+.lang-bar .hub-link:hover{color:#fff;}
+
+header.hero{background:linear-gradient(135deg,var(--navy),var(--navy-2));color:#fff;border-radius:0 0 20px 20px;margin:0 -22px 26px;padding:34px 30px 28px;text-align:center;position:relative;overflow:hidden;}
+header.hero::after{content:"";position:absolute;top:-50px;right:-40px;width:200px;height:200px;background:radial-gradient(circle,var(--gold) 0%,transparent 65%);opacity:.16;}
+header.hero .eyebrow{display:inline-block;font-size:11px;text-transform:uppercase;letter-spacing:.2em;color:var(--gold);font-weight:700;margin-bottom:12px;}
+header.hero h1{font-family:'Fraunces',Georgia,serif;font-weight:700;font-size:clamp(28px,5vw,42px);line-height:1.05;letter-spacing:-.02em;margin:0 0 10px;}
+header.hero .tagline{font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:18px;color:var(--gold-soft);margin:0 auto;max-width:540px;}
+
+.setup{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px;margin:0 0 22px;box-shadow:var(--shadow);}
+.setup .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+@media (max-width:620px){.setup .grid{grid-template-columns:1fr;}}
+.field{display:flex;flex-direction:column;gap:5px;}
+.field label{font-size:12px;font-weight:600;color:var(--navy);}
+.field input,.field textarea,.field select{font-family:inherit;font-size:14.5px;color:var(--text);background:var(--surface);border:1px solid var(--border);border-radius:9px;padding:9px 11px;width:100%;}
+.field input:focus,.field textarea:focus,.field select:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(200,160,74,.18);}
+.field textarea{resize:vertical;min-height:60px;line-height:1.5;}
+
+.step{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:22px 24px;margin:0 0 18px;box-shadow:var(--shadow);}
+.step .num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--navy);color:#fff;border-radius:50%;font-size:13px;font-weight:700;margin-right:10px;flex:none;}
+.step h2{font-family:'Fraunces',Georgia,serif;font-weight:700;font-size:19px;color:var(--navy);margin:0 0 14px;display:flex;align-items:center;letter-spacing:-.01em;}
+
+.say{background:var(--gold-soft);border-left:4px solid var(--gold);border-radius:0 10px 10px 0;padding:14px 18px;font-size:16px;line-height:1.6;color:var(--text);}
+.say.big{font-size:16.5px;}
+.note{font-size:13.5px;color:var(--muted);font-style:italic;margin:12px 0 0;}
+.note::before{content:"▸ ";color:var(--gold);font-style:normal;}
+
+.tool-link{display:inline-flex;align-items:center;gap:8px;margin-top:14px;background:var(--navy);color:#fff;text-decoration:none;padding:10px 18px;border-radius:999px;font-size:13.5px;font-weight:600;}
+.tool-link:hover{background:var(--gold);color:var(--navy);}
+
+.obj{border:1px solid var(--border);border-radius:12px;margin-top:12px;overflow:hidden;}
+.obj .obj-q{background:var(--surface-2);padding:11px 16px;font-weight:700;font-size:14.5px;color:var(--navy);}
+.obj .obj-a{padding:13px 16px;font-size:15px;line-height:1.55;}
+
+.qgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:6px;}
+@media (max-width:620px){.qgrid{grid-template-columns:1fr;}}
+.qgrid .full{grid-column:1/-1;}
+
+.action-bar{position:sticky;bottom:0;z-index:40;margin:26px -22px 0;background:rgba(250,248,243,.92);backdrop-filter:blur(8px);border-top:1px solid var(--border);padding:14px 22px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;}
+.btn{font-family:inherit;font-weight:700;font-size:14px;border-radius:999px;padding:11px 20px;cursor:pointer;border:1px solid transparent;}
+.btn-primary{background:var(--navy);color:#fff;}
+.btn-primary:hover{background:var(--gold);color:var(--navy);}
+.btn-primary.copied{background:var(--green);color:#fff;}
+.btn-ghost{background:transparent;color:var(--navy);border-color:var(--border);}
+.btn-ghost:hover{border-color:var(--gold);background:var(--surface-2);}
+.btn-clear{background:transparent;color:var(--muted);border:none;font-size:13px;font-weight:600;cursor:pointer;text-decoration:underline;text-underline-offset:3px;}
+.saved-flag{font-size:12px;color:var(--green);font-weight:600;opacity:0;transition:opacity .25s;margin-left:auto;}
+.saved-flag.show{opacity:1;}
+
+footer{text-align:center;font-size:11.5px;color:var(--muted);margin-top:28px;padding-top:18px;border-top:1px solid var(--border);line-height:1.6;}
+footer .brand{color:var(--navy);font-weight:600;}
+.toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%) translateY(20px);background:var(--navy);color:#fff;padding:12px 22px;border-radius:999px;font-size:14px;font-weight:600;box-shadow:var(--shadow-lg);opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;z-index:200;}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+@media print{.lang-bar,.action-bar,.btn,.btn-clear,.saved-flag,.hub-link,.tool-link{display:none !important;}body{background:#fff;}header.hero{margin:0 0 16px;border-radius:0;-webkit-print-color-adjust:exact;print-color-adjust:exact;}.step,.setup{break-inside:avoid;box-shadow:none;border:1px solid #ccc;}.say{-webkit-print-color-adjust:exact;print-color-adjust:exact;}.shell{padding:0;max-width:100%;}}
+</style>
+</head>
+<body data-lang="en">
+
+<div class="lang-bar">
+  <span class="lbl" data-i18n="langLabel">Language</span>
+  <button data-lang="en" class="active">EN</button>
+  <button data-lang="lt">LT</button>
+  <button data-lang="uk">UA</button>
+  <button data-lang="ru">RU</button>
+  <button data-lang="pl">PL</button>
+  <button data-lang="es">ES</button>
+  <span class="spacer"></span>
+  <a class="hub-link" href="index.html">← Hub</a>
+</div>
+
+<div class="shell">
+
+<header class="hero">
+  <div class="eyebrow" data-i18n="eyebrow">First Meeting · Discovery</div>
+  <h1 data-i18n="title">Appointment Invitation Call</h1>
+  <p class="tagline" data-i18n="tagline">Build trust, uncover the need, set up the plan.</p>
+</header>
+
+<div class="setup">
+  <div class="grid">
+    <div class="field"><label data-i18n="fldAgent">Your name (agent)</label><input type="text" id="agentName" name="agentName"></div>
+    <div class="field"><label data-i18n="fldClient">Client name</label><input type="text" id="clientName" name="clientName"></div>
+  </div>
+</div>
+
+<!-- 1 -->
+<div class="step">
+  <h2><span class="num">1</span><span data-i18n="s1Label">Welcome &amp; rapport</span></h2>
+  <div class="say" data-i18n="s1Say">[Client], thank you for making the time today. Before anything else, I just want to get to know you a little. How long have you and your family been here in the area?</div>
+  <p class="note" data-i18n="s1Note">Spend 2–3 minutes here. People buy from people they trust. Find common ground first.</p>
+</div>
+
+<!-- 2 -->
+<div class="step">
+  <h2><span class="num">2</span><span data-i18n="s2Label">Set the agenda</span></h2>
+  <div class="say" data-i18n="s2Say">Here's how I'd like to use our time: first I'll get to know you and your family, then I'll show you how living benefits actually work, and if it's a fit, we'll look at a couple of options together. Does that sound fair?</div>
+  <p class="note" data-i18n="s2Note">Always get the small "yes" here — it frames the whole meeting.</p>
+</div>
+
+<!-- 3 -->
+<div class="step">
+  <h2><span class="num">3</span><span data-i18n="s3Label">Discovery — listen and fill it in together</span></h2>
+  <div class="say" data-i18n="s3Say">Let's start with you. Tell me about your family — who's counting on you, what you do for work, and what you'd most want protected if life ever threw a curveball.</div>
+  <p class="note" data-i18n="s3Note">Open the fact-finder and complete it together. Listen more than you talk. Jot the highlights below.</p>
+  <a class="tool-link" href="appointment-form.html" target="_blank" rel="noopener"><span data-i18n="openFactFinder">Open the Discovery Fact-Finder →</span></a>
+  <div class="qgrid" style="margin-top:14px;">
+    <div class="field full"><label data-i18n="mn_discovery">Discovery notes</label><textarea name="mn_discovery"></textarea></div>
+  </div>
+</div>
+
+<!-- 4 -->
+<div class="step">
+  <h2><span class="num">4</span><span data-i18n="s4Label">Teach Living Benefits</span></h2>
+  <div class="say big" data-i18n="s4Say">Most people think life insurance only pays when you die. The plans we use are different — it's life insurance you don't have to die to use. Money really has three jobs: protect your family if you pass too soon, give you tax-free income when you retire, and help you financially if you get seriously sick along the way — cancer, heart attack, stroke. One plan can do all three.</div>
+  <p class="note" data-i18n="s4Note">Draw it if you can: three circles — Die too soon · Live too long · Get sick. Living benefits + IUL cover all three.</p>
+</div>
+
+<!-- 5 -->
+<div class="step">
+  <h2><span class="num">5</span><span data-i18n="s5Label">Make it personal</span></h2>
+  <div class="say" data-i18n="s5Say">Earlier you told me what matters most to you. Here's exactly how this plan addresses that, in plain terms…</div>
+  <p class="note" data-i18n="s5Note">Tie the concept back to the goals they marked on the fact-finder. Use their own words, not jargon.</p>
+</div>
+
+<!-- 6 -->
+<div class="step">
+  <h2><span class="num">6</span><span data-i18n="s6Label">Trial close &amp; transition</span></h2>
+  <div class="say" data-i18n="s6Say">Based on everything you've shared — does protecting your family while building tax-free money for your own future make sense to you?</div>
+  <p class="note" data-i18n="s6Note">If yes → "Great — let me build you a proposal tailored to your exact numbers." If unsure → ask gently what's holding them back.</p>
+</div>
+
+<!-- 7 -->
+<div class="step">
+  <h2><span class="num">7</span><span data-i18n="s7Label">Next steps</span></h2>
+  <div class="say" data-i18n="s7Say">Here's what happens next: I'll build your personalized proposal, and we'll meet again to walk through it together. Please bring a recent pay stub and any current policy. What day works to review it?</div>
+  <p class="note" data-i18n="s7Note">Set the next appointment now, on the calendar. And ask for one referral before you leave.</p>
+</div>
+
+<!-- 8 -->
+<div class="step">
+  <h2><span class="num">8</span><span data-i18n="s8Label">If they hesitate</span></h2>
+
+  <div class="obj"><div class="obj-q" data-i18n="objThinkQ">"I need to think about it."</div>
+    <div class="obj-a" data-i18n="objThinkA">Of course — what specifically would you want to think through? Let's look at it together right now, so you're deciding with all the facts in front of you.</div></div>
+
+  <div class="obj"><div class="obj-q" data-i18n="objSpouseQ">"I need to talk to my spouse."</div>
+    <div class="obj-a" data-i18n="objSpouseA">Smart — this protects both of you. Let's set our next meeting with both of you there, so you decide together.</div></div>
+
+  <div class="obj"><div class="obj-q" data-i18n="objMoneyQ">"I'm not sure I can afford it."</div>
+    <div class="obj-a" data-i18n="objMoneyA">That's exactly why we start with your budget. We design the plan around what's comfortable for you — not the other way around.</div></div>
+
+  <div class="obj"><div class="obj-q" data-i18n="objShopQ">"I want to shop around."</div>
+    <div class="obj-a" data-i18n="objShopA">Good idea — and as you do, notice most agents only show the death benefit. Compare the living benefits too. That's where we're genuinely different.</div></div>
+</div>
+
+<!-- Notes / next step -->
+<div class="step">
+  <h2><span class="num">✓</span><span data-i18n="outcomeLabel">Meeting notes &amp; next step</span></h2>
+  <div class="qgrid">
+    <div class="field full"><label data-i18n="mn_goals">Top goals heard</label><input type="text" name="mn_goals"></div>
+    <div class="field full"><label data-i18n="mn_concern">Biggest concern</label><input type="text" name="mn_concern"></div>
+    <div class="field"><label data-i18n="mn_next">Next appointment set</label><input type="text" name="mn_next"></div>
+    <div class="field"><label data-i18n="mn_referral">Referral asked / received</label><input type="text" name="mn_referral"></div>
+    <div class="field full"><label data-i18n="mn_notes">Other notes</label><textarea name="mn_notes"></textarea></div>
+  </div>
+</div>
+
+<footer>
+  <span class="brand">Living Benefits Team</span> · Goodwill Financial Group · MGA for Alliance Group<br>
+  Insurance products through National Life Group. Living Benefits provided through Accelerated Benefit Riders — optional, subject to state and product availability. Illustrated values are non-guaranteed.
+</footer>
+
+</div>
+
+<div class="action-bar">
+  <button type="button" class="btn btn-primary" id="copyBtn" data-i18n="btnCopy">Copy meeting summary</button>
+  <button type="button" class="btn btn-ghost" id="printBtn" data-i18n="btnPrint">Print / PDF</button>
+  <button type="button" class="btn-clear" id="clearBtn" data-i18n="btnClear">Clear</button>
+  <span class="saved-flag" id="savedFlag" data-i18n="savedFlag">Saved</span>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+  "use strict";
+  const supported=['en','lt','uk','ru','pl','es'];
+  const I18N={
+    lt:{
+      langLabel:"Kalba",eyebrow:"Pirmasis susitikimas · Pažintis",title:"Susitikimo pakvietimo skambutis",tagline:"Sukurk pasitikėjimą, atskleisk poreikį, suplanuok.",
+      fldAgent:"Tavo vardas (agentas)",fldClient:"Kliento vardas",
+      s1Label:"Pasveikinimas ir ryšys",s1Say:"[Client], ačiū, kad šiandien skyrėte laiko. Pirmiausia tiesiog noriu jus šiek tiek pažinti. Kiek laiko jūs ir jūsų šeima jau gyvenate šiame krašte?",s1Note:"Skirkite 2–3 min. Žmonės perka iš tų, kuriais pasitiki. Pirma raskite bendrų sąlyčio taškų.",
+      s2Label:"Nustatyk darbotvarkę",s2Say:"Štai kaip norėčiau išnaudoti mūsų laiką: pirma susipažinsiu su jumis ir jūsų šeima, tada parodysiu, kaip iš tikrųjų veikia living benefits, ir jei tiks — kartu peržiūrėsime kelias galimybes. Ar tinka?",s2Note:"Visada gaukite mažą „taip“ čia — tai apibrėžia visą susitikimą.",
+      s3Label:"Pažintis — klausyk ir pildyk kartu",s3Say:"Pradėkime nuo jūsų. Papasakokite apie savo šeimą — kas jumis remiasi, kuo dirbate ir ką labiausiai norėtumėte apsaugoti, jei gyvenimas iškrėstų netikėtumą.",s3Note:"Atidarykite anketą ir pildykite ją kartu. Klausykite daugiau, nei kalbate. Svarbiausią užsirašykite žemiau.",
+      openFactFinder:"Atidaryti pažinties anketą →",mn_discovery:"Pažinties pastabos",
+      s4Label:"Paaiškink Living Benefits",s4Say:"Dauguma mano, kad gyvybės draudimas išmoka tik po mirties. Mūsų naudojami planai kitokie — tai gyvybės draudimas, kuriuo nereikia numirti, kad pasinaudotum. Pinigai iš tikrųjų turi tris darbus: apsaugoti šeimą, jei išeitumėte per anksti; suteikti neapmokestinamas pajamas pensijoje; ir padėti finansiškai, jei rimtai susirgtumėte — vėžys, infarktas, insultas. Vienas planas gali atlikti visus tris.",s4Note:"Jei galite, nupieškite: trys apskritimai — Per anksti mirti · Per ilgai gyventi · Susirgti. Living benefits + IUL apima visus tris.",
+      s5Label:"Pritaikyk asmeniškai",s5Say:"Anksčiau pasakėte, kas jums svarbiausia. Štai kaip būtent šis planas tai sprendžia, paprastais žodžiais…",s5Note:"Susiekite koncepciją su tikslais, kuriuos jie pažymėjo anketoje. Naudokite jų pačių žodžius, ne žargoną.",
+      s6Label:"Bandomasis uždarymas ir perėjimas",s6Say:"Atsižvelgiant į viską, ką papasakojote — ar jums prasminga apsaugoti šeimą ir tuo pačiu kaupti neapmokestinamus pinigus savo ateičiai?",s6Note:"Jei taip → „Puiku — paruošiu pasiūlymą pagal tikslius jūsų skaičius.“ Jei abejoja → švelniai paklauskite, kas neleidžia apsispręsti.",
+      s7Label:"Tolesni žingsniai",s7Say:"Štai kas vyks toliau: paruošiu asmeninį pasiūlymą ir vėl susitiksime, kad jį kartu peržiūrėtume. Atsineškite atlyginimo lapelį ir bet kokį dabartinį polisą. Kuri diena tinka peržiūrai?",s7Note:"Iš karto suderinkite kitą susitikimą kalendoriuje. Ir prieš išeidami paprašykite vienos rekomendacijos.",
+      s8Label:"Jei dvejoja",
+      objThinkQ:"„Reikia pagalvoti.“",objThinkA:"Žinoma — ką konkrečiai norėtumėte apsvarstyti? Pažiūrėkime kartu dabar, kad spręstumėte turėdami visus faktus prieš akis.",
+      objSpouseQ:"„Turiu pasitarti su sutuoktiniu.“",objSpouseA:"Protinga — tai apsaugo jus abu. Suderinkime kitą susitikimą su jumis abiem, kad nuspręstumėte kartu.",
+      objMoneyQ:"„Nežinau, ar galiu sau leisti.“",objMoneyA:"Būtent todėl pradedame nuo jūsų biudžeto. Planą kuriame pagal tai, kas jums patogu — o ne atvirkščiai.",
+      objShopQ:"„Noriu apsidairyti.“",objShopA:"Gera mintis — ir darydami tai pastebėsite, kad dauguma agentų rodo tik išmoką po mirties. Palyginkite ir living benefits. Būtent tuo mes iš tiesų skiriamės.",
+      outcomeLabel:"Susitikimo pastabos ir kitas žingsnis",mn_goals:"Pagrindiniai išgirsti tikslai",mn_concern:"Didžiausias rūpestis",mn_next:"Suderintas kitas susitikimas",mn_referral:"Rekomendacija paprašyta / gauta",mn_notes:"Kitos pastabos",
+      btnCopy:"Kopijuoti santrauką",btnPrint:"Spausdinti / PDF",btnClear:"Išvalyti",savedFlag:"Išsaugota",
+    },
+    uk:{
+      langLabel:"Мова",eyebrow:"Перша зустріч · Знайомство",title:"Дзвінок-запрошення на зустріч",tagline:"Збудуй довіру, виявʼ потребу, склади план.",
+      fldAgent:"Ваше імʼя (агент)",fldClient:"Імʼя клієнта",
+      s1Label:"Привітання та контакт",s1Say:"[Client], дякую, що знайшли час сьогодні. Перш за все, я просто хочу трохи познайомитися з вами. Як давно ви з родиною живете в цьому краї?",s1Note:"Приділіть 2–3 хвилини. Люди купують у тих, кому довіряють. Спершу знайдіть спільне.",
+      s2Label:"Узгодьте порядок зустрічі",s2Say:"Ось як я хотів(ла) би використати наш час: спершу познайомлюся з вами і родиною, потім покажу, як насправді працюють living benefits, і якщо це підійде — разом розглянемо кілька варіантів. Згода?",s2Note:"Завжди отримуйте тут маленьке «так» — це задає тон усій зустрічі.",
+      s3Label:"Знайомство — слухайте і заповнюйте разом",s3Say:"Почнімо з вас. Розкажіть про родину — хто на вас розраховує, чим ви займаєтеся і що найбільше хотіли б захистити, якщо життя піднесе несподіванку.",s3Note:"Відкрийте анкету і заповнюйте її разом. Слухайте більше, ніж говорите. Головне занотуйте нижче.",
+      openFactFinder:"Відкрити анкету знайомства →",mn_discovery:"Нотатки знайомства",
+      s4Label:"Поясніть Living Benefits",s4Say:"Більшість думає, що страхування життя виплачує лише після смерті. Плани, які ми використовуємо, інші — це страхування життя, яким не треба померти, щоб скористатися. Гроші насправді мають три завдання: захистити родину, якщо ви підете зарано; дати неоподатковуваний дохід на пенсії; і допомогти фінансово, якщо ви серйозно захворієте — рак, інфаркт, інсульт. Один план може зробити все три.",s4Note:"Якщо можете, намалюйте: три кола — Померти зарано · Жити надто довго · Захворіти. Living benefits + IUL покривають усі три.",
+      s5Label:"Зробіть це особистим",s5Say:"Раніше ви розповіли, що для вас найважливіше. Ось як саме цей план це вирішує, простими словами…",s5Note:"Повʼяжіть концепцію з цілями, які вони позначили в анкеті. Використовуйте їхні слова, без жаргону.",
+      s6Label:"Пробне закриття і перехід",s6Say:"Зважаючи на все, що ви розповіли — чи має для вас сенс захистити родину й водночас будувати неоподатковувані кошти на власне майбутнє?",s6Note:"Якщо так → «Чудово — складу пропозицію під ваші точні цифри.» Якщо вагається → мʼяко спитайте, що стримує.",
+      s7Label:"Наступні кроки",s7Say:"Ось що буде далі: я складу вашу персональну пропозицію, і ми зустрінемося знову, щоб разом її переглянути. Візьміть, будь ласка, квитанцію про зарплату і будь-який наявний поліс. Який день підходить для перегляду?",s7Note:"Призначте наступну зустріч одразу, у календарі. І перш ніж піти, попросіть одну рекомендацію.",
+      s8Label:"Якщо вагаються",
+      objThinkQ:"«Мені треба подумати.»",objThinkA:"Звичайно — що саме ви хотіли б обдумати? Подивімося разом просто зараз, щоб ви вирішували, маючи всі факти перед очима.",
+      objSpouseQ:"«Маю порадитися з чоловіком/дружиною.»",objSpouseA:"Розумно — це захищає вас обох. Призначмо наступну зустріч за участі вас обох, щоб ви вирішили разом.",
+      objMoneyQ:"«Не впевнений, що зможу це собі дозволити.»",objMoneyA:"Саме тому ми починаємо з вашого бюджету. Ми будуємо план під те, що для вас комфортно — а не навпаки.",
+      objShopQ:"«Хочу порівняти пропозиції.»",objShopA:"Гарна ідея — і поки порівнюєте, зверніть увагу: більшість агентів показують лише виплату по смерті. Порівняйте й living benefits. Саме цим ми справді відрізняємося.",
+      outcomeLabel:"Нотатки зустрічі та наступний крок",mn_goals:"Головні почуті цілі",mn_concern:"Найбільше занепокоєння",mn_next:"Призначена наступна зустріч",mn_referral:"Рекомендацію попросили / отримали",mn_notes:"Інші нотатки",
+      btnCopy:"Копіювати зведення",btnPrint:"Друк / PDF",btnClear:"Очистити",savedFlag:"Збережено",
+    },
+    ru:{
+      langLabel:"Язык",eyebrow:"Первая встреча · Знакомство",title:"Звонок-приглашение на встречу",tagline:"Построй доверие, выяви потребность, составь план.",
+      fldAgent:"Ваше имя (агент)",fldClient:"Имя клиента",
+      s1Label:"Приветствие и контакт",s1Say:"[Client], спасибо, что нашли время сегодня. Прежде всего я просто хочу немного с вами познакомиться. Как давно вы с семьёй живёте в этих краях?",s1Note:"Уделите 2–3 минуты. Люди покупают у тех, кому доверяют. Сначала найдите общее.",
+      s2Label:"Согласуйте план встречи",s2Say:"Вот как я хотел(а) бы провести наше время: сначала познакомлюсь с вами и семьёй, потом покажу, как на самом деле работают living benefits, и если подойдёт — вместе посмотрим пару вариантов. Договорились?",s2Note:"Всегда получайте здесь маленькое «да» — это задаёт тон всей встрече.",
+      s3Label:"Знакомство — слушайте и заполняйте вместе",s3Say:"Начнём с вас. Расскажите о семье — кто на вас рассчитывает, чем вы занимаетесь и что больше всего хотели бы защитить, если жизнь преподнесёт сюрприз.",s3Note:"Откройте анкету и заполняйте её вместе. Слушайте больше, чем говорите. Главное запишите ниже.",
+      openFactFinder:"Открыть анкету знакомства →",mn_discovery:"Заметки знакомства",
+      s4Label:"Объясните Living Benefits",s4Say:"Большинство думает, что страхование жизни выплачивает только после смерти. Планы, которые мы используем, другие — это страхование жизни, которым не нужно умирать, чтобы воспользоваться. У денег на самом деле три задачи: защитить семью, если вы уйдёте слишком рано; дать необлагаемый доход на пенсии; и помочь финансово, если вы серьёзно заболеете — рак, инфаркт, инсульт. Один план может всё три.",s4Note:"Если можете, нарисуйте: три круга — Уйти слишком рано · Жить слишком долго · Заболеть. Living benefits + IUL покрывают все три.",
+      s5Label:"Сделайте это личным",s5Say:"Раньше вы сказали, что для вас важнее всего. Вот как именно этот план это решает, простыми словами…",s5Note:"Свяжите концепцию с целями, которые они отметили в анкете. Используйте их слова, без жаргона.",
+      s6Label:"Пробное закрытие и переход",s6Say:"С учётом всего, что вы рассказали — есть ли для вас смысл защитить семью и одновременно копить необлагаемые деньги на собственное будущее?",s6Note:"Если да → «Отлично — составлю предложение под ваши точные цифры.» Если сомневается → мягко спросите, что останавливает.",
+      s7Label:"Следующие шаги",s7Say:"Вот что будет дальше: я составлю ваше персональное предложение, и мы встретимся снова, чтобы вместе его разобрать. Возьмите, пожалуйста, расчётный лист и любой текущий полис. Какой день подходит для просмотра?",s7Note:"Назначьте следующую встречу сразу, в календаре. И прежде чем уйти, попросите одну рекомендацию.",
+      s8Label:"Если сомневаются",
+      objThinkQ:"«Мне нужно подумать.»",objThinkA:"Конечно — что именно вы хотели бы обдумать? Давайте посмотрим вместе прямо сейчас, чтобы вы решали, имея все факты перед глазами.",
+      objSpouseQ:"«Нужно посоветоваться с супругом(ой).»",objSpouseA:"Разумно — это защищает вас обоих. Давайте назначим следующую встречу с вами обоими, чтобы вы решили вместе.",
+      objMoneyQ:"«Не уверен, что смогу это позволить.»",objMoneyA:"Именно поэтому мы начинаем с вашего бюджета. Мы строим план под то, что вам комфортно — а не наоборот.",
+      objShopQ:"«Хочу сравнить предложения.»",objShopA:"Хорошая идея — и пока сравниваете, обратите внимание: большинство агентов показывают только выплату по смерти. Сравните и living benefits. Именно этим мы по-настоящему отличаемся.",
+      outcomeLabel:"Заметки встречи и следующий шаг",mn_goals:"Главные услышанные цели",mn_concern:"Главная забота",mn_next:"Назначена следующая встреча",mn_referral:"Рекомендация запрошена / получена",mn_notes:"Другие заметки",
+      btnCopy:"Копировать сводку",btnPrint:"Печать / PDF",btnClear:"Очистить",savedFlag:"Сохранено",
+    },
+    pl:{
+      langLabel:"Język",eyebrow:"Pierwsze spotkanie · Poznanie",title:"Telefon z zaproszeniem na spotkanie",tagline:"Zbuduj zaufanie, odkryj potrzebę, zaplanuj.",
+      fldAgent:"Twoje imię (agent)",fldClient:"Imię klienta",
+      s1Label:"Powitanie i relacja",s1Say:"[Client], dziękuję, że znalazł(a) Pan/Pani dziś czas. Zanim do czegokolwiek przejdziemy, chcę po prostu trochę Pana/Panią poznać. Jak długo Pan/Pani z rodziną mieszka w tej okolicy?",s1Note:"Poświęć 2–3 minuty. Ludzie kupują od tych, którym ufają. Najpierw znajdź wspólny grunt.",
+      s2Label:"Ustal plan spotkania",s2Say:"Tak chciał(a)bym wykorzystać nasz czas: najpierw poznam Pana/Panią i rodzinę, potem pokażę, jak naprawdę działają living benefits, a jeśli to pasuje — wspólnie spojrzymy na kilka opcji. Brzmi uczciwie?",s2Note:"Zawsze uzyskaj tu małe „tak” — to nadaje ton całemu spotkaniu.",
+      s3Label:"Poznanie — słuchaj i wypełniaj razem",s3Say:"Zacznijmy od Pana/Pani. Proszę opowiedzieć o rodzinie — kto na Panu/Pani polega, czym się Pan/Pani zajmuje i co najbardziej chciał(a)by Pan/Pani zabezpieczyć, gdyby życie zaskoczyło.",s3Note:"Otwórz ankietę i wypełniaj ją razem. Słuchaj więcej, niż mówisz. Najważniejsze zapisz poniżej.",
+      openFactFinder:"Otwórz ankietę wstępną →",mn_discovery:"Notatki z poznania",
+      s4Label:"Wyjaśnij Living Benefits",s4Say:"Większość uważa, że ubezpieczenie na życie wypłaca tylko po śmierci. Plany, których używamy, są inne — to ubezpieczenie na życie, z którego nie trzeba umrzeć, by skorzystać. Pieniądze mają tak naprawdę trzy zadania: ochronić rodzinę, jeśli odejdzie Pan/Pani za wcześnie; dać nieopodatkowany dochód na emeryturze; i pomóc finansowo, jeśli poważnie Pan/Pani zachoruje — rak, zawał, udar. Jeden plan może zrobić wszystkie trzy.",s4Note:"Jeśli możesz, narysuj: trzy koła — Umrzeć za wcześnie · Żyć za długo · Zachorować. Living benefits + IUL pokrywają wszystkie trzy.",
+      s5Label:"Spersonalizuj",s5Say:"Wcześniej powiedział(a) Pan/Pani, co jest najważniejsze. Oto jak dokładnie ten plan to rozwiązuje, prostymi słowami…",s5Note:"Powiąż koncepcję z celami zaznaczonymi w ankiecie. Używaj ich słów, bez żargonu.",
+      s6Label:"Próbne zamknięcie i przejście",s6Say:"Biorąc pod uwagę wszystko, co Pan/Pani powiedział(a) — czy ma dla Pana/Pani sens zabezpieczyć rodzinę i jednocześnie budować nieopodatkowane środki na własną przyszłość?",s6Note:"Jeśli tak → „Świetnie — przygotuję propozycję pod dokładne Pana/Pani liczby.” Jeśli waha się → delikatnie zapytaj, co go/ją powstrzymuje.",
+      s7Label:"Kolejne kroki",s7Say:"Oto co stanie się dalej: przygotuję spersonalizowaną propozycję, a my spotkamy się ponownie, by ją razem omówić. Proszę przynieść ostatni pasek wypłaty i obecną polisę. Który dzień pasuje na przegląd?",s7Note:"Umów następne spotkanie od razu, w kalendarzu. I zanim wyjdziesz, poproś o jedno polecenie.",
+      s8Label:"Jeśli się waha",
+      objThinkQ:"„Muszę to przemyśleć.”",objThinkA:"Oczywiście — co konkretnie chciał(a)by Pan/Pani przemyśleć? Spójrzmy na to razem teraz, żeby decydował(a) Pan/Pani z wszystkimi faktami przed sobą.",
+      objSpouseQ:"„Muszę porozmawiać z małżonkiem.”",objSpouseA:"Mądrze — to chroni Was oboje. Umówmy następne spotkanie z Wami obojgiem, byście zdecydowali razem.",
+      objMoneyQ:"„Nie wiem, czy mnie na to stać.”",objMoneyA:"Właśnie dlatego zaczynamy od Pana/Pani budżetu. Budujemy plan pod to, co jest komfortowe — a nie odwrotnie.",
+      objShopQ:"„Chcę się rozejrzeć.”",objShopA:"Dobry pomysł — a przy okazji proszę zauważyć: większość agentów pokazuje tylko świadczenie z tytułu śmierci. Proszę porównać też living benefits. To tym naprawdę się różnimy.",
+      outcomeLabel:"Notatki ze spotkania i następny krok",mn_goals:"Główne usłyszane cele",mn_concern:"Największa troska",mn_next:"Umówione następne spotkanie",mn_referral:"Poproszono / otrzymano polecenie",mn_notes:"Inne notatki",
+      btnCopy:"Kopiuj podsumowanie",btnPrint:"Drukuj / PDF",btnClear:"Wyczyść",savedFlag:"Zapisano",
+    },
+    es:{
+      langLabel:"Idioma",eyebrow:"Primera cita · Descubrimiento",title:"Llamada de invitación a la cita",tagline:"Genera confianza, descubre la necesidad, arma el plan.",
+      fldAgent:"Su nombre (agente)",fldClient:"Nombre del cliente",
+      s1Label:"Bienvenida y conexión",s1Say:"[Client], gracias por hacer el tiempo hoy. Antes de cualquier cosa, quiero conocerlo un poco. ¿Cuánto tiempo llevan usted y su familia por esta zona?",s1Note:"Dedique 2–3 minutos. La gente compra de quien confía. Primero encuentre puntos en común.",
+      s2Label:"Fije la agenda",s2Say:"Así me gustaría usar nuestro tiempo: primero lo conozco a usted y a su familia, luego le muestro cómo funcionan realmente los living benefits, y si encaja, vemos juntos un par de opciones. ¿Le parece justo?",s2Note:"Consiga siempre el pequeño «sí» aquí — enmarca toda la reunión.",
+      s3Label:"Descubrimiento — escuche y complete juntos",s3Say:"Empecemos por usted. Cuénteme de su familia — quién cuenta con usted, a qué se dedica y qué querría proteger más si la vida le diera un giro inesperado.",s3Note:"Abra el cuestionario y complétenlo juntos. Escuche más de lo que habla. Anote lo clave abajo.",
+      openFactFinder:"Abrir el cuestionario inicial →",mn_discovery:"Notas de descubrimiento",
+      s4Label:"Enseñe los Living Benefits",s4Say:"La mayoría cree que el seguro de vida solo paga al morir. Los planes que usamos son distintos — es un seguro de vida que no tiene que morir para usar. El dinero en realidad tiene tres tareas: proteger a su familia si parte demasiado pronto; darle ingreso libre de impuestos al jubilarse; y ayudarlo económicamente si se enferma de gravedad — cáncer, infarto, derrame. Un solo plan puede hacer las tres.",s4Note:"Si puede, dibújelo: tres círculos — Morir muy pronto · Vivir demasiado · Enfermarse. Living benefits + IUL cubren las tres.",
+      s5Label:"Hágalo personal",s5Say:"Hace un momento me dijo lo que más le importa. Así es exactamente como este plan lo resuelve, en términos simples…",s5Note:"Conecte el concepto con los objetivos que marcaron en el cuestionario. Use sus palabras, sin tecnicismos.",
+      s6Label:"Cierre de prueba y transición",s6Say:"Con todo lo que me ha compartido — ¿tiene sentido para usted proteger a su familia y a la vez construir dinero libre de impuestos para su propio futuro?",s6Note:"Si sí → «Perfecto — le armo una propuesta a la medida de sus números.» Si duda → pregunte con calma qué lo detiene.",
+      s7Label:"Próximos pasos",s7Say:"Esto es lo que sigue: armaré su propuesta personalizada y nos volveremos a reunir para revisarla juntos. Por favor traiga un recibo de pago reciente y cualquier póliza actual. ¿Qué día le sirve para revisarla?",s7Note:"Agende la próxima cita ahora mismo, en el calendario. Y antes de irse, pida un referido.",
+      s8Label:"Si dudan",
+      objThinkQ:"«Necesito pensarlo.»",objThinkA:"Claro — ¿qué específicamente querría analizar? Veámoslo juntos ahora mismo, para que decida con todos los datos frente a usted.",
+      objSpouseQ:"«Tengo que hablar con mi cónyuge.»",objSpouseA:"Muy bien — esto los protege a los dos. Agendemos la próxima cita con ambos presentes, para que decidan juntos.",
+      objMoneyQ:"«No sé si puedo pagarlo.»",objMoneyA:"Por eso justamente partimos de su presupuesto. Diseñamos el plan en torno a lo que le resulte cómodo — no al revés.",
+      objShopQ:"«Quiero comparar opciones.»",objShopA:"Buena idea — y al hacerlo, note que la mayoría de los agentes solo muestran el beneficio por fallecimiento. Compare también los living benefits. Ahí es donde de verdad nos diferenciamos.",
+      outcomeLabel:"Notas de la reunión y próximo paso",mn_goals:"Objetivos principales escuchados",mn_concern:"Mayor preocupación",mn_next:"Próxima cita agendada",mn_referral:"Referido pedido / recibido",mn_notes:"Otras notas",
+      btnCopy:"Copiar resumen",btnPrint:"Imprimir / PDF",btnClear:"Borrar",savedFlag:"Guardado",
+    },
+  };
+
+  document.querySelectorAll('[data-i18n]').forEach(el => { el._en = el.textContent; });
+  const buttons=Array.from(document.querySelectorAll('.lang-bar button'));
+
+  function applyTokens(){
+    const agent=(document.getElementById('agentName').value||'').trim();
+    const client=(document.getElementById('clientName').value||'').trim();
+    document.querySelectorAll('.say').forEach(el=>{
+      let txt=el._curTpl!=null?el._curTpl:el.textContent;
+      if(agent) txt=txt.split('[Agent]').join(agent);
+      if(client) txt=txt.split('[Client]').join(client);
+      el.textContent=txt;
+    });
+  }
+  function setLang(lang){
+    if(!supported.includes(lang)) lang='en';
+    document.body.dataset.lang=lang; document.documentElement.lang=lang;
+    const dict=I18N[lang]||null;
+    document.querySelectorAll('[data-i18n]').forEach(el=>{
+      const key=el.dataset.i18n;
+      const val=(dict&&dict[key])?dict[key]:el._en;
+      if(el.classList.contains('say')) el._curTpl=val;
+      el.textContent=val;
+    });
+    buttons.forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));
+    applyTokens();
+    try{ localStorage.setItem('goodwill-fmscript-lang',lang); }catch(e){}
+  }
+  buttons.forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
+
+  const NS='goodwill-fmscript';
+  const fields=Array.from(document.querySelectorAll('input,select,textarea'));
+  const savedFlag=document.getElementById('savedFlag'); let flagT;
+  function save(){
+    const data={}; fields.forEach(f=>{ if(f.name) data[f.name]=(f.type==='checkbox')?f.checked:f.value; });
+    try{localStorage.setItem(NS,JSON.stringify(data));}catch(e){}
+    if(savedFlag){savedFlag.classList.add('show');clearTimeout(flagT);flagT=setTimeout(()=>savedFlag.classList.remove('show'),1400);}
+  }
+  function restore(){ let d={}; try{d=JSON.parse(localStorage.getItem(NS)||'{}');}catch(e){return;} fields.forEach(f=>{ if(!f.name||!(f.name in d))return; if(f.type==='checkbox')f.checked=!!d[f.name]; else f.value=d[f.name]; }); }
+  document.addEventListener('input',e=>{ save(); if(e.target.id==='agentName'||e.target.id==='clientName') applyTokens(); });
+
+  function val(n){ const f=document.querySelector('[name="'+n+'"]'); return f?(f.value||'').trim():''; }
+  function buildNote(){
+    const lang=(document.body.dataset.lang||'en').toUpperCase();
+    const lines=['Goodwill First Meeting (Discovery) · lang: '+lang];
+    const add=(lbl,n)=>{ const v=val(n); if(v) lines.push(lbl+': '+v); };
+    add('Agent','agentName'); add('Client','clientName');
+    add('Discovery notes','mn_discovery'); add('Top goals','mn_goals'); add('Biggest concern','mn_concern');
+    add('Next appointment','mn_next'); add('Referral','mn_referral'); add('Notes','mn_notes');
+    return lines.join('\n');
+  }
+  function showToast(msg){ const t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show'); clearTimeout(t._t); t._t=setTimeout(()=>t.classList.remove('show'),2400); }
+
+  const copyBtn=document.getElementById('copyBtn');
+  copyBtn.addEventListener('click',async()=>{
+    const note=buildNote();
+    try{await navigator.clipboard.writeText(note);}
+    catch(e){const ta=document.createElement('textarea');ta.value=note;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');}catch(_){}document.body.removeChild(ta);}
+    copyBtn.classList.add('copied'); const orig=copyBtn.textContent;
+    copyBtn.textContent=({en:'Copied ✓',lt:'Nukopijuota ✓',uk:'Скопійовано ✓',ru:'Скопировано ✓',pl:'Skopiowano ✓',es:'Copiado ✓'})[document.body.dataset.lang]||'Copied ✓';
+    setTimeout(()=>{copyBtn.classList.remove('copied');copyBtn.textContent=orig;},2200);
+  });
+  document.getElementById('printBtn').addEventListener('click',()=>window.print());
+  document.getElementById('clearBtn').addEventListener('click',()=>{
+    const msg=({en:"Clear this meeting's notes?",lt:"Išvalyti šio susitikimo pastabas?",uk:"Очистити нотатки цієї зустрічі?",ru:"Очистить заметки этой встречи?",pl:"Wyczyścić notatki z tego spotkania?",es:"¿Borrar las notas de esta reunión?"})[document.body.dataset.lang]||"Clear?";
+    if(!confirm(msg))return;
+    fields.forEach(f=>{ if(f.type==='checkbox')f.checked=false; else f.value=''; });
+    try{localStorage.removeItem(NS);}catch(e){} applyTokens();
+  });
+
+  (function(){
+    const q=new URLSearchParams(location.search);
+    const pick=(...k)=>{ for(const key of k){ const v=q.get(key); if(v){const s=v.trim(); if(s&&!/[<>~]/.test(s))return s;} } return ''; };
+    let name=pick('name','contactname','fullname');
+    const fn=pick('first_name','firstname','first'), ln=pick('last_name','lastname','last');
+    if(!name&&(fn||ln)) name=(fn+' '+ln).trim();
+    const setV=(n,v)=>{ const f=document.querySelector('[name="'+n+'"]'); if(v&&f&&!f.value)f.value=v; };
+    setV('clientName',name); setV('agentName',pick('agent','agentname'));
+  })();
+
+  restore();
+  let start=''; const q=new URLSearchParams(location.search);
+  const ul=(q.get('lang')||'').toLowerCase().slice(0,2);
+  if(supported.includes(ul)) start=ul;
+  if(!start){ try{start=localStorage.getItem('goodwill-fmscript-lang')||'en';}catch(e){start='en';} }
+  setLang(start); applyTokens();
+})();
+</script>
+</body>
+</html>

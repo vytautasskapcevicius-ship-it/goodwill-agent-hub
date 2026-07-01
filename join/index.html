@@ -1,0 +1,762 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Join the Living Benefits Team — A job with purpose</title>
+<meta name="description" content="A career with purpose. Protect families with living benefits — full-time or part-time. Living Benefits Team · Goodwill Financial.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,600;9..144,0,700;9..144,0,900;9..144,1,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0a1f3d; --navy-2:#14305c; --gold:#c8a04a; --gold-soft:#f3ead4;
+  --bg:#faf8f3; --surface:#ffffff; --surface-2:#f3efe6;
+  --text:#0f172a; --muted:#5a6677; --border:#e3ddcf; --green:#047857;
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{
+  font-family:'Inter',system-ui,sans-serif;background:var(--navy);color:var(--text);
+  -webkit-font-smoothing:antialiased;overflow:hidden;
+}
+
+/* progress + language bar */
+.progress{position:fixed;top:0;left:0;height:3px;background:var(--gold);width:0;z-index:200;transition:width .35s ease}
+.langbar{
+  position:fixed;top:0;left:0;right:0;z-index:150;display:flex;gap:6px;align-items:center;
+  justify-content:center;padding:8px 14px;background:rgba(10,31,61,.82);backdrop-filter:blur(8px);
+}
+.langbar .brandtag{position:absolute;left:16px;font-family:'Fraunces',serif;font-weight:700;font-size:13px;color:#fff;letter-spacing:.01em}
+.langbar .brandtag span{color:var(--gold)}
+.langbtn{
+  background:transparent;color:#fff;border:1px solid rgba(255,255,255,.28);
+  padding:5px 12px;border-radius:8px;font:700 12.5px 'Inter',sans-serif;cursor:pointer;letter-spacing:.04em
+}
+.langbtn:hover{border-color:var(--gold)}
+.langbtn.active{background:var(--gold);color:var(--navy);border-color:var(--gold)}
+@media (max-width:640px){.langbar .brandtag{display:none}}
+
+/* deck */
+.deck{position:relative;width:100vw;height:100vh;overflow:hidden}
+.track{display:flex;height:100%;width:max-content;transition:transform .45s cubic-bezier(.4,0,.2,1)}
+.slide{
+  width:100vw;height:100vh;flex:0 0 100vw;display:flex;flex-direction:column;justify-content:center;
+  padding:78px 7vw 76px;overflow-y:auto;background:var(--bg);position:relative
+}
+.slide.dark{background:radial-gradient(120% 120% at 80% 0%, var(--navy-2) 0%, var(--navy) 60%);color:#fff}
+.slide.gold{background:linear-gradient(135deg,#fbf6e9 0%,var(--gold-soft) 100%)}
+.inner{max-width:920px;margin:0 auto;width:100%}
+
+.kicker{display:inline-block;font:700 11.5px 'Inter',sans-serif;text-transform:uppercase;letter-spacing:.2em;
+  color:var(--gold);padding:6px 14px;border:1px solid var(--gold);border-radius:999px;margin-bottom:22px}
+.slide.dark .kicker{color:var(--gold);border-color:rgba(200,160,74,.6)}
+h1{font-family:'Fraunces',Georgia,serif;font-weight:700;line-height:1.02;letter-spacing:-.025em;
+  font-size:clamp(34px,6vw,68px);margin:0 0 18px;color:var(--navy)}
+.slide.dark h1{color:#fff}
+h2{font-family:'Fraunces',Georgia,serif;font-weight:700;line-height:1.08;letter-spacing:-.02em;
+  font-size:clamp(28px,4.4vw,48px);margin:0 0 18px;color:var(--navy)}
+.slide.dark h2{color:#fff}
+.lead{font-size:clamp(17px,2.1vw,23px);line-height:1.5;color:var(--text);max-width:760px;margin:0 0 16px}
+.slide.dark .lead{color:rgba(255,255,255,.92)}
+.lead strong{color:var(--navy)} .slide.dark .lead strong{color:var(--gold)}
+.muted{color:var(--muted)} .slide.dark .muted{color:rgba(255,255,255,.62)}
+
+/* cover */
+.cover h1{font-size:clamp(40px,8.5vw,96px);margin-bottom:6px}
+.cover .l2{color:var(--gold)}
+.cover .sub{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(18px,2.6vw,28px);color:rgba(255,255,255,.85);margin:18px 0 30px}
+.cover .begin{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--navy);
+  border:none;font:700 15px 'Inter',sans-serif;padding:13px 26px;border-radius:999px;cursor:pointer}
+.cover .begin:hover{transform:translateY(-2px)}
+
+/* pillars / facts grid */
+.grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-top:8px}
+.tile{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px 18px}
+.slide.dark .tile{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.14)}
+.tile .ti{font-family:'Fraunces',serif;font-weight:700;font-size:20px;color:var(--navy);margin-bottom:5px}
+.slide.dark .tile .ti{color:#fff}
+.tile .td{font-size:13.5px;color:var(--muted)} .slide.dark .tile .td{color:rgba(255,255,255,.7)}
+.tile .num{font-family:'Fraunces',serif;color:var(--gold);font-weight:700}
+
+/* three threats */
+.threats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:10px}
+.threat{background:var(--surface);border:1px solid var(--border);border-left:5px solid var(--gold);border-radius:12px;padding:18px 20px}
+.threat .tt{font-family:'Fraunces',serif;font-weight:700;font-size:19px;color:var(--navy);margin-bottom:4px}
+.threat .tdd{font-size:14px;color:var(--muted)}
+
+/* split (two paths) */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:10px}
+.scard{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:22px 24px}
+.scard.lead-card{border-top:5px solid var(--gold)}
+.scard h3{font-family:'Fraunces',serif;font-size:21px;color:var(--navy);margin:0 0 12px}
+.scard ul{margin:0;padding-left:20px} .scard li{margin-bottom:9px;font-size:14.5px;line-height:1.45}
+@media (max-width:680px){.split{grid-template-columns:1fr}}
+
+/* income big figures */
+.figs{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:6px 0 18px}
+.fig{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:26px 24px;text-align:center}
+.fig .flabel{font:700 12px 'Inter',sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:8px}
+.fig .fbig{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(30px,5vw,52px);color:var(--gold);line-height:1;margin-bottom:8px}
+.fig .fd{font-size:13.5px;color:var(--muted)}
+@media (max-width:680px){.figs{grid-template-columns:1fr}}
+
+/* phases */
+.phases{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:8px}
+.phase{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px 20px;border-top:5px solid var(--gold);position:relative}
+.phase .pn{font:700 11px 'Inter',sans-serif;text-transform:uppercase;letter-spacing:.14em;color:var(--gold);margin-bottom:6px}
+.phase .pt{font-family:'Fraunces',serif;font-weight:700;font-size:18px;color:var(--navy);margin-bottom:8px}
+.phase .pd{font-size:13.5px;color:var(--muted);line-height:1.5}
+@media (max-width:780px){.phases{grid-template-columns:1fr}}
+
+/* chips */
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.chip{background:var(--surface);border:1px solid var(--border);border-radius:999px;padding:9px 18px;font-weight:600;font-size:15px;color:var(--navy)}
+.slide.gold .chip{background:rgba(255,255,255,.7)}
+
+/* lists */
+.biglist{margin:6px 0 0;padding:0;list-style:none}
+.biglist li{position:relative;padding:0 0 0 30px;margin-bottom:13px;font-size:clamp(15px,1.9vw,18px);line-height:1.45}
+.biglist li::before{content:"";position:absolute;left:0;top:.55em;width:9px;height:9px;border-radius:50%;background:var(--gold)}
+.slide.dark .biglist li{color:rgba(255,255,255,.9)}
+
+.callout{background:var(--gold-soft);border-left:4px solid var(--gold);border-radius:0 12px 12px 0;padding:18px 22px;margin-top:18px;font-size:15.5px;line-height:1.5;color:var(--text)}
+.callout strong{color:var(--navy)}
+
+/* CTA */
+.ctarow{display:flex;flex-wrap:wrap;gap:14px;margin-top:26px;align-items:center}
+.btn-call{display:inline-flex;align-items:center;gap:9px;background:var(--gold);color:var(--navy);text-decoration:none;
+  font:700 16px 'Inter',sans-serif;padding:15px 30px;border-radius:999px}
+.btn-call:hover{transform:translateY(-2px)}
+.email-link{color:var(--gold);text-decoration:none;font-weight:600;font-size:15.5px}
+.email-link:hover{color:#fff}
+.btn-call.alt{background:transparent;color:var(--gold);border:1px solid rgba(200,160,74,.55)}
+.btn-call.alt:hover{background:rgba(200,160,74,.14);transform:translateY(-2px)}
+.zoomnote{margin-top:16px;font-size:14px;color:rgba(255,255,255,.72)}
+.agenda{counter-reset:ag;list-style:none;margin:14px 0 0;padding:0}
+.agenda li{counter-increment:ag;position:relative;padding:13px 0 13px 54px;font-size:clamp(15px,1.9vw,18px);line-height:1.4;border-bottom:1px solid var(--border)}
+.agenda li:last-child{border-bottom:none}
+.agenda li::before{content:counter(ag);position:absolute;left:0;top:9px;width:34px;height:34px;border-radius:50%;background:var(--navy);color:#fff;font-family:'Fraunces',Georgia,serif;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:15px}
+.agenda li strong{color:var(--navy)}
+
+.disclaimer{font-size:13px;line-height:1.6;color:var(--muted);max-width:780px}
+
+/* controls */
+.controls{position:fixed;bottom:0;left:0;right:0;z-index:140;display:flex;align-items:center;justify-content:center;
+  gap:16px;padding:12px;background:linear-gradient(to top,rgba(10,31,61,.55),transparent)}
+.navbtn{width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(10,31,61,.55);
+  color:#fff;font-size:19px;cursor:pointer;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(6px)}
+.navbtn:hover{background:var(--gold);color:var(--navy);border-color:var(--gold)}
+.navbtn:disabled{opacity:.35;cursor:default}
+.counter{color:#fff;font:600 13px 'Inter',sans-serif;min-width:54px;text-align:center;background:rgba(10,31,61,.55);padding:8px 12px;border-radius:999px;backdrop-filter:blur(6px)}
+.hint{position:fixed;bottom:14px;right:16px;z-index:140;color:rgba(255,255,255,.55);font-size:11.5px}
+@media (max-width:640px){.hint{display:none} .slide{padding:74px 22px 84px}}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<div class="langbar">
+  <span class="brandtag">Living <span>Benefits</span> Team</span>
+  <button class="langbtn active" data-lang="en">EN</button>
+  <button class="langbtn" data-lang="lt">LT</button>
+  <button class="langbtn" data-lang="uk">UA</button>
+  <button class="langbtn" data-lang="ru">RU</button>
+  <button class="langbtn" data-lang="pl">PL</button>
+</div>
+
+<div class="deck">
+<div class="track" id="track">
+
+  <!-- 1 · COVER -->
+  <section class="slide dark cover">
+    <div class="inner">
+      <div class="kicker" data-i18n="cover.kicker">Living Benefits Team · Goodwill Financial</div>
+      <h1><span data-i18n="cover.l1">A job with purpose.</span><br><span class="l2" data-i18n="cover.l2">Join the community.</span></h1>
+      <p class="sub" data-i18n="cover.sub">Full-time or part-time — your call.</p>
+      <button class="begin" onclick="go(1)"><span data-i18n="cover.begin">Begin</span> →</button>
+    </div>
+  </section>
+
+  <!-- 2 · NORTH STAR -->
+  <section class="slide">
+    <div class="inner">
+      <div class="kicker" data-i18n="ns.kicker">Why we exist</div>
+      <h1 data-i18n="ns.title">Protect more people with living benefits.</h1>
+      <p class="lead" data-i18n="ns.body">That's our North Star. Every family we reach is one more protected when life happens — and it always does. <strong>Protect today. Prepare for tomorrow.</strong></p>
+    </div>
+  </section>
+
+  <!-- 3 · LIVING BENEFITS CONCEPT -->
+  <section class="slide gold">
+    <div class="inner">
+      <div class="kicker" data-i18n="lb.kicker">What we do</div>
+      <h2 data-i18n="lb.title">"Life insurance you don't have to die to use."</h2>
+      <p class="lead" data-i18n="lb.body">Old life insurance only pays when you die. <strong>Living Benefits can pay you cash while you're alive</strong> — after a serious illness like cancer, a heart attack, or a stroke. It protects families against all three threats:</p>
+      <div class="threats">
+        <div class="threat"><div class="tt" data-i18n="lb.t1">Die too soon</div><div class="tdd" data-i18n="lb.t1d">Income and the mortgage are covered.</div></div>
+        <div class="threat"><div class="tt" data-i18n="lb.t2">Get sick</div><div class="tdd" data-i18n="lb.t2d">Cash when illness hits — the difference.</div></div>
+        <div class="threat"><div class="tt" data-i18n="lb.t3">Live too long</div><div class="tdd" data-i18n="lb.t3d">Tax-free retirement income.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 · WHY THIS WORK MATTERS -->
+  <section class="slide dark">
+    <div class="inner">
+      <div class="kicker" data-i18n="why.kicker">Why this work matters</div>
+      <p class="lead" style="font-size:clamp(20px,2.8vw,30px);line-height:1.4" data-i18n="why.body">You're not selling a death benefit. You're showing families that a heart attack, a stroke, or a cancer diagnosis <strong>doesn't have to take the house, the kids' tuition, or the spouse's retirement.</strong></p>
+      <p class="lead muted" data-i18n="why.body2">That's a real conversation. It changes how clients see you — and how you feel about the work.</p>
+    </div>
+  </section>
+
+  <!-- 5 · WHO WE ARE -->
+  <section class="slide">
+    <div class="inner">
+      <div class="kicker" data-i18n="who.kicker">Who we are</div>
+      <h2 data-i18n="who.title">Living Benefits Team</h2>
+      <p class="lead" data-i18n="who.body">The life &amp; living-benefits division of Goodwill Financial — a Managing General Agency for Alliance Group, built by an immigrant to help families build and protect first-generation wealth.</p>
+      <div class="grid4">
+        <div class="tile"><div class="ti">National Life Group</div><div class="td" data-i18n="who.f1">Primary carrier · A+ rated · since 1848 · #1 in IUL</div></div>
+        <div class="tile"><div class="ti"><span class="num">4.9★</span> Google</div><div class="td" data-i18n="who.f2">Real families, real reviews</div></div>
+        <div class="tile"><div class="ti" data-i18n="who.f3t">Elmhurst, IL</div><div class="td" data-i18n="who.f3">An 11-person core team that answers the phone</div></div>
+        <div class="tile"><div class="ti" data-i18n="who.f4t">Multilingual</div><div class="td" data-i18n="who.f4">EN · LT · UA · RU · PL — communities most agents can't reach</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 · FOUR PILLARS -->
+  <section class="slide gold">
+    <div class="inner">
+      <div class="kicker" data-i18n="pil.kicker">What you get</div>
+      <h2 data-i18n="pil.title">Four reasons agents join — and stay</h2>
+      <div class="grid4">
+        <div class="tile"><div class="ti" data-i18n="pil.p1">Purpose</div><div class="td" data-i18n="pil.p1d">Save families. Real outcomes.</div></div>
+        <div class="tile"><div class="ti" data-i18n="pil.p2">Community</div><div class="td" data-i18n="pil.p2d">National team. EN/LT/UA/RU/PL.</div></div>
+        <div class="tile"><div class="ti" data-i18n="pil.p3">Freedom</div><div class="td" data-i18n="pil.p3d">Financial + time.</div></div>
+        <div class="tile"><div class="ti" data-i18n="pil.p4">Flexibility</div><div class="td" data-i18n="pil.p4d">Full-time OR side gig.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 · FULL-TIME OR PART-TIME -->
+  <section class="slide">
+    <div class="inner">
+      <div class="kicker" data-i18n="path.kicker">Your call</div>
+      <h2 data-i18n="path.title">Full-time or part-time</h2>
+      <div class="split">
+        <div class="scard">
+          <h3 data-i18n="path.ftt">Full-time path</h3>
+          <ul data-i18n="path.ft">
+            <li>30–40 hrs/week</li>
+            <li>Mentor co-pilots your first 90 days</li>
+            <li>Target $25–40K premium written by day 90</li>
+            <li>Commission paid weekly</li>
+          </ul>
+        </div>
+        <div class="scard lead-card">
+          <h3 data-i18n="path.ptt">Part-time / side gig</h3>
+          <ul data-i18n="path.pt">
+            <li>Keep your day job</li>
+            <li>Evenings + weekends, ~8–15 hrs/week</li>
+            <li>Target $8–15K premium written by day 90</li>
+            <li>Many top producers started here — and went full-time when commission outgrew the paycheck</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8 · INCOME -->
+  <section class="slide dark">
+    <div class="inner">
+      <div class="kicker" data-i18n="inc.kicker">Income — unlimited</div>
+      <h2 data-i18n="inc.title">No cap. No ceiling. Income tracks what you actually do.</h2>
+      <div class="figs">
+        <div class="fig"><div class="flabel" data-i18n="inc.ptlabel">Part-time / side gig</div><div class="fbig">$50–70K<span style="font-size:.5em">/yr</span></div><div class="fd" data-i18n="inc.ptd">~8–15 hrs/week, alongside your day job</div></div>
+        <div class="fig"><div class="flabel" data-i18n="inc.ftlabel">Full-time</div><div class="fbig">$100–200K+<span style="font-size:.5em">/yr</span></div><div class="fd" data-i18n="inc.ftd">~30–40 hrs/week — top producers earn well above</div></div>
+      </div>
+      <div class="callout" data-i18n="inc.note"><strong>Paid weekly. Renewals stack year over year.</strong> Every policy you write keeps paying for the life of the policy — your income builds on itself.</div>
+    </div>
+  </section>
+
+  <!-- 9 · WHAT YOU'LL SELL -->
+  <section class="slide">
+    <div class="inner">
+      <div class="kicker" data-i18n="sell.kicker">What you'll offer</div>
+      <h2 data-i18n="sell.title">Real solutions families actually need</h2>
+      <p class="lead" data-i18n="sell.body">Not pushing a product nobody wants to think about — bringing answers people are grateful for.</p>
+      <div class="chips">
+        <span class="chip">IUL</span><span class="chip">Kai-Zen</span><span class="chip" data-i18n="sell.term">Term Life</span>
+        <span class="chip" data-i18n="sell.mp">Mortgage Protection</span><span class="chip" data-i18n="sell.ann">Annuities</span>
+        <span class="chip" data-i18n="sell.kids">IUL for Kids</span><span class="chip" data-i18n="sell.ret">Retirement / IRAs</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10 · LICENSE -->
+  <section class="slide gold">
+    <div class="inner">
+      <div class="kicker" data-i18n="lic.kicker">No experience? Good.</div>
+      <h2 data-i18n="lic.title">You don't need a license to start.</h2>
+      <p class="lead" data-i18n="lic.body">Most states: 4–6 weeks of study, one exam — we walk you through it. Career-changers are exactly who we're built for.</p>
+      <p style="font-weight:700;color:var(--navy);margin:18px 0 0" data-i18n="lic.bgtitle">Backgrounds that work well:</p>
+      <div class="chips">
+        <span class="chip" data-i18n="lic.b1">P&amp;C insurance</span><span class="chip" data-i18n="lic.b2">Real estate</span>
+        <span class="chip" data-i18n="lic.b3">Banking &amp; finance</span><span class="chip" data-i18n="lic.b4">Teaching</span>
+        <span class="chip" data-i18n="lic.b5">Healthcare &amp; nursing</span><span class="chip" data-i18n="lic.b6">Direct sales</span>
+        <span class="chip" data-i18n="lic.b7">Immigrant business owners</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11 · WHAT'S INCLUDED -->
+  <section class="slide">
+    <div class="inner">
+      <div class="kicker" data-i18n="inc2.kicker">We don't drop you in the deep end</div>
+      <h2 data-i18n="inc2.title">What's included beyond the contract</h2>
+      <ul class="biglist" data-i18n="inc2.items">
+        <li>National Life Group carrier portal + iPipeline e-app</li>
+        <li>Keap CRM with lead-management workflows</li>
+        <li>A marketing system — lead-gen funnels + social content</li>
+        <li>A producing mentor + weekly debrief calls</li>
+        <li>Monthly all-team training</li>
+        <li>Multilingual market access (LT / UA / RU / PL)</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 12 · FIRST 90 DAYS -->
+  <section class="slide gold">
+    <div class="inner">
+      <div class="kicker" data-i18n="d90.kicker">Your first 90 days</div>
+      <h2 data-i18n="d90.title">A clear path — not "good luck"</h2>
+      <div class="phases">
+        <div class="phase"><div class="pn" data-i18n="d90.p1n">Days 1–30</div><div class="pt" data-i18n="d90.p1t">Licensing &amp; foundation</div><div class="pd" data-i18n="d90.p1d">Get licensed (if needed), learn the products, shadow 3–5 live appointments, build your warm-market list.</div></div>
+        <div class="phase"><div class="pn" data-i18n="d90.p2n">Days 31–60</div><div class="pt" data-i18n="d90.p2t">Mentor co-piloted</div><div class="pd" data-i18n="d90.p2d">Run your first 5 appointments with a mentor on the call. Most new agents write 2 cases out of 5.</div></div>
+        <div class="phase"><div class="pn" data-i18n="d90.p3n">Days 61–90</div><div class="pt" data-i18n="d90.p3t">Solo with backup</div><div class="pd" data-i18n="d90.p3d">You run appointments; mentor on standby. First commission checks land weekly from around day 45.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 13 · PROOF -->
+  <section class="slide">
+    <div class="inner">
+      <div class="kicker" data-i18n="proof.kicker">It's already working</div>
+      <h2 data-i18n="proof.title">Momentum you can join</h2>
+      <div class="grid4">
+        <div class="tile"><div class="ti" data-i18n="proof.s1">Producing in 90 days</div><div class="td" data-i18n="proof.s1d">New agents writing real business inside their first 90 days.</div></div>
+        <div class="tile"><div class="ti" data-i18n="proof.s2">Hiring 50 in 2026</div><div class="td" data-i18n="proof.s2d">We're scaling the team — early agents become tomorrow's mentors and leaders.</div></div>
+        <div class="tile"><div class="ti" data-i18n="proof.s3">175+ years</div><div class="td" data-i18n="proof.s3d">Backed by National Life Group — A+ rated, #1 in indexed universal life.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 14 · WHO FITS -->
+  <section class="slide gold">
+    <div class="inner">
+      <div class="kicker" data-i18n="fit.kicker">Is this you?</div>
+      <h2 data-i18n="fit.title">Who does well here</h2>
+      <ul class="biglist" data-i18n="fit.items">
+        <li><strong>Coachable</strong> — follow a process that works before improvising</li>
+        <li><strong>Self-driven</strong> — nobody clocks you in</li>
+        <li><strong>A listener</strong> — you don't have to be an extrovert</li>
+        <li><strong>Mission-oriented</strong> — "protect today, prepare for tomorrow" lands for you</li>
+        <li><strong>A long-term builder</strong> — here in 5 years, not 5 months</li>
+      </ul>
+      <div class="callout" data-i18n="fit.note">Speak Lithuanian, Ukrainian, Russian, or Polish? Your warm market is huge — and most agents can't reach it.</div>
+    </div>
+  </section>
+
+  <!-- 15 · WHAT TO EXPECT (agenda) -->
+  <section class="slide gold">
+    <div class="inner">
+      <div class="kicker" data-i18n="exp.kicker">Before you book</div>
+      <h2 data-i18n="exp.title">What to expect on the call</h2>
+      <p class="lead" data-i18n="exp.intro">A relaxed 15-minute Zoom conversation — no pressure, no commitment. We record it, so you can revisit anything we cover.</p>
+      <ol class="agenda">
+        <li data-i18n="exp.a1"><strong>Your story</strong> — background, goals, and why now</li>
+        <li data-i18n="exp.a2"><strong>How we work</strong> — the team, the mission, the support behind you</li>
+        <li data-i18n="exp.a3"><strong>Your path</strong> — full-time or part-time, and which fits your life</li>
+        <li data-i18n="exp.a4"><strong>The numbers</strong> — how income and getting paid actually work</li>
+        <li data-i18n="exp.a5"><strong>Your questions</strong> — licensing, next steps, anything on your mind</li>
+      </ol>
+      <div class="callout" data-i18n="exp.close">You'll leave knowing whether it's a fit — and what your first 30 days would actually look like.</div>
+    </div>
+  </section>
+
+  <!-- 16 · NEXT STEPS -->
+  <section class="slide dark">
+    <div class="inner">
+      <div class="kicker" data-i18n="cta.kicker">Next step</div>
+      <h1 data-i18n="cta.title">Let's have a 15-minute conversation.</h1>
+      <p class="lead" data-i18n="cta.body">Tell us your situation, your goals, and which path fits — full-time or part-time. We'll tell you straight whether this is the right fit, and what your first 30 days would actually look like. Jurgita or Vytas reads every message personally and replies within 2 business days.</p>
+      <div class="ctarow">
+        <a class="btn-call" href="../mga/apply.html" style="background:var(--gold);color:var(--navy)">📝 Start your application</a>
+        <a class="btn-call" id="calendlyBtn" href="#" target="_blank" rel="noopener" style="display:none">📅 <span data-i18n="cta.book">Book your opportunity call</span></a>
+        <a class="btn-call alt" href="tel:+16307852412">📞 <span data-i18n="cta.btn">Call 630-785-2412</span></a>
+        <a class="email-link" href="mailto:vytas@goodwillfinancial.com">✉️ vytas@goodwillfinancial.com</a>
+      </div>
+      <p class="zoomnote" data-i18n="cta.zoom">📹 By Zoom (recorded so you can revisit it) — or by phone, your choice.</p>
+    </div>
+  </section>
+
+  <!-- 17 · DISCLOSURES -->
+  <section class="slide">
+    <div class="inner">
+      <div class="kicker" data-i18n="disc.kicker">The fine print</div>
+      <h2 data-i18n="disc.title">Disclosures</h2>
+      <p class="disclaimer" data-i18n="disc.body">Income ranges are illustrative and based on individual production, activity level, market, and effort — there are no income guarantees. Part-time and full-time paths are available. Insurance products are offered through National Life Group. A state insurance license is required; state requirements apply. Living Benefits are provided through optional Accelerated Benefit Riders — they reduce the death benefit when used, may be taxable, and are subject to state and product availability. Indexed Universal Life is not an investment; illustrated values are non-guaranteed. Living Benefits Team · Goodwill Financial Group · Managing General Agency for Alliance Group · 579 W. North Ave, Suite 300, Elmhurst, IL 60126.</p>
+    </div>
+  </section>
+
+</div><!-- /track -->
+</div><!-- /deck -->
+
+<div class="controls">
+  <button class="navbtn" id="prev" onclick="go(idx-1)" aria-label="Previous">‹</button>
+  <span class="counter" id="counter">1 / 16</span>
+  <button class="navbtn" id="next" onclick="go(idx+1)" aria-label="Next">›</button>
+</div>
+<div class="hint" data-i18n="ui.hint">← → arrows · F for fullscreen</div>
+
+<script>
+/* ---------- i18n: English is source-of-truth in the HTML; overrides below ---------- */
+const I18N = {
+  lt:{
+    "cover.kicker":"Living Benefits Team · Goodwill Financial",
+    "cover.l1":"Darbas su prasme.","cover.l2":"Prisijunk prie bendruomenės.",
+    "cover.sub":"Visu etatu ar puse etato — tu sprendi.","cover.begin":"Pradėti",
+    "ns.kicker":"Kodėl mes egzistuojame","ns.title":"Apsaugoti daugiau žmonių su living benefits.",
+    "ns.body":"Tai mūsų Šiaurinė žvaigždė. Kiekviena šeima, kurią pasiekiame — dar viena apsaugota, kai gyvenimas pateikia smūgį, o jis visada pateikia. <strong>Apsaugok šiandien. Pasiruošk rytojui.</strong>",
+    "lb.kicker":"Ką mes darome","lb.title":"„Gyvybės draudimas, kuriuo nereikia mirti, kad pasinaudotum.“",
+    "lb.body":"Senas gyvybės draudimas išmoka tik po mirties. <strong>Living Benefits gali išmokėti pinigus dar gyvam esant</strong> — po sunkios ligos, tokios kaip vėžys, infarktas ar insultas. Tai apsaugo šeimas nuo visų trijų grėsmių:",
+    "lb.t1":"Mirti per anksti","lb.t1d":"Pajamos ir paskola padengtos.",
+    "lb.t2":"Susirgti","lb.t2d":"Pinigai, kai liga užklumpa — esminis skirtumas.",
+    "lb.t3":"Gyventi per ilgai","lb.t3d":"Neapmokestinamos pensijos pajamos.",
+    "why.kicker":"Kodėl šis darbas svarbus",
+    "why.body":"Tu neparduodi mirties išmokos. Tu parodai šeimoms, kad infarktas, insultas ar vėžio diagnozė <strong>neturi atimti namų, vaikų mokslo ar sutuoktinio pensijos.</strong>",
+    "why.body2":"Tai tikras pokalbis. Jis keičia tai, kaip klientai tave mato — ir kaip tu pats jautiesi dėl savo darbo.",
+    "who.kicker":"Kas mes esame","who.title":"Living Benefits Team",
+    "who.body":"Goodwill Financial gyvybės ir living benefits padalinys — Managing General Agency, dirbanti su Alliance Group, sukurta imigranto, kad padėtų šeimoms kurti ir apsaugoti pirmos kartos turtą.",
+    "who.f1":"Pagrindinis carrier · A+ reitingas · nuo 1848 · #1 IUL srityje",
+    "who.f2":"Tikros šeimos, tikri atsiliepimai",
+    "who.f3t":"Elmhurst, IL","who.f3":"11 žmonių komanda, kuri atsiliepia telefonu",
+    "who.f4t":"Daugiakalbiai","who.f4":"EN · LT · UA · RU · PL — bendruomenės, kurių dauguma agentų nepasiekia",
+    "pil.kicker":"Ką tu gauni","pil.title":"Keturios priežastys, kodėl agentai prisijungia — ir lieka",
+    "pil.p1":"Prasmė","pil.p1d":"Gelbėk šeimas. Tikri rezultatai.",
+    "pil.p2":"Bendruomenė","pil.p2d":"Nacionalinė komanda. EN/LT/UA/RU/PL.",
+    "pil.p3":"Laisvė","pil.p3d":"Finansinė + laiko.",
+    "pil.p4":"Lankstumas","pil.p4d":"Visu etatu ARBA papildomai.",
+    "path.kicker":"Tu sprendi","path.title":"Visu etatu ar puse etato",
+    "path.ftt":"Pilno etato kelias",
+    "path.ft":"<li>30–40 val./sav.</li><li>Mentorius lydi pirmąsias 90 dienų</li><li>Tikslas: $25–40K įmokų iki 90 dienos</li><li>Komisiniai mokami kas savaitę</li>",
+    "path.ptt":"Puse etato / papildomas darbas",
+    "path.pt":"<li>Pasilieki savo dabartinį darbą</li><li>Vakarais ir savaitgaliais, ~8–15 val./sav.</li><li>Tikslas: $8–15K įmokų iki 90 dienos</li><li>Daugelis geriausių agentų pradėjo būtent čia — ir perėjo į pilną etatą, kai komisiniai pranoko atlyginimą</li>",
+    "inc.kicker":"Pajamos — neribotos","inc.title":"Jokių ribų. Jokių lubų. Pajamos atspindi tai, ką iš tikrųjų darai.",
+    "inc.ptlabel":"Puse etato / papildomai","inc.ptd":"~8–15 val./sav., greta dabartinio darbo",
+    "inc.ftlabel":"Pilnas etatas","inc.ftd":"~30–40 val./sav. — geriausi uždirba gerokai daugiau",
+    "inc.note":"<strong>Mokama kas savaitę. Atnaujinimai (renewals) kaupiasi metai iš metų.</strong> Kiekviena tavo sudaryta polisa moka visą polisos galiojimo laiką — tavo pajamos auga pačios.",
+    "sell.kicker":"Ką tu siūlysi","sell.title":"Tikri sprendimai, kurių šeimoms iš tiesų reikia",
+    "sell.body":"Ne produkto, apie kurį niekas nenori galvoti, brukimas — o atsakymai, už kuriuos žmonės dėkingi.",
+    "sell.term":"Terminuotas draudimas","sell.mp":"Paskolos apsauga","sell.ann":"Anuitetai","sell.kids":"IUL vaikams","sell.ret":"Pensija / IRA",
+    "lic.kicker":"Nėra patirties? Puiku.","lic.title":"Norint pradėti, licencijos nereikia.",
+    "lic.body":"Daugumoje valstijų: 4–6 savaitės mokymosi, vienas egzaminas — mes tave pervedame per visą procesą. Keičiantieji karjerą — būtent tie, kuriems esame sukurti.",
+    "lic.bgtitle":"Patirtis, kuri puikiai tinka:",
+    "lic.b1":"P&C draudimas","lic.b2":"Nekilnojamas turtas","lic.b3":"Bankininkystė ir finansai","lic.b4":"Mokytojai","lic.b5":"Sveikatos priežiūra ir slauga","lic.b6":"Tiesioginiai pardavimai","lic.b7":"Imigrantai verslininkai",
+    "inc2.kicker":"Nepaliekame tavęs vieno","inc2.title":"Kas įeina be paties kontrakto",
+    "inc2.items":"<li>National Life Group carrier portalas + iPipeline e-app</li><li>Keap CRM su lead valdymo darbo eigomis</li><li>Marketingo sistema — lead-gen kanalai + turinys socialiniams</li><li>Dirbantis mentorius + savaitiniai aptarimai</li><li>Mėnesiniai visos komandos mokymai</li><li>Daugiakalbė rinka (LT / UA / RU / PL)</li>",
+    "d90.kicker":"Tavo pirmosios 90 dienų","d90.title":"Aiškus kelias — ne „sėkmės“",
+    "d90.p1n":"1–30 diena","d90.p1t":"Licencija ir pagrindai","d90.p1d":"Gauk licenciją (jei reikia), išmok produktus, stebėk 3–5 gyvus susitikimus, sudaryk šiltų kontaktų sąrašą.",
+    "d90.p2n":"31–60 diena","d90.p2t":"Su mentoriumi","d90.p2d":"Vesk pirmuosius 5 susitikimus su mentoriumi skambutyje. Dauguma naujų agentų sudaro 2 sutartis iš 5.",
+    "d90.p3n":"61–90 diena","d90.p3t":"Savarankiškai su pagalba","d90.p3d":"Susitikimus vedi pats; mentorius — pasiruošęs padėti. Pirmieji komisiniai ateina kas savaitę maždaug nuo 45 dienos.",
+    "proof.kicker":"Tai jau veikia","proof.title":"Pagreitis, prie kurio gali prisijungti",
+    "proof.s1":"Rezultatai per 90 dienų","proof.s1d":"Nauji agentai sudaro realias sutartis per pirmąsias 90 dienų.",
+    "proof.s2":"50 naujų agentų 2026-aisiais","proof.s2d":"Plečiame komandą — ankstyvieji agentai tampa rytojaus mentoriais ir lyderiais.",
+    "proof.s3":"175+ metų","proof.s3d":"Remia National Life Group — A+ reitingas, #1 indexed universal life srityje.",
+    "fit.kicker":"Ar tai tu?","fit.title":"Kam čia sekasi",
+    "fit.items":"<li><strong>Mokus</strong> — pirma laikaisi veikiančio proceso, tik tada improvizuoji</li><li><strong>Savarankiškas</strong> — niekas tavęs nekontroliuoja</li><li><strong>Klausytojas</strong> — nebūtina būti ekstravertu</li><li><strong>Vedamas misijos</strong> — „apsaugok šiandien, pasiruošk rytojui“ tau skamba tikrai</li><li><strong>Ilgalaikis kūrėjas</strong> — čia po 5 metų, ne po 5 mėnesių</li>",
+    "fit.note":"Kalbi lietuviškai, ukrainietiškai, rusiškai ar lenkiškai? Tavo šilta rinka — milžiniška, ir dauguma agentų jos nepasiekia.",
+    "cta.kicker":"Kitas žingsnis","cta.title":"Pasikalbėkime 15 minučių.",
+    "cta.body":"Papasakok savo situaciją, tikslus ir kuris kelias tau tinka — pilnas ar puse etato. Pasakysime tiesiai, ar tai tinkama vieta tau, ir kaip iš tikrųjų atrodytų tavo pirmosios 30 dienų. Jurgita arba Vytas asmeniškai perskaito kiekvieną žinutę ir atsako per 2 darbo dienas.",
+    "cta.btn":"Skambink 630-785-2412",
+    "cta.book":"Registruokis į galimybių pokalbį","cta.zoom":"📹 Per Zoom (įrašoma, kad galėtum peržiūrėti) — arba telefonu, kaip tau patogiau.",
+    "exp.kicker":"Prieš registruojantis","exp.title":"Ko tikėtis pokalbio metu",
+    "exp.intro":"Ramus 15 minučių pokalbis per Zoom — jokio spaudimo, jokių įsipareigojimų. Jį įrašome, kad galėtum bet ką peržiūrėti vėliau.",
+    "exp.a1":"<strong>Tavo istorija</strong> — patirtis, tikslai ir kodėl dabar","exp.a2":"<strong>Kaip mes dirbame</strong> — komanda, misija ir pagalba už tavęs",
+    "exp.a3":"<strong>Tavo kelias</strong> — pilnas ar puse etato, ir kas tau tinka","exp.a4":"<strong>Skaičiai</strong> — kaip iš tikrųjų veikia pajamos ir atsiskaitymas",
+    "exp.a5":"<strong>Tavo klausimai</strong> — licencija, kiti žingsniai, viskas, kas rūpi",
+    "exp.close":"Išeisi žinodamas, ar tai tau tinka — ir kaip iš tikrųjų atrodytų tavo pirmosios 30 dienų.",
+    "disc.kicker":"Smulkus šriftas","disc.title":"Atskleidimai",
+    "disc.body":"Pajamų intervalai yra iliustraciniai ir priklauso nuo individualios produkcijos, aktyvumo, rinkos ir pastangų — pajamų garantijų nėra. Galimi tiek pilno, tiek puse etato keliai. Draudimo produktai teikiami per National Life Group. Reikalinga valstijos draudimo licencija; taikomi valstijos reikalavimai. Living Benefits teikiami per pasirenkamus Accelerated Benefit Riders — jie sumažina mirties išmoką, kai panaudojami, gali būti apmokestinami ir priklauso nuo valstijos bei produkto prieinamumo. Indexed Universal Life nėra investicija; iliustruotos vertės negarantuojamos. Living Benefits Team · Goodwill Financial Group · Managing General Agency for Alliance Group · 579 W. North Ave, Suite 300, Elmhurst, IL 60126.",
+    "ui.hint":"← → rodyklės · F — visas ekranas"
+  },
+  uk:{
+    "cover.kicker":"Living Benefits Team · Goodwill Financial",
+    "cover.l1":"Робота зі змістом.","cover.l2":"Приєднуйся до спільноти.",
+    "cover.sub":"Повна або часткова зайнятість — вирішуєш ти.","cover.begin":"Почати",
+    "ns.kicker":"Навіщо ми існуємо","ns.title":"Захистити більше людей за допомогою living benefits.",
+    "ns.body":"Це наша Полярна зоря. Кожна родина, яку ми охоплюємо, — ще одна захищена, коли життя завдає удару, а воно завжди завдає. <strong>Захисти сьогодні. Підготуйся до завтра.</strong>",
+    "lb.kicker":"Що ми робимо","lb.title":"«Страхування життя, яким не треба померти, щоб скористатися.»",
+    "lb.body":"Старе страхування життя виплачує лише після смерті. <strong>Living Benefits можуть виплатити гроші, поки ви живі</strong> — після серйозної хвороби, як-от рак, інфаркт чи інсульт. Це захищає родини від усіх трьох загроз:",
+    "lb.t1":"Померти зарано","lb.t1d":"Дохід та іпотека покриті.",
+    "lb.t2":"Захворіти","lb.t2d":"Гроші, коли хвороба приходить, — головна різниця.",
+    "lb.t3":"Жити надто довго","lb.t3d":"Неоподатковуваний пенсійний дохід.",
+    "why.kicker":"Чому ця робота важлива",
+    "why.body":"Ви не продаєте виплату по смерті. Ви показуєте родинам, що інфаркт, інсульт чи діагноз рак <strong>не мусять забрати дім, навчання дітей чи пенсію подружжя.</strong>",
+    "why.body2":"Це справжня розмова. Вона змінює те, як клієнти бачать вас, — і те, як ви самі ставитеся до своєї роботи.",
+    "who.kicker":"Хто ми","who.title":"Living Benefits Team",
+    "who.body":"Підрозділ страхування життя та living benefits компанії Goodwill Financial — Managing General Agency для Alliance Group, створений іммігрантом, щоб допомагати родинам будувати й захищати капітал першого покоління.",
+    "who.f1":"Основний carrier · рейтинг A+ · з 1848 · #1 в IUL",
+    "who.f2":"Справжні родини, справжні відгуки",
+    "who.f3t":"Елмгерст, Іллінойс","who.f3":"Команда з 11 людей, яка відповідає на дзвінки",
+    "who.f4t":"Багатомовні","who.f4":"EN · LT · UA · RU · PL — спільноти, до яких більшість агентів не має доступу",
+    "pil.kicker":"Що ви отримуєте","pil.title":"Чотири причини, чому агенти приєднуються — і залишаються",
+    "pil.p1":"Сенс","pil.p1d":"Рятуй родини. Реальні результати.",
+    "pil.p2":"Спільнота","pil.p2d":"Національна команда. EN/LT/UA/RU/PL.",
+    "pil.p3":"Свобода","pil.p3d":"Фінансова + часу.",
+    "pil.p4":"Гнучкість","pil.p4d":"Повна зайнятість АБО підробіток.",
+    "path.kicker":"Вирішуєш ти","path.title":"Повна або часткова зайнятість",
+    "path.ftt":"Повна зайнятість",
+    "path.ft":"<li>30–40 год/тиждень</li><li>Ментор супроводжує перші 90 днів</li><li>Ціль: $25–40K премії до 90-го дня</li><li>Комісія виплачується щотижня</li>",
+    "path.ptt":"Часткова / підробіток",
+    "path.pt":"<li>Зберігаєте свою основну роботу</li><li>Вечори та вихідні, ~8–15 год/тиждень</li><li>Ціль: $8–15K премії до 90-го дня</li><li>Багато найкращих агентів починали саме тут — і перейшли на повну, коли комісія перевищила зарплату</li>",
+    "inc.kicker":"Дохід — необмежений","inc.title":"Без межі. Без стелі. Дохід відповідає тому, що ви реально робите.",
+    "inc.ptlabel":"Часткова / підробіток","inc.ptd":"~8–15 год/тиждень, поряд з основною роботою",
+    "inc.ftlabel":"Повна зайнятість","inc.ftd":"~30–40 год/тиждень — найкращі заробляють значно більше",
+    "inc.note":"<strong>Виплати щотижня. Поновлення (renewals) накопичуються рік за роком.</strong> Кожен оформлений вами поліс продовжує платити весь термін дії — ваш дохід зростає сам собою.",
+    "sell.kicker":"Що ви пропонуватимете","sell.title":"Реальні рішення, які родинам справді потрібні",
+    "sell.body":"Не нав'язування продукту, про який ніхто не хоче думати, — а відповіді, за які люди вдячні.",
+    "sell.term":"Строкове страхування","sell.mp":"Захист іпотеки","sell.ann":"Ануїтети","sell.kids":"IUL для дітей","sell.ret":"Пенсія / IRA",
+    "lic.kicker":"Немає досвіду? Чудово.","lic.title":"Щоб почати, ліцензія не потрібна.",
+    "lic.body":"У більшості штатів: 4–6 тижнів навчання, один іспит — ми проводимо вас крізь увесь процес. Ті, хто змінює кар'єру, — саме для них ми створені.",
+    "lic.bgtitle":"Досвід, який добре підходить:",
+    "lic.b1":"Страхування P&C","lic.b2":"Нерухомість","lic.b3":"Банки та фінанси","lic.b4":"Викладання","lic.b5":"Медицина та догляд","lic.b6":"Прямі продажі","lic.b7":"Підприємці-іммігранти",
+    "inc2.kicker":"Ми не кидаємо вас саму на глибину","inc2.title":"Що входить, крім самого контракту",
+    "inc2.items":"<li>Портал carrier National Life Group + iPipeline e-app</li><li>CRM Keap з робочими процесами для лідів</li><li>Маркетингова система — воронки лідогенерації + контент для соцмереж</li><li>Ментор-практик + щотижневі розбори</li><li>Щомісячні тренінги для всієї команди</li><li>Доступ до багатомовного ринку (LT / UA / RU / PL)</li>",
+    "d90.kicker":"Ваші перші 90 днів","d90.title":"Чіткий шлях — а не «щасти»",
+    "d90.p1n":"Дні 1–30","d90.p1t":"Ліцензія та основи","d90.p1d":"Отримайте ліцензію (за потреби), вивчіть продукти, відвідайте 3–5 живих зустрічей як спостерігач, складіть список теплих контактів.",
+    "d90.p2n":"Дні 31–60","d90.p2t":"Разом із ментором","d90.p2d":"Проведіть перші 5 зустрічей з ментором на дзвінку. Більшість нових агентів оформлюють 2 угоди з 5.",
+    "d90.p3n":"Дні 61–90","d90.p3t":"Самостійно з підстраховкою","d90.p3d":"Зустрічі проводите ви; ментор напоготові. Перші комісійні приходять щотижня приблизно з 45-го дня.",
+    "proof.kicker":"Це вже працює","proof.title":"Імпульс, до якого можна приєднатися",
+    "proof.s1":"Результат за 90 днів","proof.s1d":"Нові агенти оформлюють реальні угоди вже в перші 90 днів.",
+    "proof.s2":"50 нових у 2026","proof.s2d":"Ми масштабуємо команду — перші агенти стають менторами й лідерами завтрашнього дня.",
+    "proof.s3":"175+ років","proof.s3d":"За підтримки National Life Group — рейтинг A+, #1 в indexed universal life.",
+    "fit.kicker":"Це про вас?","fit.title":"Кому тут добре вдається",
+    "fit.items":"<li><strong>Навчувані</strong> — спершу дотримуєтесь робочого процесу, потім імпровізуєте</li><li><strong>Самостійні</strong> — ніхто не контролює ваш графік</li><li><strong>Той, хто слухає</strong> — не обов'язково бути екстравертом</li><li><strong>Орієнтовані на місію</strong> — «захисти сьогодні, підготуйся до завтра» вам відгукується</li><li><strong>Будівничий надовго</strong> — тут через 5 років, а не через 5 місяців</li>",
+    "fit.note":"Говорите литовською, українською, російською чи польською? Ваш теплий ринок — величезний, і більшість агентів до нього не дотягнеться.",
+    "cta.kicker":"Наступний крок","cta.title":"Поговорімо 15 хвилин.",
+    "cta.body":"Розкажіть про свою ситуацію, цілі та який шлях вам підходить — повний чи частковий. Скажемо чесно, чи це для вас, і як насправді виглядатимуть ваші перші 30 днів. Jurgita або Vytas особисто читає кожне повідомлення й відповідає протягом 2 робочих днів.",
+    "cta.btn":"Дзвоніть 630-785-2412",
+    "cta.book":"Записатися на розмову про можливість","cta.zoom":"📹 У Zoom (із записом, щоб можна було переглянути) — або по телефону, на ваш вибір.",
+    "exp.kicker":"Перш ніж записатися","exp.title":"Чого очікувати від розмови",
+    "exp.intro":"Спокійна 15-хвилинна розмова у Zoom — без тиску й без зобов'язань. Ми її записуємо, щоб ви могли повернутися до будь-чого пізніше.",
+    "exp.a1":"<strong>Ваша історія</strong> — досвід, цілі та чому саме зараз","exp.a2":"<strong>Як ми працюємо</strong> — команда, місія та підтримка позаду вас",
+    "exp.a3":"<strong>Ваш шлях</strong> — повна чи часткова зайнятість, і що вам підходить","exp.a4":"<strong>Цифри</strong> — як насправді працює дохід і виплати",
+    "exp.a5":"<strong>Ваші запитання</strong> — ліцензія, наступні кроки, усе, що цікавить",
+    "exp.close":"Ви підете, знаючи, чи це для вас, — і як насправді виглядатимуть ваші перші 30 днів.",
+    "disc.kicker":"Дрібний шрифт","disc.title":"Застереження",
+    "disc.body":"Діапазони доходу є ілюстративними й залежать від індивідуальної продуктивності, активності, ринку та зусиль — гарантій доходу немає. Доступні шляхи як повної, так і часткової зайнятості. Страхові продукти пропонуються через National Life Group. Потрібна страхова ліцензія штату; застосовуються вимоги штату. Living Benefits надаються через додаткові Accelerated Benefit Riders — вони зменшують виплату по смерті при використанні, можуть оподатковуватися та залежать від доступності у штаті й за продуктом. Indexed Universal Life не є інвестицією; ілюстровані значення не гарантовані. Living Benefits Team · Goodwill Financial Group · Managing General Agency for Alliance Group · 579 W. North Ave, Suite 300, Elmhurst, IL 60126.",
+    "ui.hint":"← → стрілки · F — на весь екран"
+  },
+  ru:{
+    "cover.kicker":"Living Benefits Team · Goodwill Financial",
+    "cover.l1":"Работа со смыслом.","cover.l2":"Присоединяйся к сообществу.",
+    "cover.sub":"Полная или частичная занятость — решаешь ты.","cover.begin":"Начать",
+    "ns.kicker":"Зачем мы существуем","ns.title":"Защитить больше людей с помощью living benefits.",
+    "ns.body":"Это наша Полярная звезда. Каждая семья, которую мы охватываем, — ещё одна защищённая, когда жизнь наносит удар, а она всегда его наносит. <strong>Защити сегодня. Подготовься к завтра.</strong>",
+    "lb.kicker":"Что мы делаем","lb.title":"«Страхование жизни, которым не нужно умирать, чтобы воспользоваться.»",
+    "lb.body":"Старое страхование жизни платит только после смерти. <strong>Living Benefits могут выплатить деньги, пока вы живы</strong> — после серьёзной болезни, такой как рак, инфаркт или инсульт. Это защищает семьи от всех трёх угроз:",
+    "lb.t1":"Умереть слишком рано","lb.t1d":"Доход и ипотека покрыты.",
+    "lb.t2":"Заболеть","lb.t2d":"Деньги, когда приходит болезнь, — ключевая разница.",
+    "lb.t3":"Жить слишком долго","lb.t3d":"Необлагаемый пенсионный доход.",
+    "why.kicker":"Почему эта работа важна",
+    "why.body":"Вы не продаёте выплату по смерти. Вы показываете семьям, что инфаркт, инсульт или диагноз рак <strong>не должны отнять дом, образование детей или пенсию супруга.</strong>",
+    "why.body2":"Это настоящий разговор. Он меняет то, как клиенты видят вас, — и то, как вы сами относитесь к своей работе.",
+    "who.kicker":"Кто мы","who.title":"Living Benefits Team",
+    "who.body":"Подразделение страхования жизни и living benefits компании Goodwill Financial — Managing General Agency для Alliance Group, созданное иммигрантом, чтобы помогать семьям строить и защищать капитал первого поколения.",
+    "who.f1":"Основной carrier · рейтинг A+ · с 1848 · #1 в IUL",
+    "who.f2":"Настоящие семьи, настоящие отзывы",
+    "who.f3t":"Элмхерст, Иллинойс","who.f3":"Команда из 11 человек, которая отвечает на звонки",
+    "who.f4t":"Многоязычные","who.f4":"EN · LT · UA · RU · PL — сообщества, до которых большинство агентов не доберётся",
+    "pil.kicker":"Что вы получаете","pil.title":"Четыре причины, почему агенты приходят — и остаются",
+    "pil.p1":"Смысл","pil.p1d":"Спасай семьи. Реальные результаты.",
+    "pil.p2":"Сообщество","pil.p2d":"Национальная команда. EN/LT/UA/RU/PL.",
+    "pil.p3":"Свобода","pil.p3d":"Финансовая + времени.",
+    "pil.p4":"Гибкость","pil.p4d":"Полная занятость ИЛИ подработка.",
+    "path.kicker":"Решаешь ты","path.title":"Полная или частичная занятость",
+    "path.ftt":"Полная занятость",
+    "path.ft":"<li>30–40 ч/неделю</li><li>Наставник сопровождает первые 90 дней</li><li>Цель: $25–40K премии к 90-му дню</li><li>Комиссия выплачивается еженедельно</li>",
+    "path.ptt":"Частичная / подработка",
+    "path.pt":"<li>Сохраняете свою основную работу</li><li>Вечера и выходные, ~8–15 ч/неделю</li><li>Цель: $8–15K премии к 90-му дню</li><li>Многие лучшие агенты начинали именно здесь — и перешли на полную, когда комиссия превысила зарплату</li>",
+    "inc.kicker":"Доход — неограниченный","inc.title":"Без предела. Без потолка. Доход отражает то, что вы реально делаете.",
+    "inc.ptlabel":"Частичная / подработка","inc.ptd":"~8–15 ч/неделю, рядом с основной работой",
+    "inc.ftlabel":"Полная занятость","inc.ftd":"~30–40 ч/неделю — лучшие зарабатывают значительно больше",
+    "inc.note":"<strong>Выплаты еженедельно. Продления (renewals) накапливаются год за годом.</strong> Каждый оформленный вами полис продолжает платить весь срок действия — ваш доход растёт сам по себе.",
+    "sell.kicker":"Что вы будете предлагать","sell.title":"Реальные решения, которые семьям действительно нужны",
+    "sell.body":"Не навязывание продукта, о котором никто не хочет думать, — а ответы, за которые люди благодарны.",
+    "sell.term":"Срочное страхование","sell.mp":"Защита ипотеки","sell.ann":"Аннуитеты","sell.kids":"IUL для детей","sell.ret":"Пенсия / IRA",
+    "lic.kicker":"Нет опыта? Отлично.","lic.title":"Чтобы начать, лицензия не нужна.",
+    "lic.body":"В большинстве штатов: 4–6 недель учёбы, один экзамен — мы проводим вас через весь процесс. Те, кто меняет карьеру, — именно для них мы созданы.",
+    "lic.bgtitle":"Опыт, который хорошо подходит:",
+    "lic.b1":"Страхование P&C","lic.b2":"Недвижимость","lic.b3":"Банки и финансы","lic.b4":"Преподавание","lic.b5":"Медицина и уход","lic.b6":"Прямые продажи","lic.b7":"Предприниматели-иммигранты",
+    "inc2.kicker":"Мы не бросаем вас одного на глубине","inc2.title":"Что входит, помимо самого контракта",
+    "inc2.items":"<li>Портал carrier National Life Group + iPipeline e-app</li><li>CRM Keap с рабочими процессами для лидов</li><li>Маркетинговая система — воронки лидогенерации + контент для соцсетей</li><li>Наставник-практик + еженедельные разборы</li><li>Ежемесячные тренинги для всей команды</li><li>Доступ к многоязычному рынку (LT / UA / RU / PL)</li>",
+    "d90.kicker":"Ваши первые 90 дней","d90.title":"Чёткий путь — а не «удачи»",
+    "d90.p1n":"Дни 1–30","d90.p1t":"Лицензия и основы","d90.p1d":"Получите лицензию (если нужно), изучите продукты, посетите 3–5 живых встреч как наблюдатель, составьте список тёплых контактов.",
+    "d90.p2n":"Дни 31–60","d90.p2t":"Вместе с наставником","d90.p2d":"Проведите первые 5 встреч с наставником на звонке. Большинство новых агентов оформляют 2 сделки из 5.",
+    "d90.p3n":"Дни 61–90","d90.p3t":"Самостоятельно с подстраховкой","d90.p3d":"Встречи проводите вы; наставник наготове. Первые комиссионные приходят еженедельно примерно с 45-го дня.",
+    "proof.kicker":"Это уже работает","proof.title":"Импульс, к которому можно присоединиться",
+    "proof.s1":"Результат за 90 дней","proof.s1d":"Новые агенты оформляют реальные сделки уже в первые 90 дней.",
+    "proof.s2":"50 новых в 2026","proof.s2d":"Мы масштабируем команду — первые агенты становятся наставниками и лидерами завтрашнего дня.",
+    "proof.s3":"175+ лет","proof.s3d":"При поддержке National Life Group — рейтинг A+, #1 в indexed universal life.",
+    "fit.kicker":"Это про вас?","fit.title":"У кого здесь хорошо получается",
+    "fit.items":"<li><strong>Обучаемые</strong> — сначала следуете работающему процессу, потом импровизируете</li><li><strong>Самостоятельные</strong> — никто не контролирует ваш график</li><li><strong>Умеющие слушать</strong> — не обязательно быть экстравертом</li><li><strong>Ориентированные на миссию</strong> — «защити сегодня, подготовься к завтра» вам отзывается</li><li><strong>Строящие надолго</strong> — здесь через 5 лет, а не через 5 месяцев</li>",
+    "fit.note":"Говорите на литовском, украинском, русском или польском? Ваш тёплый рынок — огромен, и большинство агентов до него не дотянется.",
+    "cta.kicker":"Следующий шаг","cta.title":"Давайте поговорим 15 минут.",
+    "cta.body":"Расскажите о своей ситуации, целях и о том, какой путь вам подходит — полный или частичный. Скажем честно, подходит ли это вам, и как на самом деле будут выглядеть ваши первые 30 дней. Jurgita или Vytas лично читает каждое сообщение и отвечает в течение 2 рабочих дней.",
+    "cta.btn":"Звоните 630-785-2412",
+    "cta.book":"Записаться на разговор о возможности","cta.zoom":"📹 В Zoom (с записью, чтобы можно было пересмотреть) — или по телефону, на ваш выбор.",
+    "exp.kicker":"Прежде чем записаться","exp.title":"Чего ожидать от разговора",
+    "exp.intro":"Спокойный 15-минутный разговор в Zoom — без давления и без обязательств. Мы его записываем, чтобы вы могли вернуться к чему угодно позже.",
+    "exp.a1":"<strong>Ваша история</strong> — опыт, цели и почему именно сейчас","exp.a2":"<strong>Как мы работаем</strong> — команда, миссия и поддержка за вами",
+    "exp.a3":"<strong>Ваш путь</strong> — полная или частичная занятость, и что вам подходит","exp.a4":"<strong>Цифры</strong> — как на самом деле работает доход и выплаты",
+    "exp.a5":"<strong>Ваши вопросы</strong> — лицензия, следующие шаги, всё, что важно",
+    "exp.close":"Вы уйдёте, зная, подходит ли это вам, — и как на самом деле будут выглядеть ваши первые 30 дней.",
+    "disc.kicker":"Мелкий шрифт","disc.title":"Оговорки",
+    "disc.body":"Диапазоны дохода являются иллюстративными и зависят от индивидуальной продуктивности, активности, рынка и усилий — гарантий дохода нет. Доступны пути как полной, так и частичной занятости. Страховые продукты предлагаются через National Life Group. Требуется страховая лицензия штата; применяются требования штата. Living Benefits предоставляются через дополнительные Accelerated Benefit Riders — они уменьшают выплату по смерти при использовании, могут облагаться налогом и зависят от доступности в штате и по продукту. Indexed Universal Life не является инвестицией; иллюстрируемые значения не гарантированы. Living Benefits Team · Goodwill Financial Group · Managing General Agency for Alliance Group · 579 W. North Ave, Suite 300, Elmhurst, IL 60126.",
+    "ui.hint":"← → стрелки · F — на весь экран"
+  },
+  pl:{
+    "cover.kicker":"Living Benefits Team · Goodwill Financial",
+    "cover.l1":"Praca z sensem.","cover.l2":"Dołącz do społeczności.",
+    "cover.sub":"Pełny etat lub dorywczo — Ty decydujesz.","cover.begin":"Zacznij",
+    "ns.kicker":"Dlaczego istniejemy","ns.title":"Chronić więcej ludzi dzięki living benefits.",
+    "ns.body":"To nasza Gwiazda Polarna. Każda rodzina, do której docieramy, to kolejna chroniona, gdy życie zadaje cios — a zawsze go zadaje. <strong>Chroń dziś. Przygotuj się na jutro.</strong>",
+    "lb.kicker":"Czym się zajmujemy","lb.title":"„Ubezpieczenie na życie, z którego nie trzeba umrzeć, by skorzystać.”",
+    "lb.body":"Stare ubezpieczenie na życie wypłaca tylko po śmierci. <strong>Living Benefits mogą wypłacić pieniądze za życia</strong> — po poważnej chorobie, takiej jak rak, zawał czy udar. To chroni rodziny przed wszystkimi trzema zagrożeniami:",
+    "lb.t1":"Umrzeć zbyt wcześnie","lb.t1d":"Dochód i kredyt hipoteczny są zabezpieczone.",
+    "lb.t2":"Zachorować","lb.t2d":"Gotówka, gdy przychodzi choroba — kluczowa różnica.",
+    "lb.t3":"Żyć zbyt długo","lb.t3d":"Wolny od podatku dochód emerytalny.",
+    "why.kicker":"Dlaczego ta praca ma znaczenie",
+    "why.body":"Nie sprzedajesz świadczenia z tytułu śmierci. Pokazujesz rodzinom, że zawał, udar czy diagnoza raka <strong>nie muszą zabrać domu, edukacji dzieci ani emerytury współmałżonka.</strong>",
+    "why.body2":"To prawdziwa rozmowa. Zmienia to, jak widzą Cię klienci — i jak sam czujesz się w tej pracy.",
+    "who.kicker":"Kim jesteśmy","who.title":"Living Benefits Team",
+    "who.body":"Dział ubezpieczeń na życie i living benefits firmy Goodwill Financial — Managing General Agency dla Alliance Group, zbudowany przez imigranta, by pomagać rodzinom budować i chronić majątek pierwszego pokolenia.",
+    "who.f1":"Główny carrier · rating A+ · od 1848 · #1 w IUL",
+    "who.f2":"Prawdziwe rodziny, prawdziwe opinie",
+    "who.f3t":"Elmhurst, IL","who.f3":"11-osobowy zespół, który odbiera telefony",
+    "who.f4t":"Wielojęzyczni","who.f4":"EN · LT · UA · RU · PL — społeczności, do których większość agentów nie dotrze",
+    "pil.kicker":"Co otrzymujesz","pil.title":"Cztery powody, dla których agenci dołączają — i zostają",
+    "pil.p1":"Sens","pil.p1d":"Ratuj rodziny. Realne efekty.",
+    "pil.p2":"Społeczność","pil.p2d":"Zespół ogólnokrajowy. EN/LT/UA/RU/PL.",
+    "pil.p3":"Wolność","pil.p3d":"Finansowa + czasu.",
+    "pil.p4":"Elastyczność","pil.p4d":"Pełny etat LUB dorywczo.",
+    "path.kicker":"Ty decydujesz","path.title":"Pełny etat lub dorywczo",
+    "path.ftt":"Ścieżka pełnoetatowa",
+    "path.ft":"<li>30–40 godz./tydzień</li><li>Mentor towarzyszy przez pierwsze 90 dni</li><li>Cel: $25–40K składki do 90. dnia</li><li>Prowizja wypłacana co tydzień</li>",
+    "path.ptt":"Dorywczo / dodatkowo",
+    "path.pt":"<li>Zachowujesz swoją obecną pracę</li><li>Wieczory i weekendy, ~8–15 godz./tydzień</li><li>Cel: $8–15K składki do 90. dnia</li><li>Wielu najlepszych agentów zaczynało właśnie tu — i przeszło na pełny etat, gdy prowizja przewyższyła pensję</li>",
+    "inc.kicker":"Dochód — nieograniczony","inc.title":"Bez limitu. Bez sufitu. Dochód odzwierciedla to, co naprawdę robisz.",
+    "inc.ptlabel":"Dorywczo / dodatkowo","inc.ptd":"~8–15 godz./tydzień, obok obecnej pracy",
+    "inc.ftlabel":"Pełny etat","inc.ftd":"~30–40 godz./tydzień — najlepsi zarabiają znacznie więcej",
+    "inc.note":"<strong>Wypłata co tydzień. Odnowienia (renewals) kumulują się rok po roku.</strong> Każda zawarta przez Ciebie polisa płaci przez cały okres jej trwania — Twój dochód rośnie sam.",
+    "sell.kicker":"Co będziesz oferować","sell.title":"Realne rozwiązania, których rodziny naprawdę potrzebują",
+    "sell.body":"Nie wciskanie produktu, o którym nikt nie chce myśleć — lecz odpowiedzi, za które ludzie są wdzięczni.",
+    "sell.term":"Ubezpieczenie terminowe","sell.mp":"Ochrona kredytu hipotecznego","sell.ann":"Renty (annuities)","sell.kids":"IUL dla dzieci","sell.ret":"Emerytura / IRA",
+    "lic.kicker":"Brak doświadczenia? Świetnie.","lic.title":"Aby zacząć, licencja nie jest potrzebna.",
+    "lic.body":"W większości stanów: 4–6 tygodni nauki, jeden egzamin — przeprowadzimy Cię przez cały proces. Osoby zmieniające karierę to dokładnie ci, dla których jesteśmy stworzeni.",
+    "lic.bgtitle":"Doświadczenie, które dobrze pasuje:",
+    "lic.b1":"Ubezpieczenia P&C","lic.b2":"Nieruchomości","lic.b3":"Bankowość i finanse","lic.b4":"Nauczanie","lic.b5":"Opieka zdrowotna i pielęgniarstwo","lic.b6":"Sprzedaż bezpośrednia","lic.b7":"Przedsiębiorcy-imigranci",
+    "inc2.kicker":"Nie zostawiamy Cię na głębokiej wodzie","inc2.title":"Co jest w pakiecie poza samą umową",
+    "inc2.items":"<li>Portal carriera National Life Group + iPipeline e-app</li><li>CRM Keap z procesami zarządzania leadami</li><li>System marketingowy — lejki pozyskiwania leadów + treści do social media</li><li>Mentor-praktyk + cotygodniowe omówienia</li><li>Comiesięczne szkolenia całego zespołu</li><li>Dostęp do wielojęzycznego rynku (LT / UA / RU / PL)</li>",
+    "d90.kicker":"Twoje pierwsze 90 dni","d90.title":"Jasna ścieżka — a nie „powodzenia”",
+    "d90.p1n":"Dni 1–30","d90.p1t":"Licencja i podstawy","d90.p1d":"Zdobądź licencję (jeśli trzeba), poznaj produkty, obejrzyj 3–5 spotkań na żywo, zbuduj listę ciepłych kontaktów.",
+    "d90.p2n":"Dni 31–60","d90.p2t":"Z mentorem","d90.p2d":"Poprowadź pierwsze 5 spotkań z mentorem na rozmowie. Większość nowych agentów zawiera 2 umowy na 5.",
+    "d90.p3n":"Dni 61–90","d90.p3t":"Samodzielnie z asekuracją","d90.p3d":"Spotkania prowadzisz Ty; mentor w gotowości. Pierwsze prowizje wpływają co tydzień, mniej więcej od 45. dnia.",
+    "proof.kicker":"To już działa","proof.title":"Tempo, do którego możesz dołączyć",
+    "proof.s1":"Efekty w 90 dni","proof.s1d":"Nowi agenci zawierają realne umowy już w pierwszych 90 dniach.",
+    "proof.s2":"50 nowych w 2026","proof.s2d":"Skalujemy zespół — pierwsi agenci stają się mentorami i liderami jutra.",
+    "proof.s3":"175+ lat","proof.s3d":"Wspierani przez National Life Group — rating A+, #1 w indexed universal life.",
+    "fit.kicker":"To Ty?","fit.title":"Komu tu dobrze idzie",
+    "fit.items":"<li><strong>Uczący się</strong> — najpierw trzymasz się sprawdzonego procesu, potem improwizujesz</li><li><strong>Samodzielny</strong> — nikt nie kontroluje Twojego grafiku</li><li><strong>Słuchający</strong> — nie musisz być ekstrawertykiem</li><li><strong>Z misją</strong> — „chroń dziś, przygotuj się na jutro” do Ciebie przemawia</li><li><strong>Budujący na lata</strong> — tu za 5 lat, a nie za 5 miesięcy</li>",
+    "fit.note":"Mówisz po litewsku, ukraińsku, rosyjsku lub polsku? Twój ciepły rynek jest ogromny — a większość agentów do niego nie dotrze.",
+    "cta.kicker":"Następny krok","cta.title":"Porozmawiajmy 15 minut.",
+    "cta.body":"Opowiedz o swojej sytuacji, celach i o tym, która ścieżka Ci pasuje — pełny etat czy dorywczo. Powiemy wprost, czy to dla Ciebie, i jak naprawdę wyglądałoby Twoje pierwsze 30 dni. Jurgita lub Vytas osobiście czyta każdą wiadomość i odpowiada w ciągu 2 dni roboczych.",
+    "cta.btn":"Zadzwoń 630-785-2412",
+    "cta.book":"Umów rozmowę o możliwości","cta.zoom":"📹 Przez Zoom (z nagraniem, byś mógł wrócić do rozmowy) — lub telefonicznie, Twój wybór.",
+    "exp.kicker":"Zanim się zapiszesz","exp.title":"Czego się spodziewać podczas rozmowy",
+    "exp.intro":"Spokojna 15-minutowa rozmowa przez Zoom — bez presji i bez zobowiązań. Nagrywamy ją, więc możesz wrócić do dowolnego fragmentu później.",
+    "exp.a1":"<strong>Twoja historia</strong> — doświadczenie, cele i dlaczego teraz","exp.a2":"<strong>Jak pracujemy</strong> — zespół, misja i wsparcie za Tobą",
+    "exp.a3":"<strong>Twoja ścieżka</strong> — pełny etat czy dorywczo, i co do Ciebie pasuje","exp.a4":"<strong>Liczby</strong> — jak naprawdę działa dochód i wypłaty",
+    "exp.a5":"<strong>Twoje pytania</strong> — licencja, kolejne kroki, wszystko, co Cię nurtuje",
+    "exp.close":"Wyjdziesz, wiedząc, czy to dla Ciebie — i jak naprawdę wyglądałoby Twoje pierwsze 30 dni.",
+    "disc.kicker":"Drobny druk","disc.title":"Zastrzeżenia",
+    "disc.body":"Przedziały dochodów mają charakter poglądowy i zależą od indywidualnej produkcji, aktywności, rynku i wysiłku — nie ma gwarancji dochodu. Dostępne są ścieżki zarówno pełnoetatowe, jak i dorywcze. Produkty ubezpieczeniowe oferowane są przez National Life Group. Wymagana jest stanowa licencja ubezpieczeniowa; obowiązują wymogi stanowe. Living Benefits zapewniane są przez opcjonalne Accelerated Benefit Riders — przy wykorzystaniu obniżają świadczenie z tytułu śmierci, mogą podlegać opodatkowaniu i zależą od dostępności w stanie i dla danego produktu. Indexed Universal Life nie jest inwestycją; wartości poglądowe nie są gwarantowane. Living Benefits Team · Goodwill Financial Group · Managing General Agency for Alliance Group · 579 W. North Ave, Suite 300, Elmhurst, IL 60126.",
+    "ui.hint":"← → strzałki · F — pełny ekran"
+  }
+};
+
+/* ---------- language switching ---------- */
+const orig = new Map();
+document.querySelectorAll('[data-i18n]').forEach(el=>orig.set(el, el.innerHTML));
+function setLang(lang){
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const key = el.getAttribute('data-i18n');
+    if(lang==='en'){ el.innerHTML = orig.get(el); return; }
+    const t = I18N[lang] && I18N[lang][key];
+    el.innerHTML = (t!=null) ? t : orig.get(el);
+  });
+  document.documentElement.lang = (lang==='uk')?'uk':lang;
+  document.querySelectorAll('.langbtn').forEach(b=>b.classList.toggle('active', b.dataset.lang===lang));
+  try{ localStorage.setItem('lbt_join_lang', lang); }catch(e){}
+}
+document.querySelectorAll('.langbtn').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
+
+/* ---------- slide navigation ---------- */
+const track = document.getElementById('track');
+const slides = track.querySelectorAll('.slide');
+const N = slides.length;
+let idx = 0;
+function go(i){
+  idx = Math.max(0, Math.min(N-1, i));
+  track.style.transform = 'translateX(-'+(idx*100)+'vw)';
+  document.getElementById('counter').textContent = (idx+1)+' / '+N;
+  document.getElementById('progress').style.width = ((idx+1)/N*100)+'%';
+  document.getElementById('prev').disabled = (idx===0);
+  document.getElementById('next').disabled = (idx===N-1);
+  slides[idx].scrollTop = 0;
+}
+window.go = go;
+
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight'||e.key==='PageDown'){ e.preventDefault(); go(idx+1); }
+  else if(e.key==='ArrowLeft'||e.key==='PageUp'){ e.preventDefault(); go(idx-1); }
+  else if(e.key==='Home'){ e.preventDefault(); go(0); }
+  else if(e.key==='End'){ e.preventDefault(); go(N-1); }
+  else if(e.key===' '){ e.preventDefault(); go(idx+1); }
+  else if(e.key==='f'||e.key==='F'){ e.preventDefault();
+    if(!document.fullscreenElement){ document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen(); }
+    else { document.exitFullscreen&&document.exitFullscreen(); }
+  }
+});
+
+/* touch swipe */
+let tx=0;
+document.querySelector('.deck').addEventListener('touchstart',e=>{tx=e.changedTouches[0].clientX;},{passive:true});
+document.querySelector('.deck').addEventListener('touchend',e=>{
+  const dx=e.changedTouches[0].clientX-tx;
+  if(Math.abs(dx)>50){ go(dx<0?idx+1:idx-1); }
+},{passive:true});
+
+/* Calendly opportunity-call button — set CALENDLY_URL to enable (Zoom + auto-record configured in Calendly) */
+const CALENDLY_URL = "";
+(function(){ var b=document.getElementById('calendlyBtn'); if(b && CALENDLY_URL){ b.href=CALENDLY_URL; b.style.display='inline-flex'; } })();
+
+/* restore saved language + init */
+try{ const saved=localStorage.getItem('lbt_join_lang'); if(saved && saved!=='en') setLang(saved); }catch(e){}
+go(0);
+</script>
+</body>
+</html>
