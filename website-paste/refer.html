@@ -548,7 +548,7 @@ a { color: var(--link); }
 
 <header class="site-header">
   <div class="container">
-    <nav class="nav" aria-label="Primary">
+    <nav class="nav">
       <a href="/" class="brand" aria-label="Goodwill Financial"><img src="https://goodwill-lb.surge.sh/website/img/goodwill-logo.png" alt="Goodwill Financial" class="brand-logo" width="1058" height="307" decoding="async"></a>
       <ul class="nav-links">
         <li><a href="about">About</a></li>
@@ -561,8 +561,8 @@ a { color: var(--link); }
         <li><a href="blog">Blog</a></li>
       </ul>
       <div class="nav-cta">
-        <a href="contact" class="btn btn-primary">Get a Proposal</a>
-        <button class="nav-toggle" aria-label="Menu" aria-expanded="false">☰</button>
+        <a href="#form" class="btn btn-primary">Get a Proposal</a>
+        <button class="nav-toggle" aria-label="Menu">☰</button>
       </div>
     </nav>
   </div>
@@ -570,184 +570,141 @@ a { color: var(--link); }
 <main id="main">
 
 <section class="page-title">
-  <div class="container" style="max-width:820px;">
-    <p class="eyebrow" style="color:var(--accent-on-dark);">Living Benefits</p>
-    <h1>Life Insurance You Don't Have to Die to Use</h1>
-    <p>Most people think life insurance only pays out when you're gone. The good ones do something else, too — they pay <em>you</em>, while you're still here.</p>
-  </div>
-</section>
-
-<article class="section">
-  <div class="container" style="max-width:760px;">
-    <p>Here's the problem with a heart attack, a stroke, a cancer diagnosis, or ALS: your health insurance pays the hospital. It does not pay your mortgage, your car payment, your kids' tuition, or the income you lose while you're not working. That gap is exactly where families get hurt — not by the medical bills, but by everything else that keeps coming due.</p>
-
-    <h2>What "Living Benefits" actually means</h2>
-    <p>Living Benefits are <strong>accelerated benefit riders</strong> attached to a life insurance policy. They let you access a portion of your own death benefit <em>early</em> — while you're alive — if you're diagnosed with a qualifying critical, chronic, or terminal illness. The money comes to you, tax-reporting aside, to use however you need: treatment, the mortgage, replacing income, or getting your family through the year.</p>
-    <p>On many of the policies we write — including indexed universal life and certain term policies — these riders are built in at <strong>no additional premium</strong>. You're not buying a separate product. You're choosing a policy that does more than one job.</p>
-
-    <h2>A quick example</h2>
-    <p>Say you carry a $500,000 policy and you have a heart attack at 52. Depending on the policy and the severity, you may be able to accelerate a portion of that death benefit now. That's money to stop the financial bleeding while you recover — instead of draining savings or borrowing against the house.</p>
-
-    <h2>The honest fine print</h2>
-    <p>We lead with education, so here's the straight version: <strong>accessing your living benefits reduces the death benefit your family later receives</strong>, the amount available depends on the policy and the qualifying event, eligibility and definitions vary by carrier and state, and accelerated payments <strong>may be taxable</strong> depending on your situation. This isn't a loophole — it's a real feature with real rules, and we'll walk you through exactly how yours would work before you ever sign anything.</p>
-
-    <h2>Why we build almost every plan around this</h2>
-    <p>You wouldn't drive a car without airbags. You shouldn't carry a policy that only helps after you're gone. The whole point of protecting a family is options — and Living Benefits give you options on the worst day, not just the last one.</p>
-
-    <p style="margin-top:32px;">
-      <a href="contact" class="btn btn-primary btn-lg">See if your policy has Living Benefits</a>
-      <a href="living-benefits" class="btn btn-ghost btn-lg" style="margin-left:10px;">Learn more</a>
-    </p>
-    <p class="small" style="margin-top:24px;color:var(--muted);">Educational only — not tax, legal, or financial advice. Living Benefits are provided through accelerated benefit riders; availability, qualifying conditions, benefit amounts, and tax treatment vary by carrier, policy, and state. Talk to us about your specific situation.</p>
-  </div>
-</article>
-
-<!-- gw-share-std v1 2026-07-21 — share row (scripts/patch_share_row.py). Do not hand-edit per page. -->
-<style id="gw-share-style">
-  .gwsh { border-top: 1px solid var(--line); margin-top: 34px; padding-top: 22px; }
-  .gwsh-h { font-size: .82rem; letter-spacing: .06em; text-transform: uppercase;
-             color: var(--muted); margin: 0 0 12px; font-weight: 700; }
-  .gwsh-row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
-  .gwsh-b { display: inline-flex; align-items: center; gap: 8px; cursor: pointer;
-             background: var(--paper); color: var(--ink); border: 1px solid var(--line);
-             border-radius: 999px; padding: 9px 16px; font: inherit; font-size: .92rem;
-             font-weight: 600; line-height: 1; text-decoration: none;
-             transition: border-color .15s, color .15s, background .15s; }
-  .gwsh-b:hover { border-color: var(--rust); color: var(--rust); background: var(--cream); }
-  .gwsh-b svg { width: 17px; height: 17px; flex: none; fill: currentColor; }
-  .gwsh-b.is-done { border-color: var(--rust); color: var(--rust); }
-  .gwsh-native { display: none; }
-  .gwsh-native.on { display: inline-flex; }
-  @media (max-width: 540px) { .gwsh-b { padding: 9px 13px; font-size: .88rem; } }
-</style>
-<div class="gwsh" id="gwShare">
-  <p class="gwsh-h">Know someone this would help? Share it.</p>
-  <div class="gwsh-row">
-    <button type="button" class="gwsh-b gwsh-native" data-gwsh="native">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 16.1c-.8 0-1.5.3-2 .8l-7.1-4.1c.1-.3.1-.5.1-.8s0-.5-.1-.8L16 7.2c.5.5 1.2.8 2 .8 1.7 0 3-1.3 3-3s-1.3-3-3-3-3 1.3-3 3c0 .3 0 .5.1.8L8 9.8c-.5-.5-1.2-.8-2-.8-1.7 0-3 1.3-3 3s1.3 3 3 3c.8 0 1.5-.3 2-.8l7.1 4.2c-.1.2-.1.5-.1.7 0 1.6 1.3 3 3 3s3-1.3 3-3-1.3-3-3-3z"/></svg>
-      <span>Share</span>
-    </button>
-    <button type="button" class="gwsh-b" data-gwsh="copy">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12V1zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 16H8V7h11v14z"/></svg>
-      <span class="gwsh-copytxt">Copy link</span>
-    </button>
-    <a class="gwsh-b" data-gwsh="whatsapp" href="#" target="_blank" rel="noopener noreferrer">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.700-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.4 0-.5s-.6-1.4-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3c-.3.3-.9.9-.9 2.1s.9 2.4 1 2.6c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.2.7 3 .6.5 0 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2 0-.2-.2-.2-.4-.3z"/></svg>
-      <span>WhatsApp</span>
-    </a>
-    <a class="gwsh-b" data-gwsh="facebook" href="#" target="_blank" rel="noopener noreferrer">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/></svg>
-      <span>Facebook</span>
-    </a>
-    <a class="gwsh-b" data-gwsh="email" href="#">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4.2-8 4.8-8-4.8V6l8 4.8L20 6v2.2z"/></svg>
-      <span>Email</span>
-    </a>
-  </div>
-</div>
-<script>
-(function () {
-  var box = document.getElementById('gwShare');
-  if (!box) return;
-  // Share the canonical page, never the visitor's UTM/query/hash tail.
-  var url = location.origin + location.pathname;
-  var h1 = document.querySelector('h1');
-  var title = (h1 && h1.textContent.trim()) || document.title || 'Goodwill Financial';
-  var eu = encodeURIComponent(url), et = encodeURIComponent(title);
-  var gtrack = function (method) {
-    try { if (window.gtag) window.gtag('event', 'share', { method: method, content_type: 'article', item_id: location.pathname }); } catch (e) {}
-  };
-  var q = function (k) { return box.querySelector('[data-gwsh="' + k + '"]'); };
-  q('whatsapp').href = 'https://wa.me/?text=' + encodeURIComponent(title + ' ' + url);
-  q('facebook').href = 'https://www.facebook.com/sharer/sharer.php?u=' + eu;
-  // NB: build the newline with fromCharCode — a literal escape does not survive this generator.
-  var nl = String.fromCharCode(10);
-  q('email').href = 'mailto:?subject=' + et + '&body=' + encodeURIComponent('Thought this might help:' + nl + nl + title + nl + url);
-  ['whatsapp', 'facebook', 'email'].forEach(function (k) {
-    q(k).addEventListener('click', function () { gtrack(k); });
-  });
-  // Copy link — the channel that actually carries most sharing.
-  var cp = q('copy'), lab = cp.querySelector('.gwsh-copytxt');
-  cp.addEventListener('click', function () {
-    var done = function () {
-      lab.textContent = 'Copied';
-      cp.classList.add('is-done');
-      gtrack('copy_link');
-      setTimeout(function () { lab.textContent = 'Copy link'; cp.classList.remove('is-done'); }, 2200);
-    };
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(url).then(done, function () {});
-    } else {
-      var t = document.createElement('textarea');
-      t.value = url; t.setAttribute('readonly', ''); t.style.position = 'absolute'; t.style.left = '-9999px';
-      document.body.appendChild(t); t.select();
-      try { document.execCommand('copy'); done(); } catch (e) {}
-      document.body.removeChild(t);
-    }
-  });
-  // Native share sheet — 90.3% of browsers (every mobile one; desktop Firefox is the gap).
-  var nat = q('native');
-  if (navigator.share) {
-    nat.classList.add('on');
-    nat.addEventListener('click', function () {
-      navigator.share({ title: title, url: url }).then(function () { gtrack('native'); }, function () {});
-    });
-  }
-})();
-</script>
-<!-- /gw-share-std -->
-
-<section class="cta-band">
   <div class="container">
-    <h2>Want to know what your policy actually covers?</h2>
-    <p>We'll read it with you — no pitch — and show you where the gaps are.</p>
-    <a href="contact" class="btn btn-primary btn-lg">Get a Proposal</a>
+    <p class="eyebrow" style="color:var(--accent-on-dark);">Referrals</p>
+    <h1>Know someone who should be looked after?</h1>
+    <p>Give us their name. We'll take it from there &mdash; carefully, and at their pace.</p>
   </div>
 </section>
 
-<section class="section" style="padding-top:0;padding-bottom:18px;">
-  <div class="container" style="max-width:820px;">
-    <p class="small" style="color:var(--muted);font-size:.84rem;line-height:1.6;">This page is general education, not insurance, tax, legal, or investment advice, and not an offer or recommendation of any specific policy. Life insurance products are not securities or investments. Features, riders, living/accelerated benefits, caps, costs, and availability vary by carrier and state, and any guarantees rely on the claims-paying ability of the issuing insurer. Accelerated/living benefits may be taxable and reduce or are offset against the death benefit and cash value; policy loans and withdrawals reduce both as well. Consult your own tax advisor about your situation. Life insurance offered through Goodwill Financial Group, Inc. (DBA Living Benefits Team).</p>
-  </div>
-</section>
-<!-- ============ INLINE LEAD FORM (patch_lead_form_paste_kit.py) ============ -->
-<section class="section" id="lead-form" style="background:var(--ink); color:var(--paper);">
-  <div class="container" style="max-width:720px;">
-    <div class="inline-form" style="background:var(--paper);">
-      <p class="eyebrow">Talk to a real person</p>
-      <h3>Want to talk it through? No pitch.</h3>
-      <p>Tell us a little and one of our licensed agents will walk through what actually fits your situation.</p>
-      <form data-form="life">
-        <input type="text" name="company-website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;">
-        <div class="form-field">
-          <label for="lf-name">Your name</label>
-          <input id="lf-name" type="text" required>
+<section class="section">
+  <div class="container">
+    <div class="two-col two-col-top">
+      <!-- Left: how it works -->
+      <div>
+        <p class="eyebrow">How it works</p>
+        <h2>You make the introduction. We do the work.</h2>
+
+        <div style="margin-top:32px;">
+          <h3 style="font-size:1.1rem; margin-bottom:4px;">1. Tell them first</h3>
+          <p>A quick &ldquo;I'm going to have someone reach out&rdquo; is all it takes. It's the
+          difference between a warm introduction and a cold call &mdash; and it's the reason
+          referrals work at all.</p>
         </div>
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px;">
-          <div class="form-field"><label for="lf-phone">Phone</label><input id="lf-phone" type="tel" required></div>
-          <div class="form-field"><label for="lf-email">Email</label><input id="lf-email" type="email" required></div>
+
+        <div style="margin-top:24px;">
+          <h3 style="font-size:1.1rem; margin-bottom:4px;">2. Send us their name</h3>
+          <p>That's genuinely all we need. You don't have to explain insurance, pitch anything,
+          or know what they already have. That's our job.</p>
         </div>
-        <div class="form-field">
-          <label for="lf-interest">What you're most interested in</label>
-          <select id="lf-interest" required>
-            <option value="">Pick one</option>
-            <option>Living Benefits + IUL</option>
-            <option>Term life for the family</option>
-            <option>Mortgage protection</option>
-            <option>IUL for my kids / grandkids</option>
-            <option>Annuities / retirement income</option>
-            <option>Rolling over a 401(k) or IRA</option>
-            <option>Honestly not sure — help me figure it out</option>
-          </select>
+
+        <div style="margin-top:24px;">
+          <h3 style="font-size:1.1rem; margin-bottom:4px;">3. We email them, gently</h3>
+          <p>We open with your name so they know who sent us, and we start with a conversation
+          &mdash; not a quote. If the timing is wrong for them, we leave it alone.</p>
         </div>
-        <button type="submit" class="btn btn-primary btn-lg" style="width:100%;">Request a call</button>
-        <p class="form-fineprint">By submitting, you agree we may contact you about your request. We never sell your info.</p>
-        <div class="form-success">Thanks — we'll reach out within 1 business day.</div>
-      </form>
+
+        <div style="margin-top:32px; padding:18px 20px; background:var(--cream); border-radius:12px; border:1px solid var(--line);">
+          <h3 style="font-size:1.05rem; margin-bottom:6px;">A note on how we treat your friends</h3>
+          <p class="small" style="margin:0;">We reach out by <strong>email first</strong>. We only
+          call if you've told us they're expecting it. No autodialers, no drip campaigns, no
+          passing their details to anyone else &mdash; ever. If they'd rather not hear from us,
+          one reply ends it.</p>
+        </div>
+
+        <div style="margin-top:32px;">
+          <h3 style="font-size:1.1rem; margin-bottom:12px;">Who we can usually help</h3>
+          <ul class="fit-list">
+            <li>Families who've never had anyone actually read their policy to them</li>
+            <li>Business owners and owner-operators carrying more risk than they realize</li>
+            <li>Anyone who's had a life change &mdash; a baby, a house, a new job, a diagnosis</li>
+            <li>People who'd rather be spoken to in Lietuvi&#371;, &#1088;&#1091;&#1089;&#1089;&#1082;&#1080;&#1081;, Polski, &#1059;&#1082;&#1088;&#1072;&#1111;&#1085;&#1089;&#1100;&#1082;&#1072; or Espa&ntilde;ol</li>
+          </ul>
+        </div>
+
+        <div style="margin-top:32px;">
+          <h3 style="font-size:1.1rem; margin-bottom:4px;">Rather just call?</h3>
+          <p><a href="tel:6307852412" style="font-size:1.35rem; font-family:var(--serif); color:var(--ink);">630-785-2412</a><br>
+          <span class="small">Mon&ndash;Fri, 8:30 am &ndash; 5 pm CT</span></p>
+        </div>
+      </div>
+
+      <!-- Right: the form -->
+      <div id="form">
+        <div class="inline-form">
+          <p class="eyebrow">Send an introduction</p>
+          <h3>Up to three people. One screen.</h3>
+          <p class="form-sub" style="margin-bottom:14px;">We'll email them within a couple of
+          business days and let you know it's done.</p>
+          <form data-form="referral">
+            <input type="text" name="company-website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;">
+
+            <div class="form-field"><label for="rf-name">Your name</label><input id="rf-name" type="text" required></div>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px;">
+              <div class="form-field"><label for="rf-email">Your email</label><input id="rf-email" type="email" required></div>
+              <div class="form-field"><label for="rf-phone">Your phone <span class="small">(optional)</span></label><input id="rf-phone" type="tel"></div>
+            </div>
+
+            <div style="margin:22px 0 4px; padding-top:18px; border-top:1px solid var(--line);">
+              <h4 style="margin:0 0 2px; font-size:1rem;">Who should we reach out to?</h4>
+              <p class="small" style="margin:0 0 10px;">Their email is how we introduce ourselves.
+              Only add a phone number if they've told you it's OK for us to call.</p>
+            </div>
+
+            <div class="form-field"><label for="rf-1-name">Their name</label><input id="rf-1-name" type="text" required></div>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px;">
+              <div class="form-field"><label for="rf-1-email">Their email</label><input id="rf-1-email" type="email" required></div>
+              <div class="form-field"><label for="rf-1-phone">Their phone <span class="small">(optional)</span></label><input id="rf-1-phone" type="tel"></div>
+            </div>
+
+            <details style="margin:6px 0 14px;">
+              <summary style="cursor:pointer; color:var(--rust); font-weight:600; font-size:.95rem;">Add another person</summary>
+              <div style="margin-top:14px;">
+                <div class="form-field"><label for="rf-2-name">Their name</label><input id="rf-2-name" type="text"></div>
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px;">
+                  <div class="form-field"><label for="rf-2-email">Their email</label><input id="rf-2-email" type="email"></div>
+                  <div class="form-field"><label for="rf-2-phone">Their phone <span class="small">(optional)</span></label><input id="rf-2-phone" type="tel"></div>
+                </div>
+                <div class="form-field"><label for="rf-3-name">And one more</label><input id="rf-3-name" type="text"></div>
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px;">
+                  <div class="form-field"><label for="rf-3-email">Their email</label><input id="rf-3-email" type="email"></div>
+                  <div class="form-field"><label for="rf-3-phone">Their phone <span class="small">(optional)</span></label><input id="rf-3-phone" type="tel"></div>
+                </div>
+              </div>
+            </details>
+
+            <div class="form-field">
+              <label for="rf-product">What should we help them with?</label>
+              <select id="rf-product">
+                <option value="">Not sure &mdash; you decide</option>
+                <option value="pc">Auto / home / personal</option>
+                <option value="pc">Business / trucking</option>
+                <option value="life">Life &amp; Living Benefits</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label for="rf-msg">Anything we should know? <span class="small">(optional)</span></label>
+              <textarea id="rf-msg" rows="3" placeholder="How you know them, or what's going on for them. One line is plenty."></textarea>
+            </div>
+
+            <label style="display:flex; gap:10px; align-items:flex-start; margin:4px 0 16px; font-size:.92rem; line-height:1.45; cursor:pointer;">
+              <input id="rf-told" type="checkbox" required style="margin-top:3px; flex:none;">
+              <span>I've let them know I'm passing along their details.</span>
+            </label>
+
+            <button type="submit" class="btn btn-primary btn-lg" style="width:100%;">Send the introduction</button>
+            <p class="form-success" style="display:none;">Thank you &mdash; that means a lot.
+            We'll reach out to them by email and let you know once we have.</p>
+            <p class="small" style="margin-top:12px;">We never sell or share their details, and we
+            don't add anyone to a marketing list from this form.</p>
+          </form>
+        </div>
+      </div>
     </div>
   </div>
 </section>
-</main>
+
 <!-- gw-footer-std v4 2026-07-21 — standardized sitewide footer (scripts/patch_footer_paste_kit.py). Do not hand-edit per page. -->
 <style id="gw-footer-style">
   .site-footer .footer-grid { grid-template-columns: 1.6fr 1fr 1fr 1fr 1fr; gap: 36px; }
@@ -933,6 +890,45 @@ a { color: var(--link); }
       e.preventDefault();
       const hp = form.querySelector('[name="company-website"]');
       if (hp && hp.value) { return; } // honeypot: silently drop bots
+
+
+      // ---- Client referral (/refer) -> the Worker's handleReferral (kind:"referral") ----
+      if (kind === 'referral') {
+        const v = (id) => { const el = form.querySelector(id); return el && el.value ? el.value.trim() : ''; };
+        const refs = [1, 2, 3]
+          .map((i) => ({ name: v('#rf-' + i + '-name'), email: v('#rf-' + i + '-email'), phone: v('#rf-' + i + '-phone') }))
+          .filter((r) => r.name);
+        if (!refs.length) { showErr(form); return; }
+        const payload = {
+          kind: 'referral',
+          name: v('#rf-name'),
+          email: v('#rf-email'),
+          phone: v('#rf-phone'),
+          product: v('#rf-product'),
+          message: v('#rf-msg'),
+          told: !!(form.querySelector('#rf-told') && form.querySelector('#rf-told').checked),
+          referrals: refs,
+          source: 'goodwillfinancial.com /refer',
+          language: (document.documentElement.lang || 'en').toUpperCase(),
+          'company-website': hp ? hp.value : ''
+        };
+        const rbtn = form.querySelector('[type="submit"]');
+        if (rbtn) rbtn.disabled = true;
+        fetch(LEAD_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        })
+          .then((r) => (r.ok ? r.json().catch(() => ({ ok: true })) : Promise.reject(r.status)))
+          .then((d) => {
+            if (d && d.ok === false) throw new Error('worker');
+            track('generate_lead', { form: 'referral', product: payload.product || 'unknown', count: refs.length });
+            showOK(form);
+          })
+          .catch(() => showErr(form))
+          .finally(() => { if (rbtn) rbtn.disabled = false; });
+        return;
+      }
 
       // ---- New-business / recruit lead -> Keap via the Worker ----
       if (Object.prototype.hasOwnProperty.call(LEAD_FORMS, kind)) {

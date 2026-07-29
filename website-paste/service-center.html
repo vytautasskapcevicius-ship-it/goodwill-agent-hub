@@ -21,6 +21,7 @@
   --muted:     #5A6470;   /* Slate */
   --line:      #E5EAEF;   /* hairline borders */
   --gold:      #F5B315;   /* Goodwill Gold — Living Benefits accent, sparingly */
+  --accent-on-dark: #7FD4F2;   /* reversed-on-navy accent (eyebrows, .lang-band) - replaces the rejected warm-palette-A peach */
   --success:   #2F7D5B;
 
   /* Type — 2026: Oswald (headings) + Inter (body) */
@@ -88,7 +89,7 @@ hr { border: 0; height: 1px; background: var(--line); margin: 48px 0; }
   color: var(--rust);
   margin-bottom: 12px;
 }
-.section-dark .eyebrow { color: #F4B89A; }
+.section-dark .eyebrow { color: var(--accent-on-dark); }
 
 /* ---------- Header ---------- */
 .site-header {
@@ -188,7 +189,7 @@ hr { border: 0; height: 1px; background: var(--line); margin: 48px 0; }
   margin-bottom: 20px;
 }
 .hero h1 em {
-  font-style: italic; color: #F4B89A; font-weight: 400;
+  font-style: italic; color: var(--accent-on-dark); font-weight: 400;
 }
 .hero-sub {
   font-size: 1.2rem; color: rgba(245,240,232,.86);
@@ -253,7 +254,7 @@ hr { border: 0; height: 1px; background: var(--line); margin: 48px 0; }
   padding: 18px 0;
   font-size: .98rem;
 }
-.lang-band strong { color: #F4B89A; font-weight: 600; }
+.lang-band strong { color: var(--accent-on-dark); font-weight: 600; }
 .lang-flags { display: inline-flex; gap: 10px; margin-left: 14px; font-size: 1.1rem; vertical-align: middle; }
 
 /* ---------- 5 Risks grid ---------- */
@@ -541,6 +542,127 @@ a { color: var(--link); }
 .site-footer a, .cta-band a, .section-dark a, .hero a { color: rgba(245,245,247,.92); }
 .site-footer a:hover, .cta-band a:hover, .section-dark a:hover, .hero a:hover { color: #fff; }
 
+/* ============================================================
+   Service Center — page-specific styles.
+   RESTORED 2026-07-20: this whole block was missing from the live payload, so the
+   quick-action cards, the tab switcher and the one-form-at-a-time behavior had no
+   styling at all (all 5 forms rendered stacked, honeypots visible). Do not remove.
+   ============================================================ */
+
+/* ---- Quick-action cards ---- */
+.sc-actions { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.sc-card {
+  display: block; background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius-lg); padding: 26px 24px; color: var(--char);
+  transition: transform .2s var(--ease), box-shadow .2s var(--ease), border-color .2s var(--ease);
+}
+.sc-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: var(--rust); color: var(--char); }
+.sc-card .ico { font-size: 1.9rem; line-height: 1; display: block; margin-bottom: 12px; }
+.sc-card h3 { font-size: 1.15rem; margin-bottom: 6px; }
+.sc-card p { color: var(--muted); font-size: .93rem; margin: 0 0 14px; }
+.sc-card .go { color: var(--link); font-weight: 600; font-size: .92rem; }
+
+/* ---- Carrier claim + billing lines ---- */
+.sc-grouphead {
+  font-family: var(--sans); font-size: .82rem; text-transform: uppercase; letter-spacing: .12em;
+  color: var(--muted); font-weight: 700; margin: 30px 0 12px;
+}
+.sc-carriers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.sc-carrier {
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 14px 16px;
+}
+.sc-carrier b { display: block; font-size: .95rem; color: var(--ink); font-weight: 600; }
+.sc-carrier .sc-alias { display: block; font-size: .78rem; color: var(--muted); margin-top: 2px; }
+.sc-carrier .sc-lines { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin-top: 8px; }
+.sc-carrier .sc-lines a { font-weight: 700; white-space: nowrap; font-size: .95rem; }
+.sc-carrier .sc-pay { font-weight: 600; font-size: .88rem; }
+.sc-247 {
+  font-size: .68rem; text-transform: uppercase; letter-spacing: .07em;
+  font-weight: 700; color: var(--success); white-space: nowrap;
+}
+.sc-hours { font-size: .74rem; color: var(--muted); white-space: nowrap; }
+.sc-fallback {
+  background: var(--ink); color: var(--paper); border-radius: var(--radius-lg);
+  padding: 20px 24px; margin-top: 26px; font-size: 1rem; line-height: 1.5;
+}
+.sc-fallback b { font-family: var(--serif); font-size: 1.15rem; display: block; margin-bottom: 4px; }
+.sc-fallback a { color: var(--paper); font-weight: 700; text-decoration: underline; }
+
+/* ---- Request tabs ---- */
+.sc-tabs { display: flex; flex-wrap: wrap; gap: 10px; margin: 28px 0 0; }
+.sc-tab {
+  min-height: 46px; padding: 11px 18px; border-radius: 999px;
+  background: var(--paper); border: 1px solid var(--line); color: var(--ink);
+  font-family: var(--sans); font-weight: 600; font-size: .94rem;
+  transition: background .18s var(--ease), border-color .18s var(--ease), color .18s var(--ease);
+}
+.sc-tab:hover { border-color: var(--rust); color: var(--rust-dark); }
+.sc-tab.active { background: var(--ink); border-color: var(--ink); color: var(--white); }
+
+/* ---- Form panels: exactly ONE visible at a time ---- */
+.sc-formwrap { margin-top: 20px; scroll-margin-top: 90px; }
+.sc-form { display: none; }
+.sc-form.active { display: block; }
+.sc-form h3 { font-size: 1.5rem; margin-bottom: 6px; }
+.form-intro { color: var(--muted); font-size: .95rem; margin-bottom: 22px; }
+.form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0 16px; }
+.opt { color: var(--muted); font-weight: 400; text-transform: none; }
+.sc-note {
+  font-size: .88rem; color: var(--muted); background: var(--cream);
+  border-radius: var(--radius); padding: 12px 14px; margin: 6px 0 16px;
+}
+.sc-check { display: flex; align-items: center; gap: 9px; font-size: .93rem; color: var(--ink); font-weight: 500; margin: 6px 0 18px; }
+.sc-check input { width: 18px; height: 18px; }
+
+/* ---- Honeypot: MUST stay invisible to humans. A client who types in it has their
+     submission silently dropped by the form JS (E&O risk). ---- */
+.hp { position: absolute !important; left: -9999px !important; width: 1px; height: 1px; overflow: hidden; }
+
+/* ---- Emergency / 911 callout ---- */
+.sc-emergency {
+  display: flex; gap: 14px; align-items: flex-start;
+  background: #FDECEA; border: 1px solid #F3B7B0; border-left: 5px solid #C0392B;
+  border-radius: var(--radius); padding: 16px 18px; margin-bottom: 24px;
+  font-size: .95rem; line-height: 1.5; color: #7B241C;
+}
+.sc-emergency .ico { font-size: 1.35rem; line-height: 1.2; }
+.sc-emergency a { color: #C0392B; font-weight: 700; text-decoration: underline; }
+
+/* ---- FAQ ---- */
+.sc-faq { margin-top: 28px; border-top: 1px solid var(--line); }
+.sc-faq details { border-bottom: 1px solid var(--line); }
+.sc-faq summary {
+  cursor: pointer; padding: 18px 44px 18px 0; font-weight: 600;
+  color: var(--ink); font-size: 1.02rem; list-style: none; position: relative;
+}
+.sc-faq summary::-webkit-details-marker { display: none; }
+.sc-faq summary::after { content: "+"; position: absolute; right: 8px; top: 14px; font-size: 1.6rem; font-weight: 400; line-height: 1; color: var(--rust); }
+.sc-faq details[open] summary::after { content: "\2013"; }
+.sc-faq p { color: var(--muted); font-size: .96rem; padding: 0 44px 18px 0; margin: 0; }
+
+@media (max-width: 1024px) {
+  .sc-actions { grid-template-columns: repeat(2, 1fr); }
+  .sc-carriers { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .form-row-2 { grid-template-columns: 1fr; }
+  .sc-tabs { gap: 8px; }
+  .sc-tab { font-size: .88rem; padding: 10px 14px; min-height: 44px; }
+  /* Action tiles: 2-up and compact. The headings say it all on a phone, so the
+     descriptions step aside rather than pushing the forms 900px down the page. */
+  .sc-actions { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .sc-card { padding: 18px 14px; }
+  .sc-card .ico { font-size: 1.6rem; margin-bottom: 8px; }
+  .sc-card h3 { font-size: 1rem; margin-bottom: 4px; }
+  .sc-card p { display: none; }
+  /* Carrier cards: 1-up on a phone — each row carries a name, an alias note,
+     a claim number and a pay link, which will not survive a 160px column. */
+  .sc-carriers { grid-template-columns: 1fr; gap: 10px; }
+  .sc-carrier { padding: 13px 14px; }
+  .sc-grouphead { margin: 24px 0 10px; }
+}
+
 </style>
 
 <a class="skip-link" href="#main">Skip to content</a>
@@ -570,14 +692,14 @@ a { color: var(--link); }
 
 <section class="page-title">
   <div class="container">
-    <p class="eyebrow" style="color:#F4B89A;">Service Center</p>
+    <p class="eyebrow" style="color:var(--accent-on-dark);">Service Center</p>
     <h1>Everything you need, in one place.</h1>
     <p>Pay a bill, grab your ID cards, request a certificate, report a claim, or log in to your account — for clients of Goodwill Financial.</p>
   </div>
 </section>
 
 <!-- ============ QUICK ACTIONS ============ -->
-<section class="section">
+<section class="section-tight">
   <div class="container">
     <div class="sc-actions">
       <a class="sc-card" href="https://goodwillfinancial.epaypolicy.com/" target="_blank" rel="noopener">
@@ -620,6 +742,95 @@ a { color: var(--link); }
   </div>
 </section>
 
+<!-- ============ CARRIER 24/7 CLAIM LINES ============ -->
+<section class="section-tight" id="claim-lines">
+  <div class="container">
+    <p class="eyebrow">Claims &amp; billing &mdash; direct to your carrier</p>
+    <h2>Accident right now? Call your carrier first.</h2>
+    <p class="lead" style="max-width:760px;">
+      Your carrier can dispatch a tow, set up a rental, and open your claim immediately &mdash; the
+      ones marked 24/7 answer at any hour. Call them first, then <a href="#request">tell us</a> so we
+      can follow the claim through for you. Paying a bill is here too, so nothing lapses while you're
+      looking for it.
+    </p>
+    <h3 class="sc-grouphead">Personal &mdash; auto, home, condo, renters</h3>
+    <div class="sc-carriers">
+      <div class="sc-carrier">
+        <b>Progressive</b>
+        <span class="sc-lines"><a href="tel:18007764737">800-776-4737</a><a class="sc-pay" href="https://www.progressive.com/rp/ezpay/" target="_blank" rel="noopener">Pay bill</a></span>
+      </div>
+      <div class="sc-carrier">
+        <b>AAA</b>
+        <span class="sc-alias">on your policy as Auto Club Insurance Association or MemberSelect</span>
+        <span class="sc-lines"><a href="tel:18556473846">855-647-3846</a><span class="sc-hours">press 1</span></span>
+      </div>
+      <div class="sc-carrier">
+        <b>Progressive Home</b>
+        <span class="sc-alias">on your policy as ASI / American Strategic</span>
+        <span class="sc-lines"><a href="tel:18662745677">866-274-5677</a><a class="sc-pay" href="https://www.progressive.com/rp/ezpay/" target="_blank" rel="noopener">Pay bill</a></span>
+      </div>
+      <div class="sc-carrier">
+        <b>GEICO</b>
+        <span class="sc-lines"><a href="tel:18008413000">800-841-3000</a><span class="sc-247">24/7</span><span class="sc-hours">pay in the GEICO app</span></span>
+      </div>
+      <div class="sc-carrier">
+        <b>Safeco</b>
+        <span class="sc-lines"><a href="tel:18003323226">800-332-3226</a><a class="sc-pay" href="https://customer.safeco.com/accountmanager/billing/guest-payment" target="_blank" rel="noopener">Pay bill</a></span>
+      </div>
+      <div class="sc-carrier">
+        <b>Encompass</b>
+        <span class="sc-alias">billing runs on a National General page</span>
+        <span class="sc-lines"><a href="tel:18005887400">800-588-7400</a><a class="sc-pay" href="https://www.encompassinsurance.com/payment" target="_blank" rel="noopener">Pay bill</a></span>
+      </div>
+      <div class="sc-carrier">
+        <b>Grange</b>
+        <span class="sc-lines"><a href="tel:18004453030">800-445-3030</a><span class="sc-247">24-hour</span><a class="sc-pay" href="https://www.grangeinsurance.com/onetimepayment" target="_blank" rel="noopener">Pay bill</a></span>
+      </div>
+      <div class="sc-carrier">
+        <b>Trustgard</b>
+        <span class="sc-alias">use Grange &mdash; Trustgard is Grange paper</span>
+        <span class="sc-lines"><a href="tel:18004453030">800-445-3030</a><span class="sc-247">24-hour</span><a class="sc-pay" href="https://www.grangeinsurance.com/onetimepayment" target="_blank" rel="noopener">Pay bill</a></span>
+      </div>
+    </div>
+
+    <h3 class="sc-grouphead">Business &amp; trucking</h3>
+    <div class="sc-carriers">
+      <div class="sc-carrier">
+        <b>Travelers</b>
+        <span class="sc-alias">business claims</span>
+        <span class="sc-lines"><a href="tel:18002386225">800-238-6225</a><span class="sc-247">24/7</span><a class="sc-pay" href="https://www.travelers.com/pay-your-bill" target="_blank" rel="noopener">Pay bill</a></span>
+      </div>
+      <div class="sc-carrier">
+        <b>Northland</b>
+        <span class="sc-alias">commercial trucking</span>
+        <span class="sc-lines"><a href="tel:18003285972">800-328-5972</a><span class="sc-247">24/7</span></span>
+      </div>
+      <div class="sc-carrier">
+        <b>Next Insurance</b>
+        <span class="sc-alias">rebranding to ERGO NEXT</span>
+        <span class="sc-lines"><a href="tel:18552225919">855-222-5919</a><span class="sc-hours">Mon&ndash;Fri 8&ndash;5 CT</span><a class="sc-pay" href="https://portal.nextinsurance.com" target="_blank" rel="noopener">Account portal</a></span>
+      </div>
+    </div>
+
+    <p class="small" style="margin-top:14px;">
+      <strong>Workers&rsquo; compensation claim?</strong> Don&rsquo;t use this page &mdash; call us at
+      <a href="tel:6307852412">630-785-2412</a>. Comp claims need an injury report and wage details,
+      and we file them with your carrier for you.
+    </p>
+
+    <div class="sc-fallback">
+      <b>Carrier not listed? Call us &mdash; <a href="tel:6307852412">630-785-2412</a>.</b>
+      We place business with more carriers than fit here, and the claim number printed on your ID card
+      or declarations page is always the right one. If you can&rsquo;t find it, we will.
+    </div>
+    <p class="small" style="margin-top:14px;">
+      Carrier phone numbers and payment pages are published by each carrier and can change. Hours shown
+      are what the carrier states; where no hours are listed, check with the carrier. If a number
+      doesn&rsquo;t connect, call us and we&rsquo;ll get you to the right place.
+    </p>
+  </div>
+</section>
+
 <!-- ============ SERVICE REQUEST FORMS ============ -->
 <section class="section" id="request">
   <div class="container">
@@ -628,17 +839,17 @@ a { color: var(--link); }
     <p class="lead" style="max-width:760px;">Pick what you need below — it takes about 30 seconds. A real person on our service team handles it, usually the same business day. Prefer to talk? Call <a href="tel:6307852412">630-785-2412</a>, Mon–Fri 9–6 CT.</p>
 
     <div class="sc-tabs" role="tablist" aria-label="Service requests">
-      <button type="button" class="sc-tab active" data-form-tab="idcard">🪪 Auto ID Card</button>
-      <button type="button" class="sc-tab" data-form-tab="coi">📄 Certificate of Insurance</button>
-      <button type="button" class="sc-tab" data-form-tab="change">✏️ Policy Change</button>
-      <button type="button" class="sc-tab" data-form-tab="claim">🛟 Report a Claim</button>
-      <button type="button" class="sc-tab" data-form-tab="other">💬 Billing / Other</button>
+      <button type="button" role="tab" id="tab-idcard" aria-controls="panel-idcard" aria-selected="true" class="sc-tab active" data-form-tab="idcard">🪪 Auto ID Card</button>
+      <button type="button" role="tab" id="tab-coi" aria-controls="panel-coi" aria-selected="false" class="sc-tab" data-form-tab="coi">📄 Certificate of Insurance</button>
+      <button type="button" role="tab" id="tab-change" aria-controls="panel-change" aria-selected="false" class="sc-tab" data-form-tab="change">✏️ Policy Change</button>
+      <button type="button" role="tab" id="tab-claim" aria-controls="panel-claim" aria-selected="false" class="sc-tab" data-form-tab="claim">🛟 Report a Claim</button>
+      <button type="button" role="tab" id="tab-other" aria-controls="panel-other" aria-selected="false" class="sc-tab" data-form-tab="other">💬 Billing / Other</button>
     </div>
 
     <div class="sc-formwrap inline-form">
 
       <!-- ===== AUTO ID CARD ===== -->
-      <form class="sc-form active" data-form-panel="idcard" data-form="idcard" name="service-idcard" data-netlify="true" netlify-honeypot="company-website">
+      <form class="sc-form active" data-form-panel="idcard" id="panel-idcard" role="tabpanel" aria-labelledby="tab-idcard" data-form="idcard" name="service-idcard" data-netlify="true" netlify-honeypot="company-website">
         <input type="hidden" name="form-name" value="service-idcard">
         <input type="hidden" name="requestType" value="Auto ID Card request">
         <p class="hp"><label>Leave this empty <input name="company-website" tabindex="-1" autocomplete="off"></label></p>
@@ -659,7 +870,7 @@ a { color: var(--link); }
       </form>
 
       <!-- ===== CERTIFICATE OF INSURANCE ===== -->
-      <form class="sc-form" data-form-panel="coi" data-form="coi" name="service-coi" data-netlify="true" netlify-honeypot="company-website">
+      <form class="sc-form" data-form-panel="coi" id="panel-coi" role="tabpanel" aria-labelledby="tab-coi" data-form="coi" name="service-coi" data-netlify="true" netlify-honeypot="company-website">
         <input type="hidden" name="form-name" value="service-coi">
         <input type="hidden" name="requestType" value="Certificate of Insurance (COI) request">
         <p class="hp"><label>Leave this empty <input name="company-website" tabindex="-1" autocomplete="off"></label></p>
@@ -688,7 +899,7 @@ a { color: var(--link); }
       </form>
 
       <!-- ===== POLICY CHANGE / ENDORSEMENT ===== -->
-      <form class="sc-form" data-form-panel="change" data-form="change" name="service-change" data-netlify="true" netlify-honeypot="company-website">
+      <form class="sc-form" data-form-panel="change" id="panel-change" role="tabpanel" aria-labelledby="tab-change" data-form="change" name="service-change" data-netlify="true" netlify-honeypot="company-website">
         <input type="hidden" name="form-name" value="service-change">
         <input type="hidden" name="requestType" value="Policy change / endorsement request">
         <p class="hp"><label>Leave this empty <input name="company-website" tabindex="-1" autocomplete="off"></label></p>
@@ -726,13 +937,13 @@ a { color: var(--link); }
       </form>
 
       <!-- ===== REPORT A CLAIM ===== -->
-      <form class="sc-form" data-form-panel="claim" data-form="claim" name="service-claim" data-netlify="true" netlify-honeypot="company-website" enctype="multipart/form-data">
+      <form class="sc-form" data-form-panel="claim" id="panel-claim" role="tabpanel" aria-labelledby="tab-claim" data-form="claim" name="service-claim" data-netlify="true" netlify-honeypot="company-website" enctype="multipart/form-data">
         <input type="hidden" name="form-name" value="service-claim">
         <input type="hidden" name="requestType" value="Claim notice">
         <p class="hp"><label>Leave this empty <input name="company-website" tabindex="-1" autocomplete="off"></label></p>
         <div class="sc-emergency">
           <span class="ico">🚨</span>
-          <span><strong>Emergency, injury, or active loss?</strong> Call <a href="tel:911">911</a> and your carrier's 24/7 claim line right now. This form is for <strong>non-urgent</strong> claims — use it to notify our team and we'll help you through it.</span>
+          <span><strong>Emergency, injury, or active loss?</strong> Call <a href="tel:911">911</a> first, then your <a href="#claim-lines">carrier's 24/7 claim line</a> — they can dispatch a tow and open the claim immediately. This form is for <strong>non-urgent</strong> claims: use it to notify our team and we'll help you through it.</span>
         </div>
         <h3>Report a claim</h3>
         <p class="form-intro">Tell us what happened and we'll guide you through the next steps.</p>
@@ -757,28 +968,15 @@ a { color: var(--link); }
           </div>
           <div class="form-field"><label for="cl-date">Date of loss</label><input id="cl-date" name="lossDate" type="date" required></div>
         </div>
-        <div class="form-row-2">
-          <div class="form-field"><label for="cl-policy">Policy # <span class="opt">(optional)</span></label><input id="cl-policy" name="policy" type="text" placeholder="Not sure? We'll find it"></div>
-          <div class="form-field">
-            <label for="cl-injury">Anyone injured?</label>
-            <select id="cl-injury" name="injured" required>
-              <option value="">Pick one</option>
-              <option>No</option>
-              <option>Yes</option>
-            </select>
-          </div>
-        </div>
         <div class="form-field"><label for="cl-what">What happened?</label><textarea id="cl-what" name="description" rows="4" placeholder="A few sentences on what happened, where, and any damage." required></textarea></div>
-        <div class="form-field"><label for="cl-report">Police report <span class="opt">(optional — PDF or photo)</span></label><input id="cl-report" name="policeReport" type="file" accept=".pdf,.doc,.docx,image/*"></div>
-        <div class="form-field"><label for="cl-photos">Photos of the damage <span class="opt">(optional — add several)</span></label><input id="cl-photos" name="photos" type="file" accept="image/*" multiple></div>
-        <p class="sc-note">Attach a police report and photos now if you have them, or send them later — we'll follow up either way. Up to ~10&nbsp;MB per file.</p>
+        <p class="sc-note">That's all we need for now. Hold on to the police report and any photos &mdash; we'll ask for them when we call you back, so you don't have to hunt for files right now.</p>
         <button type="submit" class="btn btn-primary btn-lg" style="width:100%;">Notify our team</button>
         <p class="form-fineprint">Filing here notifies our team; it does not guarantee coverage. For a fast or urgent claim, also call your carrier's 24/7 line above.</p>
         <div class="form-success">Got it — we'll reach out within 1 business hour during office hours to help with your claim.</div>
       </form>
 
       <!-- ===== BILLING / OTHER ===== -->
-      <form class="sc-form" data-form-panel="other" data-form="other" name="service-other" data-netlify="true" netlify-honeypot="company-website">
+      <form class="sc-form" data-form-panel="other" id="panel-other" role="tabpanel" aria-labelledby="tab-other" data-form="other" name="service-other" data-netlify="true" netlify-honeypot="company-website">
         <input type="hidden" name="form-name" value="service-other">
         <input type="hidden" name="requestType" value="Billing / other service request">
         <p class="hp"><label>Leave this empty <input name="company-website" tabindex="-1" autocomplete="off"></label></p>
@@ -800,38 +998,148 @@ a { color: var(--link); }
   </div>
 </section>
 
+<!-- ============ FAQ ============ -->
+<section class="section-tight section-paper">
+  <div class="container">
+    <p class="eyebrow">Quick answers</p>
+    <h2>Before you call</h2>
+    <p class="lead" style="max-width:760px;">The five things clients ask us most. If your answer isn't here, <a href="#request">send us a request</a> or call <a href="tel:6307852412">630-785-2412</a>.</p>
+    <div class="sc-faq">
+      <details>
+        <summary>I need proof of insurance right now &mdash; what's fastest?</summary>
+        <p>Your carrier's app or website has your ID card instantly, 24/7 &mdash; that's the fastest route at a traffic stop or a dealership. If you can't get in, request cards <a href="#request">here</a> and we'll email them, usually within the hour during office hours.</p>
+      </details>
+      <details>
+        <summary>I'm buying a car today. What does the dealer need?</summary>
+        <p>Send us the year, make, model, and VIN, plus whether you're financing or leasing and the lienholder's name and address. Use the <a href="#request">Policy Change</a> form or call us &mdash; we can usually add the vehicle and get proof to the dealer the same day.</p>
+      </details>
+      <details>
+        <summary>Why did my premium go up when nothing changed?</summary>
+        <p>Usually it's not you. Carriers re-rate whole regions for repair costs, medical costs, and weather losses, so a clean policy can still see an increase at renewal. That's the moment being independent pays off: tell us and we'll re-shop your coverage across our carriers before you renew.</p>
+      </details>
+      <details>
+        <summary>Does reporting a claim automatically raise my rate?</summary>
+        <p>Not automatically. It depends on the type of loss, who was at fault, and your carrier's rules &mdash; and some claims (a windshield, for example) often don't affect your rate at all. Call us before you decide. We'll walk through what it likely means for your premium and whether it's worth filing.</p>
+      </details>
+      <details>
+        <summary>Who do I pay &mdash; you or the insurance company?</summary>
+        <p>It depends on the policy. Most personal auto and home bills go straight to the carrier through their app or website. If your invoice came from us, pay it <a href="https://goodwillfinancial.epaypolicy.com/" target="_blank" rel="noopener">here</a>. Not sure which one you have? Ask us and we'll point you to the right place before anything lapses.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LIVING BENEFITS CROSS-LINE ============ -->
+<section class="cta-band">
+  <div class="container">
+    <h2>While we have you</h2>
+    <p>Most of our clients came to us for auto or home &mdash; and later found out their life insurance could pay them <em>while they're alive</em> if they get seriously ill or injured. It's called Living Benefits, and it usually costs less than people expect.</p>
+    <a href="living-benefits" class="btn btn-ghost btn-lg">See how Living Benefits work</a>
+  </div>
+</section>
+
 <!-- ============ FOOTER ============ -->
 </main>
+<!-- gw-footer-std v4 2026-07-21 — standardized sitewide footer (scripts/patch_footer_paste_kit.py). Do not hand-edit per page. -->
+<style id="gw-footer-style">
+  .site-footer .footer-grid { grid-template-columns: 1.6fr 1fr 1fr 1fr 1fr; gap: 36px; }
+  @media (max-width: 1024px) { .site-footer .footer-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 540px)  { .site-footer .footer-grid { grid-template-columns: 1fr; } }
+  .site-footer .footer-disclaimer { font-size: .78rem; color: rgba(245,240,232,.55); max-width: 880px; margin-top: 10px; line-height: 1.5; }
+  .site-footer .gw-social { display: flex; align-items: center; gap: 10px; margin-top: 16px; }
+  .site-footer .gw-social-h { font-size: .78rem; letter-spacing: .06em; text-transform: uppercase; color: rgba(245,240,232,.6); margin-right: 2px; }
+  .site-footer .gw-social a { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; border: 1px solid rgba(245,240,232,.28); transition: border-color .15s, background .15s; }
+  .site-footer .gw-social a:hover { border-color: var(--rust); background: rgba(0,153,204,.16); }
+  .site-footer .gw-social svg { width: 16px; height: 16px; fill: var(--paper); }
+</style>
 <footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
       <div>
-        <div class="brand" style="margin-bottom:14px;"><img src="https://goodwill-lb.surge.sh/website/img/goodwill-logo-white.png" alt="Goodwill Financial" class="brand-logo" style="height:32px;" width="1058" height="307" decoding="async"></div>
-        <p>579 W. North Ave, Suite 300<br>Elmhurst, IL 60126<br>
+        <div class="brand" style="margin-bottom:14px;">
+          <img src="https://goodwill-lb.surge.sh/website/img/goodwill-logo-white.png" alt="Goodwill Financial" class="brand-logo" style="height:34px;" width="1058" height="307" decoding="async">
+        </div>
+        <p style="max-width:340px;">
+          Independent insurance &amp; living benefits agency.<br>
+          Protecting families, business owners, and truckers across the country since 2005.
+        </p>
+        <p>
+          579 W. North Ave, Suite 300<br>
+          Elmhurst, IL 60126<br>
           <a href="tel:6307852412" style="color:var(--paper);">630-785-2412</a><br>
-          <a href="mailto:service@goodwillfinancial.com" style="color:var(--paper);">service@goodwillfinancial.com</a></p>
+          <a href="mailto:service@goodwillfinancial.com" style="color:var(--paper);">service@goodwillfinancial.com</a>
+        </p>
+        <div class="gw-social">
+          <span class="gw-social-h">Follow us</span>
+          <a href="https://www.facebook.com/goodwillinsure/" target="_blank" rel="noopener" aria-label="Goodwill Financial on Facebook" title="Facebook">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/company/goodwill-financial" target="_blank" rel="noopener" aria-label="Goodwill Financial on LinkedIn" title="LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.9 8.4H3.6V21h3.3V8.4zM5.3 3A1.9 1.9 0 1 0 5.3 6.8 1.9 1.9 0 0 0 5.3 3zM21 13.9c0-3.2-1.7-4.7-4-4.7-1.8 0-2.6 1-3 1.7V8.4H10.6c0 .9 0 12.6 0 12.6h3.3v-7c0-.4 0-.7.1-1 .3-.7.9-1.4 1.9-1.4 1.4 0 1.9 1 1.9 2.5V21H21v-7.1z"/></svg>
+          </a>
+        </div>
       </div>
-      <div><h4>Service</h4><ul>
-        <li><a href="https://goodwillfinancial.epaypolicy.com/" target="_blank" rel="noopener">Make a payment</a></li>
-        <li><a href="https://portal2018.nexsure.com/Login?key=52BA37F4DF8AE26173DBE26A" target="_blank" rel="noopener">Client log in</a></li>
-        <li><a href="#request">Request ID cards</a></li>
-        <li><a href="#request">Certificate of insurance</a></li>
-        <li><a href="#request">Report a claim</a></li>
-      </ul></div>
-      <div><h4>Insurance</h4><ul>
-        <li><a href="personal-insurance">Personal</a></li>
-        <li><a href="commercial-insurance">Business &amp; Trucking</a></li>
-        <li><a href="living-benefits">Living Benefits Life</a></li>
-      </ul></div>
-      <div><h4>Company</h4><ul>
-        <li><a href="about">About</a></li>
-        <li><a href="careers">Join Our Team</a></li>
-        <li><a href="service-center">Service</a></li>
-        <li><a href="blog">Blog</a></li>
-        <li><a href="contact">Contact</a></li>
-      </ul></div>
+      <div>
+        <h4>Personal</h4>
+        <ul>
+          <li><a href="auto-insurance-elmhurst-il">Auto Insurance</a></li>
+          <li><a href="homeowners-insurance">Home Insurance</a></li>
+          <li><a href="renters-insurance">Renters</a></li>
+          <li><a href="landlord-insurance">Landlord</a></li>
+          <li><a href="umbrella-insurance">Umbrella</a></li>
+          <li><a href="motorcycle-watercraft-insurance">Motorcycle &amp; Watercraft</a></li>
+          <li><a href="flood-insurance">Flood</a></li>
+          <li><a href="personal-insurance#valuables">Valuable Items</a></li>
+          <li><a href="personal-insurance">All Personal Insurance</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Business</h4>
+        <ul>
+          <li><a href="general-liability-insurance">General Liability</a></li>
+          <li><a href="business-owners-policy">BOP</a></li>
+          <li><a href="workers-compensation-insurance">Workers' Comp</a></li>
+          <li><a href="commercial-auto-insurance">Commercial Auto</a></li>
+          <li><a href="cyber-insurance">Cyber</a></li>
+          <li><a href="commercial-property-insurance">Commercial Property</a></li>
+          <li><a href="truck-insurance">Trucking &middot; TRUCKER SECURE&trade;</a></li>
+          <li><a href="commercial-insurance">All Business Insurance</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Life &amp; Retirement</h4>
+        <ul>
+          <li><a href="living-benefits">Living Benefits Life</a></li>
+          <li><a href="what-is-iul">IUL</a></li>
+          <li><a href="term-life-insurance">Term Life</a></li>
+          <li><a href="mortgage-protection-insurance">Mortgage Protection</a></li>
+          <li><a href="life-insurance#kai-zen">Kai-Zen</a></li>
+          <li><a href="life-insurance#kids">IUL for Kids</a></li>
+          <li><a href="annuities">Annuities</a></li>
+          <li><a href="tax-free-retirement">Tax-Free Retirement</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about">About Us</a></li>
+          <li><a href="contact">Contact</a></li>
+          <li><a href="careers">Careers &mdash; Become an Agent</a></li>
+          <li><a href="blog">Blog</a></li>
+          <li><a href="https://portal2018.nexsure.com/Login?key=52BA37F4DF8AE26173DBE26A" target="_blank" rel="noopener">Client Login</a></li>
+          <li><a href="https://goodwillfinancial.epaypolicy.com/" target="_blank" rel="noopener">Make a Payment</a></li>
+          <li><a href="privacy">Privacy</a></li>
+          <li><a href="terms">Terms</a></li>
+        </ul>
+      </div>
     </div>
-    <div class="footer-bottom"><div>© 2026 Goodwill Financial, Inc. · Illinois License #100285394 · NPN 8868934</div><div><a href="privacy" style="color:rgba(245,240,232,.7); margin-right:16px;">Privacy</a><a href="terms" style="color:rgba(245,240,232,.7);">Terms</a></div></div>
+    <div class="footer-bottom">
+      <div>
+        <div>&copy; 2026 Goodwill Financial, Inc. &middot; Goodwill Financial Group DBA Living Benefits Team</div>
+        <div style="margin-top:4px;font-size:.82rem;color:rgba(245,240,232,.6);">Independent insurance agency &middot; Illinois License #100285394 &middot; NPN 8868934</div>
+        <div class="footer-disclaimer">Insurance products are offered through licensed carriers and are subject to underwriting and policy terms. Indexed Universal Life (IUL) and Kai-Zen&reg; strategies involve policy fees and charges; index crediting is subject to caps and participation rates, and guarantees rely on the claims-paying ability of the issuing carrier. Not FDIC insured. Content on this site is educational and is not investment, tax, or legal advice.</div>
+      </div>
+    </div>
   </div>
 </footer>
 
@@ -1004,7 +1312,11 @@ a { color: var(--link); }
     const openForm = (key) => {
       if (!key) return;
       scForms.forEach((f) => f.classList.toggle('active', f.getAttribute('data-form-panel') === key));
-      tabs.forEach((t) => t.classList.toggle('active', t.getAttribute('data-form-tab') === key));
+      tabs.forEach((t) => {
+        const on = t.getAttribute('data-form-tab') === key;
+        t.classList.toggle('active', on);
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
+      });
     };
     tabs.forEach((t) => t.addEventListener('click', () => openForm(t.getAttribute('data-form-tab'))));
     document.querySelectorAll('[data-open]').forEach((c) => {

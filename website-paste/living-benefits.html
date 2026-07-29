@@ -21,6 +21,7 @@
   --muted:     #5A6470;   /* Slate */
   --line:      #E5EAEF;   /* hairline borders */
   --gold:      #F5B315;   /* Goodwill Gold — Living Benefits accent, sparingly */
+  --accent-on-dark: #7FD4F2;   /* reversed-on-navy accent (eyebrows, .lang-band) - replaces the rejected warm-palette-A peach */
   --success:   #2F7D5B;
 
   /* Type — 2026: Oswald (headings) + Inter (body) */
@@ -88,7 +89,7 @@ hr { border: 0; height: 1px; background: var(--line); margin: 48px 0; }
   color: var(--rust);
   margin-bottom: 12px;
 }
-.section-dark .eyebrow { color: #F4B89A; }
+.section-dark .eyebrow { color: var(--accent-on-dark); }
 
 /* ---------- Header ---------- */
 .site-header {
@@ -188,7 +189,7 @@ hr { border: 0; height: 1px; background: var(--line); margin: 48px 0; }
   margin-bottom: 20px;
 }
 .hero h1 em {
-  font-style: italic; color: #F4B89A; font-weight: 400;
+  font-style: italic; color: var(--accent-on-dark); font-weight: 400;
 }
 .hero-sub {
   font-size: 1.2rem; color: rgba(245,240,232,.86);
@@ -253,7 +254,7 @@ hr { border: 0; height: 1px; background: var(--line); margin: 48px 0; }
   padding: 18px 0;
   font-size: .98rem;
 }
-.lang-band strong { color: #F4B89A; font-weight: 600; }
+.lang-band strong { color: var(--accent-on-dark); font-weight: 600; }
 .lang-flags { display: inline-flex; gap: 10px; margin-left: 14px; font-size: 1.1rem; vertical-align: middle; }
 
 /* ---------- 5 Risks grid ---------- */
@@ -571,7 +572,7 @@ a { color: var(--link); }
 <!-- ============ PAGE TITLE ============ -->
 <section class="page-title">
   <div class="container">
-    <p class="eyebrow" style="color:#F4B89A;">Living Benefits</p>
+    <p class="eyebrow" style="color:var(--accent-on-dark);">Living Benefits</p>
     <h1>Life insurance you don't have to die to use.</h1>
     <p>Heart attack. Stroke. Cancer. ALS. Health insurance pays the hospital. Living Benefits pay everything else — your mortgage, your income, your family's life.</p>
     <p style="margin-top:24px;"><a href="#lead-form" class="btn btn-primary btn-lg">Get a Proposal</a></p>
@@ -801,44 +802,126 @@ a { color: var(--link); }
     <p class="small" style="color:var(--muted);font-size:.84rem;line-height:1.6;">This page is general education, not insurance, tax, legal, or investment advice, and not an offer or recommendation of any specific policy. Life insurance products are not securities or investments. Features, riders, living/accelerated benefits, caps, costs, and availability vary by carrier and state, and any guarantees rely on the claims-paying ability of the issuing insurer. Accelerated/living benefits may be taxable and reduce or are offset against the death benefit and cash value; policy loans and withdrawals reduce both as well. Consult your own tax advisor about your situation. Life insurance offered through Goodwill Financial Group, Inc. (DBA Living Benefits Team).</p>
   </div>
 </section>
+<!-- gw-related v1 -->
+<section class="section" style="background:var(--paper,#fff);">
+  <div class="container" style="max-width:1000px;">
+    <style>
+      .gw-rel-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:8px}
+      .gw-rel-card{display:block;padding:18px 20px;border:1px solid var(--line,#e5e7eb);border-radius:12px;text-decoration:none;transition:transform .15s ease,box-shadow .15s ease;background:var(--bg,#f6f8fc)}
+      .gw-rel-card:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(14,58,92,.10)}
+      .gw-rel-eyebrow{display:block;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--cerulean,#0099cc);font-weight:600;margin-bottom:6px}
+      .gw-rel-title{display:block;font-weight:600;color:var(--ink,#1a2027);line-height:1.35;margin-bottom:10px}
+      .gw-rel-more{display:block;font-size:.85rem;color:var(--muted,#6b7280)}
+    </style>
+    <h2 style="margin-bottom:4px;">Related reading</h2>
+    <div class="gw-rel-grid">
+      <a class="gw-rel-card" href="blog-living-benefits"><span class="gw-rel-eyebrow">Living Benefits</span><span class="gw-rel-title">Life Insurance You Don't Have to Die to Use</span><span class="gw-rel-more">Read &rarr;</span></a>
+      <a class="gw-rel-card" href="blog-funding-experimental-cancer-treatments-with-living-benefits"><span class="gw-rel-eyebrow">Living Benefits</span><span class="gw-rel-title">Funding Experimental Cancer Treatments with Living Benefits</span><span class="gw-rel-more">Read &rarr;</span></a>
+      <a class="gw-rel-card" href="blog-unlocking-the-power-of-living-benefits-your-guide-to-life-insurance-with-added-security"><span class="gw-rel-eyebrow">Living Benefits</span><span class="gw-rel-title">Unlocking the Power of Living Benefits: A Guide</span><span class="gw-rel-more">Read &rarr;</span></a>
+    </div>
+  </div>
+</section>
+<!-- /gw-related -->
 </main>
+<!-- gw-footer-std v4 2026-07-21 — standardized sitewide footer (scripts/patch_footer_paste_kit.py). Do not hand-edit per page. -->
+<style id="gw-footer-style">
+  .site-footer .footer-grid { grid-template-columns: 1.6fr 1fr 1fr 1fr 1fr; gap: 36px; }
+  @media (max-width: 1024px) { .site-footer .footer-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 540px)  { .site-footer .footer-grid { grid-template-columns: 1fr; } }
+  .site-footer .footer-disclaimer { font-size: .78rem; color: rgba(245,240,232,.55); max-width: 880px; margin-top: 10px; line-height: 1.5; }
+  .site-footer .gw-social { display: flex; align-items: center; gap: 10px; margin-top: 16px; }
+  .site-footer .gw-social-h { font-size: .78rem; letter-spacing: .06em; text-transform: uppercase; color: rgba(245,240,232,.6); margin-right: 2px; }
+  .site-footer .gw-social a { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; border: 1px solid rgba(245,240,232,.28); transition: border-color .15s, background .15s; }
+  .site-footer .gw-social a:hover { border-color: var(--rust); background: rgba(0,153,204,.16); }
+  .site-footer .gw-social svg { width: 16px; height: 16px; fill: var(--paper); }
+</style>
 <footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
       <div>
-        <div class="brand" style="color:var(--paper); margin-bottom:14px;"><img src="https://goodwill-lb.surge.sh/website/img/goodwill-logo-white.png" alt="Goodwill Financial" class="brand-logo" style="height:32px;" width="1058" height="307" decoding="async"></div>
-        <p style="max-width:340px;">Independent insurance &amp; living benefits agency. Protecting families and business owners since 2005.</p>
-        <p>579 W. North Ave, Suite 300<br>Elmhurst, IL 60126<br>
+        <div class="brand" style="margin-bottom:14px;">
+          <img src="https://goodwill-lb.surge.sh/website/img/goodwill-logo-white.png" alt="Goodwill Financial" class="brand-logo" style="height:34px;" width="1058" height="307" decoding="async">
+        </div>
+        <p style="max-width:340px;">
+          Independent insurance &amp; living benefits agency.<br>
+          Protecting families, business owners, and truckers across the country since 2005.
+        </p>
+        <p>
+          579 W. North Ave, Suite 300<br>
+          Elmhurst, IL 60126<br>
           <a href="tel:6307852412" style="color:var(--paper);">630-785-2412</a><br>
           <a href="mailto:service@goodwillfinancial.com" style="color:var(--paper);">service@goodwillfinancial.com</a>
         </p>
+        <div class="gw-social">
+          <span class="gw-social-h">Follow us</span>
+          <a href="https://www.facebook.com/goodwillinsure/" target="_blank" rel="noopener" aria-label="Goodwill Financial on Facebook" title="Facebook">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/company/goodwill-financial" target="_blank" rel="noopener" aria-label="Goodwill Financial on LinkedIn" title="LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.9 8.4H3.6V21h3.3V8.4zM5.3 3A1.9 1.9 0 1 0 5.3 6.8 1.9 1.9 0 0 0 5.3 3zM21 13.9c0-3.2-1.7-4.7-4-4.7-1.8 0-2.6 1-3 1.7V8.4H10.6c0 .9 0 12.6 0 12.6h3.3v-7c0-.4 0-.7.1-1 .3-.7.9-1.4 1.9-1.4 1.4 0 1.9 1 1.9 2.5V21H21v-7.1z"/></svg>
+          </a>
+        </div>
       </div>
-      <div><h4>Personal</h4><ul>
-        <li><a href="personal-insurance#auto">Auto</a></li>
-        <li><a href="personal-insurance#home">Home</a></li>
-        <li><a href="personal-insurance#renters">Renters</a></li>
-        <li><a href="personal-insurance#umbrella">Umbrella</a></li>
-        <li><a href="personal-insurance#flood">Flood</a></li>
-      </ul></div>
-      <div><h4>Business</h4><ul>
-        <li><a href="commercial-insurance#gl">General Liability</a></li>
-        <li><a href="commercial-insurance#bop">BOP</a></li>
-        <li><a href="commercial-insurance#workers-comp">Workers' Comp</a></li>
-        <li><a href="commercial-insurance#commercial-auto">Commercial Auto</a></li>
-        <li><a href="commercial-insurance#trucking">Trucking</a></li>
-      </ul></div>
-      <div><h4>Life &amp; Retirement</h4><ul>
-        <li><a href="living-benefits">Living Benefits Life</a></li>
-        <li><a href="life-insurance#iul">IUL</a></li>
-        <li><a href="life-insurance#kai-zen">Kai-Zen</a></li>
-        <li><a href="life-insurance#annuities">Annuities</a></li>
-        <li><a href="careers">Become an Agent</a></li>
-      </ul></div>
+      <div>
+        <h4>Personal</h4>
+        <ul>
+          <li><a href="auto-insurance-elmhurst-il">Auto Insurance</a></li>
+          <li><a href="homeowners-insurance">Home Insurance</a></li>
+          <li><a href="renters-insurance">Renters</a></li>
+          <li><a href="landlord-insurance">Landlord</a></li>
+          <li><a href="umbrella-insurance">Umbrella</a></li>
+          <li><a href="motorcycle-watercraft-insurance">Motorcycle &amp; Watercraft</a></li>
+          <li><a href="flood-insurance">Flood</a></li>
+          <li><a href="personal-insurance#valuables">Valuable Items</a></li>
+          <li><a href="personal-insurance">All Personal Insurance</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Business</h4>
+        <ul>
+          <li><a href="general-liability-insurance">General Liability</a></li>
+          <li><a href="business-owners-policy">BOP</a></li>
+          <li><a href="workers-compensation-insurance">Workers' Comp</a></li>
+          <li><a href="commercial-auto-insurance">Commercial Auto</a></li>
+          <li><a href="cyber-insurance">Cyber</a></li>
+          <li><a href="commercial-property-insurance">Commercial Property</a></li>
+          <li><a href="truck-insurance">Trucking &middot; TRUCKER SECURE&trade;</a></li>
+          <li><a href="commercial-insurance">All Business Insurance</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Life &amp; Retirement</h4>
+        <ul>
+          <li><a href="living-benefits">Living Benefits Life</a></li>
+          <li><a href="what-is-iul">IUL</a></li>
+          <li><a href="term-life-insurance">Term Life</a></li>
+          <li><a href="mortgage-protection-insurance">Mortgage Protection</a></li>
+          <li><a href="life-insurance#kai-zen">Kai-Zen</a></li>
+          <li><a href="life-insurance#kids">IUL for Kids</a></li>
+          <li><a href="annuities">Annuities</a></li>
+          <li><a href="tax-free-retirement">Tax-Free Retirement</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about">About Us</a></li>
+          <li><a href="contact">Contact</a></li>
+          <li><a href="careers">Careers &mdash; Become an Agent</a></li>
+          <li><a href="blog">Blog</a></li>
+          <li><a href="https://portal2018.nexsure.com/Login?key=52BA37F4DF8AE26173DBE26A" target="_blank" rel="noopener">Client Login</a></li>
+          <li><a href="https://goodwillfinancial.epaypolicy.com/" target="_blank" rel="noopener">Make a Payment</a></li>
+          <li><a href="privacy">Privacy</a></li>
+          <li><a href="terms">Terms</a></li>
+        </ul>
+      </div>
     </div>
     <div class="footer-bottom">
-      <div>© 2026 Goodwill Financial, Inc. · Goodwill Financial Group DBA Living Benefits Team</div>
-      <div style="margin-top:4px;font-size:.82rem;color:rgba(245,240,232,.6);">Independent insurance agency · Illinois License #100285394 · NPN 8868934</div>
-      <div><a href="privacy" style="color:rgba(245,240,232,.7); margin-right:16px;">Privacy</a><a href="terms" style="color:rgba(245,240,232,.7);">Terms</a></div>
+      <div>
+        <div>&copy; 2026 Goodwill Financial, Inc. &middot; Goodwill Financial Group DBA Living Benefits Team</div>
+        <div style="margin-top:4px;font-size:.82rem;color:rgba(245,240,232,.6);">Independent insurance agency &middot; Illinois License #100285394 &middot; NPN 8868934</div>
+        <div class="footer-disclaimer">Insurance products are offered through licensed carriers and are subject to underwriting and policy terms. Indexed Universal Life (IUL) and Kai-Zen&reg; strategies involve policy fees and charges; index crediting is subject to caps and participation rates, and guarantees rely on the claims-paying ability of the issuing carrier. Not FDIC insured. Content on this site is educational and is not investment, tax, or legal advice.</div>
+      </div>
     </div>
   </div>
 </footer>
