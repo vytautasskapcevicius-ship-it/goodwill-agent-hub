@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anna — Год на одной странице + трекер съёмок</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#0E3A5C;--cerulean:#0099CC;--gold:#F5B315;--gold-d:#D89A00;--olive:#8A9A00;--navy-d:#0A2C46;--slate:#5A6470;--ink:#1A2027;--mist:#F4F6F8;--line:#E5EAEF;
+    --EDU:#0E3A5C;--IMM:#D89A00;--PRF:#0099CC;--ANA:#8A9A00;--INV:#0A2C46;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter',sans-serif;color:var(--ink);background:#fff;padding:22px}
+  h1,h2,h3,.os{font-family:'Oswald';text-transform:uppercase;letter-spacing:.5px}
+  .head{border-bottom:3px solid var(--gold);padding-bottom:10px;margin-bottom:14px;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:8px}
+  .head h1{color:var(--navy);font-size:24px}
+  .head .sub{color:var(--slate);font-size:12px}
+  .toolbar{margin:10px 0 16px}
+  .toolbar button{font-family:'Oswald';text-transform:uppercase;letter-spacing:.5px;font-size:12px;background:var(--navy);color:#fff;border:0;padding:8px 16px;border-radius:20px;cursor:pointer}
+  .legend{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+  .chip{font-family:'Oswald';font-size:11px;color:#fff;padding:3px 9px;border-radius:14px}
+  .months{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+  @media(max-width:800px){.months{grid-template-columns:1fr}}
+  .mo{border:1px solid var(--line);border-radius:10px;overflow:hidden;break-inside:avoid}
+  .mo h3{background:var(--navy);color:#fff;font-size:13px;padding:6px 10px}
+  .mo .anchor{background:var(--mist);color:var(--gold-d);font-size:10px;font-family:'Oswald';letter-spacing:.5px;padding:3px 10px;border-bottom:1px solid var(--line)}
+  .row{display:flex;gap:6px;align-items:center;padding:4px 8px;border-bottom:1px solid var(--line);font-size:11px}
+  .row:last-child{border-bottom:0}
+  .vn{font-family:'Oswald';color:var(--slate);width:34px;flex:0 0 34px}
+  .pill{width:8px;height:8px;border-radius:50%;flex:0 0 8px}
+  .tp{flex:1}
+  h2.sec{color:var(--navy);font-size:18px;margin:24px 0 8px;border-top:2px solid var(--line);padding-top:14px}
+  table{width:100%;border-collapse:collapse;font-size:10.5px}
+  th,td{border:1px solid var(--line);padding:3px 5px;text-align:left}
+  th{background:var(--navy);color:#fff;font-family:'Oswald';font-weight:500;letter-spacing:.3px;text-transform:uppercase;font-size:9.5px}
+  td.c{text-align:center;width:42px}
+  tr:nth-child(even){background:var(--mist)}
+  .box{display:inline-block;width:12px;height:12px;border:1px solid var(--slate);border-radius:3px}
+  .pl{font-family:'Oswald';font-size:9px;color:#fff;padding:1px 5px;border-radius:8px}
+  @media print{
+    body{padding:6px}
+    .toolbar{display:none}
+    @page{size:landscape;margin:8mm}
+    .months{grid-template-columns:repeat(3,1fr)}
+    h2.sec{page-break-before:always}
+  }
+</style>
+</head>
+<body>
+<div class="head">
+  <div><h1>Anna · Год видео на одной странице</h1><div class="sub">Russian-speaking Living Benefits series · 156 видео · 3/нед · Jul 2026 – Jun 2027 · Goodwill Financial</div></div>
+  <div class="sub">«Защити сегодня — подготовься к завтра.»</div>
+</div>
+<div class="toolbar"><button onclick="window.print()">🖨 Печать / Сохранить в PDF</button></div>
+<div class="legend">
+  <span class="chip" style="background:var(--EDU)">EDU · обучение</span>
+  <span class="chip" style="background:var(--IMM)">IMM · иммигрант</span>
+  <span class="chip" style="background:var(--PRF)">PRF · истории</span>
+  <span class="chip" style="background:var(--ANA)">ANA · Анна</span>
+  <span class="chip" style="background:var(--INV)">INV · приглашение</span>
+</div>
+
+<div id="months" class="months"></div>
+
+<h2 class="sec">Трекер съёмок (156 видео)</h2>
+<table id="tracker">
+  <thead><tr><th>V#</th><th>Мес.</th><th>Pillar</th><th>Тема</th><th class="c">🎬 Снято</th><th class="c">✂ Монтаж</th><th class="c">📲 IG</th><th class="c">FB</th><th class="c">TikTok</th><th>Дата</th></tr></thead>
+  <tbody></tbody>
+</table>
+
+<script>
+const PC={EDU:'var(--EDU)',IMM:'var(--IMM)',PRF:'var(--PRF)',ANA:'var(--ANA)',INV:'var(--INV)'};
+// [n, month, pillar, topic]
+const D=[
+[1,'Июль','ANA','История Анны (закрепить)'],[2,'Июль','EDU','Что такое Living Benefits'],[3,'Июль','IMM','Страховка дома vs США'],
+[4,'Июль','EDU','Смартфон vs дисковый'],[5,'Июль','IMM','3 признака вербовки'],[6,'Июль','INV','Как идёт консультация'],
+[7,'Июль','EDU','5 рисков (обзор)'],[8,'Июль','IMM','ITIN без SSN — можно'],[9,'Июль','ANA','Почему я это делаю'],
+[10,'Июль','EDU','Работа = 1 зарплата'],[11,'Июль','PRF','История: семья после смерти'],[12,'Июль','INV','Сколько страховки нужно'],
+[13,'Авг','EDU','Critical Illness — список'],[14,'Авг','IMM','Самозанятый = свой HR'],[15,'Авг','PRF','История: рак, выплата живой'],
+[16,'Авг','EDU','Chronic Illness (2 из 6 ADL)'],[17,'Авг','EDU','Terminal Illness (до 75%)'],[18,'Авг','ANA','День из жизни'],
+[19,'Авг','EDU','Налоги — тихий убийца'],[20,'Авг','EDU','3 налоговые корзины'],[21,'Авг','IMM','S-corp/SEP/IUL для 1099'],
+[22,'Авг','EDU','−20% требует +25%'],[23,'Авг','EDU','IUL: пол и потолок'],[24,'Авг','EDU','$100k → $67k за 20 лет'],
+[25,'Сен·LIAM','EDU','Сентябрь — месяц страхования'],[26,'Сен·LIAM','PRF','История: инфаркт в 47'],[27,'Сен·LIAM','IMM','Я не работаю на пирамиду'],
+[28,'Сен·LIAM','EDU','Живые выплаты часто бесплатны'],[29,'Сен·LIAM','EDU','Term vs permanent'],[30,'Сен·LIAM','PRF','История: неработающий родитель'],
+[31,'Сен·LIAM','EDU','IUL для детей'],[32,'Сен·LIAM','IMM','Родители здесь — final expense'],[33,'Сен·LIAM','ANA','«Защити сегодня…» — смысл'],
+[34,'Сен·LIAM','EDU','Пережить свои деньги'],[35,'Сен·LIAM','EDU','Lifetime Income (с оговорками)'],[36,'Сен·LIAM','PRF','История: пожизненный доход'],
+[37,'Сен·LIAM','EDU','5 рисков — итог'],[38,'Сен·LIAM','IMM','Чек-лист первого года'],[39,'Сен·LIAM','INV','LIAM — записаться до октября'],
+[40,'Окт','EDU','Ходы до 31 декабря'],[41,'Окт','IMM','Рейтинги A/A+/AA'],[42,'Окт','INV','Что взять на консультацию'],
+[43,'Окт','EDU','Кто будет ухаживать'],[44,'Окт','PRF','История: инсульт в 58'],[45,'Окт','ANA','Команда Goodwill'],
+[46,'Окт','EDU','Обвал перед пенсией'],[47,'Окт','IMM','Наличный доход и пенсия'],[48,'Окт','INV','Что я НЕ буду делать'],
+[49,'Окт','EDU','401(k) = налоговый счёт'],[50,'Окт','PRF','История: владелец бизнеса'],[51,'Окт','ANA','Q&A раунд 1'],
+[52,'Ноя','EDU','Что такое наследие'],[53,'Ноя','IMM','Поддержка родных за границей'],[54,'Ноя','INV','Напишите одно слово'],
+[55,'Ноя','EDU','Пенсионный разрыв'],[56,'Ноя','PRF','История: рак, дом сохранён'],[57,'Ноя','ANA','День благодарения'],
+[58,'Ноя','EDU','Roth IRA для новичков'],[59,'Ноя','IMM','Кредит с нуля'],[60,'Ноя','INV','Перед новым годом'],
+[61,'Ноя','EDU','Групповая vs личная'],[62,'Ноя','PRF','История: ипотека закрыта'],[63,'Ноя','ANA','За кулисами встречи'],
+[64,'Дек','EDU','72 часа до конца года'],[65,'Дек','EDU','IUL для детей — подарок'],[66,'Дек','INV','Начать год с плана'],
+[67,'Дек','EDU','Рост на пенсии'],[68,'Дек','PRF','История: спокойная пенсия'],[69,'Дек','ANA','Моя семья / праздники'],
+[70,'Дек','EDU','5 рисков — итог года'],[71,'Дек','IMM','Чек-лист (повтор)'],[72,'Дек','INV','Январь забивается'],
+[73,'Дек','EDU','Одна фраза'],[74,'Дек','PRF','История года'],[75,'Дек','ANA','Спасибо за год'],
+[76,'Янв','EDU','5 рисков — старт года'],[77,'Янв','IMM','Подушка первым делом'],[78,'Янв','INV','Годовой обзор'],
+[79,'Янв','EDU','Безналоговая корзина'],[80,'Янв','PRF','История: выплата за 30 дней'],[81,'Янв','ANA','Мои цели 2027'],
+[82,'Янв','EDU','Угадать рынок нельзя'],[83,'Янв','IMM','Новая работа — разрыв'],[84,'Янв','INV','Напоминание DM'],
+[85,'Фев','EDU','Где место IUL'],[86,'Фев','IMM','Налоговый сэндвич'],[87,'Фев','INV','Правильная корзина?'],
+[88,'Фев','EDU','HSA — три льготы'],[89,'Фев','PRF','История: налогово-умный доход'],[90,'Фев','ANA','Q&A раунд 2'],
+[91,'Фев','EDU','Social Security облагается'],[92,'Фев','IMM','ITIN и история'],[93,'Фев','INV','Возврат налогов в дело'],
+[94,'Мар','EDU','Доход на всю жизнь'],[95,'Мар','IMM','План для обоих случаев'],[96,'Мар','INV','Проверка разрыва'],
+[97,'Мар','EDU','Аннуитет простыми словами'],[98,'Мар','PRF','История: без пенсии, спокоен'],[99,'Мар','ANA','Чего я боюсь больше всего'],
+[100,'Мар','EDU','Отсчёт до дедлайна'],[101,'Мар','IMM','Домой и здесь'],[102,'Мар','INV','Весенняя уборка финансов'],
+[103,'Апр','EDU','Защита ипотеки'],[104,'Апр','IMM','Первый дом'],[105,'Апр','INV','Дом + защита'],
+[106,'Апр','EDU','На сколько лет хватит'],[107,'Апр','PRF','История: ипотека закрыта полисом'],[108,'Апр','ANA','День из жизни (весна)'],
+[109,'Апр','EDU','Индексное ≠ инвестированное'],[110,'Апр','IMM','529 для детей'],[111,'Апр','INV','Одно слово — план'],
+[112,'Май','EDU','Ценность неработающей мамы'],[113,'Май','IMM','Один доход, три иждивенца'],[114,'Май','INV','День матери'],
+[115,'Май','EDU','Женщины и болезнь'],[116,'Май','PRF','История: мама, рак, выплата'],[117,'Май','ANA','Женщины, что меня построили'],
+[118,'Май','EDU','Доход для вдовы'],[119,'Май','IMM','Совет на родном языке'],[120,'Май','INV','Когда проверяли защиту?'],
+[121,'Июн','EDU','Защита кормильца'],[122,'Июн','IMM','Бизнес: key person'],[123,'Июн','INV','День отца'],
+[124,'Июн','EDU','Проверка середины года'],[125,'Июн','PRF','История: отец, семья защищена'],[126,'Июн','ANA','Почему я начала серию'],
+[127,'Июн','EDU','Доход на десятилетие'],[128,'Июн','IMM','Чек-лист середины года'],[129,'Июн','INV','Итог полугодия'],
+[130,'Резерв','EDU','Потолок — честная цена'],[131,'Резерв','EDU','RMD — обязательные снятия'],[132,'Резерв','EDU','Диверсификация по налогам'],
+[133,'Резерв','EDU','Critical Injury Rider'],[134,'Резерв','EDU','Альцгеймер — райдер'],[135,'Резерв','EDU','Замена дохода — расчёт'],
+[136,'Резерв','EDU','Долгосрочный уход — цены'],[137,'Резерв','EDU','Dollar-cost averaging'],[138,'Резерв','IMM','Разделённая семья'],
+[139,'Резерв','IMM','Перевезти бизнес/сбережения'],[140,'Резерв','IMM','Что я хотела бы знать'],[141,'Резерв','IMM','Unbanked — первые шаги'],
+[142,'Резерв','IMM','Secured-карта'],[143,'Резерв','IMM','Соцпрограммы и страховка'],[144,'Резерв','PRF','История: дальнобойщик'],
+[145,'Резерв','PRF','История: salon, buy-sell'],[146,'Резерв','PRF','История: студ. долги'],[147,'Резерв','PRF','История: Kai-Zen (осторожно)'],
+[148,'Резерв','ANA','За кадром: как снимаю'],[149,'Резерв','ANA','Мой путь: новичок→брокер'],[150,'Резерв','ANA','Q&A раунд 3'],
+[151,'Резерв','ANA','Почему «на нашем языке»'],[152,'Резерв','INV','Назад в школу'],[153,'Резерв','INV','Сезон ураганов'],
+[154,'Резерв','INV','Годовщина серии'],[155,'Резерв','INV','Реферальная просьба'],[156,'Резерв','EDU','Трендовый звук + 1 риск']
+];
+// build month blocks (group by month label, Q1-Q4 only; reserve as its own block)
+const order=['Июль','Авг','Сен·LIAM','Окт','Ноя','Дек','Янв','Фев','Мар','Апр','Май','Июн','Резерв'];
+const anchor={'Июль':'Запуск + доверие','Авг':'5 рисков вглубь','Сен·LIAM':'Месяц страхования жизни','Окт':'Конец года + LTC','Ноя':'Наследие + семья','Дек':'Дедлайн + праздники','Янв':'Перезагрузка','Фев':'Сезон налогов','Мар':'Пенсия + доход','Апр':'Покупка дома','Май':'День матери','Июн':'День отца + середина','Резерв':'Гибкий запас'};
+let mh='';
+order.forEach(m=>{
+  const rows=D.filter(d=>d[1]===m);
+  if(!rows.length)return;
+  mh+=`<div class="mo"><h3>${m} 20${m==='Июль'||m==='Авг'||m.startsWith('Сен')||m==='Окт'||m==='Ноя'||m==='Дек'?'26':'27'}${m==='Резерв'?'':''}</h3><div class="anchor">${anchor[m]||''}</div>`;
+  rows.forEach(d=>{mh+=`<div class="row"><span class="vn">V${String(d[0]).padStart(3,'0')}</span><span class="pill" style="background:${PC[d[2]]}"></span><span class="tp">${d[3]}</span></div>`;});
+  mh+='</div>';
+});
+document.getElementById('months').innerHTML=mh;
+// tracker rows
+let tb='';
+D.forEach(d=>{
+  tb+=`<tr><td>V${String(d[0]).padStart(3,'0')}</td><td>${d[1]}</td><td><span class="pl" style="background:${PC[d[2]]}">${d[2]}</span></td><td>${d[3]}</td><td class="c"><span class="box"></span></td><td class="c"><span class="box"></span></td><td class="c"><span class="box"></span></td><td class="c"><span class="box"></span></td><td class="c"><span class="box"></span></td><td></td></tr>`;
+});
+document.querySelector('#tracker tbody').innerHTML=tb;
+</script>
+</body>
+</html>

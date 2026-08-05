@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anna · Видео-студия — Goodwill Financial / Living Benefits</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0E3A5C; --navy-d:#0A2C46; --cerulean:#0099CC; --gold:#F5B315; --gold-d:#D89A00;
+    --olive:#8A9A00; --slate:#5A6470; --ink:#1A2027; --mist:#F4F6F8; --line:#E5EAEF; --white:#fff;
+    --edu:#0E3A5C; --imm:#D89A00; --prf:#0099CC; --ana:#8A9A00; --inv:#0A2C46;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter',-apple-system,Segoe UI,sans-serif;color:var(--ink);background:var(--mist);line-height:1.55;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,.os{font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.5px}
+  a{color:var(--cerulean);text-decoration:none}
+
+  /* top bar */
+  .topbar{position:sticky;top:0;z-index:50;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:space-between;padding:10px 18px;gap:12px;box-shadow:0 2px 10px rgba(0,0,0,.18)}
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Oswald';font-weight:600;font-size:15px;letter-spacing:1px;text-transform:uppercase}
+  .brand .dot{width:10px;height:10px;border-radius:50%;background:var(--gold)}
+  .barbtns{display:flex;gap:8px;align-items:center}
+  .barbtns button{font-family:'Oswald';text-transform:uppercase;letter-spacing:.5px;font-size:12px;border:1px solid rgba(255,255,255,.35);background:transparent;color:#fff;padding:6px 12px;border-radius:20px;cursor:pointer}
+  .barbtns button.active{background:var(--gold);color:var(--navy-d);border-color:var(--gold);font-weight:600}
+  .barbtns button:hover{border-color:var(--gold)}
+
+  /* hero */
+  .hero{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-d) 100%);color:#fff;padding:42px 20px 34px;text-align:center;position:relative;overflow:hidden}
+  .hero .eyebrow{color:var(--gold);font-family:'Oswald';letter-spacing:3px;font-size:13px;font-weight:500}
+  .hero h1{font-size:clamp(28px,5vw,46px);font-weight:700;margin:8px 0 6px;line-height:1.05}
+  .hero .sub{max-width:680px;margin:0 auto;color:#dbe5ee;font-size:16px}
+  .facts{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:18px}
+  .fact{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:10px;padding:8px 14px;font-size:13px}
+  .fact b{color:var(--gold);font-family:'Oswald'}
+
+  .wrap{max-width:1120px;margin:0 auto;padding:0 16px}
+
+  /* CTA bank */
+  .ctabank{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;margin:-24px auto 24px;position:relative;z-index:5;box-shadow:0 10px 30px rgba(14,58,92,.10);max-width:1120px}
+  .ctabank h3{font-size:14px;color:var(--navy);margin-bottom:12px}
+  .ctagrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
+  .ctacard{border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:10px;padding:12px 14px;background:var(--mist)}
+  .ctacard .lbl{font-family:'Oswald';font-size:12px;letter-spacing:1px;color:var(--gold-d);text-transform:uppercase}
+  .ctacard .ru{font-weight:600;margin:4px 0 2px}
+  .ctacard .en{font-size:12px;color:var(--slate)}
+
+  /* risks + pillars legend */
+  .legend{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:0 auto 22px;max-width:1120px}
+  @media(max-width:760px){.legend{grid-template-columns:1fr}}
+  .legend .box{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px}
+  .legend h3{font-size:13px;color:var(--navy);margin-bottom:10px}
+  .chips{display:flex;flex-wrap:wrap;gap:6px}
+  .chip{font-family:'Oswald';font-size:11px;letter-spacing:.5px;padding:4px 9px;border-radius:20px;color:#fff;text-transform:uppercase}
+
+  /* controls */
+  .controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:6px 0 18px;max-width:1120px;margin-left:auto;margin-right:auto}
+  .controls input{flex:1;min-width:180px;padding:10px 14px;border:1px solid var(--line);border-radius:24px;font-size:14px;font-family:'Inter'}
+  .filt{font-family:'Oswald';text-transform:uppercase;letter-spacing:.5px;font-size:12px;border:1px solid var(--line);background:#fff;color:var(--slate);padding:7px 12px;border-radius:20px;cursor:pointer}
+  .filt.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+
+  /* quarter section */
+  .qhead{display:flex;align-items:baseline;gap:12px;margin:26px auto 6px;max-width:1120px;flex-wrap:wrap}
+  .qhead h2{font-size:22px;color:var(--navy)}
+  .qhead .qtag{font-size:12px;color:var(--gold-d);font-family:'Oswald';letter-spacing:1px}
+  .qhead .qnote{font-size:12px;color:var(--slate)}
+
+  /* cards grid */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:14px;max-width:1120px;margin:10px auto 0}
+  .card{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+  .card .top{padding:6px 14px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;border-bottom:1px solid var(--line)}
+  .vid{font-family:'Oswald';font-weight:600;color:var(--navy);font-size:13px;letter-spacing:1px}
+  .wk{font-size:11px;color:var(--slate)}
+  .card .body{padding:14px}
+  .card h3{font-size:15px;color:var(--ink);font-family:'Inter';text-transform:none;letter-spacing:0;font-weight:700;margin-bottom:8px;line-height:1.25}
+  .hook{background:#FFF7E0;border-left:3px solid var(--gold);border-radius:8px;padding:9px 11px;font-weight:600;font-size:14px}
+  .hook .en{display:none;font-weight:500;font-size:12px;color:var(--slate);margin-top:4px}
+  body.showen .hook .en{display:block}
+  .scriptbody{font-size:14px;margin-top:10px;color:#26303a;white-space:pre-line;display:none}
+  .card.open .scriptbody{display:block}
+  .cues{margin-top:10px;font-size:12px;color:var(--slate);display:none}
+  .card.open .cues{display:block}
+  .cues b{color:var(--navy);font-family:'Oswald';font-size:11px;letter-spacing:.5px}
+  .cuelist{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+  .cuelist span{background:var(--mist);border:1px solid var(--line);border-radius:6px;padding:2px 7px;font-size:11px}
+  .cta-line{margin-top:10px;background:var(--navy);color:#fff;border-radius:8px;padding:8px 11px;font-size:13px}
+  .cta-line .lbl{color:var(--gold);font-family:'Oswald';font-size:11px;letter-spacing:1px;display:block;text-transform:uppercase}
+  .compl{margin-top:8px;font-size:11px;color:#9a6b00;background:#FFF3D6;border-radius:6px;padding:6px 9px;display:none}
+  .card.open .compl{display:block}
+  .compl.warn{color:#a12; background:#fdecec}
+  .acts{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+  .acts button{font-family:'Oswald';text-transform:uppercase;letter-spacing:.5px;font-size:11px;border:1px solid var(--line);background:#fff;color:var(--navy);padding:7px 12px;border-radius:18px;cursor:pointer}
+  .acts button.tp{background:var(--gold);border-color:var(--gold);color:var(--navy-d);font-weight:600}
+  .acts button:hover{border-color:var(--navy)}
+  .outline-badge{font-size:10px;font-family:'Oswald';letter-spacing:.5px;color:var(--slate);border:1px dashed var(--line);border-radius:12px;padding:2px 8px}
+
+  /* teleprompter */
+  .tp-overlay{position:fixed;inset:0;background:#04121f;color:#fff;z-index:100;display:none;flex-direction:column}
+  .tp-overlay.on{display:flex}
+  .tp-bar{display:flex;justify-content:space-between;align-items:center;padding:12px 18px;border-bottom:1px solid rgba(255,255,255,.12);gap:10px;flex-wrap:wrap}
+  .tp-bar .ttl{font-family:'Oswald';color:var(--gold);letter-spacing:1px;font-size:14px}
+  .tp-bar button{font-family:'Oswald';text-transform:uppercase;letter-spacing:.5px;font-size:13px;border:1px solid rgba(255,255,255,.3);background:transparent;color:#fff;padding:8px 14px;border-radius:20px;cursor:pointer}
+  .tp-bar button:hover{border-color:var(--gold)}
+  .tp-scroll{flex:1;overflow-y:auto;padding:6vh 8vw}
+  .tp-hook{color:var(--gold);font-weight:700;font-size:clamp(26px,4.5vw,46px);line-height:1.2;margin-bottom:28px}
+  .tp-text{font-size:clamp(26px,4.2vw,44px);line-height:1.5;font-weight:500}
+  .tp-cta{margin-top:28px;font-size:clamp(22px,3.4vw,34px);color:#bfe3f2}
+  .tp-overlay.big .tp-text{font-size:clamp(34px,6vw,60px)}
+  .tp-overlay.big .tp-hook{font-size:clamp(34px,6vw,60px)}
+
+  footer{background:var(--navy-d);color:#cdd9e4;padding:26px 18px;margin-top:40px;text-align:center;font-size:12px}
+  footer b{color:var(--gold)}
+
+  @media print{
+    .topbar,.controls,.ctabank,.acts,.barbtns,.tp-overlay{display:none!important}
+    body{background:#fff}
+    .card{break-inside:avoid;box-shadow:none;border:1px solid #ccc;margin-bottom:10px}
+    .scriptbody,.cues,.compl{display:block!important}
+    .hook .en{display:block!important}
+  }
+</style>
+</head>
+<body class="showen">
+
+<div class="topbar">
+  <div class="brand"><span class="dot"></span> Goodwill Financial · Living Benefits</div>
+  <div class="barbtns">
+    <button id="enToggle" class="active" onclick="toggleEN()">EN captions</button>
+    <button onclick="window.print()">Печать / Print</button>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="eyebrow">ВИДЕО-СТУДИЯ АННЫ · RUSSIAN-SPEAKING SERIES</div>
+  <h1>Защити сегодня — подготовься к завтра</h1>
+  <p class="sub">Годовой план видео для русскоязычной аудитории. Living benefits, налоги, рынок, инфляция, болезнь, долголетие. 3 видео в неделю · Instagram · Facebook · TikTok.</p>
+  <div class="facts">
+    <div class="fact"><b>156</b> видео / год</div>
+    <div class="fact"><b>3</b> в неделю</div>
+    <div class="fact"><b>RU</b> голос + <b>EN</b> субтитры</div>
+    <div class="fact"><b>9:16</b> · 45–60с</div>
+    <div class="fact"><b>Q1</b> — 39 готовых сценариев</div>
+  </div>
+</div>
+
+<div class="ctabank">
+  <h3 class="os">Призывы к действию — чередуй (CTA bank)</h3>
+  <div class="ctagrid">
+    <div class="ctacard"><span class="lbl">Booking</span><div class="ru">«Бесплатная 15-минутная консультация — ссылка в профиле. Без давления, без обязательств.»</div><div class="en">Free 15-min consult · link in bio · no pressure</div></div>
+    <div class="ctacard"><span class="lbl">DM ПОЛИС</span><div class="ru">«Напишите слово ПОЛИС в комментарии — пришлю объяснение в личные.»</div><div class="en">Comment ПОЛИС · I'll DM the breakdown</div></div>
+    <div class="ctacard"><span class="lbl">Save</span><div class="ru">«Сохраните это видео и отправьте тому, кому это нужно.»</div><div class="en">Save & send to someone who needs it</div></div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="legend">
+    <div class="box">
+      <h3 class="os">5 рисков для денег (spine)</h3>
+      <div class="chips">
+        <span class="chip" style="background:var(--edu)">TAX · Налоги</span>
+        <span class="chip" style="background:var(--prf)">MKT · Рынок</span>
+        <span class="chip" style="background:var(--slate)">INF · Инфляция</span>
+        <span class="chip" style="background:var(--gold-d)">ILL · Болезнь</span>
+        <span class="chip" style="background:var(--navy-d)">DTH · Смерть</span>
+        <span class="chip" style="background:var(--olive)">LNG · Долголетие</span>
+      </div>
+    </div>
+    <div class="box">
+      <h3 class="os">Пилары (mix)</h3>
+      <div class="chips">
+        <span class="chip" style="background:var(--edu)">EDU 45%</span>
+        <span class="chip" style="background:var(--imm)">IMM 25%</span>
+        <span class="chip" style="background:var(--prf)">PRF 15%</span>
+        <span class="chip" style="background:var(--ana)">ANA 10%</span>
+        <span class="chip" style="background:var(--inv)">INV 5%</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="controls">
+    <input id="search" type="text" placeholder="Поиск по теме / hook / V-номер…" oninput="render()">
+    <button class="filt active" data-f="all" onclick="setFilter(this)">Все</button>
+    <button class="filt" data-f="EDU" onclick="setFilter(this)">EDU</button>
+    <button class="filt" data-f="IMM" onclick="setFilter(this)">IMM</button>
+    <button class="filt" data-f="PRF" onclick="setFilter(this)">PRF</button>
+    <button class="filt" data-f="ANA" onclick="setFilter(this)">ANA</button>
+    <button class="filt" data-f="INV" onclick="setFilter(this)">INV</button>
+    <button class="filt" data-f="full" onclick="setFilter(this)">★ Готовые сценарии</button>
+  </div>
+</div>
+
+<div id="content" class="wrap"></div>
+
+<div class="tp-overlay" id="tp">
+  <div class="tp-bar">
+    <span class="ttl" id="tp-ttl">V000</span>
+    <div>
+      <button onclick="tpBig()">A+ / A−</button>
+      <button onclick="closeTP()">Закрыть ✕</button>
+    </div>
+  </div>
+  <div class="tp-scroll">
+    <div class="tp-hook" id="tp-hook"></div>
+    <div class="tp-text" id="tp-text"></div>
+    <div class="tp-cta" id="tp-cta"></div>
+  </div>
+</div>
+
+<footer>
+  <b>Goodwill Financial</b> · Living Benefits Team · «Защити сегодня — подготовься к завтра.»<br>
+  Educational only. Not financial, tax, or legal advice. Products & availability vary by state and carrier.<br>
+  Истории клиентов — только с подписанным разрешением и по утверждённому шаблону NLG. Без скриншотов иллюстраций.
+</footer>
+
+<script>
+// ===== CTA text map =====
+const CTA={
+  BK:{lbl:'Booking',ru:'Бесплатная 15-минутная консультация — ссылка в профиле. Без давления.'},
+  DM:{lbl:'DM ПОЛИС',ru:'Напишите ПОЛИС в комментарии — пришлю объяснение в личные.'},
+  SV:{lbl:'Save',ru:'Сохраните это видео и отправьте тому, кому это нужно.'}
+};
+const PCOLOR={EDU:'var(--edu)',IMM:'var(--imm)',PRF:'var(--prf)',ANA:'var(--ana)',INV:'var(--inv)'};
+
+// ===== DATA: Q1 full scripts (V001–V039) =====
+const VIDEOS=[
+{id:'V001',wk:1,mo:'Июль 2026',pillar:'ANA',risk:'',cta:'BK',full:true,
+ title:'Кто такая Анна — история (ЗАКРЕПИТЬ)',
+ hookRu:'Я приехала в Америку с двумя чемоданами и без кредитной истории. Деньги здесь работают совсем не так, как дома.',
+ hookEn:'I came with 2 suitcases and no credit',
+ body:`Меня зовут Анна. Я не выросла здесь — я приехала, как многие из вас. И помню это чувство: ты работаешь, стараешься, а никто не объясняет, как по-американски защитить семью и построить будущее. Я разобралась сама. Теперь помогаю русскоязычным семьям сделать то же самое. Моя задача — не продать один продукт. А показать простым языком, на нашем языке, как здесь устроены страхование, налоги и пенсия. Без давления и без пирамид.`,
+ cues:['0:00 2 suitcases. No credit.','0:08 Nobody explained how money works here','0:30 I figured it out — now I help families','0:54 Free 15-min consult · link in bio'],
+ compl:'Личный бренд, без продуктовых заявлений.'},
+
+{id:'V002',wk:1,mo:'Июль 2026',pillar:'EDU',risk:'ILL',cta:'DM',full:true,
+ title:'Что такое Living Benefits',
+ hookRu:'Страхование жизни, которым можно воспользоваться, не умирая. Звучит странно? Объясню за минуту.',
+ hookEn:"Life insurance you don't have to die to use",
+ body:`Большинство думает, что страховка платит только после смерти. Это старая версия. Современный полис умеет больше. Если у вас диагностируют серьёзную болезнь — рак, инфаркт, инсульт — полис может начать выплачивать вам часть суммы. Пока вы живы. Пока лечитесь. Пока нужно кормить семью. Это называется «живые выплаты» — Living Benefits. В рабочей групповой страховке этого обычно нет. В хорошем личном полисе — есть. И часто эти возможности уже включены.`,
+ cues:["0:00 Use it while you're ALIVE",'0:09 Cancer · heart attack · stroke','0:25 The policy can pay YOU','0:50 Comment ПОЛИС'],
+ compl:'«может», riders vary by policy/state.'},
+
+{id:'V003',wk:1,mo:'Июль 2026',pillar:'IMM',risk:'SYS',cta:'SV',full:true,
+ title:'Страховка дома и в США',
+ hookRu:'Дома слово «страховка» часто значило обман. В Америке — это юридический контракт. Покажу разницу.',
+ hookEn:"Back home 'insurance' = scam. Here it's a contract.",
+ body:`В Союзе был Госстрах. Платили копейки, всё решали за тебя. Поэтому доверия ноль — и это нормально. Но в США страхование устроено иначе. Это договор. Компанию оценивают независимые агентства — рейтинги A, A+, AA. Выплаты прописаны в контракте, который можно показать юристу. Если компания отказала — есть страховой департамент штата и суд. Это не «верю — не верю». Это закон. Понять систему — первый шаг, чтобы перестать терять деньги из-за недоверия.`,
+ cues:['0:00 Gosstrakh paid pennies','0:12 US insurance = legal contract','0:30 Rated carriers · regulators · courts','0:52 Save & share'],
+ compl:'Факты, без продуктовых заявлений.'},
+
+{id:'V004',wk:2,mo:'Июль 2026',pillar:'EDU',risk:'ILL',cta:'DM',full:true,
+ title:'Смартфон против дискового телефона',
+ hookRu:'Страховка ваших родителей — это дисковый телефон. Сегодня есть смартфон. Разница огромная.',
+ hookEn:"Your parents' life insurance was a rotary phone",
+ body:`Старая страховка умела одно: платить после смерти. Как дисковый телефон — только звонки. Современный полис — это смартфон. Он по-прежнему защищает семью, если вас не станет. Но ещё он может выплачивать деньги при тяжёлой болезни, пока вы живы. И может накапливать денежную стоимость, которую позже реально использовать как доход на пенсии. Один продукт — три задачи: защитить сегодня, копить на завтра, и помочь семье, если случится беда. Большинство до сих пор пользуется «дисковым».`,
+ cues:['0:00 Rotary = death only','0:10 Smartphone = 3 jobs','0:22 Protect · grow · pay','0:50 Comment ПОЛИС'],
+ compl:'«может», cash value не гарантирована; не «инвестиция».'},
+
+{id:'V005',wk:2,mo:'Июль 2026',pillar:'IMM',risk:'',cta:'SV',full:true,
+ title:'3 признака, что агент хочет вас завербовать',
+ hookRu:'Если «финансовый консультант» сразу зовёт привести трёх друзей — это не консультант. Три признака.',
+ hookEn:'If an agent asks you to recruit 3 friends — run',
+ body:`Признак первый: на первой же встрече вам предлагают «бизнес-возможность» и набрать команду. Признак второй: говорят про один «волшебный» продукт, который подходит всем. Так не бывает. Признак третий: больше энергии в том, чтобы вас завербовать, чем в том, чтобы понять вашу ситуацию. Это модель пирамиды, и наша община на ней уже обожглась. Настоящий независимый брокер работает с разными компаниями и подбирает под вас. Я — независимый брокер. Я не вербую. Я советую.`,
+ cues:['0:00 3 red flags','0:08 1. Recruit your friends','0:18 2. One magic product','0:28 3. More interested in signing you up','0:50 Save this'],
+ compl:'Без очернения конкретных компаний; по фактам.'},
+
+{id:'V006',wk:2,mo:'Июль 2026',pillar:'INV',risk:'',cta:'BK',full:true,
+ title:'Как проходит бесплатная консультация',
+ hookRu:'Боитесь, что на консультации вам что-то «впарят»? Расскажу, что на самом деле происходит.',
+ hookEn:'What actually happens on a 15-minute call',
+ body:`Пятнадцать минут. Бесплатно. Сначала я просто слушаю: семья, работа, что вас беспокоит. Потом задаю несколько вопросов — доход, кто от вас зависит, есть ли уже какая-то защита. И показываю, где у вас риски и какие есть варианты — простым языком. Всё. Никакого давления. Если вариант вам подходит — двигаемся дальше. Если нет — вы уходите с пониманием своей ситуации, и это уже бесплатно полезно. Решаете только вы.`,
+ cues:['0:00 No pressure','0:10 I listen first','0:25 I show your risks + options','0:45 You decide. Always.','0:54 Link in bio'],
+ compl:'Без обещаний продукта.'},
+
+{id:'V007',wk:3,mo:'Июль 2026',pillar:'EDU',risk:'',cta:'DM',full:true,
+ title:'5 рисков для ваших денег (обзор)',
+ hookRu:'Пять вещей тихо забирают ваши деньги. Большинство не видит ни одной. Считаем.',
+ hookEn:'5 things quietly eating your money',
+ body:`Первое — налоги. Они съедают доход, особенно на пенсии. Второе — рынок. Падение на двадцать процентов требует роста на двадцать пять просто чтобы вернуться. Третье — инфляция. Сто тысяч сегодня через двадцать лет — это покупательная способность примерно шестидесяти семи. Четвёртое — тяжёлая болезнь. Рак или инфаркт могут опустошить накопления, пока вы ещё живы. Пятое — долголетие. Один из трёх доживёт до девяноста. Деньги доживут? В следующих видео разберу каждый риск и что с ним делать.`,
+ cues:['0:00 5 risks','0:08 1 Taxes','0:16 2 Market','0:24 3 Inflation','0:32 4 Illness','0:40 5 Longevity','0:52 Comment ПОЛИС'],
+ compl:'Образовательное, статистика из источников.'},
+
+{id:'V008',wk:3,mo:'Июль 2026',pillar:'IMM',risk:'SYS',cta:'BK',full:true,
+ title:'ITIN, без SSN — можно ли оформить полис?',
+ hookRu:'Без номера социального страхования, без кредитной истории — можно ли оформить полис? Да. Рассказываю как.',
+ hookEn:'No SSN, no credit. Can you get a policy? YES.',
+ body:`Самый частый страх: «я недавно приехал, у меня только ITIN — мне откажут». На самом деле многие компании работают с ITIN. Не нужна идеальная кредитная история, не нужно гражданство. Что обычно важно: легальное присутствие, подтверждаемый доход и обоснованная сумма покрытия. Я работаю с несколькими компаниями, и у них разные правила — поэтому почти всегда есть вариант. Не отказывайте себе сами. Это первое, что делают за вас страховые — не делайте их работу.`,
+ cues:['0:00 ITIN? Yes you can','0:12 No citizenship needed','0:28 Legal presence + income','0:48 Don\'t reject yourself','0:54 Link in bio'],
+ compl:'«многие компании»; eligibility varies; без гарантии одобрения.'},
+
+{id:'V009',wk:3,mo:'Июль 2026',pillar:'ANA',risk:'',cta:'SV',full:true,
+ title:'Почему я это делаю (миссия)',
+ hookRu:'Моей семье этого никто не объяснил. Поэтому я здесь.',
+ hookEn:'Nobody explained this to my family',
+ body:`Когда мы приехали, мы экономили на всём, но не понимали главного: как защитить себя, если что-то случится. Никто не сказал ни про живые выплаты, ни про налоговые корзины, ни про то, что групповая страховка на работе — это почти ничего. Мы учились на своих ошибках. Я не хочу, чтобы наши люди продолжали учиться так же — дорого и поздно. Поэтому говорю об этом просто, на русском, без терминов и без давления. Если хоть одна семья примет решение вовремя — значит, всё не зря.`,
+ cues:['0:00 We learned the hard way','0:18 Living benefits · tax buckets · the gaps','0:40 I don\'t want our people to learn late','0:52 Save & share'],
+ compl:'Личное, без заявлений.'},
+
+{id:'V010',wk:4,mo:'Июль 2026',pillar:'EDU',risk:'DTH',cta:'DM',full:true,
+ title:'Страховка на работе — это 1 зарплата',
+ hookRu:'Страховка на работе — это одна ваша годовая зарплата. Семье нужно десять. Вот в чём проблема.',
+ hookEn:'Work insurance = 1 year of salary. Family needs 10.',
+ body:`Групповая страховка через работодателя — это обычно один годовой доход. Зарабатываете шестьдесят тысяч — страховка шестьдесят тысяч. А сколько нужно семье, если вас не станет завтра? Десять–пятнадцать лет вашего дохода. То есть шестьсот–девятьсот тысяч. Это раз. Два: эта страховка привязана к работе. Ушли — пропала. Три: живых выплат в групповом плане почти никогда нет. Личный полис — это ваше. Работает, пока вы платите. И едет с вами куда угодно.`,
+ cues:['0:00 Work life = 1× income','0:12 Family needs 10–15×','0:28 Tied to your job','0:40 Personal = yours, portable','0:52 Comment ПОЛИС'],
+ compl:'Общая рекомендация; «обычно».'},
+
+{id:'V011',wk:4,mo:'Июль 2026',pillar:'PRF',risk:'DTH',cta:'BK',full:true,
+ title:'История: семья защищена после смерти',
+ hookRu:'Его не стало в сорок один. Полис — причина, по которой дети остались в своём доме.',
+ hookEn:'He passed at 41. The policy kept his kids in the house.',
+ body:`Хочу рассказать историю — с разрешения семьи. Человек ушёл рано, без предупреждения. Осталась жена, двое детей и ипотека. Но за несколько лет до этого он оформил личный полис. Выплата закрыла ипотеку и дала семье время не принимать тяжёлые решения в худший момент жизни. Дом остался. Школа осталась. Стабильность осталась. Вот ради чего всё это.`,
+ cues:['0:00 Gone at 41','0:15 Wife · 2 kids · a mortgage','0:35 The policy paid it off','0:50 Book a call'],
+ compl:'⚠ Подписанное разрешение + шаблон NLG; анонимно; без иллюстраций; без обещаний сумм.'},
+
+{id:'V012',wk:4,mo:'Июль 2026',pillar:'INV',risk:'DTH',cta:'SV',full:true,
+ title:'Сколько страховки реально нужно',
+ hookRu:'Сколько страховки реально нужно? Простое правило — за сорок секунд.',
+ hookEn:'The 10–15× rule, in 40 seconds',
+ body:`Базовое правило — десять–пятнадцать ваших годовых доходов. Почему так много? Чтобы семья могла заменить ваш доход на годы вперёд, а не на пару месяцев. Считаем: возьмите доход, умножьте на двенадцать лет, добавьте остаток ипотеки и будущую учёбу детей, вычтите то, что уже накоплено. Получится ваша цифра. У большинства она в разы больше, чем страховка на работе. Это не чтобы напугать — это чтобы вы знали правду и выбирали осознанно.`,
+ cues:['0:00 10–15× income','0:14 Income × 12 yrs','0:24 + mortgage + college − savings','0:42 = your number','0:52 Save this'],
+ compl:'Правило большого пальца, «базовое правило».'},
+
+{id:'V013',wk:5,mo:'Август 2026',pillar:'EDU',risk:'ILL',cta:'DM',full:true,
+ title:'Critical Illness Rider — список',
+ hookRu:'Инфаркт, инсульт, рак, отказ почек — всё это может оплатить ваш собственный полис. Пока вы живы.',
+ hookEn:'Heart attack, stroke, cancer — your policy can pay YOU',
+ body:`Это называется Critical Illness Rider — райдер на тяжёлые заболевания. В списке обычно от двенадцати до тридцати диагнозов, зависит от компании. Инфаркт. Инсульт. Инвазивный рак. Почечная недостаточность. Пересадка органов. Чтобы активировать — письмо врача с подтверждённым диагнозом. Выплата обычно за тридцать–шестьдесят дней. Это не замена медицинской страховки. Это деньги, которые вы тратите как хотите: лечение, долги, аренда, жизнь. Деньги тогда, когда они нужнее всего.`,
+ cues:['0:00 Heart attack · stroke · cancer','0:14 12–30 conditions (varies)','0:30 Doctor letter → 30–60 days','0:48 Comment ПОЛИС'],
+ compl:'«обычно/зависит»; не замена медстраховки; riders vary.'},
+
+{id:'V014',wk:5,mo:'Август 2026',pillar:'IMM',risk:'',cta:'BK',full:true,
+ title:'Самозанятый = свой отдел кадров',
+ hookRu:'Работаете на себя? Значит, у вас нет ни больничного, ни страховки от работодателя. Вы — свой отдел кадров.',
+ hookEn:'No boss = no benefits. YOU are the benefits dept.',
+ body:`Парикмахер, дальнобойщик, строитель, ресторан, ремонт — наша община во многом работает на себя. Свобода есть. А вот защиты, которую даёт корпорация, нет: ни групповой страховки, ни пенсионного плана, ни выплат по болезни. Если вы выпадаете на полгода — кто платит за дом? Хорошая новость: всё это можно собрать самому. Личный полис с живыми выплатами закрывает болезнь и смерть. А денежная стоимость внутри может работать на пенсию. Вы и есть компания. Постройте себе соцпакет.`,
+ cues:['0:00 Self-employed = no safety net','0:16 No group plan · no sick pay','0:32 Build your own benefits','0:48 You ARE the company','0:54 Link in bio'],
+ compl:'Общее; cash value «может».'},
+
+{id:'V015',wk:5,mo:'Август 2026',pillar:'PRF',risk:'ILL',cta:'SV',full:true,
+ title:'История: рак, выплата при жизни',
+ hookRu:'Сто пятьдесят долларов в месяц. Двести пятьдесят тысяч выплаты — пока она была жива. Это Living Benefits.',
+ hookEn:'$150/mo. $250,000 paid — while she was still alive.',
+ body:`С разрешения клиентки. Диагноз — рак. Страшно, дорого, работать нельзя. Но у неё был полис с живыми выплатами. Она активировала райдер и получила часть суммы — не наследники потом, а она сама, сейчас. Деньги пошли на лечение, на аренду, на жизнь, пока она боролась. Полис не лечит болезнь. Но он убирает второй кошмар — деньги. И это меняет всё.`,
+ cues:['0:00 $150/mo → $250k','0:14 Paid WHILE ALIVE','0:30 Treatment · rent · life','0:50 Save & share'],
+ compl:'⚠ Разрешение + шаблон NLG; цифры иллюстративные, не котировка; «может».'},
+
+{id:'V016',wk:6,mo:'Август 2026',pillar:'EDU',risk:'ILL',cta:'DM',full:true,
+ title:'Chronic Illness Rider (2 из 6 ADL)',
+ hookRu:'Если человек не может сам одеться, поесть или дойти до туалета — полис может начать платить. Это не шутка.',
+ hookEn:'Can\'t dress or feed yourself? The policy can pay.',
+ body:`В страховании есть шесть базовых ежедневных действий — их называют ADL: одевание, еда, гигиена, передвижение, пересаживание, контроль физиологии. Если человек не может выполнять две из шести — активируется Chronic Illness Rider. Типичные причины: инсульт, Альцгеймер, Паркинсон, тяжёлая деменция. Полис начинает выплачивать часть суммы — помесячно. Это не про смерть. Это чтобы оплатить уход и не продавать дом, не разорять детей. Уход в Америке стоит дорого. Этот райдер — про достоинство.`,
+ cues:['0:00 2 of 6 daily activities','0:16 Stroke · Alzheimer\'s · Parkinson\'s','0:34 Monthly payout for care','0:50 Comment ПОЛИС'],
+ compl:'Механика райдера varies; «может».'},
+
+{id:'V017',wk:6,mo:'Август 2026',pillar:'EDU',risk:'ILL',cta:'BK',full:true,
+ title:'Terminal Illness Rider (до 75%)',
+ hookRu:'Врач говорит: «у вас год». Что делать с полисом? Активировать райдер — и получить часть выплаты сейчас.',
+ hookEn:'Doctor says 12 months. Policy can pay up to 75% NOW.',
+ body:`Условие одно: прогноз — двенадцать месяцев или меньше. Врач подтверждает. Компания может выплатить значительную часть суммы сразу, при жизни. Что люди делают с этими деньгами? Поездки с семьёй. Дорогое лечение, которое иначе недоступно. Закрывают ипотеку, чтобы дом остался детям. Просто живут без страха за деньги в последние месяцы. Это не «если». Если вы окажетесь в такой ситуации — вы имеете право воспользоваться. И часто это уже встроено в современный полис.`,
+ cues:['0:00 Prognosis ≤ 12 months','0:14 Access a large part NOW','0:30 Family · treatment · mortgage','0:50 Book a call'],
+ compl:'«значительную часть/может»; % varies; без гарантии.'},
+
+{id:'V018',wk:6,mo:'Август 2026',pillar:'ANA',risk:'',cta:'SV',full:true,
+ title:'День из жизни Анны',
+ hookRu:'Как выглядит мой обычный день? Не так, как вы думаете о «страховом агенте».',
+ hookEn:'What a day helping families actually looks like',
+ body:`Утро — детей в школу. Потом звонки: кто-то только приехал и боится, что не пройдёт; кто-то открыл бизнес и не знает, с чего начать; у кого-то в семье диагноз, и нужно срочно понять, что делать. Я не «продаю полисы». Я перевожу сложную систему на человеческий язык. Половина разговоров вообще без продаж — просто объясняю. Вечером — снова семья. И вот это сочетание — семья и помощь семьям — и есть причина, почему мне нравится то, что я делаю.`,
+ cues:['0:00 Not your typical agent','0:14 Newcomers · owners · families in crisis','0:34 I translate the system','0:52 Save this'],
+ compl:'Личное.'},
+
+{id:'V019',wk:7,mo:'Август 2026',pillar:'EDU',risk:'TAX',cta:'DM',full:true,
+ title:'Налоги — тихий убийца пенсии',
+ hookRu:'У вашего 401(k) есть тихий партнёр — налоговая. И она заберёт свою долю позже.',
+ hookEn:'Your 401(k) has a silent partner: the IRS',
+ body:`Многие радуются: «я кладу в 401(k), плачу меньше налогов сейчас». Правда. Но это не «без налогов» — это «налоги потом». Когда вы выйдете на пенсию и начнёте снимать, каждый доллар облагается как доход. А ставки в будущем никто не гарантирует — могут быть и выше. Получается, вы отложили налог, не зная по какой ставке заплатите. Поэтому умные планы держат деньги в трёх «корзинах» по налогам. В следующем видео разберу эти корзины — это меняет картину.`,
+ cues:['0:00 Tax-deferred ≠ tax-free','0:14 You\'ll pay LATER','0:30 At an unknown future rate','0:48 Comment ПОЛИС'],
+ compl:'Не налоговая консультация; «могут»; советуй CPA.'},
+
+{id:'V020',wk:7,mo:'Август 2026',pillar:'EDU',risk:'TAX',cta:'BK',full:true,
+ title:'3 налоговые корзины',
+ hookRu:'Есть три налоговые корзины. Большинство наших людей пользуется только худшей. Исправляем.',
+ hookEn:'3 tax buckets. Most only use the worst one.',
+ body:`Корзина первая — облагаемая: обычный счёт в банке, проценты облагаются каждый год. Корзина вторая — отложенная: 401(k), традиционный IRA. Налог не сейчас, а при снятии. Корзина третья — не облагаемая при правильной структуре: Roth IRA и денежная стоимость в страховании жизни. Цель — не держать всё в одной корзине, а распределить. Тогда на пенсии вы управляете своими налогами, а не налоговая управляет вами. Большинство сидит в первых двух и даже не знает про третью.`,
+ cues:['0:00 3 buckets','0:12 1 Taxable','0:22 2 Tax-deferred','0:32 3 Tax-advantaged (Roth · life)','0:50 Link in bio'],
+ compl:'«при правильной структуре»; не налоговая консультация.'},
+
+{id:'V021',wk:7,mo:'Август 2026',pillar:'IMM',risk:'TAX',cta:'SV',full:true,
+ title:'S-corp / SEP / IUL для 1099',
+ hookRu:'Работаете по 1099? Скорее всего, вы переплачиваете налоги и при этом не копите на пенсию. Двойная потеря.',
+ hookEn:'1099? You\'re overpaying tax AND missing retirement.',
+ body:`Очень много наших — на 1099: стройка, перевозки, услуги. Свобода есть, а структуры нет. А структура экономит реальные деньги. Связка обычно такая: правильная форма бизнеса, например S-corp, чтобы снизить часть налогов. Пенсионный план для самозанятых — SEP. И страхование жизни с денежной стоимостью сверху — защита плюс налогово-выгодное накопление. По отдельности — мелочь. Вместе — это могут быть тысячи долларов в год и реальная пенсия. Но это нужно считать под вас, с бухгалтером.`,
+ cues:['0:00 1099 = double loss','0:16 S-corp + SEP + life cash value','0:36 Could be thousands/year','0:50 Save & show your CPA'],
+ compl:'Не налоговая/юр. консультация; «обычно/могут»; советуй CPA.'},
+
+{id:'V022',wk:8,mo:'Август 2026',pillar:'EDU',risk:'MKT',cta:'DM',full:true,
+ title:'Потеря 20% требует роста 25%',
+ hookRu:'Потеряли двадцать процентов? Чтобы вернуться, нужно вырасти на двадцать пять. Математика жестокая.',
+ hookEn:'Lose 20%, you need 25% just to break even',
+ body:`Простой пример. Было сто тысяч. Рынок упал на двадцать процентов — осталось восемьдесят. Чтобы снова стало сто, восемьдесят должны вырасти не на двадцать, а на двадцать пять процентов. Потеря и восстановление — не симметричны. И хуже всего, когда падение случается прямо перед пенсией: вы начинаете снимать деньги на самом дне, и портфель может не восстановиться. Поэтому ближе к пенсии так важно защищать от больших падений, а не только гнаться за ростом.`,
+ cues:['0:00 −20% needs +25%','0:14 $100k → $80k → needs +25%','0:34 Worst timing: before retirement','0:50 Comment ПОЛИС'],
+ compl:'Образовательное; не инвестиционная консультация.'},
+
+{id:'V023',wk:8,mo:'Август 2026',pillar:'EDU',risk:'MKT',cta:'BK',full:true,
+ title:'IUL: пол и потолок — «ноль это герой»',
+ hookRu:'Есть стратегия, где обвал рынка стоит вам ноль. Но есть и обратная сторона — честно объясняю.',
+ hookEn:'A crash costs you zero. Here\'s the catch.',
+ body:`Речь про indexed universal life — страхование жизни с привязкой к индексу, например к S&P 500. Работает так: когда индекс растёт, вам начисляют рост — но до потолка, до cap. Когда индекс падает — у вас есть пол, floor, обычно ноль. То есть в плохой год вы не теряете из-за рынка. «Ноль — ваш герой». Цена за это — ограниченный рост в хорошие годы. Это не инвестиция и не «обогнать рынок». Это защита плюс умеренный рост внутри страхового полиса. Подходит не всем — но многим, кто боится падений.`,
+ cues:['0:00 Crash = $0 loss','0:14 Floor (≈0) + Cap','0:30 Trade-off: capped upside','0:42 Not an investment','0:54 Link in bio'],
+ compl:'⚠ IUL = страхование, не инвестиция; floor/cap varies; без обещаний доходности; «обычно».'},
+
+{id:'V024',wk:8,mo:'Август 2026',pillar:'EDU',risk:'INF',cta:'SV',full:true,
+ title:'$100k сегодня = $67k через 20 лет',
+ hookRu:'Деньги «под матрасом» — не безопасны. Инфляция ест их, пока вы спите.',
+ hookEn:'Cash isn\'t safe. Inflation eats it while you sleep.',
+ body:`Кажется, что наличные — это надёжно. Но цена не стоит на месте. При скромной инфляции сто тысяч долларов сегодня через двадцать лет — это покупательная способность примерно шестидесяти семи. Вы не потеряли деньги на счёте — вы потеряли треть того, что они могут купить. Поэтому держать всё в наличных — это тихий риск. Часть денег должна работать и расти, чтобы хотя бы догонять инфляцию. Особенно на пенсии, которая может длиться двадцать–тридцать лет.`,
+ cues:['0:00 Cash ≠ safe','0:14 $100k now ≈ $67k in 20 yrs','0:34 You lost a THIRD of buying power','0:50 Save this'],
+ compl:'Иллюстративно; «примерно/может».'},
+
+{id:'V025',wk:9,mo:'Сентябрь 2026 · LIAM',pillar:'EDU',risk:'DTH',cta:'BK',full:true,
+ title:'Сентябрь — месяц страхования жизни',
+ hookRu:'Если бы ваш доход исчез завтра — что дальше? Сентябрь — месяц, чтобы честно ответить.',
+ hookEn:'If you stopped earning tomorrow — then what?',
+ body:`Сентябрь в Америке — месяц осведомлённости о страховании жизни. Не ради продаж — ради одного вопроса. Представьте: завтра ваш доход исчезает. На сколько хватит семье? У большинства — на месяцы, не на годы. И это не потому что люди беспечны, а потому что никто не сел и не посчитал. Весь этот месяц я буду разбирать простыми словами, как закрыть эту дыру. Начните с честного вопроса самому себе — а потом давайте посчитаем вместе.`,
+ cues:['0:00 Income gone tomorrow?','0:16 Most families: months, not years','0:34 Nobody did the math','0:52 Book a call'],
+ compl:'Осведомлённость; без гарантий.'},
+
+{id:'V026',wk:9,mo:'Сентябрь 2026 · LIAM',pillar:'PRF',risk:'ILL',cta:'DM',full:true,
+ title:'История: инфаркт в 47',
+ hookRu:'Сорок семь. Здоровый, спортивный. Инфаркт. Полис дал ему то, чего не купишь — время.',
+ hookEn:'47, fit. Heart attack. The policy bought him time.',
+ body:`С разрешения. Человек сорока семи лет, спорт, ни одной вредной привычки. И вдруг — инфаркт. Восстановление, нельзя сразу вернуться к работе. Но у него был полис с живыми выплатами. Райдер на тяжёлое заболевание сработал, и он получил выплату — пока лечился, а не «когда-нибудь». Он не вернулся на работу на следующий день из-за денег. Он восстанавливался. Вот для чего это.`,
+ cues:['0:00 47 · fit · heart attack','0:18 Living benefit paid during recovery','0:38 He healed instead of rushing back','0:52 Comment ПОЛИС'],
+ compl:'⚠ Разрешение + шаблон NLG; без конкретных гарантированных сумм; «может».'},
+
+{id:'V027',wk:9,mo:'Сентябрь 2026 · LIAM',pillar:'IMM',risk:'',cta:'SV',full:true,
+ title:'«Я не работаю на пирамиду»',
+ hookRu:'Я независимый брокер. Я не вербую. Я советую. И вот почему это важно именно для нас.',
+ hookEn:'Independent broker. I don\'t recruit. I advise.',
+ body:`Наша община устала от «возможностей». Тебя зовут на «бизнес», обещают быстрые деньги, просят привести друзей — и ты теряешь и деньги, и отношения. Я работаю иначе. Я независимый брокер: сотрудничаю с несколькими страховыми компаниями и подбираю то, что подходит вам, а не то, за что мне больше платят. Никаких команд, никакой вербовки, никаких «приведи троих». Просто: ваша ситуация, ваши варианты, ваше решение. Доверие в нашем деле дороже любой комиссии.`,
+ cues:['0:00 No pyramid','0:14 Independent = multiple carriers','0:30 Your situation, your choice','0:50 Save this'],
+ compl:'Позиционирование, по фактам.'},
+
+{id:'V028',wk:10,mo:'Сентябрь 2026 · LIAM',pillar:'EDU',risk:'ILL',cta:'DM',full:true,
+ title:'Живые выплаты часто уже бесплатны',
+ hookRu:'Лучшая часть современного полиса часто идёт бесплатно. И почти никто ей не пользуется.',
+ hookEn:'The best part is often free. Most never use it.',
+ body:`Многие современные полисы страхования жизни уже включают живые выплаты — райдеры на тяжёлую, хроническую и терминальную болезнь — без отдельной платы. То есть защита от рака, инфаркта, инсульта уже встроена. Но есть нюанс: люди не знают, что она у них есть, и не активируют, когда наступает диагноз. Деньги лежат и ждут — а семья тем временем берёт в долг. Поэтому два совета: при покупке спрашивайте про живые выплаты, а если полис уже есть — проверьте, что в нём. Возможно, защита у вас уже в руках.`,
+ cues:['0:00 Often FREE · rarely used','0:16 Living benefits often built in','0:34 Check your existing policy','0:50 Comment ПОЛИС'],
+ compl:'«многие/часто»; inclusion varies.'},
+
+{id:'V029',wk:10,mo:'Сентябрь 2026 · LIAM',pillar:'EDU',risk:'DTH',cta:'BK',full:true,
+ title:'Term или permanent — простыми словами',
+ hookRu:'Аренда или собственность — но про страховку. Term и permanent. Что подходит именно вам?',
+ hookEn:'Renting vs owning your protection',
+ body:`Term — это аренда. Дёшево, защита на срок, скажем, двадцать лет. Срок кончился — защиты нет, денег обратно нет. Хорошо, когда нужна большая сумма на время: пока дети маленькие, пока есть ипотека. Permanent — это собственность. Дороже, но защита на всю жизнь, плюс внутри копится денежная стоимость, которую можно использовать позже. Часто правильный ответ — комбинация: часть term для большой суммы сейчас, часть permanent для пожизненной защиты и накопления. Не «или-или», а под вашу жизнь.`,
+ cues:['0:00 Rent vs own','0:12 Term = temporary, cheaper','0:28 Permanent = lifelong + cash value','0:44 Often a mix','0:54 Link in bio'],
+ compl:'Образовательное; cash value не гарант. суммы.'},
+
+{id:'V030',wk:10,mo:'Сентябрь 2026 · LIAM',pillar:'PRF',risk:'DTH',cta:'SV',full:true,
+ title:'История: ценность неработающего родителя',
+ hookRu:'Она не получала зарплату. А заменить то, что она делала, стоило шестьдесят тысяч в год.',
+ hookEn:'No salary. Replacing what she did cost $60k/year.',
+ body:`Частая ошибка: страхуют только того, кто «приносит деньги». Но представьте, что не стало родителя, который держит дом: дети, готовка, логистика, уход. Чтобы всё это закрыть — няня, помощь, услуги — это легко шестьдесят-семьдесят тысяч в год. Семья, о которой я говорю, застраховала обоих супругов. Когда случилась трагедия с неработающим родителем, выплата позволила второму не разорваться между работой и детьми. Цена «домашнего» труда — реальная. Страхуйте обоих.`,
+ cues:['0:00 No salary ≠ no value','0:16 Replacement ≈ $60–70k/yr','0:36 Insure BOTH parents','0:52 Save & share'],
+ compl:'Иллюстративно; если реальный клиент → разрешение + шаблон.'},
+
+{id:'V031',wk:11,mo:'Сентябрь 2026 · LIAM',pillar:'EDU',risk:'DTH',cta:'DM',full:true,
+ title:'IUL для детей — зафиксировать застрахованность',
+ hookRu:'Лучший подарок ребёнку — не игрушка. Это застрахованность на всю жизнь. Объясню.',
+ hookEn:'The best gift for your child: insurability for life',
+ body:`Пока ребёнок здоров и юн, страховка для него стоит копейки, и — это главное — вы фиксируете его «застрахованность». Если позже у него появится диагноз, который обычно мешает оформить полис, у него уже будет своя защита. Плюс внутри полиса годами растёт денежная стоимость — её потом можно использовать: на учёбу, на первый дом, на старт. Это не про «заработать на ребёнке». Это про то, чтобы дать ему фундамент, который вы, возможно, не получили сами. Маленький взнос сегодня — большая фора на всю жизнь.`,
+ cues:['0:00 Not a toy — insurability','0:16 Lock it in while healthy','0:32 Cash value for college/first home','0:50 Comment ПОЛИС'],
+ compl:'cash value «можно использовать», не гарант.; «обычно».'},
+
+{id:'V032',wk:11,mo:'Сентябрь 2026 · LIAM',pillar:'IMM',risk:'',cta:'BK',full:true,
+ title:'Перевезли родителей — final expense',
+ hookRu:'Вы перевезли родителей в Америку. А кто покроет похороны здесь? Об этом не думают заранее.',
+ hookEn:'You brought your parents over. Who covers the funeral?',
+ body:`Радостный момент — родители рядом. Но есть тема, которую все откладывают: похороны в США стоят дорого — часто восемь–пятнадцать тысяч долларов. Если случится беда, эти деньги лягут на вас, в худший момент. Для пожилых родителей есть специальные небольшие полисы — final expense, на покрытие именно этих расходов. Оформляются проще, суммы небольшие, взнос подъёмный. Это не про большие стратегии. Это про то, чтобы в день горя вы горевали, а не искали деньги. Простой акт заботы.`,
+ cues:['0:00 Parents here. Funeral costs?','0:16 US funeral ≈ $8–15k','0:32 Final expense policy for elders','0:50 Link in bio'],
+ compl:'«часто/обычно»; eligibility varies.'},
+
+{id:'V033',wk:11,mo:'Сентябрь 2026 · LIAM',pillar:'ANA',risk:'',cta:'SV',full:true,
+ title:'Что значит «Защити сегодня — подготовься к завтра»',
+ hookRu:'«Защити сегодня — подготовься к завтра.» Два обещания в одной фразе. Что они значат на деле.',
+ hookEn:'Two promises in one sentence',
+ body:`Это не просто слоган Goodwill Financial. «Защити сегодня» — значит, если беда случится сейчас, ваша семья не остаётся без денег: болезнь, потеря кормильца, неожиданность. «Подготовься к завтра» — значит, вы не только защищаетесь, но и строите: пенсию, доход на будущее, фундамент для детей. Большинство финансовых разговоров — только про одно из двух. Я смотрю на оба. Потому что настоящий план держит вас и в плохой день, и через тридцать лет. Защита и будущее — в одном решении.`,
+ cues:['0:00 Protect today + Prepare for tomorrow','0:16 Today = family covered NOW','0:32 Tomorrow = retirement + legacy','0:50 Save this'],
+ compl:'Бренд.'},
+
+{id:'V034',wk:12,mo:'Сентябрь 2026 · LIAM',pillar:'EDU',risk:'LNG',cta:'DM',full:true,
+ title:'Пережить свои деньги',
+ hookRu:'Один из трёх, кто дожил до шестидесяти пяти, доживёт до девяноста. А деньги доживут?',
+ hookEn:'1 in 3 who reach 65 lives to 90. Will the money?',
+ body:`Мы боимся уйти рано. Но есть и обратный риск — прожить долго и пережить свои деньги. Статистика: каждый третий, кто дошёл до шестидесяти пяти, доживёт до девяноста. У женщин шансы ещё выше. Пенсия может длиться двадцать пять–тридцать лет. Если деньги просто лежат и тратятся, в какой-то момент они кончаются — а вы нет. Это и есть риск долголетия. Решение — не только копить, но и построить доход, который не заканчивается. О нём — в следующем видео.`,
+ cues:['0:00 1 in 3 → age 90','0:16 Retirement = 25–30 yrs','0:32 Risk: outliving your money','0:50 Comment ПОЛИС'],
+ compl:'Статистика из источников; ведёт к следующему.'},
+
+{id:'V035',wk:12,mo:'Сентябрь 2026 · LIAM',pillar:'EDU',risk:'LNG',cta:'BK',full:true,
+ title:'Lifetime Income — доход на всю жизнь (с оговорками)',
+ hookRu:'Зарплата, которая не заканчивается, когда заканчивается работа. Это и есть цель — Lifetime Income.',
+ hookEn:'A paycheck that doesn\'t stop when your salary does',
+ body:`«Lifetime Income» — это не компания и не гарантия сама по себе. Это результат, к которому можно прийти: доход, который продолжает приходить всю жизнь, сколько бы вы ни прожили. Как? Чаще всего через специальные райдеры в аннуитетах и через денежную стоимость в страховании жизни. При определённых условиях и за отдельную плату такой райдер может обеспечивать выплаты пожизненно. Важно: всё зависит от продукта, условий и сборов — это нужно считать под вас. Но сама идея простая: превратить накопления в зарплату, которую нельзя пережить.`,
+ cues:['0:00 Income for life','0:16 Via annuity riders + life cash value','0:34 Subject to conditions & charges','0:52 Link in bio'],
+ compl:'⚠ "Lifetime Income" = результат с оговорками, не carrier/гарантия; «при условиях и за плату».'},
+
+{id:'V036',wk:12,mo:'Сентябрь 2026 · LIAM',pillar:'PRF',risk:'LNG',cta:'SV',full:true,
+ title:'История: пенсионер с пожизненным доходом',
+ hookRu:'Он перестал работать в шестьдесят пять. А доход — не перестал. Вот что он сделал заранее.',
+ hookEn:'He stopped working at 65. The income didn\'t stop.',
+ body:`История — обобщённая, без личных данных. Человек всю жизнь работал на себя, пенсии от компании нет. Лет за десять до выхода он начал откладывать в структуру с пожизненным доходом. Когда он остановился, к Social Security добавился второй чек — каждый месяц, не зависящий от того, что творится на рынке. Он не проверяет биржу по утрам. Он спокоен. Разница между тревожной старостью и спокойной — это решения, принятые за годы до. Время — главный союзник.`,
+ cues:['0:00 Retired at 65 · income continued','0:18 Second monthly check','0:36 Started 10 yrs early','0:52 Save this'],
+ compl:'Обобщено; если реальный клиент → разрешение + шаблон; без гарант. сумм.'},
+
+{id:'V037',wk:13,mo:'Сентябрь 2026 · LIAM',pillar:'EDU',risk:'',cta:'SV',full:true,
+ title:'5 рисков — итог (карусель/reel)',
+ hookRu:'Все пять рисков для ваших денег — за шестьдесят секунд. Это видео стоит сохранить.',
+ hookEn:'All 5 risks in 60 seconds. Save this one.',
+ body:`Быстро, по одному. Налоги — отложенные налоги это «налоги потом», по неизвестной ставке. Решение — налоговое распределение. Рынок — падение требует большего роста, чтобы вернуться. Решение — защита от больших падений ближе к пенсии. Инфляция — кэш теряет покупательную способность. Решение — часть денег должна расти. Болезнь — рак или инфаркт бьют, пока вы живы. Решение — живые выплаты. Долголетие — можно пережить свои деньги. Решение — пожизненный доход. Пять рисков — пять ответов. Какой из них для вас сейчас самый острый?`,
+ cues:['0:00 5 risks · 5 answers','0:10 Tax → buckets','0:20 Market → floor','0:30 Inflation → growth','0:40 Illness → living benefits','0:50 Longevity → lifetime income','0:56 Save · comment your #1'],
+ compl:'Итог; «может»; не консультация.'},
+
+{id:'V038',wk:13,mo:'Сентябрь 2026 · LIAM',pillar:'IMM',risk:'SYS',cta:'DM',full:true,
+ title:'Чек-лист денег для первого года в США',
+ hookRu:'Только приехали? Пять денежных шагов, о которых вам никто не скажет. Сохраните себе.',
+ hookEn:'Just arrived? The 5 money moves nobody tells you',
+ body:`Первое — откройте банковский счёт, выйдите из «налички под матрасом». Второе — начните строить кредитную историю: secured-карта, и платите вовремя. Третье — соберите подушку: три месяца расходов, прежде чем думать о чём-то ещё. Четвёртое — закройте базовую защиту: если от вас кто-то зависит, нужна страховка жизни, даже небольшая. Пятое — поймите налоговые корзины и начните копить на пенсию по-американски, даже с малого. Пять шагов. Не обязательно сразу. Но по порядку — и вы уже впереди большинства.`,
+ cues:['0:00 5 moves for newcomers','0:10 1 Bank account','0:20 2 Build credit','0:30 3 Emergency fund','0:40 4 Basic life cover','0:48 5 Tax buckets + retirement','0:56 Comment ПОЛИС'],
+ compl:'Общее образование; «даже небольшая».'},
+
+{id:'V039',wk:13,mo:'Сентябрь 2026 · LIAM',pillar:'INV',risk:'',cta:'BK',full:true,
+ title:'LIAM — приглашение записаться до октября',
+ hookRu:'Месяц осведомлённости закончится. А риск для вашей семьи — нет. Давайте используем этот месяц.',
+ hookEn:'Awareness month ends. Your family\'s risk doesn\'t.',
+ body:`Весь сентябрь мы разбирали пять рисков, живые выплаты, налоги, пожизненный доход. Но видео не защищает — защищает решение. Поэтому простое предложение: пятнадцать минут, бесплатно, на русском. Я посмотрю вашу ситуацию, покажу, где дыры, и какие есть варианты. Без давления, без вербовки. Если подходит — двигаемся. Если нет — уходите с ясной картиной. Сделайте этот месяц моментом, когда вы наконец разобрались. Ваша семья скажет спасибо — может, через тридцать лет, а может, гораздо раньше.`,
+ cues:['0:00 Awareness ends. Risk doesn\'t.','0:16 15 min · free · in Russian','0:34 No pressure, no recruiting','0:52 Book before Oct · link in bio'],
+ compl:'Приглашение; без гарантий.'}
+];
+
+// ===== DATA: Q2–Q4 outlines (V040–V129) — hook only, build body later =====
+const OUTLINES=[
+['V040','Окт 2026','TAX','BK','Ходы до 31 декабря','Три денежных шага, которые надо сделать до 31 декабря.','3 money moves before Dec 31'],
+['V041','Окт 2026','SYS','DM','Рейтинги A/A+/AA','Как понять, что компания не исчезнет: система рейтингов A, A+, AA.','How to know an insurer is solid'],
+['V042','Окт 2026','INV','BK','Что взять на консультацию','Записались на консультацию? Возьмите с собой эти три вещи.','Bring these 3 things to your call'],
+['V043','Окт 2026','ILL','DM','Кто будет ухаживать','Кто будет ухаживать за вами, когда вы не сможете сами? План лучше надежды.','Who cares for you when you can\'t?'],
+['V044','Окт 2026','ILL','SV','История: инсульт в 58','Инсульт в пятьдесят восемь. Райдер оплатил уход, который он выбрал сам.','Stroke at 58 — the rider paid for care'],
+['V045','Окт 2026','ANA','SV','Команда Goodwill','Я не одна. Познакомьтесь с командой Goodwill за моей спиной.','Meet the team behind me'],
+['V046','Окт 2026','MKT','DM','Обвал перед пенсией','Обвал за два года до пенсии — худший сценарий. Объясняю почему.','Why a crash near retirement hurts most'],
+['V047','Окт 2026','IMM','BK','Наличный доход и пенсия','Платят наличными? Пенсию по-американски всё равно можно построить. Легально.','Paid in cash? You can still retire'],
+['V048','Окт 2026','INV','BK','Что я НЕ буду делать','Что я НЕ буду делать на нашем звонке.','What I will NOT do on our call'],
+['V049','Окт 2026','TAX','DM','401(k) = налоговый счёт','Ваш 401(k) — это налоговый счёт, который вы ещё не открыли.','401(k) = a tax bill you haven\'t opened'],
+['V050','Окт 2026','DTH','BK','История: владелец бизнеса','Когда умер владелец, вот что удержало бизнес на плаву.','When the owner died — what saved the business'],
+['V051','Окт 2026','ANA','SV','Q&A раунд 1','Три самых частых вопроса этого месяца — отвечаю.','Your top 3 questions, answered'],
+['V052','Ноя 2026','DTH','DM','Что такое наследие','Наследие — это не деньги. Это не оставить семье долги.','Legacy = not leaving a burden'],
+['V053','Ноя 2026','IMM','BK','Поддержка родных за границей','Вы каждый месяц отправляете деньги родным. Что будет, если не сможете?','You send money home — what if you can\'t?'],
+['V054','Ноя 2026','INV','DM','Напишите одно слово','Напишите одно слово — и я пришлю вам разбор в личные.','Comment 1 word → I\'ll DM you'],
+['V055','Ноя 2026','LNG','BK','Пенсионный разрыв','Нет сорока лет рабочего стажа в США? Ваша пенсионная математика другая.','No 40-yr US work history? Different math'],
+['V056','Ноя 2026','ILL','SV','История: рак, дом сохранён','Рак забрал её волосы, но не её дом. Полис об этом позаботился.','Cancer took her hair, not her house'],
+['V057','Ноя 2026','ANA','SV','День благодарения','День благодарения: настоящая причина, почему я защищаю семьи.','Thanksgiving: why I protect families'],
+['V058','Ноя 2026','TAX','DM','Roth IRA для новичков','Счёт, до которого налоговая больше не дотянется. Если вы подходите.','The account the IRS can\'t touch again'],
+['V059','Ноя 2026','SYS','BK','Кредит с нуля','Кредитная история с нуля? Как стать «видимым» — быстро.','Credit invisible? Become visible fast'],
+['V060','Ноя 2026','INV','BK','Перед новым годом','Не входите в новый год без защиты. Исправим за 15 минут.','Don\'t enter 2027 unprotected'],
+['V061','Ноя 2026','ILL','DM','Групповая vs личная','Ушли с работы — потеряли страховку. Если только она не ваша.','Leave your job, lose your coverage'],
+['V062','Ноя 2026','DTH','BK','История: ипотека закрыта','Его не стало в тридцать девять. Ипотека ушла вместе с ним — не дом вдовы.','Gone at 39 — the mortgage died, not her home'],
+['V063','Ноя 2026','ANA','SV','За кулисами встречи','Как выглядит настоящая первая встреча (с разрешения).','What a real first meeting looks like'],
+['V064','Дек 2026','TAX','BK','72 часа до конца года','72 часа до конца года. Два хода, которые ещё успеют засчитаться.','72 hours left — 2 moves that still count'],
+['V065','Дек 2026','DTH','DM','IUL для детей — подарок','Подарок, который будет платить вашему ребёнку 80 лет. Не игрушка.','A gift that pays your child for 80 yrs'],
+['V066','Дек 2026','INV','BK','Начать год с плана','Новогоднее решение, которое реально важно: план защиты.','The resolution that actually matters'],
+['V067','Дек 2026','INF','DM','Рост на пенсии','Выйти на пенсию — не значит перестать расти. Инфляция не уходит на пенсию.','Retiring ≠ stop growing'],
+['V068','Дек 2026','LNG','SV','История: спокойная пенсия','Ей семьдесят один, и она ни разу не проверяет биржу. Вот почему.','71 and never checks the market'],
+['V069','Дек 2026','ANA','SV','Моя семья / праздники','Люди, к которым я возвращаюсь домой. Ради них всё это.','The people I go home to'],
+['V070','Дек 2026','EDU','DM','5 рисков — итог года','Закрываем год: пять рисков — и где вы по каждому из них.','Year-end: the 5 risks recap'],
+['V071','Дек 2026','SYS','BK','Чек-лист (повтор)','Приехали в этом году? Не входите в 2027 без этих пяти шагов.','Arrived this year? 5 moves first'],
+['V072','Дек 2026','INV','BK','Январь забивается','Январь забивается быстро. Возьмите свои 15 минут сейчас.','January books fast — grab 15 min'],
+['V073','Дек 2026','ILL','DM','Одна фраза','Одна фраза, которая меняет взгляд на страхование жизни.','Insurance you don\'t have to die to use'],
+['V074','Дек 2026','DTH','SV','История года','История, которая осталась со мной в этом году.','The story that stayed with me'],
+['V075','Дек 2026','ANA','SV','Спасибо за год','Спасибо за год. Вот что мы строим дальше.','Thank you — here\'s what\'s next'],
+['V076','Янв 2027','EDU','DM','5 рисков — старт года','Новый год. Те же пять рисков. Разбираем по одному.','New year, same 5 risks'],
+['V077','Янв 2027','SYS','BK','Подушка первым делом','До любого полиса — подушка на три месяца. Вот порядок шагов.','Emergency fund FIRST — the order'],
+['V078','Янв 2027','INV','BK','Годовой обзор','Раз в год посмотрите на всю картину. Начните отсюда.','Once a year, see the whole picture'],
+['V079','Янв 2027','TAX','DM','Безналоговая корзина','Корзина, которая на пенсии не облагается — и кто может ей пользоваться.','The tax-free bucket — who qualifies'],
+['V080','Янв 2027','ILL','SV','История: выплата за 30 дней','От диагноза до выплаты — 30 дней. Вот что значит «живая выплата».','Diagnosis to payment: 30 days'],
+['V081','Янв 2027','ANA','SV','Мои цели 2027','Что я строю в этом году — и для кого.','My 2027 goals — and who they\'re for'],
+['V082','Янв 2027','MKT','DM','Угадать рынок нельзя','Никто не угадывает рынок. Вот что работает вместо угадывания.','Nobody times the market'],
+['V083','Янв 2027','IMM','BK','Новая работа — разрыв','Новая работа? Не надейтесь на страховку от работодателя.','New job = new coverage gap'],
+['V084','Янв 2027','INV','DM','Напоминание DM','Одно слово в комментариях. Остальное сделаю я.','One word in the comments'],
+['V085','Фев 2027','TAX','BK','Где место IUL','Делаете налоги? Вот стратегия, которая снижает следующие 30 лет.','Doing taxes? Lower the next 30 years'],
+['V086','Фев 2027','TAX','BK','Налоговый «сэндвич»','1099 + S-corp + SEP + IUL: легальный налоговый «сэндвич».','The legal tax sandwich for 1099'],
+['V087','Фев 2027','INV','BK','Правильная корзина?','15 минут: ваши деньги в правильной налоговой корзине?','Is your money in the wrong bucket?'],
+['V088','Фев 2027','TAX','DM','HSA — три льготы','Единственный счёт с тремя налоговыми льготами. Наши его пропускают.','The only account with 3 tax breaks (HSA)'],
+['V089','Фев 2027','TAX','SV','История: налогово-умный доход','Он вышел на пенсию с доходом, который налоговая почти не трогает. Легально.','Retired with income the IRS barely touches'],
+['V090','Фев 2027','ANA','SV','Q&A раунд 2','Ваши вопросы про налоги — отвечаю простым русским.','Your tax-season questions, answered'],
+['V091','Фев 2027','TAX','DM','Social Security облагается','Сюрприз: ваш чек Social Security тоже могут обложить налогом.','Your Social Security can be taxed too'],
+['V092','Фев 2027','SYS','BK','ITIN и история','Декларация с ITIN строит вашу историю. Как это помогает.','Filing with an ITIN builds your case'],
+['V093','Фев 2027','INV','DM','Возврат налогов в дело','Будет возврат налогов? Три умных хода, пока он не растворился.','Getting a refund? 3 smart moves'],
+['V094','Мар 2027','LNG','BK','Доход на всю жизнь','Зарплата на всю жизнь — как она строится и сколько стоит.','A paycheck for life — how it\'s built'],
+['V095','Мар 2027','IMM','DM','План для обоих случаев','Не знаете, останетесь ли в США? Постройте план, который едет с вами.','Build a plan that travels with you'],
+['V096','Мар 2027','INV','BK','Проверка пенсионного разрыва','Деньги переживут вас или наоборот? Давайте посмотрим.','Will your money outlive you?'],
+['V097','Мар 2027','LNG','DM','Аннуитет простыми словами','Аннуитет — не страшное слово. Это частная пенсия. Как она работает.','Annuity = a private pension'],
+['V098','Мар 2027','LNG','SV','История: без пенсии, но спокоен','Без корпоративной пенсии — но на пенсии спокоен. Вот ход.','No pension, still secure'],
+['V099','Мар 2027','ANA','SV','Чего я боюсь больше всего','Риск, о котором я думаю больше всего — и который никто не планирует.','The risk I think about most'],
+['V100','Мар 2027','TAX','BK','Отсчёт до дедлайна','Обратный отсчёт до дедлайна: последние налогово-умные ходы.','Tax deadline countdown — last moves'],
+['V101','Мар 2027','SYS','DM','Домой и здесь','Отправлять деньги домой — любовь. Строить здесь — наследие. Делайте оба.','Send home AND build here'],
+['V102','Мар 2027','INV','BK','Весенняя уборка финансов','Весенняя уборка финансов. 15 минут, без давления.','Spring-clean your finances'],
+['V103','Апр 2027','DTH','BK','Защита ипотеки','Покупаете дом? Защитите его раньше, чем мебель.','Buying a home? Protect it first'],
+['V104','Апр 2027','SYS','DM','Первый дом','Первый дом как иммигрант: защита, о которой не говорят.','First US home — protection nobody mentions'],
+['V105','Апр 2027','INV','BK','Дом + защита','Новая ипотека? Давайте сделаем так, чтобы семья сохранила дом.','New mortgage? Keep the home safe'],
+['V106','Апр 2027','DTH','DM','Сколько лет продержится семья','Если ваш доход исчезнет — на сколько лет хватит семье?','Income gone — how many years survive?'],
+['V107','Апр 2027','DTH','SV','История: ипотека закрыта полисом','Банк получил своё. Вдова сохранила ключи.','The bank got paid. She kept the keys.'],
+['V108','Апр 2027','ANA','SV','День из жизни (весна)','Настоящий день: школа, консультации, семейный ужин.','A real day in my life'],
+['V109','Апр 2027','MKT','DM','Индексное ≠ инвестированное','«Индексное» — это не «инвестированное». Разница вас защищает.','\'Indexed\' isn\'t \'invested\''],
+['V110','Апр 2027','IMM','BK','529 для детей','Хотите детей в колледж без долгов? Начните здесь (529).','College without crushing debt (529)'],
+['V111','Апр 2027','INV','DM','Одно слово — план','Одно слово. Пришлю план под вашу семью.','One word → your family\'s plan'],
+['V112','Май 2027','DTH','DM','Ценность неработающей мамы','Она не получает зарплату. Заменить её — 70 тысяч в год. Планируйте.','No salary ≠ no value ($70k/yr)'],
+['V113','Май 2027','IMM','BK','Один доход, три иждивенца','Один доход, три иждивенца. Вот страховочная сетка.','One earner, three dependents'],
+['V114','Май 2027','INV','BK','День матери','В этот День матери — подарок, который реально её защищает.','Mother\'s Day: the gift that protects her'],
+['V115','Май 2027','ILL','DM','Женщины и болезнь','Почему живые выплаты ещё важнее для той, на ком держится семья.','Living benefits for the family\'s anchor'],
+['V116','Май 2027','ILL','SV','История: мама, рак, выплата','Она лечилась и растила детей — полис оплачивал счета.','Mom, cancer, living benefit'],
+['V117','Май 2027','ANA','SV','Женщины, что меня построили','Женщины, которые меня построили. Почему я защищаю такие семьи.','The women who shaped me'],
+['V118','Май 2027','LNG','DM','Доход для вдовы','Не просто оставьте деньги. Оставьте зарплату, которую не пережить.','Leave a paycheck she can\'t outlive'],
+['V119','Май 2027','SYS','BK','Совет на родном языке','Денежные решения трудны. На втором языке — ещё труднее.','Money advice in your own language'],
+['V120','Май 2027','INV','BK','Когда вы проверяли защиту?','Когда вы последний раз проверяли, что семья реально защищена?','When did you last check your coverage?'],
+['V121','Июн 2027','DTH','DM','Защита кормильца','Быть кормильцем — это работа. Защитите зарплату за ней.','Protect the paycheck behind the provider'],
+['V122','Июн 2027','IMM','BK','Бизнес: key person','Бизнес — ваш главный актив. Что с ним, если вас не станет?','Your business: key person & buy-sell'],
+['V123','Июн 2027','INV','BK','День отца','Самое «отцовское», что можно сделать в этот День отца.','The real provider move this Father\'s Day'],
+['V124','Июн 2027','EDU','DM','Проверка в середине года','Половина года позади — где вы по каждому из пяти рисков?','Mid-year 5-risk check'],
+['V125','Июн 2027','DTH','SV','История: отец, семья защищена','Он работал на двух работах. Полис — чтобы детям хватило одной мечты.','Two jobs — so his kids need one dream'],
+['V126','Июн 2027','ANA','SV','Почему я начала серию','Год назад. Почему я вообще взяла камеру в руки.','Why I started this series'],
+['V127','Июн 2027','LNG','DM','Доход на следующее десятилетие','Пенсия — не дата. Это доход. Стройте его сейчас.','Retirement isn\'t a date — it\'s income'],
+['V128','Июн 2027','SYS','BK','Чек-лист середины года','Полгода до конца 2027. Пять ходов, которые надо сделать сейчас.','Mid-year money checklist'],
+['V129','Июн 2027','INV','BK','Итог полугодия','Проверим ваш план и зададим сильную вторую половину года.','Let\'s set up a strong second half']
+];
+
+// ===== rendering =====
+let FILTER='all';
+function setFilter(btn){document.querySelectorAll('.filt').forEach(b=>b.classList.remove('active'));btn.classList.add('active');FILTER=btn.dataset.f;render();}
+function toggleEN(){document.body.classList.toggle('showen');document.getElementById('enToggle').classList.toggle('active');}
+
+function matches(v){
+  const q=document.getElementById('search').value.trim().toLowerCase();
+  if(FILTER==='full'&&!v.full) return false;
+  if(FILTER!=='all'&&FILTER!=='full'&&v.pillar!==FILTER) return false;
+  if(!q) return true;
+  return (v.id+' '+v.title+' '+v.hookRu+' '+(v.hookEn||'')).toLowerCase().includes(q);
+}
+
+function cardHTML(v){
+  const pc=PCOLOR[v.pillar]||'var(--slate)';
+  const cta=CTA[v.cta];
+  const riskBadge=v.risk?`<span class="chip" style="background:var(--slate);font-size:10px">${v.risk}</span>`:'';
+  let inner=`
+    <div class="top">
+      <span class="vid">${v.id}</span>
+      <span class="wk">${v.mo}${v.wk?' · нед.'+v.wk:''}</span>
+      <span class="chip" style="background:${pc};font-size:10px;margin-left:auto">${v.pillar}</span>
+      ${riskBadge}
+      ${v.full?'':'<span class="outline-badge">outline</span>'}
+    </div>
+    <div class="body">
+      <h3>${v.title}</h3>
+      <div class="hook">${v.hookRu}<div class="en">EN caption: ${v.hookEn||''}</div></div>`;
+  if(v.full){
+    inner+=`<div class="scriptbody">${v.body}</div>
+      <div class="cues"><b>On-screen cues</b><div class="cuelist">${v.cues.map(c=>'<span>'+c+'</span>').join('')}</div></div>`;
+  }
+  inner+=`<div class="cta-line"><span class="lbl">${cta.lbl}</span>${cta.ru}</div>`;
+  if(v.full){inner+=`<div class="compl ${/⚠/.test(v.compl)?'warn':''}">${v.compl}</div>`;}
+  inner+=`<div class="acts">
+      <button onclick="toggleCard('${v.id}')">${v.full?'Показать сценарий':'Детали'}</button>
+      ${v.full?`<button class="tp" onclick="openTP('${v.id}')">▶ Телесуфлёр</button>`:''}
+    </div></div>`;
+  return `<div class="card" id="card-${v.id}">${inner}</div>`;
+}
+
+function outlineToObj(o){return{id:o[0],mo:o[1],pillar:o[2],cta:o[3],title:o[4],hookRu:o[5],hookEn:o[6],risk:'',full:false,wk:0};}
+
+function render(){
+  const all=VIDEOS.concat(OUTLINES.map(outlineToObj));
+  const groups={'Q1 · Jul–Sep 2026 — ФУНДАМЕНТ → LIAM':[],'Q2 · Oct–Dec 2026 — КОНЕЦ ГОДА + НАСЛЕДИЕ':[],'Q3 · Jan–Mar 2027 — НОВЫЙ ГОД + НАЛОГИ':[],'Q4 · Apr–Jun 2027 — СЕМЬЯ + СЕРЕДИНА ГОДА':[]};
+  all.filter(matches).forEach(v=>{
+    const n=parseInt(v.id.slice(1));
+    if(n<=39)groups['Q1 · Jul–Sep 2026 — ФУНДАМЕНТ → LIAM'].push(v);
+    else if(n<=75)groups['Q2 · Oct–Dec 2026 — КОНЕЦ ГОДА + НАСЛЕДИЕ'].push(v);
+    else if(n<=102)groups['Q3 · Jan–Mar 2027 — НОВЫЙ ГОД + НАЛОГИ'].push(v);
+    else groups['Q4 · Apr–Jun 2027 — СЕМЬЯ + СЕРЕДИНА ГОДА'].push(v);
+  });
+  let html='';
+  for(const g in groups){
+    if(!groups[g].length)continue;
+    const note=g.startsWith('Q1')?'39 готовых сценариев — нажми «Телесуфлёр» для съёмки':'Outline — развернуть в полные сценарии за ~2 недели до квартала';
+    html+=`<div class="qhead"><h2>${g}</h2><span class="qnote">${note}</span></div><div class="grid">${groups[g].map(cardHTML).join('')}</div>`;
+  }
+  document.getElementById('content').innerHTML=html||'<p style="text-align:center;padding:40px;color:var(--slate)">Ничего не найдено.</p>';
+}
+function toggleCard(id){document.getElementById('card-'+id).classList.toggle('open');}
+
+// ===== teleprompter =====
+function openTP(id){
+  const v=VIDEOS.find(x=>x.id===id);if(!v)return;
+  document.getElementById('tp-ttl').textContent=v.id+' · '+v.title;
+  document.getElementById('tp-hook').textContent=v.hookRu;
+  document.getElementById('tp-text').textContent=v.body;
+  document.getElementById('tp-cta').textContent='CTA: '+CTA[v.cta].ru;
+  document.getElementById('tp').classList.add('on');
+}
+function closeTP(){document.getElementById('tp').classList.remove('on');}
+function tpBig(){document.getElementById('tp').classList.toggle('big');}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeTP();});
+
+render();
+</script>
+</body>
+</html>

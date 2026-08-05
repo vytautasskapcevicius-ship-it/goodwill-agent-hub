@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>X-Date Capture — Goodwill Financial</title>
+<!--
+  AGENT-FACING X-DATE CAPTURE FORM  (Maks / any X-date caller)
+  Opened from turboDial: PL X-Date outcome category -> "⚉ X-Date Capture Form".
+
+  This is NOT the consumer page (/renewal-reminder). Different job:
+    consumer = "leave me your date"     |  agent = "I have them on the phone RIGHT NOW"
+
+  Design constraints, all from the 2026-07-06 call review (Maks: ~250 X-date calls, 43
+  "interested", 0 P&C sales; graded ~D, weakest on Discovery/SPIN 1.9, Value 1.7, Recommendations 1.1):
+    * The SPIN prompts are ON the page, because the gap is discovery, not dialing.
+    * "Send the Canopy link" is a TICK BOX ON THE FORM, not a later task — 18 of the 43 were
+      dispositioned "Interested — No Canopy Link". The Worker sends it on submit.
+    * "I only got the month" is a real answer. The book already carries 792 rows parked on day 01
+      because the day was invented; this form refuses to make that worse.
+
+  Nothing is stored in this page. It POSTs to the keap-worker (kind:"xdate", via:"call").
+  Blank form -> no client PII at rest -> safe to host like the other internal call pop-ups.
+-->
+<style>
+:root{--navy:#0E3A5C;--cer:#0099CC;--gold:#F5B315;--ink:#1A2027;--mut:#5A6470;
+--line:#E5EAEF;--bg:#F4F6F8;--red:#C2384A;--green:#2F7D5B;--amber:#B4741B}
+*{box-sizing:border-box}
+body{margin:0;font:15px/1.55 Inter,system-ui,Segoe UI,sans-serif;color:var(--ink);background:var(--bg)}
+header{background:var(--navy);color:#fff;padding:16px 20px;position:sticky;top:0;z-index:20;
+box-shadow:0 2px 10px rgba(14,58,92,.18)}
+header h1{margin:0;font:600 20px/1.2 Oswald,Inter,sans-serif;letter-spacing:.3px}
+header .sub{opacity:.85;font-size:12.5px;margin-top:3px}
+.wrap{max-width:860px;margin:0 auto;padding:18px 18px 90px}
+.card{background:#fff;border:1px solid var(--line);border-radius:9px;padding:16px 18px;margin-bottom:14px}
+.card>h2{margin:0 0 3px;font:600 15px/1.3 Oswald,Inter,sans-serif;letter-spacing:.4px;
+text-transform:uppercase;color:var(--navy)}
+.card>.hint{font-size:12.5px;color:var(--mut);margin:0 0 12px}
+label.f{display:block;margin-bottom:11px}
+label.f>span{display:block;font-size:12.5px;font-weight:600;margin-bottom:4px}
+input[type=text],input[type=tel],input[type=email],input[type=number],select,textarea{
+width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:6px;font-size:15px;
+font-family:inherit;background:#fff}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--cer);outline-offset:1px}
+.row{display:grid;gap:12px}
+.row.c2{grid-template-columns:1fr 1fr}
+.row.c3{grid-template-columns:1.3fr 1fr 1fr}
+@media(max-width:640px){.row.c2,.row.c3{grid-template-columns:1fr}}
+.chk{display:flex;gap:9px;align-items:flex-start;font-size:14px;margin:9px 0;cursor:pointer;
+padding:9px 11px;border:1px solid var(--line);border-radius:6px;background:#FAFCFE}
+.chk input{margin-top:2px;flex:none;width:17px;height:17px}
+.chk.hot{border-color:var(--gold);background:#FFFBF2}
+.chk b{display:block}
+.chk small{color:var(--mut);display:block;margin-top:1px;font-size:12px}
+details.spin{border:1px solid var(--line);border-radius:7px;margin-bottom:9px;background:#fff}
+details.spin>summary{cursor:pointer;padding:9px 12px;font-weight:600;font-size:13.5px;color:var(--navy)}
+details.spin[open]>summary{border-bottom:1px solid var(--line)}
+details.spin .body{padding:10px 14px 13px;font-size:13.5px}
+details.spin .body p{margin:0 0 7px}
+details.spin q{color:var(--navy);font-style:italic}
+.pill{display:inline-block;padding:1px 8px;border-radius:11px;font-size:11px;font-weight:700;
+background:#EEF2F6;color:var(--mut);margin-left:6px;vertical-align:middle}
+.pill.gold{background:#FDF3E3;color:var(--amber)}
+.bar{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid var(--line);
+padding:11px 18px;display:flex;gap:10px;align-items:center;justify-content:flex-end;
+box-shadow:0 -2px 12px rgba(14,58,92,.09);z-index:30}
+.bar .msg{margin-right:auto;font-size:13px;font-weight:600}
+.btn{padding:11px 20px;border-radius:7px;font-size:14.5px;font-weight:700;cursor:pointer;border:1px solid}
+.btn.p{background:var(--navy);border-color:var(--navy);color:#fff}
+.btn.p:disabled{opacity:.55;cursor:not-allowed}
+.btn.s{background:#fff;border-color:var(--line);color:var(--navy)}
+.ok{color:var(--green)} .err{color:var(--red)}
+.note{border-left:4px solid var(--gold);background:#FFFBF2;border-radius:6px;padding:10px 13px;
+font-size:13px;margin:10px 0}
+.note.red{border-left-color:var(--red);background:#FDF5F6}
+.hide{display:none!important}
+</style>
+</head>
+<body>
+<header>
+  <h1>X-Date Capture</h1>
+  <div class="sub">You have them on the phone. Get the renewal date, send the link, log it.</div>
+</header>
+
+<div class="wrap">
+<form id="f" autocomplete="off">
+
+  <!-- ── WHO ───────────────────────────────────────────────────────── -->
+  <div class="card">
+    <h2>Who are you talking to</h2>
+    <p class="hint">Working a row from the call list? Paste the Keap ID — it updates that exact
+    record instead of creating a second one.</p>
+    <div class="row c3">
+      <label class="f"><span>Keap contact ID <small>(optional)</small></span>
+        <input type="number" id="cid" inputmode="numeric" placeholder="e.g. 146921"></label>
+      <label class="f"><span>First name</span><input type="text" id="first" required></label>
+      <label class="f"><span>Last name</span><input type="text" id="last"></label>
+    </div>
+    <div class="row c2">
+      <label class="f"><span>Phone</span><input type="tel" id="phone"></label>
+      <label class="f"><span>Email <small>— needed to send the link</small></span>
+        <input type="email" id="email"></label>
+    </div>
+  </div>
+
+  <!-- ── THE DATE ──────────────────────────────────────────────────── -->
+  <div class="card">
+    <h2>The renewal date <span class="pill gold">the point of the call</span></h2>
+    <p class="hint">Month and day only. Never ask for the year — we roll it forward ourselves.</p>
+    <div class="row c3">
+      <label class="f"><span>Renewal month</span>
+        <select id="month" required>
+          <option value="">Choose…</option>
+          <option value="1">January</option><option value="2">February</option>
+          <option value="3">March</option><option value="4">April</option>
+          <option value="5">May</option><option value="6">June</option>
+          <option value="7">July</option><option value="8">August</option>
+          <option value="9">September</option><option value="10">October</option>
+          <option value="11">November</option><option value="12">December</option>
+        </select></label>
+      <label class="f" id="dayWrap"><span>Day</span>
+        <select id="day"><option value="">—</option></select></label>
+      <label class="f"><span>Which policy</span>
+        <select id="line">
+          <option value="">Not stated</option>
+          <option value="auto">Auto</option><option value="home">Home</option>
+          <option value="package">Home + auto</option><option value="renters">Renters</option>
+          <option value="umbrella">Umbrella</option>
+        </select></label>
+    </div>
+
+    <label class="chk hot"><input type="checkbox" id="dayUnknown">
+      <span><b>They only knew the month, not the day</b>
+      <small>Tick this instead of guessing. We already have 792 records stuck on "the 1st"
+      because someone typed a day they didn't have — it makes a real 1st-of-month renewal
+      impossible to tell apart from a blank.</small></span></label>
+
+    <label class="f"><span>Who are they with today?</span>
+      <input type="text" id="carrier" placeholder="Progressive, State Farm, GEICO…"></label>
+  </div>
+
+  <!-- ── SPIN ──────────────────────────────────────────────────────── -->
+  <div class="card">
+    <h2>Ask before you pitch</h2>
+    <p class="hint">Open these while you talk. The date alone is worth little if you never find
+    out why they'd move.</p>
+
+    <details class="spin"><summary>S — Situation</summary><div class="body">
+      <p><q>How many cars / what are you insuring right now, and who's it with?</q></p>
+      <p><q>Is the auto and the home with the same company?</q></p>
+    </div></details>
+
+    <details class="spin"><summary>P — Problem <span class="pill">don't rush this</span></summary><div class="body">
+      <p><q>What matters most to you — price, coverage, or service?</q></p>
+      <p><q>What do you like, and what don't you like, about who you're with?</q></p>
+      <p><q>Did the price go up at your last renewal?</q></p>
+    </div></details>
+
+    <details class="spin"><summary>I — Implication</summary><div class="body">
+      <p><q>If it went up with no accidents, it usually goes up again next year.</q></p>
+      <p><q>If the auto and home aren't together, that's often a few hundred a year you
+      never see on the bill.</q></p>
+      <p><q>If you renew without comparing, that price is locked for twelve months.</q></p>
+    </div></details>
+
+    <details class="spin"><summary>N — Need-payoff <span class="pill gold">then the link</span></summary><div class="body">
+      <p><q>If I found the same coverage for less before it renews, that's worth five
+      minutes — fair?</q></p>
+      <p><q>I'll send the link right now while we're on the phone. Two minutes and I'll have
+      exact numbers instead of guesses.</q></p>
+    </div></details>
+
+    <label class="f"><span>What did they say? <small>— the reason they'd move</small></span>
+      <textarea id="notes" rows="3" placeholder="Price jumped $40/mo, no claims. Auto with one company, home with another. New driver in Sept."></textarea></label>
+  </div>
+
+  <!-- ── THE LINK ──────────────────────────────────────────────────── -->
+  <div class="card">
+    <h2>Send the comparison link</h2>
+    <p class="hint">On the call. Not after.</p>
+    <label class="chk hot"><input type="checkbox" id="sendCanopy" checked>
+      <span><b>Email them the Canopy link when I submit this</b>
+      <small>Needs their email above. Of the last 43 "interested" X-date prospects,
+      18 were logged as <i>Interested — No Canopy Link</i>, and none of the 43 bought.</small></span></label>
+    <div class="note" id="noEmailWarn" style="display:none">
+      No email address, so the link can't be sent. Ask for it — or read the link out:
+      <b>goodwillfinancial.com</b> → Get a Quote.
+    </div>
+  </div>
+
+  <!-- ── CONSENT ───────────────────────────────────────────────────── -->
+  <div class="card">
+    <h2>Permission to follow up</h2>
+    <p class="hint">Tick only what they actually said. This is the record we rely on later —
+    right now almost nobody in the book is callable, and this is how that changes.</p>
+    <label class="chk"><input type="checkbox" id="consent">
+      <span><b>"Yes, call me before it renews"</b>
+      <small>They agreed to a callback. Recorded with today's date.</small></span></label>
+    <label class="chk"><input type="checkbox" id="smsConsent">
+      <span><b>"Texting is fine"</b>
+      <small>Separate permission. Without it we never text them.</small></span></label>
+  </div>
+
+  <!-- ── OUTCOME ───────────────────────────────────────────────────── -->
+  <div class="card">
+    <h2>How did the call end</h2>
+    <label class="f"><span>Outcome</span>
+      <select id="outcome">
+        <option value="interested">Interested — wants the comparison</option>
+        <option value="callback">Wants a callback later</option>
+        <option value="captured">Gave the date, not interested yet</option>
+        <option value="notinterested">Not interested</option>
+        <option value="dnc">Remove from the list / do not call</option>
+      </select></label>
+    <div class="note red hide" id="dncWarn">
+      This applies <b>XD&nbsp;-&nbsp;DNC</b> and takes them out of every future X-date touch —
+      mail and email included. It is meant to be permanent. Only pick it if they asked.
+    </div>
+  </div>
+
+</form>
+</div>
+
+<div class="bar">
+  <div class="msg" id="msg"></div>
+  <button type="button" class="btn s" id="reset">Clear for next call</button>
+  <button type="submit" form="f" class="btn p" id="save">Save to Keap</button>
+</div>
+
+<script>
+(function(){
+  var W='https://goodwill-keap-followup.goodwill-lbt.workers.dev';
+  var $=function(id){return document.getElementById(id)};
+  var DAYS=[31,29,31,30,31,30,31,31,30,31,30,31];
+
+  // Day list follows the month, so Feb 30 / Apr 31 can never be picked at all.
+  function fillDays(){
+    var m=parseInt($('month').value,10), sel=$('day'), keep=sel.value;
+    var n=(m>=1&&m<=12)?DAYS[m-1]:31;
+    sel.innerHTML='<option value="">—</option>';
+    for(var d=1;d<=n;d++){
+      var o=document.createElement('option'); o.value=d; o.textContent=d;
+      sel.appendChild(o);
+    }
+    if(keep&&parseInt(keep,10)<=n) sel.value=keep;
+  }
+  $('month').addEventListener('change',fillDays); fillDays();
+
+  function syncDay(){
+    var u=$('dayUnknown').checked;
+    $('dayWrap').classList.toggle('hide',u);
+    $('day').required=!u;
+    if(u) $('day').value='';
+  }
+  $('dayUnknown').addEventListener('change',syncDay); syncDay();
+
+  function syncEmail(){
+    var need=$('sendCanopy').checked && !$('email').value.trim();
+    $('noEmailWarn').style.display=need?'':'none';
+  }
+  ['sendCanopy','email'].forEach(function(i){$(i).addEventListener('input',syncEmail);
+    $(i).addEventListener('change',syncEmail)});
+  syncEmail();
+
+  function syncOutcome(){ $('dncWarn').classList.toggle('hide',$('outcome').value!=='dnc') }
+  $('outcome').addEventListener('change',syncOutcome); syncOutcome();
+
+  function say(t,cls){ var m=$('msg'); m.textContent=t; m.className='msg '+(cls||'') }
+
+  $('reset').addEventListener('click',function(){
+    // Keep nothing between calls — the next prospect is a different person, and a stale
+    // Keap ID silently writing onto the previous contact is the worst failure this form has.
+    $('f').reset(); fillDays(); syncDay(); syncEmail(); syncOutcome();
+    say('Cleared.',''); $('first').focus();
+  });
+
+  $('f').addEventListener('submit',function(e){
+    e.preventDefault();
+    var mo=parseInt($('month').value,10);
+    if(!(mo>=1&&mo<=12)){ say('Pick the renewal month.','err'); return }
+    var unknown=$('dayUnknown').checked;
+    var dy=parseInt($('day').value,10);
+    if(!unknown && !(dy>=1&&dy<=DAYS[mo-1])){
+      say('Pick the day — or tick "they only knew the month".','err'); return }
+    if(!$('first').value.trim()){ say('Need at least a first name.','err'); return }
+    if(!$('phone').value.trim() && !$('email').value.trim()){
+      say('Need a phone or an email so we can reach them.','err'); return }
+
+    var payload={
+      kind:'xdate', via:'call', agent:'Maks',
+      contactId:$('cid').value.trim(),
+      name:($('first').value.trim()+' '+$('last').value.trim()).trim(),
+      email:$('email').value.trim(), phone:$('phone').value.trim(),
+      month:mo, day:unknown?1:dy, dayUnknown:unknown,
+      line:$('line').value, carrier:$('carrier').value.trim(),
+      notes:$('notes').value.trim(),
+      consent:$('consent').checked, smsConsent:$('smsConsent').checked,
+      sendCanopy:$('sendCanopy').checked, outcome:$('outcome').value
+    };
+    $('save').disabled=true; say('Saving…','');
+    fetch(W,{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify(payload)})
+      .then(function(r){return r.json().catch(function(){return{ok:r.ok}}) })
+      .then(function(d){
+        if(!d||d.ok===false) throw new Error(d&&d.error?d.error:'save failed');
+        var bits=['Saved — contact '+d.contactId];
+        if(d.dayKnown===false) bits.push('month only');
+        if(d.canopySent) bits.push('link sent');
+        else if(payload.sendCanopy) bits.push('LINK NOT SENT');
+        if(d.task) bits.push('callback task created');
+        say(bits.join(' · '),'ok');
+        $('f').reset(); fillDays(); syncDay(); syncEmail(); syncOutcome(); $('first').focus();
+      })
+      .catch(function(err){ say('Not saved: '+err.message+' — try again, or tell Vytas.','err') })
+      .finally(function(){ $('save').disabled=false });
+  });
+})();
+</script>
+</body>
+</html>

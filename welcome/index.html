@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Welcome Campaign — Pilot #1 · Goodwill Financial</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0E3A5C; --navy2:#13456c; --cerulean:#0099CC; --gold:#F5B315; --gold2:#ffca4a;
+    --ink:#13202c; --paper:#f3f6f9; --card:#fff; --muted:#5a6b7a; --line:#e1e8ef;
+    --life:#F5B315; --pc:#0099CC;
+    --shadow:0 1px 3px rgba(14,58,92,.07),0 10px 28px rgba(14,58,92,.06);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:Inter,system-ui,Segoe UI,sans-serif;color:var(--ink);background:var(--paper);line-height:1.6}
+  h1,h2,h3,h4,.dt{font-family:Oswald,sans-serif;letter-spacing:.3px;font-weight:600}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+  .eyebrow{font-family:Oswald;text-transform:uppercase;letter-spacing:2px;font-size:12.5px;color:var(--gold2);font-weight:600}
+
+  header{background:linear-gradient(135deg,var(--navy),var(--navy2) 60%,var(--cerulean));color:#fff;padding:44px 0 38px;border-bottom:4px solid var(--gold)}
+  header h1{font-size:clamp(28px,4.6vw,46px);margin:.16em 0 .12em;line-height:1.04}
+  header .sub{font-size:clamp(15px,2.1vw,19px);color:#d3e6f2;max-width:760px}
+  .badges{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px}
+  .b{display:inline-block;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:4px 12px;font-size:12.5px}
+
+  nav{position:sticky;top:0;z-index:20;background:rgba(14,58,92,.97);backdrop-filter:blur(6px);border-bottom:1px solid rgba(255,255,255,.1)}
+  nav .wrap{display:flex;gap:6px;flex-wrap:wrap;padding:9px 22px}
+  nav a{color:#dbeaf4;text-decoration:none;font-size:13px;font-weight:500;padding:5px 10px;border-radius:7px}
+  nav a:hover{background:rgba(255,255,255,.12);color:#fff}
+
+  section{padding:38px 0}
+  section h2{font-size:clamp(22px,3vw,30px);margin:0 0 4px;color:var(--navy)}
+  .rule{height:3px;width:54px;background:var(--gold);border-radius:2px;margin:8px 0 18px}
+  .lead{color:var(--muted);max-width:780px;margin:0 0 22px;font-size:15.5px}
+
+  table.cad{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);font-size:13.5px}
+  table.cad th{background:var(--navy);color:#fff;text-align:left;padding:10px 12px;font-family:Oswald;font-weight:500}
+  table.cad td{padding:10px 12px;border-top:1px solid var(--line);vertical-align:top;color:#2b3a4a}
+  table.cad tr:nth-child(even) td{background:#fafcfd}
+  .when{font-family:Oswald;color:var(--cerulean);font-weight:600;white-space:nowrap}
+  .ch{font-size:11.5px;font-weight:600;border-radius:6px;padding:2px 8px;white-space:nowrap}
+  .ch.email{background:#e2f1fb;color:#0a5a86} .ch.mail{background:#fef3d6;color:#8a6206} .ch.call{background:#eae6fb;color:#4b3aa0}
+
+  .touch{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);margin-bottom:18px;overflow:hidden}
+  .touch .hd{display:flex;align-items:center;gap:12px;padding:14px 18px;border-bottom:1px solid var(--line);background:#fbfdff}
+  .touch .day{font-family:Oswald;font-weight:700;color:#fff;background:var(--navy);border-radius:9px;padding:6px 12px;font-size:14px;white-space:nowrap}
+  .touch .day.mail{background:var(--gold);color:#3a2c00} .touch .day.call{background:#6b46c1}
+  .touch h3{margin:0;font-size:18px;color:var(--navy)}
+  .touch .body{padding:16px 18px}
+  .field{margin:0 0 12px}
+  .field .lbl{font-size:11.5px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);font-weight:700;margin-bottom:3px}
+  .copy{background:#f7fafc;border:1px solid #e9f0f6;border-left:3px solid var(--cerulean);border-radius:8px;padding:12px 14px;font-size:14.5px;white-space:pre-wrap}
+  .copy.mailbox{border-left-color:var(--gold)}
+  .copy.callbox{border-left-color:#6b46c1}
+  .note{font-size:13px;color:var(--muted);margin-top:8px}
+  .note b{color:#33485c}
+
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;box-shadow:var(--shadow)}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  ul.tight{margin:6px 0 0;padding-left:18px} ul.tight li{margin:5px 0;font-size:14.5px}
+  .chk{list-style:none;padding:0;margin:0} .chk li{padding:8px 0 8px 30px;position:relative;border-bottom:1px dashed var(--line);font-size:14.5px}
+  .chk li::before{content:"\2610";position:absolute;left:4px;top:7px;color:var(--cerulean);font-size:18px}
+  .pill{display:inline-block;background:#eef6ec;color:#1f7a44;border:1px solid #cfe8d4;border-radius:999px;padding:2px 9px;font-size:12px;font-weight:600}
+  .pill.todo{background:#fdeee9;color:#b4452f;border-color:#f3cfc4}
+
+  footer{background:var(--navy);color:#cfe0ee;padding:28px 0 40px;margin-top:14px;font-size:13.5px;border-top:4px solid var(--gold)}
+  .disc{font-size:12px;color:#8fb0cb;margin-top:10px;max-width:840px}
+  @media(max-width:860px){ .grid2{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="eyebrow">Goodwill Financial · The Goodwill Plan · Pilot #1</div>
+    <h1>Client Welcome Campaign — v1</h1>
+    <div class="sub">The first 90 days, done right — branded email + handwritten mail (Thanks.io) + a human call — that welcomes every new client and plants the living-benefits seed. <b>Protect Today — Prepare for Tomorrow.</b></div>
+    <div class="badges">
+      <span class="b">New P&amp;C clients · v1</span>
+      <span class="b">3 channels: email · Thanks.io mail · call</span>
+      <span class="b">LB seed Day 45–60</span>
+      <span class="b">Coordinated with Nexsure auto-sends</span>
+      <span class="b">Internal / noindex</span>
+    </div>
+  </div>
+</header>
+
+<nav><div class="wrap">
+  <a href="#cadence">Cadence</a>
+  <a href="#voice">Voice</a>
+  <a href="#emails">Emails</a>
+  <a href="#mail">Mail (Thanks.io)</a>
+  <a href="#calls">Call scripts</a>
+  <a href="#referral">Referral program</a>
+  <a href="#keap">In Keap already</a>
+  <a href="#build">Build checklist</a>
+</div></nav>
+
+<section id="cadence"><div class="wrap">
+  <h2>The 90-day cadence</h2><div class="rule"></div>
+  <p class="lead">Mike Stromsoe's proven skeleton, front-loaded to the make-or-break first 90 days, rebranded to Goodwill, with the living-benefits seed moved early (Day 45–60 — not his Day 220). <b>A</b> = automated · <b>H</b> = AI-drafted, a human sends/calls.</p>
+  <table class="cad">
+    <thead><tr><th>When</th><th>Touch</th><th>Channel</th><th>Purpose</th></tr></thead>
+    <tbody>
+      <tr><td class="when">Day 0</td><td>Welcome email — what to expect, your team, claims + ID-card how-to</td><td><span class="ch email">Email · A</span></td><td>Set the tone (Nexsure sends the docs/ID card; this is the relationship welcome)</td></tr>
+      <tr><td class="when">Day 1</td><td>Handwritten thank-you card</td><td><span class="ch mail">Thanks.io · A</span></td><td>Tangible appreciation</td></tr>
+      <tr><td class="when">First Fri</td><td>Owner/agent thank-you call</td><td><span class="ch call">Call · H</span></td><td>Highest-retention touch</td></tr>
+      <tr><td class="when">Day 8</td><td>Experience check → <b>review ask only on a happy rating</b></td><td><span class="ch email">Email · A</span></td><td>Catch issues early; time the 4.9★ ask to a positive peak</td></tr>
+      <tr><td class="when">Day 14</td><td>Welcome letter + referral flier</td><td><span class="ch mail">Thanks.io · A</span></td><td>Meet the team + referral seed</td></tr>
+      <tr><td class="when">Day 30</td><td>Check-in + tip + capture other-policy renewal dates</td><td><span class="ch email">Email · A</span></td><td>Stickiness + cross-sell seed</td></tr>
+      <tr><td class="when">Day 45</td><td>"What protects your family's income?" — LB educational</td><td><span class="ch mail">Mail + Email · A</span></td><td>The North-Star seed (educate, don't pitch)</td></tr>
+      <tr><td class="when">Day 60</td><td>Satisfaction + referral ask + LB discovery call</td><td><span class="ch call">Call · H</span></td><td>Convert warm interest → spawn a Life opp</td></tr>
+    </tbody>
+  </table>
+  <p class="note"><b>v2 (later):</b> Mike's full 2-year long-tail (umbrella, anniversary, asset-protection, safety, account review→renewal), SMS after consent, multilingual (LT/RU/UA/ES), and the back-fill wave to the existing book.</p>
+</div></section>
+
+<section id="voice" style="background:#eaf1f7"><div class="wrap">
+  <h2>The Goodwill signature voice</h2><div class="rule"></div>
+  <p class="lead">One voice on every touch (Mike's secret). Vytas fronts the early touches; the agent/CSR takes Day 14+. Warm, immigrant-family-aware, never salesy.</p>
+  <div class="panel">
+    <ul class="tight">
+      <li><b>Opening warmth:</b> "Thank you for trusting Goodwill Financial to protect what you've worked so hard to build."</li>
+      <li><b>The promise:</b> "We protect you today and help you prepare for tomorrow — for you and everyone you love."</li>
+      <li><b>The check-in line:</b> "What more can we do for you and your family?"</li>
+      <li><b>The living-benefits frame:</b> "You protect your car and your home. Let's make sure your family's income is protected too."</li>
+      <li><b>Sign-off:</b> "Gratefully, Vytas Skapcevičius &amp; the Goodwill Financial team."</li>
+    </ul>
+    <p class="note"><b>Languages:</b> EN ships first; LT / RU / UA / ES translations in v2 (Goodwill serves immigrant families in all five).</p>
+  </div>
+</div></section>
+
+<section id="emails"><div class="wrap">
+  <h2>The 4 automated emails</h2><div class="rule"></div>
+  <p class="lead">Sent automatically by Keap Field Timers off the Policy Start Date. Each carries a CAN-SPAM footer (unsubscribe + Goodwill's physical address). Day 0/8/30 are transactional/service; Day 45 educates.</p>
+
+  <div class="touch">
+    <div class="hd"><span class="day">Day 0</span><h3>Welcome — "Welcome to the family"</h3></div>
+    <div class="body">
+      <div class="field"><div class="lbl">Subject</div><div class="copy">Welcome to the Goodwill Financial family, {{First Name}}</div></div>
+      <div class="field"><div class="lbl">Body</div><div class="copy">Hi {{First Name}},
+
+Thank you for trusting Goodwill Financial to protect what you've worked so hard to build. On behalf of our whole team — welcome to the family.
+
+Here's what happens next:
+• Your policy documents and ID cards are on their way to you separately (watch your email/mailbox).
+• If you ever need to file a claim, call us first at 630-785-2412 — we'll walk you through it and advocate for you.
+• Questions about anything — coverage, billing, a certificate — just reply to this email or call. A real person answers.
+
+We protect you today and help you prepare for tomorrow — for you and everyone you love. Over the next few weeks we'll check in to make sure everything's perfect.
+
+What more can we do for you and your family?
+
+Gratefully,
+Vytas Skapcevičius &amp; the Goodwill Financial team
+630-785-2412 · service@goodwillfinancial.com · goodwillfinancial.com</div></div>
+      <div class="note"><b>Coordinate:</b> Nexsure already auto-sends the ID card / dec page on bind — this email is the <i>relationship</i> welcome, not a second doc-send.</div>
+    </div>
+  </div>
+
+  <div class="touch">
+    <div class="hd"><span class="day">Day 8</span><h3>Experience check → gated review ask</h3></div>
+    <div class="body">
+      <div class="field"><div class="lbl">Subject</div><div class="copy">{{First Name}}, how are we doing so far?</div></div>
+      <div class="field"><div class="lbl">Email — the sentiment check (sent to everyone)</div><div class="copy">Hi {{First Name}},
+
+It's been about a week since you joined the Goodwill Financial family — I want to make sure your experience has been nothing short of excellent.
+
+Would you take 30 seconds to rate how we're doing so far?  →  {{1-click rating: great / okay / not great}}
+
+If anything hasn't been perfect, just reply to me directly and I'll make it right — that matters more to me than anything.
+
+Gratefully,
+Vytas Skapcevičius &amp; the Goodwill Financial team</div></div>
+      <div class="field"><div class="lbl">Auto follow-up — fires ONLY on a "great" rating (the review ask, at the peak)</div><div class="copy">Thank you, {{First Name}} — that means the world to us! If you'd be willing to share it, a quick Google review helps other families find protection they can trust:  →  {{Google Review Link}}
+
+Gratefully, the Goodwill Financial team</div></div>
+      <div class="note"><b>Review-ask timing (best practice):</b> ask at a <i>positive peak</i>, not a flat date. The Day-8 email gauges sentiment; a <b>"great" rating auto-fires the review ask immediately</b> (while the feeling is fresh); a lukewarm/negative rating routes to the agent for <b>service recovery</b> — never push an unhappy client to a public review. <i>Google nuance:</i> don't <i>suppress</i> negative reviews ("review gating" violates Google policy) — ask everyone, just time the public-review invite to a high point; the reputation protection comes from catching problems early. <b>Alternative peak:</b> fire the review ask right after the First-Friday welcome call.</div>
+    </div>
+  </div>
+
+  <div class="touch">
+    <div class="hd"><span class="day">Day 30</span><h3>Check-in + tip + capture renewal dates</h3></div>
+    <div class="body">
+      <div class="field"><div class="lbl">Subject</div><div class="copy">A quick tip — and one question, {{First Name}}</div></div>
+      <div class="field"><div class="lbl">Body</div><div class="copy">Hi {{First Name}},
+
+A month in — here's one quick tip for your {{policy type}}: {{line-specific tip — e.g., "snap photos of your vehicles & valuables and keep them in your phone; it makes any future claim far faster."}}
+
+And one question: when do your <b>other</b> policies renew? Many families are overpaying because their auto, home, and life policies are scattered across different companies and renew at different times. If you tell us your renewal dates, we'll keep an eye out and let you know if we can do better — no obligation.
+
+Just reply with the month each one renews, and we'll take it from there.
+
+What more can we do for you and your family?
+
+Gratefully,
+The Goodwill Financial team</div></div>
+      <div class="note"><b>Captures the X-dates</b> of their other policies (the cross-sell + win-back seed) and plants "we can review everything."</div>
+    </div>
+  </div>
+
+  <div class="touch">
+    <div class="hd"><span class="day">Day 45</span><h3>Living-benefits educational seed (the North Star)</h3></div>
+    <div class="body">
+      <div class="field"><div class="lbl">Subject</div><div class="copy">You protect your car and your home. What protects your family's income?</div></div>
+      <div class="field"><div class="lbl">Body</div><div class="copy">Hi {{First Name}},
+
+Quick thought — not a sales pitch.
+
+You insure your car and your home because if something happens to them, you don't want to start over. But the most valuable thing you own isn't your car or your home — it's <b>your ability to earn an income</b> and take care of the people who depend on you.
+
+Modern life insurance — what we call <b>living benefits</b> — does more than pay out if you pass away. The right policy can pay <b>you</b>, while you're alive, if you're diagnosed with a chronic, critical, or terminal illness. It's protection for the "what if," and for many families it can also build tax-advantaged savings for the future.
+
+It's worth a 15-minute conversation to see what it would look like for your family. No cost, no obligation — just information so you can decide.
+
+Want me to put together a quick illustration?  →  reply "yes" or call 630-785-2412.
+
+Gratefully,
+The Goodwill Financial team
+
+<i>Living-benefit riders vary by product and state and are illustrated, not guaranteed. We'll show you the specifics for your situation.</i></div></div>
+      <div class="note"><b>Educate, don't pitch.</b> This is the seed; the Day-60 call is the discovery. Compliance: illustrated-not-guaranteed caveat included.</div>
+    </div>
+  </div>
+</div></section>
+
+<section id="mail" style="background:#fdf6e3"><div class="wrap">
+  <h2>The Thanks.io handwritten mail (4 pieces)</h2><div class="rule"></div>
+  <p class="lead">Physical mail in a digital world = memorable + high open rate, and it's the easy channel (no TCPA/CAN-SPAM consent needed). Fired automatically from Keap → Zapier → Thanks.io to the client's mailing address. ~$0.60–$1.99 per piece.</p>
+
+  <div class="touch">
+    <div class="hd"><span class="day mail">Day 1</span><h3>Handwritten thank-you card</h3></div>
+    <div class="body"><div class="field"><div class="lbl">Card copy (handwriting engine)</div><div class="copy mailbox">{{First Name}}, thank you for trusting Goodwill Financial to protect your family. It truly means a lot to us. If you ever need anything, we're a phone call away — 630-785-2412. Gratefully, Vytas &amp; the Goodwill team.</div></div>
+      <div class="note">Optional small gift insert for premium accounts. Keep it short — handwritten cards earn their open by being personal.</div>
+    </div>
+  </div>
+
+  <div class="touch">
+    <div class="hd"><span class="day mail">Day 14</span><h3>Welcome letter + referral flier</h3></div>
+    <div class="body"><div class="field"><div class="lbl">Letter copy</div><div class="copy mailbox">Dear {{First Name}},
+
+I wanted to personally welcome you to the Goodwill Financial family and introduce the people who'll take care of you. Your trust means everything to us, and our promise is simple: we protect you today and help you prepare for tomorrow.
+
+Enclosed you'll find a few ways to get the most from your coverage — and a way to help the people you care about. If a friend or family member you love isn't sure they're properly protected, we'd be honored to take care of them too (see the enclosed card).
+
+Anything at all — call me at 630-785-2412.
+
+Gratefully,
+Vytas Skapcevičius, President — Goodwill Financial</div></div>
+      <div class="note">Enclose the <b>referral flier</b> (below) + the team intro. The referral ask lives here, not Day 1.</div>
+    </div>
+  </div>
+
+  <div class="touch">
+    <div class="hd"><span class="day mail">Day 45</span><h3>Value postcard — "If an accident happens"</h3></div>
+    <div class="body"><div class="field"><div class="lbl">Postcard copy</div><div class="copy mailbox">FRONT: If an accident happens — here's exactly what to do.
+BACK: Keep this in your glovebox. 1) Everyone safe? Call 911 if needed. 2) Photos of all vehicles, plates, damage, and the scene. 3) Other driver's name, phone, insurance + policy #. 4) Don't admit fault — just the facts. 5) Call Goodwill Financial: 630-785-2412, we'll handle the rest.  ·  P.S. While we're protecting your car and home — is your family's income protected too? Ask us about living benefits.</div></div>
+      <div class="note">Mike's "Accidents Happen" value piece, Goodwill-branded, with a soft living-benefits P.S. that reinforces the Day-45 email.</div>
+    </div>
+  </div>
+
+  <div class="touch">
+    <div class="hd"><span class="day mail">Referral</span><h3>Referral flier (enclosed Day 14)</h3></div>
+    <div class="body"><div class="field"><div class="lbl">Flier copy</div><div class="copy mailbox">PROTECT SOMEONE YOU LOVE — and we'll give back.
+
+You trusted us to protect your family. If there's someone you care about who isn't sure they're properly covered, introduce us — we'll treat them like family.
+
+For every friend or family member you introduce:
+• We'll give a $25 gift card as a thank-you, AND
+• We'll donate $25 to a charity of your choice.
+No limit. It's our way of protecting more families and giving back to the community.
+
+Just send their name and number to refer@goodwillfinancial.com or call 630-785-2412.</div></div>
+      <div class="note">Goodwill's own named program (replaces Mike's "ReferSIA / Million-Dollar-Bill"). Add a QR code (Thanks.io) → a refer page so scans flow back to Keap as a referral tag. Confirm incentive amounts + state insurance-referral rules before launch.</div>
+    </div>
+  </div>
+</div></section>
+
+<section id="calls"><div class="wrap">
+  <h2>The 3 human call scripts (AI-drafted)</h2><div class="rule"></div>
+  <p class="lead">AI drafts each; the agent makes the call and approves. These are the highest-retention, highest-conversion moments — they stay human.</p>
+
+  <div class="touch">
+    <div class="hd"><span class="day call">First Fri</span><h3>Owner/agent thank-you call</h3></div>
+    <div class="body"><div class="field"><div class="lbl">Script</div><div class="copy callbox">"Hi {{First Name}}, this is {{Vytas/agent}} from Goodwill Financial — I'm not calling to sell you anything. I just wanted to personally thank you for trusting us with your {{policy type}}, and make sure everything's been smooth getting started. … Is there anything at all we can do better for you? … Wonderful. You have my number now — anything you need, you call me directly. Welcome to the family."</div></div></div>
+  </div>
+
+  <div class="touch">
+    <div class="hd"><span class="day call">Day 60</span><h3>Satisfaction + LB discovery call</h3></div>
+    <div class="body"><div class="field"><div class="lbl">Script</div><div class="copy callbox">"Hi {{First Name}}, {{agent}} from Goodwill Financial — checking in now that you've been with us a couple months. How's everything been? … Great. Two quick things: first, is there anyone you care about who you'd want us to take care of like we take care of you? … Second — you've got your car and home protected with us. Can I ask: if something happened to you tomorrow, would your family be okay financially? … That's exactly what living benefits are for. Would it be worth 15 minutes for me to show you what it'd look like — no cost, no obligation? … Perfect, let's find a time."</div></div>
+      <div class="note">If interest → <b>spawn a Life opportunity</b> in Keap (the Life pipeline). Discovery before pitch; one recommendation; book the next step.</div>
+    </div>
+  </div>
+
+  <div class="touch">
+    <div class="hd"><span class="day call">Referral</span><h3>Referral-ask script (use after a great service moment)</h3></div>
+    <div class="body"><div class="field"><div class="lbl">Script</div><div class="copy callbox">"{{First Name}}, I'm so glad we could take care of that for you. Can I ask a favor? Most of the families we protect come from people like you introducing us to someone they care about. Is there a friend or family member who you think isn't sure they're properly covered? … I'd be honored to take great care of them — and you'll earn our referral thank-you and a charity donation in your name."</div></div></div>
+  </div>
+</div></section>
+
+<section id="referral" style="background:#eaf1f7"><div class="wrap">
+  <h2>"Protect Someone You Love" — the referral program</h2><div class="rule"></div>
+  <div class="grid2">
+    <div class="panel">
+      <h4 style="margin:0 0 8px;color:var(--navy)">How it works</h4>
+      <ul class="tight">
+        <li>Engineered into Day-14 (flier) + every service high point (call script).</li>
+        <li>Dual reward: $25 gift card to the client + $25 charity donation (confirm amounts + state rules).</li>
+        <li>Capture: <b>refer@goodwillfinancial.com</b> + a refer page (QR on the flier) → Keap tag "Referral".</li>
+        <li>Each referral becomes a warm lead, routed to the right agent.</li>
+      </ul>
+    </div>
+    <div class="panel" style="border-left:4px solid var(--gold)">
+      <h4 style="margin:0 0 8px;color:var(--navy)">⭐ Next build — the Emergency Contact engine</h4>
+      <p style="margin:0;font-size:14px;color:#33485c">On every <b>life</b> application (right after beneficiaries), capture 3 Emergency Contacts → the agent introduces themselves within a week → each becomes a warm living-benefits prospect. One client → three warm leads, without "asking for referrals." Pairs with this campaign; its own agent training + automation is Build #2.</p>
+    </div>
+  </div>
+</div></section>
+
+<section id="keap" style="background:#fdeee9"><div class="wrap">
+  <h2>⚠️ What's already live in Keap — coordinate, don't duplicate</h2><div class="rule"></div>
+  <p class="lead">Audited the live Keap via the API on 2026-06-23: <b>200 campaigns, 1,000 tags, 149 custom fields</b> (a mature prior build). Several Welcome pieces already run — so v1 <b>orchestrates + fills the gap</b>, it does <b>not</b> rebuild these.</p>
+  <table class="cad">
+    <thead><tr><th>v1 touch</th><th>Already in Keap</th><th>Do this instead</th></tr></thead>
+    <tbody>
+      <tr><td>Day 1 thank-you card</td><td>New-client thank-you cards already run (tags "CL- New Client Thank You Card" / "…new policy For Thank you cards")</td><td>Upgrade the existing card process to <b>Thanks.io</b> — don't add a 2nd card</td></tr>
+      <tr><td>First-Fri welcome call</td><td><b>"JB - Welcome Call Current" is ACTIVE</b> (+ "Welcome Call List" cadence)</td><td>Reuse/confirm it; just add the AI-drafted script — don't create a 2nd call</td></tr>
+      <tr><td>Referral program</td><td><b>"LA - 9. Referral Gift Card" + "Client Referral Rewards" already run</b></td><td>Rebrand the <b>existing</b> gift-card program to "Protect Someone You Love" — don't run two</td></tr>
+      <tr><td>Day 8 survey</td><td>"[MP-76] Satisfaction Survey" exists (unpublished)</td><td>Publish/reuse it + add the gated review ask</td></tr>
+      <tr><td>Day 30 X-date capture</td><td><b>PL X-Date (field 863) + CL X-Date (865) + a full X-Date system</b></td><td>FEED the existing fields — don't make new ones</td></tr>
+      <tr><td>Trigger field</td><td>No "Policy Start Date" — but CL Binding Date (857), Auto/Home Effective Date (544/911) exist</td><td>Trigger off an existing bind/effective date</td></tr>
+      <tr><td>Emergency Contact engine (Build #2)</td><td><b>Emergency Contact Name/Phone/Email 1–3 fields ALREADY EXIST (1177–1195)</b></td><td>Reuse them — zero field-building</td></tr>
+      <tr><td>Day 45 LB seed</td><td>"Home No Life", "Life Review", "Start Offering Living Benefits", cross-sell campaigns exist</td><td>Coordinate the seed with these; don't double-touch</td></tr>
+    </tbody>
+  </table>
+  <p class="note"><b>The real gap (what v1 actually builds):</b> none of the above is orchestrated into ONE coherent new-client → 90-day → living-benefits sequence, and the <b>early LB seed (Day 45) is the genuine missing piece.</b> v1 = orchestration + the LB seed, reusing every existing asset. <b>Next step before wiring:</b> open the 3 overlapping campaigns (Welcome Call, Thank-You Card, Referral Gift Card) to confirm exactly what they send.</p>
+</div></section>
+
+<section id="build"><div class="wrap">
+  <h2>Build checklist — to go live</h2><div class="rule"></div>
+  <p class="lead">Copy is written (above). What's left is the live wiring — needs the Keap, Thanks.io, and Nexsure logins (hands-on). <span class="pill">done = copy</span> <span class="pill todo">todo = wiring</span></p>
+  <ul class="chk">
+    <li><b>Nexsure SA map</b> — list the live auto-send events (thank-you, ID card, dec page) so Keap doesn't double-send.</li>
+    <li><b>Keap</b> — create a <code>Policy Start Date</code> date field + a <code>Welcome v1</code> tag (the trigger).</li>
+    <li><b>Keap campaign</b> — Field Timers off Policy Start Date: the 4 emails + 3 call tasks at Day 0/8/30/45/First-Fri/60.</li>
+    <li><b>Thanks.io</b> — fund the account; upload the 4 branded templates (Day-1 card, Day-14 letter, Day-45 postcard, referral flier).</li>
+    <li><b>Zapier</b> — Keap tag/timer → Thanks.io send (Day 1 / 14 / 45), address-merged.</li>
+    <li><b>Trigger</b> — new P&amp;C bind → set Policy Start Date + apply Welcome v1 (manual first, then automate).</li>
+    <li><b>Guards</b> — no email → CSR task; no mailing address → CSR task (never send a blank).</li>
+    <li><b>Refer page</b> — stand up refer@ + a refer landing (QR on the flier) → Keap referral tag.</li>
+    <li><b>Test fire</b> — back-dated test contact runs the whole 90 days in minutes; preview (don't mail) the Thanks.io pieces.</li>
+  </ul>
+</div></section>
+
+<footer><div class="wrap">
+  <div class="dt" style="font-size:18px;color:#fff">Goodwill Financial — Welcome Campaign · Pilot #1</div>
+  <div>Part of The Goodwill Plan. Source skeleton: Mike Stromsoe's Welcome Kit, modernized + Goodwill-branded + living-benefits-seeded + Thanks.io-automated.</div>
+  <div class="disc">Internal — not for distribution (noindex). All copy is a draft for review; nothing sends to a client until a human approves it. Living-benefit references are illustrated, not guaranteed. Confirm referral-incentive amounts + state insurance-referral rules before launch. No client data on this page.</div>
+</div></footer>
+</body>
+</html>
