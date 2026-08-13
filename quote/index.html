@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Compare your renewal — Goodwill Financial</title>
+<meta name="description" content="Independent insurance agency in Elmhurst, IL. Put your renewal side by side with the carriers we represent. Takes about two minutes.">
+<meta name="robots" content="noindex,nofollow">
+<!-- GA4. ⚠ Without this the page's whole measurement argument is fiction: every gtag() call
+     below silently no-ops and the drop cannot be told apart from organic traffic. Caught by
+     scripts/verify_xdate_landing.py, which asserts typeof window.gtag === 'function' AND that
+     a request carrying OUR measurement id leaves the page — the Canopy widget ships analytics
+     of its own, so merely seeing traffic to google-analytics.com proves nothing.
+     async, and it is the only third-party byte on the page before the tap. -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6TGY4D2KNL"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-6TGY4D2KNL');
+</script>
+<!--
+  THE X-DATE MAIL LANDING PAGE  —  goodwillfinancial.com/quote
+
+  WHY THIS EXISTS AND NOT THE HOME PAGE. Four reasons, three of them measured:
+
+  1. MESSAGE MATCH. The card promises one thing: "we'll put your renewal side by side with
+     what else is out there, in about two minutes." The home page promises everything the
+     agency does. Every extra choice between the promise and the action costs response —
+     this page has exactly one action and no navigation.
+  2. THE SITE'S OWN NUMBERS SAY SO. The outbound Canopy link on the live site produced
+     1 start and 0 leads in 28 days (measured 2026-07-31). A general page with an embed on it
+     does not convert cold traffic; a page written to finish the postcard's sentence is a
+     different object.
+  3. SPEED, AND THIS IS THE BIG ONE. The Builderall pages carry ~1 MB on first paint
+     (867 KB main.js + ~185 KB semantic-ui) — PSI mobile perf 37-48, LCP 4.8-17.5s. The
+     reader is standing next to their mailbox on LTE. This page is one file, no framework,
+     and the Canopy widget is loaded ONLY when they tap — so nothing heavy blocks the first
+     screen. A slow page loses more of them than any headline can win back.
+  4. MEASUREMENT. A dedicated URL is the only way to tell a mail response from organic
+     traffic. canopy_start is already a GA4 key event but it fires everywhere.
+
+  ⚠ noindex is deliberate — this page must never compete with the real LOB pages in search.
+  ⚠ GENERATED-ADJACENT: the copy here must stay in step with scripts/xdate_mail_copy.py.
+     If the card's promise changes, change this page in the same commit.
+  DEPLOY: goodwill-agent-hub (GitHub Pages) -> Builderall 301 /quote -> that URL.
+     Same shape as the two off-domain rules already live (/nlg-term, /lb-app-sheet).
+-->
+<style>
+:root{--navy:#0E3A5C;--navy-d:#0A2C46;--cer:#0099CC;--cer-d:#0079A3;--gold:#F5B315;
+      --slate:#5A6470;--ink:#1A2027;--mist:#F4F6F8;--line:#E5EAEF;--cream:#FBF8F1}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:#fff;color:var(--ink);font:17px/1.6 Inter,-apple-system,BlinkMacSystemFont,
+     "Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:640px;margin:0 auto;padding:0 20px}
+header{background:var(--navy);color:#fff;padding:14px 0}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{font-weight:700;letter-spacing:.01em;font-size:17px;line-height:1.2}
+/* Was "Independent agency · Elmhurst, IL" — at 390px that wrapped and left "IL" stranded on
+   its own line. Shortened rather than shrunk: a header that reflows on the commonest phone
+   width is the first thing the reader sees go wrong. */
+.brand span{display:block;font-weight:400;font-size:11.5px;opacity:.85;letter-spacing:.04em;
+            text-transform:uppercase;white-space:nowrap}
+/* 44px minimum — WCAG 2.5.5 / Apple HIG. This is a phone number on a page reached by phone;
+   a 40px target is the difference between a call and a mis-tap. */
+header a{color:#fff;text-decoration:none;font-weight:600;font-size:15px;white-space:nowrap;
+         border:1px solid rgba(255,255,255,.35);padding:0 15px;border-radius:8px;
+         min-height:44px;display:flex;align-items:center}
+h1{font-size:31px;line-height:1.18;margin:30px 0 14px;color:var(--navy);letter-spacing:-.015em}
+h1 em{font-style:normal;color:var(--cer-d)}
+.lede{font-size:18px;color:var(--slate);margin:0 0 24px}
+.cta{display:block;text-decoration:none;width:100%;background:var(--cer);color:#fff;border:0;border-radius:11px;
+     padding:17px 20px;font:600 18px/1.25 inherit;cursor:pointer;text-align:center;
+     box-shadow:0 4px 14px rgba(0,153,204,.28)}
+.cta:active{transform:translateY(1px)}
+.undercta{font-size:14px;color:var(--slate);text-align:center;margin:11px 0 0}
+.steps{margin:30px 0 0;padding:0;list-style:none;border-top:1px solid var(--line)}
+.steps li{display:flex;gap:14px;padding:15px 0;border-bottom:1px solid var(--line)}
+.steps b{flex:0 0 26px;height:26px;border-radius:50%;background:var(--navy);color:#fff;
+         font-size:13px;display:flex;align-items:center;justify-content:center;font-weight:700}
+.steps p{margin:0;font-size:15.5px}
+.steps p i{font-style:normal;display:block;color:var(--slate);font-size:14px;margin-top:2px}
+.honest{background:var(--cream);border-left:4px solid var(--gold);border-radius:0 10px 10px 0;
+        padding:16px 18px;margin:26px 0 0;font-size:15.5px}
+.honest b{color:var(--navy)}
+.proof{display:flex;gap:10px;flex-wrap:wrap;margin:26px 0 0;font-size:14px;color:var(--slate)}
+.proof div{background:var(--mist);border:1px solid var(--line);border-radius:8px;
+           padding:9px 13px}
+.proof b{color:var(--navy)}
+/* The Canopy hosted page, framed. Tall enough that their intro + button are never clipped;
+   the frame scrolls internally for the later steps. */
+#canopy{margin:22px 0 0}
+.canopyframe{width:100%;height:660px;border:1px solid var(--line);border-radius:12px;
+             background:#fff;display:block}
+@media(max-width:700px){
+  #canopy{margin-left:-20px;margin-right:-20px}
+  .canopyframe{border-radius:0;border-left:0;border-right:0;height:78vh;min-height:560px}
+}
+.langs{margin:28px 0 0;font-size:14.5px;color:var(--slate);border-top:1px solid var(--line);
+       padding-top:18px}
+.langs b{color:var(--navy);display:block;margin-bottom:4px}
+footer{margin:30px 0 0;background:var(--mist);border-top:1px solid var(--line);
+       padding:22px 0 34px;font-size:13px;color:var(--slate);line-height:1.55}
+footer a{color:var(--cer-d)}
+@media(min-width:700px){h1{font-size:37px}}
+</style>
+</head>
+<body>
+
+<header><div class="wrap">
+  <div class="brand">Goodwill Financial<span>Independent · Elmhurst, IL</span></div>
+  <a href="tel:+16307852412">630-785-2412</a>
+</div></header>
+
+<main class="wrap">
+
+  <h1>Let's put your renewal <em>side by side</em> with what else is out there.</h1>
+
+  <p class="lede">You got a card from us because your policy renews soon. This is the two-minute
+  version: we pull your current coverage across, compare it against the carriers we represent,
+  and tell you straight which one wins.</p>
+
+  <a class="cta" id="start" href="https://app.usecanopy.com/c/goodwill-financial-xdate">Start the comparison →</a>
+  <p class="undercta">Takes about two minutes · no obligation · you can stop at any point</p>
+
+  <!-- The Canopy widget mounts here on tap. Nothing third-party loads before that. -->
+  <div id="canopy"></div>
+
+  <div class="honest">
+    <b>Including if the answer is “stay where you are.”</b> Sometimes your current carrier is
+    already the right price and we'll say so plainly. That happens often enough that we're
+    comfortable putting it in writing — it costs you nothing to know either way.
+  </div>
+
+  <ol class="steps">
+    <li><b>1</b><p>Connect your current policy<i>You log in to your insurer for a moment so we
+      see the exact coverage — not a guess at it. We never see your password.</i></p></li>
+    <li><b>2</b><p>We compare it properly<i>Same coverage, run across the carriers we represent.
+      Price, and where the cover actually differs — which matters more if you ever claim.</i></p></li>
+    <li><b>3</b><p>You get a straight answer<i>From Jovita or Sigita, by phone or email,
+      whichever you prefer. No obligation of any kind.</i></p></li>
+  </ol>
+
+  <div class="proof">
+    <div><b>4.9★</b> from 415 clients</div>
+    <div><b>Independent</b> — many carriers, not one</div>
+    <div><b>Since 2005</b> on North Avenue</div>
+    <div><b>IL Licence</b> #100285394</div>
+  </div>
+
+  <div class="langs">
+    <b>We do this in your language.</b>
+    English · Lietuvių · Русский · Polski · Українська · Español —
+    <a href="tel:+16307852412">call 630-785-2412</a> and just say which.
+  </div>
+
+</main>
+
+<footer><div class="wrap">
+  <p><b>Goodwill Financial, Inc.</b> · Independent insurance agency · Illinois Licence
+  #100285394<br>
+  579 W. North Ave, Suite 300, Elmhurst, IL 60126 ·
+  <a href="tel:+16307852412">630-785-2412</a> ·
+  <a href="mailto:service@goodwillfinancial.com">service@goodwillfinancial.com</a></p>
+  <p>We write to people who once asked us for a quote, or told us when their policy renews.
+  One word and we stop for good — call or email us and you're off the list permanently.</p>
+</div></footer>
+
+<script>
+(function () {
+  var btn = document.getElementById('start'),
+      mount = document.getElementById('canopy');
+  function ga(name, params) { if (window.gtag) window.gtag('event', name, params || {}); }
+
+  // Carry the card's cohort through so a response can be attributed to the drop it came from.
+  var q = new URLSearchParams(location.search);
+  var cohort = q.get('m') || 'unknown';      // e.g. ?m=sep / ?m=oct
+  ga('xdate_mail_landing', { cohort: cohort });
+
+  // ───────────────────────────────────────────────────────────────────────────
+  // WHY WE LINK OUT INSTEAD OF EMBEDDING - measured 2026-08-11, do not re-derive.
+  //
+  // The inline embed WORKS but renders wrong. It mounts a cross-origin iframe that sizes
+  // itself to 157px and then clips the top of its own intro, so on a 390px phone the reader
+  // saw the sentence fragment "available to Goodwill Financial, Inc" above a Continue button.
+  // Canopy's stored config is CORRECT - GET /team/goodwill-financial-xdate returns
+  // company_name "Goodwill Financial, Inc" and intro_title "Goodwill Financial, Inc uses
+  // Canopy Connect to verify your insurance" - so this is the widget's own inline sizing,
+  // inside an iframe we cannot style. Full-bleeding the mount recovered the agency name but
+  // not the clipped first line.
+  //
+  // Their HOSTED page is the surface they design and test for, and what we give up is small:
+  // this page has already done the persuading and the measuring by the time the reader taps.
+  // It also removes every third-party byte from our page before the tap, which is the main
+  // argument for having the page at all.
+  //
+  // (!) The counter-evidence, stated honestly: an outbound Canopy link on the live site
+  //     produced 1 start and 0 leads in 28 days (2026-07-31). But that link sat unexplained
+  //     on a general page; this one is the last step of a message-matched landing page
+  //     reached from a postcard. Different context - NOT proven here. If the drop
+  //     under-performs, re-testing the embed is the first thing to try.
+  // ───────────────────────────────────────────────────────────────────────────
+  // ─────────────────────────────────────────────────────────────────────────
+  // HOW THE FORM GETS ON THE PAGE — measured 2026-08-11, do not re-derive.
+  //
+  // We iframe Canopy's HOSTED page directly. We do NOT use their embed.js, and that is a
+  // deliberate reversal:
+  //
+  //   embed.js  -> mounts an iframe at ?modal=true and sizes it to ~157px, which CLIPS the
+  //                top of its own intro. On a 390px phone the reader saw the fragment
+  //                "available to Goodwill Financial, Inc" above a Continue button. Forcing a
+  //                min-height on that iframe made it worse — 420px of blank white, because
+  //                the modal variant positions its content rather than flowing it.
+  //   hosted    -> the surface Canopy actually designs and tests. Renders the full intro
+  //                ("Goodwill Financial, Inc uses Canopy Connect to verify your insurance")
+  //                and their real "Verify My Insurance" button.
+  //
+  // Their config was never wrong: GET /team/goodwill-financial-xdate returns
+  // company_name "Goodwill Financial, Inc". It was the embed's inline sizing.
+  //
+  // Iframing is permitted — HEAD on the hosted page returns no X-Frame-Options and no
+  // frame-ancestors CSP (checked 2026-08-11). If Canopy ever adds one, this silently breaks
+  // to a blank box, which is exactly what the load guard below catches.
+  //
+  // The reader STAYS ON OUR PAGE (Vytas 2026-08-11: "make sure looks nice so not tkan to new
+  // page"), and the <a href> underneath still works if JS or the iframe fails.
+  // ─────────────────────────────────────────────────────────────────────────
+  var CANOPY = 'https://app.usecanopy.com/c/goodwill-financial-xdate';
+  var opened = false;
+
+  btn.addEventListener('click', function (e) {
+    var url = CANOPY + '?utm_source=direct_mail&utm_medium=postcard&utm_campaign=xdate_' + cohort;
+    btn.href = url;                       // keep the fallback honest and current
+    ga('canopy_start', { cohort: cohort, source: 'xdate_mail' });
+
+    if (opened) { mount.scrollIntoView({ behavior: 'smooth', block: 'start' }); return; }
+    e.preventDefault();
+    opened = true;
+    btn.style.display = 'none';
+    var u = document.querySelector('.undercta'); if (u) u.style.display = 'none';
+
+    var f = document.createElement('iframe');
+    f.src = url;
+    f.title = 'Compare your insurance renewal';
+    f.setAttribute('allow', 'clipboard-write');
+    f.className = 'canopyframe';
+    var failed = setTimeout(function () {
+      mount.innerHTML = '<div class="honest"><b>The form did not load.</b> Call '
+        + '<a href="tel:+16307852412">630-785-2412</a> and we will do it with you on the '
+        + 'phone in about the same two minutes — or '
+        + '<a href="' + url + '">open it in a new tab</a>.</div>';
+      ga('canopy_frame_failed', { cohort: cohort });
+    }, 9000);
+    f.onload = function () { clearTimeout(failed); ga('canopy_frame_ready', { cohort: cohort }); };
+    mount.appendChild(f);
+    setTimeout(function () { mount.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 260);
+  });
+})();
+</script>
+</body>
+</html>
