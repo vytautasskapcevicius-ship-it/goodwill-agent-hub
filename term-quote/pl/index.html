@@ -100,7 +100,12 @@ body{background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system
       var name = $('q-name').value.trim(), phone = $('q-phone').value.trim(), msg = $('q-msg');
       if (!name || phone.replace(/\D/g, '').length < 10) { msg.textContent = T.need; return; }
       $('q-btn').disabled = true;
-      var body = { kind: 'website', form: C.form, product: 'life', topic: 'Mortgage protection quote',
+      // ONE id for the browser pixel AND the Worker's server-side Lead, so Meta counts the lead once
+      // (keap-worker metaCapiLead accepts `eventId` matching /^[0-9a-f-]{16,64}$/i). Added 2026-09-30
+      // after the audit found the page fired Lead with no eventID while the Worker minted its own.
+      var eid = (window.crypto && crypto.randomUUID) ? crypto.randomUUID()
+        : (Date.now().toString(16) + Math.random().toString(16).slice(2) + '0000000000000000').slice(0, 32);
+      var body = { kind: 'website', eventId: eid, pageUrl: location.href, form: C.form, product: 'life', topic: 'Mortgage protection quote',
         language: C.code, name: name, phone: phone, email: $('q-email').value.trim(),
         company_website: $('q-hp').value, source: 'LBT quote page ' + C.code + (utm ? ' | ' + utm : ''),
         quote: { gender: $('q-g').value, age: +$('q-a').value, tobacco: $('q-t').value === 'yes',
@@ -112,7 +117,7 @@ body{background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system
           if (!ok) throw new Error('not ok');
           msg.textContent = T.ok.replace('{agent}', C.agent);
           if ($('q-book')) $('q-book').hidden = false;
-          try { if (window.fbq) fbq('track', 'Lead', { content_category: 'lbt-quote-' + C.lang }); } catch (e) {}
+          try { if (window.fbq) fbq('track', 'Lead', { content_category: 'lbt-quote-' + C.lang }, { eventID: eid }); } catch (e) {}
         })
         .catch(function () { msg.textContent = T.err; $('q-btn').disabled = false; });
     });
