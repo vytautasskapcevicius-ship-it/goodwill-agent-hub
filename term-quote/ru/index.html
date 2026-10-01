@@ -92,6 +92,21 @@ body{background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system
               'estimate ' + (price || 'n/a')].join(', ');
     }
     ['q-g', 'q-a', 'q-t', 'q-f', 'q-p'].forEach(function (id) { $(id).addEventListener('change', update); });
+    // ViewContent ONCE, on the visitor's first own selection: a mid-funnel signal for Meta at low lead
+    // volume, and our own visits -> price-views -> leads funnel. No answers are sent (tobacco = health).
+    var viewed = false;
+    ['q-g', 'q-a', 'q-t', 'q-f', 'q-p'].forEach(function (id) { $(id).addEventListener('change', function () {
+      if (viewed) return; viewed = true;
+      try { if (window.fbq) fbq('track', 'ViewContent', { content_category: 'lbt-quote-' + C.lang }); } catch (e) {}
+    }); });
+    // Meta click ids: the page is on github.io and posts cross-origin, so the Worker cannot read these
+    // cookies itself. Send them in the body; build _fbc from ?fbclid= when the cookie is not set yet.
+    function ck(n) { var m = document.cookie.match(new RegExp('(?:^|; )' + n + '=([^;]*)')); return m ? decodeURIComponent(m[1]) : ''; }
+    function fbIds() {
+      var fbc = ck('_fbc'), clid = new URLSearchParams(location.search).get('fbclid');
+      if (!fbc && clid) fbc = 'fb.1.' + Date.now() + '.' + clid;
+      return { fbp: ck('_fbp'), fbc: fbc };
+    }
     update();
     var q = new URLSearchParams(location.search), utm = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term']
       .filter(function (k) { return q.get(k); }).map(function (k) { return k + '=' + q.get(k); }).join('&');
@@ -105,7 +120,8 @@ body{background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system
       // after the audit found the page fired Lead with no eventID while the Worker minted its own.
       var eid = (window.crypto && crypto.randomUUID) ? crypto.randomUUID()
         : (Date.now().toString(16) + Math.random().toString(16).slice(2) + '0000000000000000').slice(0, 32);
-      var body = { kind: 'website', eventId: eid, pageUrl: location.href, form: C.form, product: 'life', topic: 'Mortgage protection quote',
+      var ids = fbIds();
+      var body = { kind: 'website', eventId: eid, pageUrl: location.href, fbp: ids.fbp, fbc: ids.fbc, form: C.form, product: 'life', topic: 'Mortgage protection quote',
         language: C.code, name: name, phone: phone, email: $('q-email').value.trim(),
         company_website: $('q-hp').value, source: 'LBT quote page ' + C.code + (utm ? ' | ' + utm : ''),
         quote: { gender: $('q-g').value, age: +$('q-a').value, tobacco: $('q-t').value === 'yes',
