@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Goodwill Financial — Who We Are</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<!--
+  CLIENT-FACING · v0.1 DRAFT 2026-10-09. Every fact below is sourced — change nothing without re-checking the source:
+  since 2005 / 2013 = references/compliance/il-annual-reports.md (IL SOS incorporation 07/28/2005, 08-05-2013)
+  2003 / Vilnius / Prudential, "Built by immigrants…", "Twenty-plus years…" = live About page (output/website-cutover/paste-kit/about.html)
+  first life licence 2004 = scripts/patch_lb_compliance_paste_kit.py ("Life authority since 02/18/2004")
+  product lines, "Life insurance you don't have to die to use", LB disclaimer = live home / living-benefits pages
+  "Licensed in Illinois and many other states" = live footer (never "nationwide" — decisions 2026-10-04)
+  life carriers = live LBT home logo strip; P&C carriers = live auto page ("verified against the live Nexsure census")
+  languages = decisions 2026-10-04 (no UA) · 4.9 stars = Google (do not print the review count)
+  Rules: no carrier logos, no rankings, no "tax-free", no "guarantee". NLG name in client material: NLG advertising approval pending.
+-->
+<style>
+  :root { --navy:#0E3A5C; --navy2:#0b2d48; --cer:#0099CC; --cert:#0A5F80; --gold:#F5B315; --ink:#1f2937; --muted:#5b6472; --line:#dbe2ea; --soft:#f4f7fa; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; background: #0a1a2a; font-family: Inter, "Segoe UI", system-ui, sans-serif; color: var(--ink); }
+  .deck { height: 100%; display: flex; align-items: center; justify-content: center; }
+  .slide { display: none; width: min(96vw, calc(94vh * 16 / 9)); aspect-ratio: 16 / 9; background: #fff; border-radius: 6px; position: relative;
+           padding: 4.4% 5.4% 6.4%; overflow: hidden; box-shadow: 0 8px 30px rgba(0,0,0,.35); font-size: min(1.75vw, 3.1vh); }
+  .slide.on { display: flex; flex-direction: column; }
+  h1, h2 { font-family: Oswald, "Segoe UI", sans-serif; font-weight: 600; letter-spacing: .01em; margin: 0; color: var(--navy); }
+  h1 { font-size: 3em; line-height: 1.05; }
+  h2 { font-size: 1.9em; margin-bottom: .55em; }
+  .kicker { color: var(--cert); font-weight: 700; letter-spacing: .1em; text-transform: uppercase; font-size: .68em; margin-bottom: .45em; }
+  p, li { line-height: 1.45; margin: .25em 0; }
+  .muted { color: var(--muted); }
+  .cover { background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 100%); color: #fff; justify-content: center; }
+  .cover h1 { color: #fff; font-size: 3.4em; }
+  .cover .gold { color: var(--gold); }
+  .cover .logo { width: 30%; max-width: 330px; margin-bottom: 1.6em; }
+  .cover .line { font-size: 1.15em; color: #d6e3ef; margin-top: .9em; }
+  .cover .bar { width: 4.5em; height: .28em; background: var(--gold); margin: 1em 0 .2em; border-radius: 2px; }
+  .story { display: grid; grid-template-columns: 30% 1fr; gap: 4%; align-items: start; }
+  .story img { width: 100%; border-radius: 8px; object-fit: cover; aspect-ratio: 4 / 5; background: var(--soft); }
+  .quote { font-family: Oswald, sans-serif; font-size: 1.25em; color: var(--navy); border-left: .25em solid var(--gold); padding-left: .7em; margin: .6em 0; line-height: 1.3; }
+  .tl { display: grid; grid-template-columns: repeat(5, 1fr); gap: .5em; margin-top: .8em; }
+  .tl div { border-top: .22em solid var(--cer); padding-top: .35em; font-size: .82em; }
+  .tl b { display: block; font-family: Oswald, sans-serif; font-size: 1.35em; color: var(--navy); }
+  .tiles { display: grid; grid-template-columns: repeat(5, 1fr); gap: .8em; }
+  .tile { background: var(--soft); border-radius: 8px; padding: .8em .8em 1em; border-top: .25em solid var(--cer); }
+  .tile.lb { border-top-color: var(--gold); }
+  .tile b { display: block; font-family: Oswald, sans-serif; font-size: 1.2em; color: var(--navy); margin-bottom: .35em; }
+  .tile p { font-size: .85em; }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 5%; }
+  .chips { display: flex; flex-wrap: wrap; gap: .45em; margin: .4em 0 .2em; }
+  .chips span { background: var(--soft); border: 1px solid var(--line); border-radius: 99px; padding: .3em .8em; font-weight: 600; color: var(--navy); font-size: .92em; }
+  .card { border: 1px solid var(--line); border-radius: 10px; padding: .9em 1.1em; }
+  .agent [contenteditable] { outline: none; border-bottom: 1px dashed transparent; }
+  .agent [contenteditable]:hover, .agent [contenteditable]:focus { border-bottom-color: var(--cer); }
+  .agent .nm { font-family: Oswald, sans-serif; font-size: 1.6em; color: var(--navy); }
+  .stars { color: var(--gold); font-size: 1.4em; letter-spacing: .05em; }
+  .big { font-family: Oswald, sans-serif; font-size: 2.3em; color: var(--navy); line-height: 1.1; }
+  .needs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1em; margin-top: .6em; }
+  .needs div { background: var(--soft); border-radius: 8px; padding: .8em 1em; }
+  .needs b { display: block; font-family: Oswald, sans-serif; font-size: 1.15em; color: var(--navy); margin-bottom: .2em; }
+  .btn { display: inline-block; align-self: flex-start; margin-top: .7em; background: var(--navy); color: #fff; text-decoration: none; padding: .45em 1em; border-radius: 6px; font-weight: 600; font-size: .9em; }
+  .steps4 { counter-reset: s; list-style: none; padding: 0; margin: .4em 0 0; }
+  .steps4 li { counter-increment: s; display: flex; align-items: center; gap: .7em; font-size: 1.15em; margin: .5em 0; }
+  .steps4 li::before { content: counter(s); width: 1.7em; height: 1.7em; border-radius: 50%; background: var(--navy); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: .85em; flex: none; }
+  .fine { position: absolute; left: 5.4%; right: 5.4%; bottom: 2.6%; font-size: .58em; color: var(--muted); display: flex; justify-content: space-between; gap: 1em; }
+  .cover .fine { color: #9fb3c8; }
+  .hint { position: fixed; bottom: 8px; left: 0; right: 0; text-align: center; color: #8ea2c0; font-size: 12px; font-family: Inter, sans-serif; }
+  @media print {
+    html, body { background: #fff; height: auto; }
+    .deck { display: block; height: auto; }
+    .slide { display: flex !important; flex-direction: column; width: 10in; height: 5.625in; aspect-ratio: auto; box-shadow: none; border-radius: 0; page-break-after: always; font-size: 16.8px; }
+    .hint { display: none; }
+    @page { size: 10in 5.625in; margin: 0; }
+  }
+</style>
+</head>
+<body>
+<div class="deck">
+
+  <section class="slide cover on">
+    <img class="logo" src="https://vytautasskapcevicius-ship-it.github.io/goodwill-agent-hub/site-img/goodwill-logo-white.png" alt="Goodwill Financial">
+    <h1>Protect today.<br><span class="gold">Prepare for tomorrow.</span></h1>
+    <div class="bar"></div>
+    <div class="line">Goodwill Financial &middot; Living Benefits Team &middot; Elmhurst, Illinois &middot; since 2005</div>
+    <div class="fine"><span>Goodwill Financial, Inc. &middot; Goodwill Financial Group, Inc. dba Living Benefits Team</span><span>1 / 7</span></div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Our story</div>
+    <div class="story">
+      <img src="https://vytautasskapcevicius-ship-it.github.io/goodwill-agent-hub/site-img/vytas.jpeg" alt="Vytas Skapcevicius, founder">
+      <div>
+        <h2>Built by immigrants &mdash; for families</h2>
+        <p>Our founder, Vytas Skapcevicius, came to the United States for good in 2003 after finishing his degree at Vilnius University.
+           His first job in financial services was at Prudential. In 2005 he founded Goodwill Financial in Elmhurst, Illinois.</p>
+        <div class="quote">"Built by immigrants. Built for families who refuse to leave the people they love unprotected."</div>
+        <div class="tl">
+          <div><b>2003</b>arrives in the U.S.</div>
+          <div><b>2004</b>first life insurance license</div>
+          <div><b>2005</b>Goodwill Financial founded</div>
+          <div><b>2013</b>Living Benefits Team founded</div>
+          <div><b>Today</b>families, businesses, truckers</div>
+        </div>
+      </div>
+    </div>
+    <div class="fine"><span>Twenty-plus years later, the mission hasn't changed.</span><span>2 / 7</span></div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">What we do</div>
+    <h2>One independent agency for the whole family</h2>
+    <div class="tiles">
+      <div class="tile"><b>Personal</b><p>Auto, home, renters, landlord, umbrella, motorcycle, watercraft, flood, valuable items.</p></div>
+      <div class="tile"><b>Business</b><p>General liability, workers' comp, commercial auto, property, BOP, cyber, key person, buy-sell.</p></div>
+      <div class="tile"><b>Trucking</b><p>Primary liability, cargo, physical damage, occupational accident.</p></div>
+      <div class="tile lb"><b>Life</b><p>IUL, term, whole life, mortgage protection, IUL for Kids. Life insurance you don't have to die to use.</p></div>
+      <div class="tile lb"><b>Retirement</b><p>IUL, fixed and indexed annuities, Roth and traditional IRAs, SIMPLE IRAs, 401(k)s.</p></div>
+    </div>
+    <p class="muted" style="margin-top:1em">Two companies, one team: <b>Goodwill Financial, Inc.</b> &mdash; an independent property &amp; casualty agency &middot;
+       <b>Living Benefits Team</b> &mdash; our life insurance and retirement agency.</p>
+    <div class="fine"><span>Products and availability vary by state and insurance company.</span><span>3 / 7</span></div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">The companies behind your policy</div>
+    <h2>Independent means we compare &mdash; for you</h2>
+    <div class="two">
+      <div>
+        <p><b>Life &amp; living benefits</b></p>
+        <div class="chips"><span>National Life Group</span><span>Corebridge Financial</span><span>Ameritas</span><span>Foresters Financial</span><span>American National</span></div>
+      </div>
+      <div>
+        <p><b>Auto, home &amp; business</b></p>
+        <div class="chips"><span>Progressive</span><span>GEICO</span><span>AAA</span><span>Travelers</span><span>Safeco</span><span>Encompass</span><span>Grange</span><span>National General</span></div>
+      </div>
+    </div>
+    <p style="margin-top:1.1em">We don't work for one insurance company. We look at several and recommend what fits your family and your budget &mdash;
+       and we stay your agent after the policy is issued.</p>
+    <div class="fine"><span>Among the companies we work with; availability varies by state and product. Life marketing support: Alliance Group, the marketing organization we work with.</span><span>4 / 7</span></div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Who you're talking to</div>
+    <div class="two">
+      <div class="card agent">
+        <p class="muted" style="font-size:.8em;margin:0">Your agent today <span style="font-size:.85em">(click to edit &mdash; saved on this computer)</span></p>
+        <div class="nm" contenteditable="true" data-k="name">Your name</div>
+        <p contenteditable="true" data-k="title">Life &amp; Living Benefits Advisor</p>
+        <p>Licensed in: <b contenteditable="true" data-k="states">your states</b></p>
+        <p contenteditable="true" data-k="contact">phone &middot; e-mail</p>
+      </div>
+      <div>
+        <p class="big">Licensed in Illinois and many other states</p>
+        <p style="margin-top:.8em"><b>We speak your language</b></p>
+        <div class="chips"><span>English</span><span>Lithuanian</span><span>Russian</span><span>Polish</span><span>Spanish</span></div>
+        <p style="margin-top:.8em"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span> <b>4.9 on Google</b>
+          &mdash; <a href="https://search.google.com/local/reviews?placeid=ChIJFeaAGjKzD4gRPDNpm5CjeTY" target="_blank" rel="noopener" style="color:var(--cert)">read our reviews</a></p>
+      </div>
+    </div>
+    <div class="fine"><span>579 W. North Ave., Suite 300, Elmhurst, IL 60126 &middot; 630-785-2412 &middot; goodwillfinancial.com</span><span>5 / 7</span></div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Why we're here</div>
+    <h2>Life insurance you don't have to die to use</h2>
+    <div class="needs">
+      <div><b>If you die too soon</b>The death benefit can help your family keep the home and their plans.</div>
+      <div><b>If you get seriously ill</b>With living-benefit riders, part of the death benefit may be available while you're alive, if you qualify.</div>
+      <div><b>If you live a long life</b>Some policies also build cash value that can help in retirement.</div>
+    </div>
+    <a class="btn" href="https://www.youtube.com/watch?v=e7t0B2oDPWE" target="_blank" rel="noopener">&#9654; Watch: how living benefits work (3 min)</a>
+    <div class="fine"><span>Living benefits are accelerated death benefits, not long-term care insurance. Accelerated benefits may be taxable and reduce the death benefit and cash value, and may affect eligibility for Medicaid or other public benefits. Coverage is subject to underwriting. Cash values are not guaranteed.</span><span>6 / 7</span></div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Today</div>
+    <h2>Today is about you</h2>
+    <ol class="steps4">
+      <li>Your family, your work and what matters most to you</li>
+      <li>What you already have in place</li>
+      <li>We do the math together &mdash; is there a gap?</li>
+      <li>Options, only if something truly fits</li>
+    </ol>
+    <p class="big" style="font-size:1.6em;margin-top:.7em">No decision is needed today.</p>
+    <div class="fine"><span>Protect today. Prepare for tomorrow.</span><span>7 / 7</span></div>
+  </section>
+
+</div>
+<div class="hint">&larr; &rarr; or click to move &middot; F11 for full screen</div>
+<script>
+  const s = [...document.querySelectorAll('.slide')]; let i = 0;
+  const show = k => { i = Math.max(0, Math.min(s.length - 1, k)); s.forEach((x, j) => x.classList.toggle('on', j === i)); };
+  const editing = () => document.activeElement && document.activeElement.isContentEditable;
+  document.addEventListener('keydown', e => {
+    if (editing()) return;
+    if (['ArrowRight', 'PageDown', ' '].includes(e.key)) { e.preventDefault(); show(i + 1); }
+    if (['ArrowLeft', 'PageUp'].includes(e.key)) { e.preventDefault(); show(i - 1); }
+    if (e.key === 'Home') show(0);
+    if (e.key === 'End') show(s.length - 1);
+  });
+  document.addEventListener('click', e => {
+    if (e.target.closest('a,[contenteditable]')) return;
+    if (e.clientX > innerWidth / 3) show(i + 1); else show(i - 1);
+  });
+  // agent card: per-agent convenience, stays in this browser only
+  const KEY = 'gwf-intro-agent';
+  let saved = {}; try { saved = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) {}
+  document.querySelectorAll('[data-k]').forEach(el => {
+    if (saved[el.dataset.k]) el.textContent = saved[el.dataset.k];
+    el.addEventListener('input', () => { saved[el.dataset.k] = el.textContent; try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch (e) {} });
+  });
+</script>
+</body>
+</html>
