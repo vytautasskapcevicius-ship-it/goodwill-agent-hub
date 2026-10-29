@@ -18,6 +18,8 @@ function gwFbq(){if(window.fbq){try{window.fbq.apply(null,arguments);}catch(e){}
 function uuid(){try{if(crypto&&crypto.randomUUID)return crypto.randomUUID();}catch(e){}
   return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g,function(c){
     var r=Math.random()*16|0,v=c=='x'?r:(r&0x3|0x8);return v.toString(16);});}
+function ck(n){var a=(document.cookie||'').split('; ');
+  for(var i=0;i<a.length;i++){if(a[i].indexOf(n+'=')===0)return a[i].substring(n.length+1);}return '';}
 
 /* ---- Lead: wrap fetch so the SAME id reaches the Worker and the pixel ---- */
 var OF=window.fetch;
@@ -29,6 +31,15 @@ if(typeof OF==='function'){window.fetch=function(input,init){
       var d=JSON.parse(init.body);
       if(d&&d.kind==='website'&&!d.company_website&&!d['company-website']){
         eid=uuid(); d.eventId=eid;
+        try{
+          if(!d.pageUrl)d.pageUrl=location.href;
+          if(!d.fbp){var fp=ck('_fbp');if(fp)d.fbp=fp;}
+          if(!d.fbc){var fc=ck('_fbc');if(!fc){var fx=new URLSearchParams(location.search).get('fbclid');
+            if(fx)fc='fb.1.'+Date.now()+'.'+fx;}if(fc)d.fbc=fc;}
+          var pp=location.pathname||'/';
+          if(typeof d.source==='string'&&d.source.indexOf('goodwillfinancial.com ')===0&&d.source.indexOf(' | /')<0)d.source+=' | '+pp;
+          if(!d.topic&&pp.indexOf('mortgage-protection')>-1)d.topic='Mortgage protection (website)';
+        }catch(e){}
         var ni={};for(var k in init){if(Object.prototype.hasOwnProperty.call(init,k))ni[k]=init[k];}
         ni.body=JSON.stringify(d); init=ni;
       }
