@@ -102,6 +102,7 @@ const SECTIONS = [
     ["DriversLicense","Driver's license #","text"], ["DriversLicenseState","DL state","text"],
     ["Citizenship","Citizenship","select:U.S. Citizen,Permanent Resident,Other"],
     ["AlienNumber","Alien # (if permanent resident)","text"],
+    ["PassportNumber","Passport # (not a U.S. citizen, no green card)","text","Citizenship=Other"],
     ["AnnualIncome","Annual income","text"], ["NetWorth","Net worth","text"],
     ["HouseholdSize","People in household","text"],
   ]],
@@ -143,8 +144,9 @@ function render(){
     const sec=el('section',{class:'card'}); sec.append(el('h2',{},title));
     if(hint) sec.append(el('div',{class:'hint'},hint));
     const g=el('div',{class:'grid'});
-    fields.forEach(([id,label,type])=>{
+    fields.forEach(([id,label,type,cond])=>{
       const f=el('div',{class:'f'+(type.includes('full')?' full':'')});
+      if(cond){ f.dataset.cond=cond; }
       f.append(el('label',{for:id},label));
       if(type.startsWith('seg:')){
         const opts=type.slice(4).split(','); const seg=el('div',{class:'seg'});
@@ -167,13 +169,17 @@ function render(){
     });
     sec.append(g); root.append(sec);
   });
+  applyConds();
 }
-let t0; function save(){ sessionStorage.setItem(KEY, JSON.stringify(store)); const n=document.getElementById('savedNote'); n.textContent='saved'; clearTimeout(t0); t0=setTimeout(()=>n.textContent='',1200); }
+// A field with cond "Key=Value" shows only while store[Key] === Value (e.g. passport only for Citizenship=Other).
+function condMet(cond){ if(!cond) return true; const [k,v]=cond.split('='); return store[k]===v; }
+function applyConds(){ document.querySelectorAll('[data-cond]').forEach(f=>{ f.style.display=condMet(f.dataset.cond)?'':'none'; }); }
+let t0; function save(){ applyConds(); sessionStorage.setItem(KEY, JSON.stringify(store)); const n=document.getElementById('savedNote'); n.textContent='saved'; clearTimeout(t0); t0=setTimeout(()=>n.textContent='',1200); }
 
 function summary(){
   const lines=[];
   SECTIONS.forEach(([title,,fields])=>{
-    const rows=fields.map(([id,label])=>{ const v=(store[id]||'').toString().trim(); return v?`  ${label}: ${v}`:null; }).filter(Boolean);
+    const rows=fields.map(([id,label,,cond])=>{ if(!condMet(cond)) return null; const v=(store[id]||'').toString().trim(); return v?`  ${label}: ${v}`:null; }).filter(Boolean);
     if(rows.length){ lines.push(title.toUpperCase()); lines.push(...rows); lines.push(''); }
   });
   const name=[store.FirstName,store.LastName].filter(Boolean).join(' ')||'Client';
