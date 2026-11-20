@@ -45,7 +45,9 @@ section.card .hint{font-size:12px;color:var(--muted);margin-bottom:10px}
 .seg{display:flex;gap:6px}
 .seg button{flex:1;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:8px;padding:8px;font-size:14px;cursor:pointer}
 .seg button.on{background:var(--cerulean);border-color:var(--cerulean);color:#fff;font-weight:600}
-@media(max-width:640px){.grid{grid-template-columns:1fr}}
+@media(max-width:640px){.grid{grid-template-columns:1fr}
+  /* the topbar wraps to 2 lines on a phone and covered 21px of Copy/Clear; let it scroll away instead */
+  .topbar{position:static}.bar{top:0}}
 footer{padding:18px 16px;font-size:12px;color:var(--muted);text-align:center}
 dialog{border:none;border-radius:14px;padding:0;max-width:680px;width:92%;box-shadow:0 20px 60px rgba(0,0,0,.4)}
 dialog .dlg{background:var(--card);color:var(--ink);padding:16px}
